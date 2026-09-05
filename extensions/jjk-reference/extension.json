@@ -1,0 +1,6 @@
+{
+  "extension_id": "jjk.reference", "version": "0.7.0", "namespace": "jjk",
+  "sdk_version": "0.7.0", "ruleset_version": "0.3", "dependencies": [],
+  "files": { "registries": "registries.json", "abilities": "abilities.json", "semantics": "semantics.json", "scaling": "scaling.json", "content": "content.json", "advanced_mechanics": "advanced-mechanics.yaml", "scenarios": "scenarios.json" },
+  "metadata": { "name": "Bounded JJK Reference Extension", "reference_only": true, "canon_complete": false }
+}

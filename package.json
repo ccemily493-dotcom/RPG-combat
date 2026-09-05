@@ -1,7 +1,7 @@
 {
   "name": "universal-rpg-engine",
-  "version": "0.5.0",
-  "description": "Deterministic universal RPG engine with independent Ability Parser and rule-first Semantic Input layers",
+  "version": "0.7.0",
+  "description": "Deterministic universal RPG engine with independent parser, semantic input, and extension SDK layers",
   "type": "module",
   "private": true,
   "engines": {
@@ -19,6 +19,8 @@
     "semantic:replay": "node ./cli/replay-semantics.js",
     "semantic:report": "node ./cli/report-semantics.js",
     "semantic:benchmark": "node ./cli/benchmark-semantics.js",
+    "extension:check": "node ./cli/check-extension.js",
+    "extension:replay": "node ./cli/replay-extensions.js",
     "scenarios": "node ./cli/generate-scenarios.js",
     "session:scenarios": "node ./cli/generate-session-scenarios.js",
     "session:report": "node ./cli/report-session-scenarios.js",
@@ -29,7 +31,7 @@
     "profiles": "node ./cli/generate-profiles.js",
     "calibrate": "node ./cli/calibrate.js",
     "sweep": "node ./cli/sweep.js",
-    "check": "npm run validate && npm test && npm run replay && npm run ability:replay && npm run semantic:replay",
+    "check": "npm run validate && npm test && npm run replay && npm run ability:replay && npm run semantic:replay && npm run extension:replay && npm run extension:check",
     "calibration:check": "npm run profiles && npm run calibrate && npm run sweep"
   },
   "dependencies": {

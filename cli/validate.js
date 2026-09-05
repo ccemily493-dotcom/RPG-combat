@@ -4,6 +4,7 @@ import { parse as parseYaml } from "yaml";
 import { createEngine, generateSpecializedProfiles, lint, loadCombatScenarios, loadDefenseCompositionProfiles, loadEngineConfig, loadProfileTemplates, loadSessionScenarios, validateSpecializedProfiles } from "../src/index.js";
 import { compileAbilityRegistry } from "../src/ability-parser/index.js";
 import { buildSemanticDictionaryEntries, compileSemanticDictionary, loadSemanticConfig, parseSemanticInput, semanticEntities } from "../src/semantic-input/index.js";
+import { compileExtensionPackages, readExtensionPackage, validateExtensionManifest } from "../src/extension-sdk/index.js";
 
 const config = await loadEngineConfig();
 const result = await lint(config);
@@ -53,8 +54,16 @@ if (!result.ok) {
     context: { actorId: "a", entities: semanticEntities(), defaultTargets: ["b"], focus: ["b"], abilityRegistry, world: referenceScenario.world, characters: referenceScenario.characters }
   });
   if (semanticProbe.status !== "RESOLVED") throw new Error("Semantic Input validation probe did not resolve.");
+  const extensionInput = await readExtensionPackage(join(config.specDir, "extensions", "jjk-reference"));
+  validateExtensionManifest(extensionInput.manifest);
+  const extension = compileExtensionPackages([extensionInput], {
+    rulesetVersion: config.version,
+    stats: Object.keys(config.specs["stats.yaml"].stats),
+    resources: ["health", "stability", "energy"]
+  });
+  if (extension.ability_registry.size !== 8) throw new Error("Reference extension ability registry is incomplete.");
   await Promise.all(["variance-distributions.yaml", "parameter-sweeps.yaml"].map(async (file) => {
     parseYaml(await readFile(join(config.specDir, "experiments", file), "utf8"), { uniqueKeys: true });
   }));
-  console.log(`Specifications valid: ${Object.keys(config.specs).length} engine YAML files plus semantic.yaml, ${Object.keys(config.schemas).length} engine JSON Schemas, 3 Ability Parser and 3 Semantic Input JSON Schemas, 3 experimental profiles, ${generated.profiles.length} benchmark profiles, ${abilityRegistry.size} generic abilities, ${semanticDictionaries.map((item) => `${item.locale}:${item.size}`).join(", ")} semantic entries, reference encounter, ${Object.keys(combatScenarios.scenarios).length} combat-loop scenarios, and ${Object.keys(sessionScenarios.scenarios).length} temporal/strategy scenarios.`);
+  console.log(`Specifications valid: ${Object.keys(config.specs).length} engine YAML files plus semantic.yaml, ${Object.keys(config.schemas).length} engine JSON Schemas, 3 Ability Parser and 3 Semantic Input JSON Schemas, extension manifest schema, 3 experimental profiles, ${generated.profiles.length} benchmark profiles, ${abilityRegistry.size} generic abilities, ${extension.ability_registry.size} extension abilities, ${semanticDictionaries.map((item) => `${item.locale}:${item.size}`).join(", ")} semantic entries, reference encounter, ${Object.keys(combatScenarios.scenarios).length} combat-loop scenarios, and ${Object.keys(sessionScenarios.scenarios).length} temporal/strategy scenarios.`);
 }

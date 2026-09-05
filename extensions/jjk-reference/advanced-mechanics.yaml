@@ -1,0 +1,26 @@
+version: 0.7.0
+barriers:
+  domain_conflict:
+    properties: [refinement, stability, output, coverage, timing, compatibility, environment]
+    default_tolerance: 2
+    domination_fraction: 0.6
+    stability_property: stability
+    allowed_outcomes: [DOMINATE, PARTIAL, DESTABILIZE, COLLAPSE, MUTUAL, LOCAL]
+    automatic_hit: false
+binding_vows:
+  require_explicit_condition: true
+  require_explicit_restriction: true
+  require_explicit_compensation: true
+  require_explicit_violation_consequence: true
+  aggregate_score: false
+summons:
+  ordinary_entities: true
+  persistent: true
+  inherit_owner_economy: false
+conditional_techniques:
+  supported_requirements: [CONTACT, SPOKEN, HEARD, SINGLE_TARGET, RANGE, CONCENTRATION, PREVIOUS_MARK, DELAY, RESOURCE_THRESHOLD]
+  single_active_target_default: true
+  cancellation_removes: [relation, trigger, pending_consequence]
+batch_statuses:
+  aggregate_default: false
+  fallback: individual_resolution

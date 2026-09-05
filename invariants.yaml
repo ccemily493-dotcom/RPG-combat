@@ -384,6 +384,111 @@ invariants:
   - id: INV-110
     rule: "Spanish, English, extension, and ability vocabulary remain data packages; no franchise vocabulary is built into the universal parser."
     enforcement: semantic_locale_boundary_test
+  - id: INV-111
+    rule: "The RPG Engine imports zero Extension SDK or universe modules."
+    enforcement: extension_dependency_audit
+  - id: INV-112
+    rule: "Extension manifests validate before any content is compiled."
+    enforcement: extension_schema_test
+  - id: INV-113
+    rule: "Extension dependency ordering is deterministic and cycles fail before compilation."
+    enforcement: extension_dependency_test
+  - id: INV-114
+    rule: "Missing or incompatible extension dependencies fail structurally."
+    enforcement: extension_dependency_test
+  - id: INV-115
+    rule: "Registry collisions never resolve through incidental load order."
+    enforcement: extension_collision_test
+  - id: INV-116
+    rule: "All extension-owned identifiers remain in their declared namespace."
+    enforcement: extension_namespace_test
+  - id: INV-117
+    rule: "Compiled extension packages and composed registries are immutable."
+    enforcement: extension_immutability_test
+  - id: INV-118
+    rule: "Equivalent extension package inputs produce identical mechanical hashes."
+    enforcement: extension_hash_test
+  - id: INV-119
+    rule: "Presentation-only extension metadata cannot alter the mechanical hash."
+    enforcement: extension_hash_test
+  - id: INV-120
+    rule: "Stat aliases map to exactly one existing core stat and never replace core categories."
+    enforcement: extension_scaling_test
+  - id: INV-121
+    rule: "Extension resources remain namespaced and resource-type agnostic to the core."
+    enforcement: extension_registry_test
+  - id: INV-122
+    rule: "Extension abilities compile into ordinary Ability Parser contracts."
+    enforcement: extension_ability_test
+  - id: INV-123
+    rule: "Extension semantic vocabulary cannot bypass schema or Ability Parser validation."
+    enforcement: extension_semantic_test
+  - id: INV-124
+    rule: "Domain conflict resolution reports independent properties and no global score."
+    enforcement: domain_conflict_test
+  - id: INV-125
+    rule: "Increasing domain refinement cannot mechanically worsen that property comparison."
+    enforcement: domain_monotonicity_test
+  - id: INV-126
+    rule: "Domain declarations do not create automatic hits."
+    enforcement: domain_authority_test
+  - id: INV-127
+    rule: "Binding-vow restrictions and consequences are explicit mechanical contracts, not inferred scores."
+    enforcement: binding_contract_test
+  - id: INV-128
+    rule: "Summons are ordinary persistent entities and cannot inherit free owner economy."
+    enforcement: summon_economy_test
+  - id: INV-129
+    rule: "Stateful status batches remain individual unless explicit safe aggregation is declared."
+    enforcement: advanced_extension_config_test
+  - id: INV-130
+    rule: "Conditional technique requirements are explicit and deterministic."
+    enforcement: conditional_contract_test
+  - id: INV-131
+    rule: "A single-target conditional relation cannot silently remain active on two targets."
+    enforcement: conditional_target_test
+  - id: INV-132
+    rule: "Cancelling a conditional technique removes its relation, trigger, and pending consequence."
+    enforcement: conditional_cancel_test
+  - id: INV-133
+    rule: "Conditional violations emit normalized consequence attempts rather than final outcomes."
+    enforcement: conditional_violation_test
+  - id: INV-134
+    rule: "Asura is extension content and never appears in core mechanics."
+    enforcement: core_source_audit
+  - id: INV-135
+    rule: "Asura legacy stat labels map explicitly to canonical core stats."
+    enforcement: asura_mapping_test
+  - id: INV-136
+    rule: "Energy reserve, output, control, and efficiency vary independently."
+    enforcement: asura_independence_test
+  - id: INV-137
+    rule: "Asura descriptive metadata cannot alter extension mechanics."
+    enforcement: asura_hash_test
+  - id: INV-138
+    rule: "Extension-generated normalized actions are mechanically equivalent to manual normalized actions."
+    enforcement: extension_action_equivalence_test
+  - id: INV-139
+    rule: "Semantic Spanish extension commands preserve extension and ability provenance."
+    enforcement: extension_semantic_provenance_test
+  - id: INV-140
+    rule: "A strategy fragment cannot grant extension actions free economy."
+    enforcement: strategy_extension_economy_test
+  - id: INV-141
+    rule: "Campaign replay from identical normalized inputs is deterministic."
+    enforcement: extension_campaign_test
+  - id: INV-142
+    rule: "Campaign mechanical history remains bounded and contains no narrative authority."
+    enforcement: extension_campaign_test
+  - id: INV-143
+    rule: "Extension packages cannot execute arbitrary package-provided JavaScript."
+    enforcement: declarative_loader_audit
+  - id: INV-144
+    rule: "Core source contains no universe-specific resource, domain, vow, summon, or character branches."
+    enforcement: core_source_audit
+  - id: INV-145
+    rule: "Extension conflict and condition resolvers produce attempts/state contracts, never final combat authority."
+    enforcement: extension_authority_test
 required_property_tests:
   stat_closure:
     samples:

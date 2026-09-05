@@ -2,6 +2,16 @@
 
 This file records choices that can be postponed without changing the architecture. The YAML and JSON files are executable design inputs; this file is the tuning and evolution queue.
 
+## v0.6-v0.7 extension defaults
+
+- `extension_sdk.namespace_collision_policy`: `ERROR`. Registry shadowing is never implicit.
+- Dependency versions support exact versions and compatible major (`^major.minor.patch`); richer ranges remain future work.
+- `jjk.reference.domain_conflict.default_tolerance`: `2` per independently reported property; provisional and extension-owned.
+- `jjk.reference.domain_conflict.domination_fraction`: `0.60`; provisional and extension-owned. No aggregate domain score exists.
+- `jjk.reference.conditional_technique.single_active_target_default`: `true`; changing targets removes the prior relation, trigger, and pending consequence.
+- Binding vows require explicit restriction, compensation, duration, and violation consequence. No vow-quality score is inferred.
+- Extension packages are declarative data; the loader never executes extension-provided JavaScript.
+
 ## Locked for v0.1
 
 - The core owns deterministic mechanical resolution and has no dependency on universe modules, the Ability Parser, dictionaries, or LLM clients.

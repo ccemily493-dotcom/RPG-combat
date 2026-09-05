@@ -1,0 +1,18 @@
+{
+  "resources": {
+    "jjk.resource.cursed_energy": { "tags": ["extension_energy"], "bounded": true },
+    "jjk.resource.focus": { "tags": ["concentration"], "bounded": true }
+  },
+  "status_definitions": {
+    "jjk.status.reinforced": { "channel": "energy", "merge_policy": "refresh", "priority": 0, "max_stacks": 1, "intensity_cap": 100, "duration_cap": 4, "batch_aggregation": "none", "tags": ["temporary"] },
+    "jjk.status.marked": { "channel": "mental", "merge_policy": "refresh", "priority": 0, "max_stacks": 1, "intensity_cap": 100, "duration_cap": 10, "batch_aggregation": "none", "tags": ["relational_trigger"] },
+    "jjk.status.suppressed": { "channel": "energy", "merge_policy": "strongest_wins", "priority": 0, "max_stacks": 1, "intensity_cap": 100, "duration_cap": 5, "batch_aggregation": "none", "tags": ["resource_denial"] }
+  },
+  "defense_sources": {
+    "jjk.defense.reinforcement": { "available": true, "automatic": false, "base_filter": 30, "compatibility": { "kinetic": 0.85, "energy": 0.75 }, "penetration_compatibility": 0.75, "geometry_overlap": 1, "method_skill_bonus": 4, "commitment_penalty": 0, "stability_capacity": 80, "anchor_capacity": 70, "prepared": false, "supported_methods": ["block"], "maximum_hits": null, "tags": ["reinforcement"] },
+    "jjk.defense.barrier": { "available": true, "automatic": false, "base_filter": 42, "compatibility": { "kinetic": 0.7, "energy": 0.9 }, "penetration_compatibility": 0.8, "geometry_overlap": 1, "method_skill_bonus": 6, "commitment_penalty": 2, "stability_capacity": 100, "anchor_capacity": 100, "prepared": true, "supported_methods": ["barrier"], "maximum_hits": null, "tags": ["barrier"] }
+  },
+  "equipment": {
+    "jjk.tool.training_blade": { "tags": ["cursed_tool", "melee"], "power_bonus": 8, "mechanical_only": true }
+  }
+}

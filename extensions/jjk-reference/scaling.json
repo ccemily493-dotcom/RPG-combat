@@ -1,0 +1,17 @@
+{
+  "profile_id": "jjk.scaling.reference", "layer": "extension", "preserves_core_categories": true,
+  "stat_aliases": {
+    "jjk.stat.cursed_energy_reserve": "energy_capacity",
+    "jjk.stat.cursed_energy_output": "energy_output",
+    "jjk.stat.cursed_energy_control": "energy_control",
+    "jjk.stat.cursed_energy_efficiency": "energy_efficiency",
+    "jjk.stat.strength": "physical_capability", "jjk.stat.speed": "movement",
+    "jjk.stat.reflexes": "reaction", "jjk.stat.temple": "strategy"
+  },
+  "grades": {
+    "grade_4": { "category_hint": "trained" }, "grade_3": { "category_hint": "fighter" },
+    "grade_2": { "category_hint": "elite" }, "grade_1": { "category_hint": "superhuman" },
+    "special_grade": { "category_hint": "legendary" }
+  },
+  "metadata": { "grades_are_extension_metadata": true }
+}

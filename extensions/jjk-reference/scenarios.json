@@ -1,0 +1,22 @@
+{
+  "v0.6": {
+    "A": "manifest and namespace validation", "B": "deterministic registry composition", "C": "dependency ordering",
+    "D": "dependency cycle rejection", "E": "registry collision rejection", "F": "mechanical versus provenance hash",
+    "G": "four independent energy aliases", "H": "balanced profile", "I": "large reserve and poor efficiency",
+    "J": "high control and low output", "K": "physical specialist", "L": "barrier specialist",
+    "M": "offensive ability compilation", "N": "defensive and recovery compilation", "O": "bilingual semantic vocabulary"
+  },
+  "v0.6.1": {
+    "A": "barrier activation", "B": "domain composite remains ordinary state", "C": "equal domain conflict",
+    "D": "dominant refinement", "E": "partial local conflict", "F": "domain never auto-hits",
+    "G": "binding vow satisfied", "H": "binding vow violated", "I": "binding vow expires",
+    "J": "multiple persistent summons", "K": "summon independent economy", "L": "contact condition",
+    "M": "spoken and heard condition", "N": "mark and delay condition", "O": "status-heavy fallback"
+  },
+  "v0.7": {
+    "A": "Asura stat mapping", "B": "reserve sensitivity", "C": "output sensitivity", "D": "control sensitivity",
+    "E": "efficiency sensitivity", "F": "conditional setup succeeds", "G": "conditional setup fails",
+    "H": "single active target replacement", "I": "cancellation cleanup", "J": "synthetic enemy domain"
+  },
+  "campaign": { "turns": 20, "seed": "jjk.reference.campaign.17", "bounded_history": 10, "replay_required": true }
+}

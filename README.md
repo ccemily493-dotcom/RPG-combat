@@ -1,8 +1,8 @@
-# Universal RPG Engine v0.5
+# Universal RPG Engine v0.7
 
-This package resolves deterministic, universe-agnostic encounters, simultaneous turns, and multi-turn combat sessions. v0.5 adds an independent, rule-first Semantic Input layer that converts short Spanish or English player expressions into validated semantic intent, then binds that intent through the existing Ability Parser and RPG Engine contracts.
+This package resolves deterministic, universe-agnostic encounters, simultaneous turns, and multi-turn combat sessions. v0.7 adds a declarative Extension SDK, a bounded JJK reference extension, advanced extension-owned conflict/condition contracts, and the Asura campaign-validation fixture on top of the v0.5 rule-first Semantic Input layer.
 
-It contains no universe extension, live LLM client, vendor SDK, tactical AI, networking layer, or semantic outcome authority. The RPG Engine and Ability Parser import zero Semantic Input modules. Unknown or ambiguous language is rejected, returned for disambiguation, or sent only to an optional unimplemented fallback boundary whose candidate must pass deterministic validation.
+The JJK reference package is data outside the engine core. The core contains no franchise resource, domain, vow, summon, character branch, live LLM client, tactical AI, networking layer, or semantic outcome authority. Dependency direction is `Extension → Semantic/Ability compilation → RPG Engine`; it never reverses.
 
 ## Requirements and commands
 
@@ -21,6 +21,8 @@ npm run check
 - `npm run semantic:fixtures` regenerates deterministic Spanish/English semantic scenarios.
 - `npm run semantic:replay` verifies basic, strategy, ability, fallback-boundary, and multi-turn semantic goldens.
 - `npm run semantic:report` and `npm run semantic:benchmark` produce non-blocking confidence/coverage diagnostics and rule/cache/dictionary performance measurements.
+- `npm run extension:replay` verifies the compiled extension, JJK ability use, and 20-turn Asura engine-session goldens.
+- `npm run extension:check` audits dependency direction/core leakage and writes extension diagnostics and performance reports.
 - `npm run scenarios` and `npm run session:scenarios` regenerate normalized v0.2 combat and v0.3 session fixtures.
 - `npm run combat:scenarios` and `npm run session:report` write machine-readable/Markdown scenario diagnostics.
 - `npm run combat:benchmark` and `npm run session:benchmark` benchmark turn and session resolution.
@@ -100,6 +102,20 @@ if (parsed.status === "RESOLVED") {
 The parser normalizes Unicode and punctuation while retaining source spans; applies explicit session/extension/character/ability/locale precedence; resolves only unambiguous entities; returns field-level confidence; and uses phrase/context caches keyed by dictionary, registry, parser, and context hashes. Mechanical templates are caller-supplied or come from compiled abilities—words such as “punch” never manufacture power, accuracy, damage, or success.
 
 The optional `SemanticFallbackProvider` is an interface only. v0.5 includes a deterministic mock for tests, performs no network calls, and never auto-promotes learned candidates into canonical vocabulary.
+
+## Extension SDK API
+
+```js
+import { loadExtensionPackage } from "./src/extension-sdk/index.js";
+
+const extension = await loadExtensionPackage("./extensions/jjk-reference", {
+  rulesetVersion: "0.3",
+  stats: Object.keys(engine.config.specs["stats.yaml"].stats),
+  resources: ["health", "stability", "energy"]
+});
+```
+
+The loader validates the manifest, orders dependencies, rejects cycles/collisions, composes immutable namespaced registries, compiles ability definitions and bilingual semantic dictionaries, and returns separate mechanical/provenance hashes. It reads JSON/YAML only and executes no extension script. Multi-property conflicts and binding contracts return comparisons or normalized consequence attempts—never hit, damage, status, or final-state outcomes.
 
 ## Turn and encounter compatibility
 

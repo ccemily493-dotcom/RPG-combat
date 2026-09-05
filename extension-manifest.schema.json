@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.6/extension-manifest.schema.json",
+  "title": "Universal RPG Extension Manifest v0.6",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["extension_id", "version", "namespace", "sdk_version", "ruleset_version", "dependencies", "files", "metadata"],
+  "properties": {
+    "extension_id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*(\\.[a-z0-9_-]+)*$" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "namespace": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*$" },
+    "sdk_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "ruleset_version": { "type": "string", "minLength": 1 },
+    "dependencies": { "type": "array", "uniqueItems": true, "items": { "type": "object", "additionalProperties": false, "required": ["extension_id", "version"], "properties": { "extension_id": { "type": "string" }, "version": { "type": "string" } } } },
+    "files": { "type": "object", "additionalProperties": false, "properties": { "registries": { "type": "string" }, "abilities": { "type": "string" }, "semantics": { "type": "string" }, "scaling": { "type": "string" }, "content": { "type": "string" }, "advanced_mechanics": { "type": "string" }, "scenarios": { "type": "string" } } },
+    "metadata": { "type": "object", "additionalProperties": true }
+  }
+}

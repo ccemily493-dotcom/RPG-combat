@@ -27,6 +27,7 @@ import { AbilityCompilationCache, compileAbilityDefinition, compileAbilityRegist
 import { buildGenericAbilityDefinitions } from "../src/ability-parser/fixtures.js";
 import { CandidateLearningStore, DeterministicMockFallbackProvider, SemanticParseCache, compileSemanticDictionary, compileSemanticIntent, loadSemanticConfig, parseSemanticInput, validateSemanticIntent } from "../src/semantic-input/index.js";
 import { buildSemanticActionTemplates, buildSemanticDictionaryEntries, semanticEntities } from "../src/semantic-input/fixtures.js";
+import { compileExtensionPackages, readExtensionPackage, resolveBindingContract, resolveMultiPropertyConflict, validateExtensionManifest } from "../src/extension-sdk/index.js";
 
 const { engine, fixture } = await loadFixture();
 const { scenarios } = await loadScenarioFixture();
@@ -43,6 +44,10 @@ const semanticConfig = await loadSemanticConfig();
 const semanticDictionary = compileSemanticDictionary(buildSemanticDictionaryEntries(abilityRegistry), { locale: "es" });
 const semanticContext = { actorId: "a", locale: "es", entities: semanticEntities(), defaultTargets: ["b"], focus: ["b"], abilityRegistry, world: scenarios.A.world, characters: scenarios.A.characters, actionTemplates: buildSemanticActionTemplates(scenarios.A.actions[0]), distances: { b: 2, c: 4 } };
 const semanticParse = (text, extra = {}) => parseSemanticInput(text, { dictionary: semanticDictionary, config: semanticConfig, locale: "es", context: { ...semanticContext, ...extra } });
+const extensionInput = await readExtensionPackage(join(engine.config.specDir, "extensions", "jjk-reference"));
+const extensionContext = { rulesetVersion: engine.config.version, stats: Object.keys(engine.config.specs["stats.yaml"].stats), resources: ["health", "stability", "energy"] };
+const extensionPackage = compileExtensionPackages([extensionInput], extensionContext);
+const asuraDefinition = extensionInput.content.characters[0];
 
 function resolve() {
   return engine.resolveEncounter(clone(fixture));
@@ -204,6 +209,41 @@ const checks = {
   "INV-108": async () => { const intent = (await semanticParse("le pego")).intent; assert.deepEqual(compileSemanticIntent(intent, semanticContext).actions, compileSemanticIntent(clone(intent), semanticContext).actions); },
   "INV-109": async () => { const result = await semanticParse("ataco a B"); assert.ok(result.normalization.tokens.every((token) => token.end >= token.start)); assert.doesNotThrow(() => validateSemanticIntent(result.intent, semanticContext)); },
   "INV-110": async () => { const directory = join(engine.config.specDir, "src", "semantic-input"); const genericFiles = ["resolver.js", "rule-parser.js", "dictionary.js", "compiler.js", "taxonomy.js"]; for (const file of genericFiles) assert.doesNotMatch(await readFile(join(directory, file), "utf8"), /Nen|Chakra|Hatsu|Jutsu|Domain Expansion|cursed energy/i); },
+  "INV-111": async () => { for (const file of sourceFiles) assert.doesNotMatch(await readFile(join(engine.config.specDir, "src", file), "utf8"), /extension-sdk|jjk|asura/i); },
+  "INV-112": () => { assert.equal(validateExtensionManifest(extensionInput.manifest), extensionInput.manifest); assert.throws(() => validateExtensionManifest({}), (error) => error.code === "EXTENSION_SCHEMA_ERROR"); },
+  "INV-113": () => { const a = clone(extensionInput); a.manifest.extension_id = "jjk.a"; a.manifest.dependencies = [{ extension_id: "jjk.b", version: "0.7.0" }]; a.abilities = []; a.registries = {}; a.semantics = []; const b = clone(a); b.manifest.extension_id = "jjk.b"; b.manifest.dependencies = [{ extension_id: "jjk.a", version: "0.7.0" }]; assert.throws(() => compileExtensionPackages([a, b], extensionContext), (error) => error.code === "EXTENSION_DEPENDENCY_CYCLE"); },
+  "INV-114": () => { const value = clone(extensionInput); value.manifest.dependencies = [{ extension_id: "absent", version: "1.0.0" }]; assert.throws(() => compileExtensionPackages([value], extensionContext), (error) => error.code === "EXTENSION_DEPENDENCY_MISSING"); },
+  "INV-115": () => { const value = clone(extensionInput); value.manifest.extension_id = "jjk.copy"; value.abilities = []; value.semantics = []; assert.throws(() => compileExtensionPackages([extensionInput, value], extensionContext), (error) => error.code === "EXTENSION_REGISTRY_COLLISION"); },
+  "INV-116": () => { for (const [kind, registry] of Object.entries(extensionInput.registries)) for (const id of Object.keys(registry)) assert.match(id, /^jjk[.:]/, kind); },
+  "INV-117": () => { assert.ok(Object.isFrozen(extensionPackage)); assert.ok(Object.isFrozen(extensionPackage.registries)); },
+  "INV-118": () => assert.equal(extensionPackage.mechanical_hash, compileExtensionPackages([clone(extensionInput)], extensionContext).mechanical_hash),
+  "INV-119": () => { const value = clone(extensionInput); value.manifest.metadata.name = "changed"; value.content.characters[0].name = "changed"; assert.equal(extensionPackage.mechanical_hash, compileExtensionPackages([value], extensionContext).mechanical_hash); },
+  "INV-120": () => { const values = Object.values(extensionInput.scaling.stat_aliases); assert.ok(values.every((stat) => extensionContext.stats.includes(stat))); assert.equal(extensionInput.scaling.preserves_core_categories, true); },
+  "INV-121": () => { for (const id of Object.keys(extensionInput.registries.resources)) assert.match(id, /^jjk\.resource\./); },
+  "INV-122": () => { assert.equal(extensionPackage.ability_registry.size, 8); assert.equal(extensionPackage.ability_registry.get("jjk.raw_energy_blast").namespace, "jjk"); },
+  "INV-123": () => assert.ok(extensionPackage.semantic_dictionaries.es.match("energía maldita").every((entry) => entry.namespace === "EXTENSION" || entry.namespace === "ABILITY")),
+  "INV-124": () => { const c = extensionInput.advanced_mechanics.barriers.domain_conflict; const value = resolveMultiPropertyConflict(Object.fromEntries(c.properties.map((id) => [id, 60])), Object.fromEntries(c.properties.map((id) => [id, 50])), c); assert.equal(value.scalar_score, null); assert.equal(value.comparisons.length, c.properties.length); },
+  "INV-125": () => { const c = extensionInput.advanced_mechanics.barriers.domain_conflict; const a = { refinement: 40, stability: 50, output: 50, coverage: 50, timing: 50, compatibility: 50, environment: 50 }; const b = { ...a, refinement: 50 }; const opponent = { ...a, refinement: 45 }; assert.ok(resolveMultiPropertyConflict(b, opponent, c).dominance.left_properties >= resolveMultiPropertyConflict(a, opponent, c).dominance.left_properties); },
+  "INV-126": () => assert.equal(extensionInput.advanced_mechanics.barriers.domain_conflict.automatic_hit, false),
+  "INV-127": () => { const result = resolveBindingContract({ requirements: [{ type: "EVENT_TAG", value: "x" }], on_satisfied: [{ type: "ADD_RELATION" }], on_violation: [{ type: "RESOURCE_DELTA" }] }, { tags: [] }, {}); assert.equal(result.satisfied, false); assert.equal("score" in result, false); },
+  "INV-128": () => { assert.ok(extensionInput.content.summon_templates.every((item) => item.ordinary_entity && item.persistent)); assert.equal(extensionInput.advanced_mechanics.summons.inherit_owner_economy, false); },
+  "INV-129": () => { assert.equal(extensionInput.advanced_mechanics.batch_statuses.aggregate_default, false); assert.equal(extensionInput.advanced_mechanics.batch_statuses.fallback, "individual_resolution"); },
+  "INV-130": () => assert.deepEqual(extensionInput.advanced_mechanics.conditional_techniques.supported_requirements, ["CONTACT", "SPOKEN", "HEARD", "SINGLE_TARGET", "RANGE", "CONCENTRATION", "PREVIOUS_MARK", "DELAY", "RESOURCE_THRESHOLD"]),
+  "INV-131": () => assert.equal(extensionInput.advanced_mechanics.conditional_techniques.single_active_target_default, true),
+  "INV-132": () => assert.deepEqual(extensionInput.advanced_mechanics.conditional_techniques.cancellation_removes, ["relation", "trigger", "pending_consequence"]),
+  "INV-133": () => { const value = resolveBindingContract({ requirements: [{ type: "EVENT_TAG", value: "spoken" }], on_violation: [{ type: "RESOURCE_DELTA", amount: -1 }] }, { tags: [] }, {}); assert.equal(value.violation_attempts.length, 1); assert.equal(Object.hasOwn(value, "final_damage"), false); },
+  "INV-134": () => { assert.equal(extensionInput.content.characters[0].id, "jjk.character.asura"); assert.doesNotMatch(source, /asura/i); },
+  "INV-135": () => { const mapping = asuraDefinition.legacy_stat_mapping; assert.equal(mapping.Strength, "physical_capability"); assert.equal(mapping.Temple, "strategy"); assert.ok(Object.values(mapping).every((stat) => extensionContext.stats.includes(stat))); },
+  "INV-136": () => { const s = asuraDefinition.stats; assert.notEqual(s.energy_capacity, s.energy_output); assert.notEqual(s.energy_output, s.energy_control); assert.notEqual(s.energy_control, s.energy_efficiency); },
+  "INV-137": () => { const value = clone(extensionInput); value.content.characters[0].metadata = { changed: true }; assert.equal(extensionPackage.mechanical_hash, compileExtensionPackages([value], extensionContext).mechanical_hash); },
+  "INV-138": () => { const ability = extensionPackage.ability_registry.get("jjk.raw_energy_blast"); const actor = { id: "a", resolved_stats: asuraDefinition.stats, resources: { health: { current: 100, maximum: 100 }, stability: { current: 100, maximum: 100 }, energy: { current: 100, maximum: 100 }, "jjk.resource.cursed_energy": { current: 92, maximum: 92 } } }; const use = { ability_id: ability.ability_id, actor_id: "a", targets: [{ type: "character", ref: "b", position: null, body_zone: null }], parameters: { intensity: 0.5 }, declared_options: { turn: 0 } }; const action = instantiateAbilityUse(ability, use, { actor, characters: { a: actor, b: actor } }).actions[0]; assert.equal(stableStringify(action), stableStringify(clone(action))); },
+  "INV-139": () => { const match = extensionPackage.semantic_dictionaries.es.match("energía maldita")[0]; assert.equal(match.source, "jjk.reference"); },
+  "INV-140": () => { const sequence = extensionPackage.ability_registry.get("jjk.conditional_mark").components.find((item) => item.id === "tactical_sequence"); assert.deepEqual(sequence.output.strategy.nodes.map((node) => node.execution_class), ["ACTION", "MOVEMENT", "ZERO_TIME", "ACTION"]); },
+  "INV-141": async () => { const campaign = JSON.parse(await readFile(join(engine.config.specDir, "fixtures", "golden-asura-campaign.json"), "utf8")); assert.equal(campaign.replay.deterministic, true); assert.equal(campaign.replay.hash, campaign.result.resultHash); assert.equal(campaign.result.stepResults.length, 20); },
+  "INV-142": async () => { const campaign = JSON.parse(await readFile(join(engine.config.specDir, "fixtures", "golden-asura-campaign.json"), "utf8")); assert.ok(campaign.bounded_history <= 10); assert.ok(campaign.result.finalSnapshot.temporal_state.mechanical_history.every((turn) => Array.isArray(turn.events))); },
+  "INV-143": async () => { const loader = await readFile(join(engine.config.specDir, "src", "extension-sdk", "loader.js"), "utf8"); assert.doesNotMatch(loader, /eval\s*\(|new\s+Function|import\s*\(.*manifest/); },
+  "INV-144": () => assert.doesNotMatch(source, /cursed_energy|binding_vow|shikigami|jujutsu|asura/i),
+  "INV-145": () => { const value = resolveBindingContract({ requirements: [], on_satisfied: [{ type: "ADD_RELATION" }] }, {}, {}); assert.equal(value.attempted_effects.length, 1); assert.equal(Object.hasOwn(value, "hit_outcome"), false); },
   "INV-054": () => {
     // Zero-time limit: exceed max_zero_time_transitions_per_step
     const config = engine.config;

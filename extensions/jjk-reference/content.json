@@ -1,0 +1,23 @@
+{
+  "profiles": [
+    { "id": "jjk.profile.balanced", "grade": "grade_2", "stats": { "physical_capability": 58, "movement": 58, "reaction": 58, "coordination": 58, "resistance": 58, "perception": 58, "strategy": 58, "energy_capacity": 58, "energy_output": 58, "energy_control": 58, "energy_efficiency": 58 } },
+    { "id": "jjk.profile.huge_reserve_poor_efficiency", "grade": "grade_1", "stats": { "physical_capability": 48, "movement": 48, "reaction": 48, "coordination": 50, "resistance": 55, "perception": 50, "strategy": 52, "energy_capacity": 95, "energy_output": 66, "energy_control": 54, "energy_efficiency": 18 } },
+    { "id": "jjk.profile.high_control_low_output", "grade": "grade_2", "stats": { "physical_capability": 44, "movement": 53, "reaction": 58, "coordination": 70, "resistance": 45, "perception": 65, "strategy": 64, "energy_capacity": 60, "energy_output": 24, "energy_control": 94, "energy_efficiency": 72 } },
+    { "id": "jjk.profile.physical_specialist", "grade": "grade_1", "stats": { "physical_capability": 91, "movement": 82, "reaction": 78, "coordination": 72, "resistance": 84, "perception": 66, "strategy": 54, "energy_capacity": 20, "energy_output": 22, "energy_control": 18, "energy_efficiency": 28 } },
+    { "id": "jjk.profile.barrier_specialist", "grade": "grade_1", "stats": { "physical_capability": 38, "movement": 42, "reaction": 62, "coordination": 67, "resistance": 52, "perception": 76, "strategy": 84, "energy_capacity": 74, "energy_output": 60, "energy_control": 93, "energy_efficiency": 82 } }
+  ],
+  "characters": [
+    {
+      "id": "jjk.character.asura", "name": "Asura", "grade": "special_grade",
+      "stats": { "physical_capability": 76, "movement": 56, "resistance": 4, "reaction": 14, "coordination": 3, "energy_capacity": 92, "energy_output": 67, "energy_control": 94, "energy_efficiency": 26, "perception": 7, "strategy": 92 },
+      "resources": { "jjk.resource.cursed_energy": { "current": 92, "maximum": 92 }, "jjk.resource.focus": { "current": 100, "maximum": 100 } },
+      "legacy_stat_mapping": { "Strength": "physical_capability", "Speed": "movement", "Resistance": "resistance", "Reflexes": "reaction", "Coordination": "coordination", "Cursed Energy Reserve": "energy_capacity", "Cursed Energy Output": "energy_output", "Cursed Energy Control": "energy_control", "Cursed Energy Efficiency": "energy_efficiency", "Perception": "perception", "Temple": "strategy" },
+      "capabilities": ["raw_energy_reinforcement", "raw_energy_output", "conditional_contact_technique"],
+      "metadata": { "description": "Reference diagnostic character; presentation is non-mechanical." }
+    }
+  ],
+  "summon_templates": [
+    { "id": "jjk.summon.scout", "ordinary_entity": true, "owner_ref_required": true, "persistent": true, "stats": { "physical_capability": 22, "movement": 54, "reaction": 48, "coordination": 46, "resistance": 18, "perception": 62, "strategy": 20, "energy_capacity": 30, "energy_output": 24, "energy_control": 40, "energy_efficiency": 38 } }
+  ],
+  "campaign": { "minimum_turns": 10, "benchmark_turns": 20, "history": "bounded_normalized_events_only" }
+}

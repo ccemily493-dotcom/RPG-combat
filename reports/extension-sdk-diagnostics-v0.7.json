@@ -1,0 +1,145 @@
+{
+  "version": "0.7.0",
+  "generated_at": "2026-09-05T19:21:52.728Z",
+  "extension_id": "jjk.reference",
+  "hashes": {
+    "mechanical": "10496f0b9a02d9c1e2f72b9bf96b115066f7c549896df51c1c8d3e8591bf4ace",
+    "provenance": "cc4c6f105c871691b1bb7d2c5dad20b1c806ae34e62250d5f8f9c383fb320b17"
+  },
+  "counts": {
+    "abilities": 8,
+    "semantic_entries": 29,
+    "registry_entries": 8,
+    "profiles": 5,
+    "characters": 1
+  },
+  "semantics": {
+    "locales": [
+      "en",
+      "es"
+    ],
+    "spanish_energy_match": true
+  },
+  "advanced": {
+    "domain_properties": [
+      "refinement",
+      "stability",
+      "output",
+      "coverage",
+      "timing",
+      "compatibility",
+      "environment"
+    ],
+    "automatic_hit": false,
+    "binding_vow_score": false,
+    "summons_ordinary_entities": true,
+    "conditional_requirements": [
+      "CONTACT",
+      "SPOKEN",
+      "HEARD",
+      "SINGLE_TARGET",
+      "RANGE",
+      "CONCENTRATION",
+      "PREVIOUS_MARK",
+      "DELAY",
+      "RESOURCE_THRESHOLD"
+    ]
+  },
+  "asura": {
+    "stats": {
+      "physical_capability": 76,
+      "movement": 56,
+      "resistance": 4,
+      "reaction": 14,
+      "coordination": 3,
+      "energy_capacity": 92,
+      "energy_output": 67,
+      "energy_control": 94,
+      "energy_efficiency": 26,
+      "perception": 7,
+      "strategy": 92
+    },
+    "resource": {
+      "current": 92,
+      "maximum": 92
+    },
+    "legacy_mapping": {
+      "Strength": "physical_capability",
+      "Speed": "movement",
+      "Resistance": "resistance",
+      "Reflexes": "reaction",
+      "Coordination": "coordination",
+      "Cursed Energy Reserve": "energy_capacity",
+      "Cursed Energy Output": "energy_output",
+      "Cursed Energy Control": "energy_control",
+      "Cursed Energy Efficiency": "energy_efficiency",
+      "Perception": "perception",
+      "Temple": "strategy"
+    },
+    "diagnostic_comparisons": [
+      "balanced",
+      "huge_reserve_poor_efficiency",
+      "high_control_low_output",
+      "physical_specialist",
+      "barrier_specialist"
+    ]
+  },
+  "campaign": {
+    "deterministic_turns": 20,
+    "required_mechanics": [
+      "resource_spend",
+      "reinforcement",
+      "attack",
+      "reaction",
+      "strategy",
+      "conditional_trigger",
+      "status",
+      "movement",
+      "barrier_domain"
+    ],
+    "bounded_history_depth": 10
+  },
+  "universality_audit": {
+    "core_files_scanned": 8,
+    "core_jjk_changes": 0,
+    "core_jjk_imports": 0,
+    "core_jjk_branches": 0,
+    "invalid_core_leakage": 0,
+    "dependency_direction_violations": 0,
+    "outcome_authority_violations": 0
+  },
+  "second_universe_readiness": {
+    "ready": true,
+    "evidence": [
+      "manifest namespace isolation",
+      "dependency ordering",
+      "registry collision rejection",
+      "declarative stat aliases",
+      "extension dictionaries",
+      "no extension code in core"
+    ]
+  },
+  "measurements": [
+    {
+      "name": "extension_package_cold_compile",
+      "iterations": 20,
+      "median_ms": 6.7812000000000126,
+      "p95_ms": 10.246899999999982,
+      "operations_per_second": 136.90640804133469
+    },
+    {
+      "name": "ability_instantiation",
+      "iterations": 1000,
+      "median_ms": 0.16250000000002274,
+      "p95_ms": 0.3749000000000251,
+      "operations_per_second": 5079.073556666982
+    },
+    {
+      "name": "domain_conflict",
+      "iterations": 2000,
+      "median_ms": 0.011500000000069122,
+      "p95_ms": 0.015899999999987813,
+      "operations_per_second": 78270.84058969477
+    }
+  ]
+}

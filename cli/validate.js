@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { parse as parseYaml } from "yaml";
 import { createEngine, generateSpecializedProfiles, lint, loadCombatScenarios, loadDefenseCompositionProfiles, loadEngineConfig, loadProfileTemplates, loadSessionScenarios, validateSpecializedProfiles } from "../src/index.js";
 import { compileAbilityRegistry } from "../src/ability-parser/index.js";
+import { buildSemanticDictionaryEntries, compileSemanticDictionary, loadSemanticConfig, parseSemanticInput, semanticEntities } from "../src/semantic-input/index.js";
 
 const config = await loadEngineConfig();
 const result = await lint(config);
@@ -44,8 +45,16 @@ if (!result.ok) {
     resources: Object.keys(referenceScenario.characters.a.resources),
     registries: referenceScenario.registries
   });
+  const semanticConfig = await loadSemanticConfig(config.specDir);
+  const semanticEntries = buildSemanticDictionaryEntries(abilityRegistry);
+  const semanticDictionaries = ["es", "en"].map((locale) => compileSemanticDictionary(semanticEntries, { locale }));
+  const semanticProbe = await parseSemanticInput("le pego", {
+    dictionary: semanticDictionaries[0], config: semanticConfig, locale: "es",
+    context: { actorId: "a", entities: semanticEntities(), defaultTargets: ["b"], focus: ["b"], abilityRegistry, world: referenceScenario.world, characters: referenceScenario.characters }
+  });
+  if (semanticProbe.status !== "RESOLVED") throw new Error("Semantic Input validation probe did not resolve.");
   await Promise.all(["variance-distributions.yaml", "parameter-sweeps.yaml"].map(async (file) => {
     parseYaml(await readFile(join(config.specDir, "experiments", file), "utf8"), { uniqueKeys: true });
   }));
-  console.log(`Specifications valid: ${Object.keys(config.specs).length} canonical YAML files, ${Object.keys(config.schemas).length} engine JSON Schemas, 3 Ability Parser JSON Schemas, 3 experimental profiles, ${generated.profiles.length} benchmark profiles, ${abilityRegistry.size} generic abilities, reference encounter, ${Object.keys(combatScenarios.scenarios).length} combat-loop scenarios, and ${Object.keys(sessionScenarios.scenarios).length} temporal/strategy scenarios.`);
+  console.log(`Specifications valid: ${Object.keys(config.specs).length} engine YAML files plus semantic.yaml, ${Object.keys(config.schemas).length} engine JSON Schemas, 3 Ability Parser and 3 Semantic Input JSON Schemas, 3 experimental profiles, ${generated.profiles.length} benchmark profiles, ${abilityRegistry.size} generic abilities, ${semanticDictionaries.map((item) => `${item.locale}:${item.size}`).join(", ")} semantic entries, reference encounter, ${Object.keys(combatScenarios.scenarios).length} combat-loop scenarios, and ${Object.keys(sessionScenarios.scenarios).length} temporal/strategy scenarios.`);
 }

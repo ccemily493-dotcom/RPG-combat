@@ -152,3 +152,24 @@ This file records choices that can be postponed without changing the architectur
 6. **Cache eviction.** v0.4 caches are caller-owned and unbounded by default. Long-running content tools may need a non-mechanical LRU policy.
 7. **Semantic provider.** No implementation is authorized. Any future candidate output remains untrusted until schema/reference/expression compilation succeeds.
 8. **Next milestone.** Do not begin automatically. A sensible candidate is v0.4.1 authoring hardening and randomized compiler fuzzing before any semantic or universe layer.
+
+## Conservative deterministic defaults introduced in v0.5
+
+- Rule-first parsing is canonical. Direct acceptance is 0.90 confidence, acceptance with missing optional fields is 0.80, and 0.65 marks the provisional low-confidence/fallback boundary. These values never modify mechanics.
+- Dictionary precedence is explicit: `SESSION → EXTENSION → CHARACTER → ABILITY → LOCALE → UNIVERSAL`, with stable entry ID as the final audit tie-breaker. Equal-rank incompatible collisions remain visible.
+- Spanish and English are independent locale data packages. Unicode NFKC normalization and diacritic-folded matching preserve original source text and offsets.
+- Explicit unique names win entity binding; contextual pronouns require one focused/default entity; “closest” is allowed only with unique supplied distances; “best target” is always ambiguous because tactical choice is outside this layer.
+- Phrase and context caches are optional accelerators keyed by parser, dictionary, ability-registry, and entity-context hashes. Cached and uncached paths compile to identical mechanics.
+- Unknown expressions may be retained as review candidates, but automatic dictionary promotion is forbidden. v0.5 has no live fallback provider, vendor dependency, network call, or API key.
+- Semantic action compilation requires explicit normalized action templates. Vocabulary never supplies combat coefficients or final outcomes.
+
+## Remaining decisions after v0.5
+
+1. **Confidence calibration.** The provisional 0.90/0.80/0.65 thresholds need representative player-language corpora before promotion.
+2. **Morphology coverage.** Spanish/English hooks are deliberately small. Additional forms should remain locale data with collision tests.
+3. **Dictionary persistence.** Candidate review and promotion are in-memory/file-tool concerns only; no durable editorial workflow is selected.
+4. **Fallback implementation.** No provider is authorized. Any future provider requires explicit privacy, latency, cost, availability, and vendor policies.
+5. **Entity discourse.** Focus/default references cover short commands; longer anaphora may require a bounded normalized discourse-state contract.
+6. **Template authoring.** Direct semantic actions require caller-supplied normalized templates. A safe authoring catalog may reduce repetition without moving outcome authority.
+7. **Large dictionaries.** Lookup remains fast at 50,000 entries, while cold compilation is linear and memory-heavy enough to justify persisted compiled artifacts or bounded caches later.
+8. **Next milestone.** Do not begin automatically. A sensible candidate is v0.5.1 corpus hardening, multilingual extension tooling, and randomized boundary fuzzing—still without a live LLM or universe package.

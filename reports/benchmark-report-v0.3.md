@@ -2,11 +2,11 @@
 
 - Specialized fixtures: 48
 - Seeded statistical encounters: 21,440
-- Resolution throughput (trace suppressed): 1192 encounters/second
-- Median resolution time: 0.7851 ms
-- P95 resolution time: 1.0855 ms
-- Median trace-emission overhead: 0.0017 ms
-- Median isolated schema-validation overhead: 0.0239 ms (3.04% of median full resolution)
+- Resolution throughput (trace suppressed): 1145 encounters/second
+- Median resolution time: 0.7987 ms
+- P95 resolution time: 1.1114 ms
+- Median trace-emission overhead: 0.0000 ms
+- Median isolated schema-validation overhead: 0.0241 ms (3.02% of median full resolution)
 
 ## Neutral controls
 

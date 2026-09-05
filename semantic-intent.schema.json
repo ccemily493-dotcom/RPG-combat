@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.5/semantic-intent.schema.json",
+  "title": "Universal RPG Semantic Intent v0.5",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["intent_id", "intent_type", "actor_id", "locale", "original_text", "normalized_text", "confidence", "provenance"],
+  "properties": {
+    "intent_id": { "type": "string", "minLength": 1 },
+    "intent_type": { "enum": ["ACTION", "ABILITY_USE", "STRATEGY", "SEQUENCE", "WAIT", "OBSERVE", "AMBIGUOUS", "UNRESOLVED"] },
+    "actor_id": { "type": ["string", "null"] },
+    "locale": { "type": "string" },
+    "original_text": { "type": "string" },
+    "normalized_text": { "type": "string" },
+    "action": { "$ref": "#/$defs/semanticAction" },
+    "ability_use": { "$ref": "https://example.invalid/rpg/v0.4/ability-use.schema.json" },
+    "sequence": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/semanticStep" } },
+    "strategy": { "$ref": "#/$defs/semanticStrategy" },
+    "confidence": { "type": "object", "minProperties": 1, "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 } },
+    "provenance": { "$ref": "#/$defs/provenance" }
+  },
+  "$defs": {
+    "target": {
+      "type": "object", "additionalProperties": false, "required": ["entity_id", "source_span"],
+      "properties": { "entity_id": { "type": "string" }, "source_span": { "oneOf": [{ "$ref": "#/$defs/span" }, { "type": "null" }] } }
+    },
+    "span": {
+      "type": "object", "additionalProperties": false, "required": ["start", "end"],
+      "properties": { "start": { "type": "integer", "minimum": 0 }, "end": { "type": "integer", "minimum": 0 } }
+    },
+    "semanticAction": {
+      "type": "object", "additionalProperties": false, "required": ["type", "targets", "quantity"],
+      "properties": {
+        "type": { "enum": ["ATTACK", "DEFEND", "MOVE", "DODGE", "BLOCK", "PARRY", "GRAB", "RELEASE", "THROW", "JUMP", "CROUCH", "RUN", "WALK", "TURN", "APPROACH", "RETREAT", "INTERACT", "USE_OBJECT", "USE_ABILITY", "WAIT", "OBSERVE", "TARGET", "AIM", "REPOSITION", "INTERRUPT", "COUNTER", "FEINT", "DISTRACTION", "AMBUSH", "FLANK", "BLIND_SPOT", "BAIT", "TRAP", "COVER", "INTERRUPT_SETUP", "COUNTER_SETUP", "ISOLATE", "RESOURCE_DENIAL", "AREA_DENIAL", "ESCAPE_SETUP"] }, "subtype": { "type": ["string", "null"] },
+        "targets": { "type": "array", "items": { "$ref": "#/$defs/target" } },
+        "target_zone": { "type": ["string", "null"] }, "direction": { "type": ["string", "null"] },
+        "distance": { "type": ["number", "null"], "minimum": 0 }, "intensity": { "type": ["string", "null"] },
+        "quantity": { "type": "integer", "minimum": 1 }, "object_ref": { "type": ["string", "null"] },
+        "execution_class": { "enum": ["ZERO_TIME", "ACTION", "REACTION", "MOVEMENT", "PASSIVE"] },
+        "primitive": { "enum": [null, "FEINT", "DISTRACTION", "AMBUSH", "FLANK", "BLIND_SPOT", "BAIT", "TRAP", "COVER", "REPOSITION", "INTERRUPT_SETUP", "COUNTER_SETUP", "ISOLATE", "RESOURCE_DENIAL", "AREA_DENIAL", "ESCAPE_SETUP"] }
+      }
+    },
+    "semanticStep": {
+      "type": "object", "additionalProperties": false, "required": ["step_id", "kind"],
+      "properties": {
+        "step_id": { "type": "string" }, "kind": { "enum": ["ACTION", "ABILITY_USE", "PRIMITIVE", "CONDITION"] },
+        "action": { "$ref": "#/$defs/semanticAction" },
+        "ability_use": { "$ref": "https://example.invalid/rpg/v0.4/ability-use.schema.json" },
+        "primitive": { "enum": [null, "FEINT", "DISTRACTION", "AMBUSH", "FLANK", "BLIND_SPOT", "BAIT", "TRAP", "COVER", "REPOSITION", "INTERRUPT_SETUP", "COUNTER_SETUP", "ISOLATE", "RESOURCE_DENIAL", "AREA_DENIAL", "ESCAPE_SETUP"] },
+        "execution_class": { "enum": ["ZERO_TIME", "ACTION", "REACTION", "MOVEMENT", "PASSIVE"] },
+        "depends_on": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "semanticStrategy": {
+      "type": "object", "additionalProperties": false, "required": ["strategy_id", "owner", "steps"],
+      "properties": {
+        "strategy_id": { "type": "string" }, "owner": { "type": "string" },
+        "steps": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/semanticStep" } }
+      }
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["parser_version", "parser_path", "locale", "dictionary_hash", "rule_ids", "dictionary_entries", "fallback_provider_id", "cache_status", "source_spans"],
+      "properties": {
+        "parser_version": { "type": "string" }, "parser_path": { "enum": ["RULE", "FALLBACK", "CACHE"] },
+        "locale": { "type": "string" }, "dictionary_hash": { "type": "string" },
+        "rule_ids": { "type": "array", "items": { "type": "string" } },
+        "dictionary_entries": { "type": "array", "items": { "type": "string" } },
+        "fallback_provider_id": { "type": ["string", "null"] }, "cache_status": { "enum": ["MISS", "PHRASE_HIT", "CONTEXT_HIT"] },
+        "source_spans": { "type": "array", "items": { "$ref": "#/$defs/span" } }
+      }
+    }
+  },
+  "allOf": [
+    { "if": { "properties": { "intent_type": { "const": "ACTION" } } }, "then": { "required": ["action"] } },
+    { "if": { "properties": { "intent_type": { "const": "ABILITY_USE" } } }, "then": { "required": ["ability_use"] } },
+    { "if": { "properties": { "intent_type": { "const": "SEQUENCE" } } }, "then": { "required": ["sequence"] } },
+    { "if": { "properties": { "intent_type": { "const": "STRATEGY" } } }, "then": { "required": ["strategy"] } }
+  ]
+}

@@ -1,90 +1,90 @@
 {
   "version": "0.4.0",
-  "generated_at": "2026-09-05T12:57:53.810Z",
+  "generated_at": "2026-09-05T13:59:22.664Z",
   "measurements": [
     {
       "name": "simple_compile",
       "iterations": 100,
-      "median_ms": 0.2318000000000211,
-      "p95_ms": 0.4319000000000415,
-      "operations_per_second": 3607.5296358559635
+      "median_ms": 0.23430000000007567,
+      "p95_ms": 0.5183999999999287,
+      "operations_per_second": 3666.1191928671246
     },
     {
       "name": "composite_compile",
       "iterations": 100,
-      "median_ms": 0.21069999999997435,
-      "p95_ms": 0.36220000000002983,
-      "operations_per_second": 4210.934111513956
+      "median_ms": 0.22460000000000946,
+      "p95_ms": 0.4740000000000464,
+      "operations_per_second": 3781.576160943871
     },
     {
       "name": "parameterized_compile",
       "iterations": 100,
-      "median_ms": 0.20450000000005275,
-      "p95_ms": 0.43859999999995125,
-      "operations_per_second": 4173.81432369604
+      "median_ms": 0.21139999999991232,
+      "p95_ms": 0.46090000000003783,
+      "operations_per_second": 3944.1508243276216
     },
     {
       "name": "strategy_compile",
       "iterations": 100,
-      "median_ms": 0.2763999999999669,
-      "p95_ms": 0.497600000000034,
-      "operations_per_second": 3265.1675194196305
+      "median_ms": 0.31749999999999545,
+      "p95_ms": 0.7728000000000748,
+      "operations_per_second": 2581.104764461321
     },
     {
       "name": "cached_compile",
       "iterations": 1000,
-      "median_ms": 0.04470000000003438,
-      "p95_ms": 0.08389999999997144,
-      "operations_per_second": 18671.172642997495
+      "median_ms": 0.044499999999970896,
+      "p95_ms": 0.08159999999998035,
+      "operations_per_second": 18698.648835634755
     },
     {
       "name": "registry_100",
       "iterations": 3,
-      "median_ms": 24.86889999999994,
-      "p95_ms": 27.119599999999878,
-      "operations_per_second": 39.23009628373303
+      "median_ms": 27.11259999999993,
+      "p95_ms": 27.348499999999945,
+      "operations_per_second": 37.379032107342645
     },
     {
       "name": "registry_1000",
       "iterations": 1,
-      "median_ms": 264.1924999999999,
-      "p95_ms": 264.1924999999999,
-      "operations_per_second": 3.7851188054165066
+      "median_ms": 305.0001000000001,
+      "p95_ms": 305.0001000000001,
+      "operations_per_second": 3.2786874496106715
     },
     {
       "name": "simple_use",
       "iterations": 1000,
-      "median_ms": 0.16950000000019827,
-      "p95_ms": 0.3108999999999469,
-      "operations_per_second": 5085.370659954074
+      "median_ms": 0.13840000000004693,
+      "p95_ms": 0.4318999999998141,
+      "operations_per_second": 5263.739676490545
     },
     {
       "name": "multi_hit_use",
       "iterations": 1000,
-      "median_ms": 0.1172999999998865,
-      "p95_ms": 0.3647000000000844,
-      "operations_per_second": 6050.397390100485
+      "median_ms": 0.11279999999987922,
+      "p95_ms": 0.19039999999995416,
+      "operations_per_second": 7961.365087503417
     },
     {
       "name": "multi_target_use",
       "iterations": 1000,
-      "median_ms": 0.10269999999991342,
-      "p95_ms": 0.1412000000000262,
-      "operations_per_second": 9101.433657829622
+      "median_ms": 0.1048000000000684,
+      "p95_ms": 0.16840000000001965,
+      "operations_per_second": 8534.469441905354
     },
     {
       "name": "composite_use",
       "iterations": 1000,
-      "median_ms": 0.17650000000003274,
-      "p95_ms": 0.2716000000000349,
-      "operations_per_second": 5192.264356870694
+      "median_ms": 0.1798999999998614,
+      "p95_ms": 0.2842000000000553,
+      "operations_per_second": 5051.479628898146
     },
     {
       "name": "strategy_fragment_use",
       "iterations": 1000,
-      "median_ms": 0.1871000000001004,
-      "p95_ms": 0.39509999999972933,
-      "operations_per_second": 4354.486558135498
+      "median_ms": 0.18259999999986576,
+      "p95_ms": 0.32029999999986103,
+      "operations_per_second": 4778.750996966894
     }
   ],
   "cache": {
@@ -92,5 +92,5 @@
     "hits": 1000,
     "misses": 1
   },
-  "approximate_heap_delta_bytes_for_registry_benchmarks": 25793048
+  "approximate_heap_delta_bytes_for_registry_benchmarks": 6704120
 }

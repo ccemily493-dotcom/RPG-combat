@@ -1,42 +1,42 @@
 {
-  "version": "0.2",
-  "generatedAt": "2026-09-05T07:10:24.928Z",
+  "version": "0.3",
+  "generatedAt": "2026-09-05T13:59:44.983Z",
   "results": [
     {
       "id": "single_hit",
       "withoutTrace": {
         "iterations": 200,
-        "elapsedMs": 945.2954,
-        "turnsPerSecond": 211.57407515153463,
+        "elapsedMs": 884.0002,
+        "turnsPerSecond": 226.24429270491117,
         "latencyMs": {
           "count": 200,
-          "minimum": 3.3414999999999964,
-          "maximum": 8.31840000000011,
-          "mean": 4.724441500000009,
-          "median": 4.616899999999987,
-          "p05": 3.5769400000000475,
-          "p95": 6.321794999999827,
-          "standardDeviation": 0.9343439546161572
+          "minimum": 3.679800000000114,
+          "maximum": 7.1288999999999305,
+          "mean": 4.418612499999996,
+          "median": 4.212549999999965,
+          "p05": 3.7375750000000436,
+          "p95": 5.792340000000034,
+          "standardDeviation": 0.6325165812796966
         },
-        "heapDeltaBytes": 4406328,
-        "approximateHeapDeltaPerTurnBytes": 22031.64
+        "heapDeltaBytes": -6664480,
+        "approximateHeapDeltaPerTurnBytes": -33322.4
       },
       "withTrace": {
         "iterations": 25,
-        "elapsedMs": 97.88930000000005,
-        "turnsPerSecond": 255.39052787178971,
+        "elapsedMs": 101.5308,
+        "turnsPerSecond": 246.23070043769968,
         "latencyMs": {
           "count": 25,
-          "minimum": 3.3215999999999894,
-          "maximum": 5.378999999999905,
-          "mean": 3.913716000000022,
-          "median": 3.7287999999998647,
-          "p05": 3.3444199999999,
-          "p95": 5.000459999999929,
-          "standardDeviation": 0.5639647213647108
+          "minimum": 3.587199999999939,
+          "maximum": 5.001399999999876,
+          "mean": 4.060036000000009,
+          "median": 3.957100000000082,
+          "p05": 3.623439999999937,
+          "p95": 4.821019999999998,
+          "standardDeviation": 0.37729084471267266
         },
-        "heapDeltaBytes": 12932984,
-        "approximateHeapDeltaPerTurnBytes": 517319.36
+        "heapDeltaBytes": -5104680,
+        "approximateHeapDeltaPerTurnBytes": -204187.2
       },
       "tracingMedianOverheadMs": 0
     },
@@ -44,37 +44,37 @@
       "id": "five_hit",
       "withoutTrace": {
         "iterations": 100,
-        "elapsedMs": 806.0898,
-        "turnsPerSecond": 124.05565732254645,
+        "elapsedMs": 826.9196,
+        "turnsPerSecond": 120.93074102972042,
         "latencyMs": {
           "count": 100,
-          "minimum": 7.005700000000161,
-          "maximum": 12.756000000000313,
-          "mean": 8.059395999999992,
-          "median": 7.989050000000134,
-          "p05": 7.079264999999941,
-          "p95": 9.325789999999891,
-          "standardDeviation": 0.7706413070839333
+          "minimum": 7.078300000000127,
+          "maximum": 12.501099999999951,
+          "mean": 8.268003999999987,
+          "median": 8.10044999999991,
+          "p05": 7.255464999999958,
+          "p95": 9.567039999999905,
+          "standardDeviation": 0.894777220197296
         },
-        "heapDeltaBytes": -11529448,
-        "approximateHeapDeltaPerTurnBytes": -115294.48
+        "heapDeltaBytes": -2748832,
+        "approximateHeapDeltaPerTurnBytes": -27488.32
       },
       "withTrace": {
         "iterations": 25,
-        "elapsedMs": 196.5909999999999,
-        "turnsPerSecond": 127.16757125199024,
+        "elapsedMs": 195.6959999999999,
+        "turnsPerSecond": 127.74916196549755,
         "latencyMs": {
           "count": 25,
-          "minimum": 6.9823999999998705,
-          "maximum": 9.469299999999748,
-          "mean": 7.862279999999991,
-          "median": 7.686500000000251,
-          "p05": 7.020980000000054,
-          "p95": 9.207240000000091,
-          "standardDeviation": 0.6423065237096686
+          "minimum": 7.011700000000019,
+          "maximum": 9.189600000000155,
+          "mean": 7.826543999999976,
+          "median": 7.588799999999992,
+          "p05": 7.209260000000086,
+          "p95": 8.952839999999743,
+          "standardDeviation": 0.6104680454077591
         },
-        "heapDeltaBytes": 4776152,
-        "approximateHeapDeltaPerTurnBytes": 191046.08
+        "heapDeltaBytes": 2365648,
+        "approximateHeapDeltaPerTurnBytes": 94625.92
       },
       "tracingMedianOverheadMs": 0
     },
@@ -82,227 +82,227 @@
       "id": "ten_hit",
       "withoutTrace": {
         "iterations": 75,
-        "elapsedMs": 1088.9072999999999,
-        "turnsPerSecond": 68.87638644722101,
+        "elapsedMs": 1021.8370999999997,
+        "turnsPerSecond": 73.39721761912934,
         "latencyMs": {
           "count": 75,
-          "minimum": 12.412799999999606,
-          "maximum": 22.521799999999985,
-          "mean": 14.516765333333314,
-          "median": 14.058899999999994,
-          "p05": 12.712820000000239,
-          "p95": 17.612120000000093,
-          "standardDeviation": 1.6863925408194322
+          "minimum": 12.55410000000029,
+          "maximum": 17.389000000000124,
+          "mean": 13.622974666666632,
+          "median": 13.651299999999992,
+          "p05": 12.664149999999973,
+          "p95": 14.900299999999834,
+          "standardDeviation": 0.8091672292084562
         },
-        "heapDeltaBytes": 4664008,
-        "approximateHeapDeltaPerTurnBytes": 62186.77333333333
+        "heapDeltaBytes": 14540224,
+        "approximateHeapDeltaPerTurnBytes": 193869.65333333332
       },
       "withTrace": {
         "iterations": 25,
-        "elapsedMs": 368.6766000000007,
-        "turnsPerSecond": 67.81010782892093,
+        "elapsedMs": 359.9073000000003,
+        "turnsPerSecond": 69.46233099467551,
         "latencyMs": {
           "count": 25,
-          "minimum": 12.606200000000172,
-          "maximum": 18.101599999999962,
-          "mean": 14.745180000000072,
-          "median": 14.801400000000285,
-          "p05": 12.822180000000117,
-          "p95": 17.065419999999904,
-          "standardDeviation": 1.3289337762281126
+          "minimum": 12.39930000000004,
+          "maximum": 18.465900000000147,
+          "mean": 14.39469600000004,
+          "median": 13.978700000000572,
+          "p05": 12.69246000000012,
+          "p95": 17.123879999999918,
+          "standardDeviation": 1.4601047626742218
         },
-        "heapDeltaBytes": -10789712,
-        "approximateHeapDeltaPerTurnBytes": -431588.48
+        "heapDeltaBytes": 4400696,
+        "approximateHeapDeltaPerTurnBytes": 176027.84
       },
-      "tracingMedianOverheadMs": 0.742500000000291
+      "tracingMedianOverheadMs": 0.3274000000005799
     },
     {
       "id": "multi_target",
       "withoutTrace": {
         "iterations": 100,
-        "elapsedMs": 1001.2345999999998,
-        "turnsPerSecond": 99.87669223576573,
+        "elapsedMs": 984.0994000000001,
+        "turnsPerSecond": 101.61575141698084,
         "latencyMs": {
           "count": 100,
-          "minimum": 8.629799999999705,
-          "maximum": 12.97990000000027,
-          "mean": 10.01067,
-          "median": 9.815500000000156,
-          "p05": 8.92338999999979,
-          "p95": 11.714409999999589,
-          "standardDeviation": 0.8899399492662606
+          "minimum": 8.686200000000099,
+          "maximum": 13.700699999999415,
+          "mean": 9.839673000000039,
+          "median": 9.61889999999994,
+          "p05": 8.860625000000573,
+          "p95": 11.316499999999632,
+          "standardDeviation": 0.8797491185394517
         },
-        "heapDeltaBytes": 10073576,
-        "approximateHeapDeltaPerTurnBytes": 100735.76
+        "heapDeltaBytes": 5866584,
+        "approximateHeapDeltaPerTurnBytes": 58665.84
       },
       "withTrace": {
         "iterations": 25,
-        "elapsedMs": 276.3903,
-        "turnsPerSecond": 90.45179950237036,
+        "elapsedMs": 262.4895000000006,
+        "turnsPerSecond": 95.2419049142916,
         "latencyMs": {
           "count": 25,
-          "minimum": 8.71770000000015,
-          "maximum": 15.029499999999643,
-          "mean": 11.053511999999973,
-          "median": 10.733400000000074,
-          "p05": 8.947180000000117,
-          "p95": 13.294659999999565,
-          "standardDeviation": 1.5673065717516086
+          "minimum": 8.885999999999513,
+          "maximum": 12.747699999999895,
+          "mean": 10.497879999999931,
+          "median": 10.324799999999414,
+          "p05": 9.057819999999811,
+          "p95": 12.242499999999382,
+          "standardDeviation": 1.0603088236923635
         },
-        "heapDeltaBytes": 19192368,
-        "approximateHeapDeltaPerTurnBytes": 767694.72
+        "heapDeltaBytes": 985240,
+        "approximateHeapDeltaPerTurnBytes": 39409.6
       },
-      "tracingMedianOverheadMs": 0.9178999999999178
+      "tracingMedianOverheadMs": 0.705899999999474
     },
     {
       "id": "simultaneous_two_actor",
       "withoutTrace": {
         "iterations": 100,
-        "elapsedMs": 488.3921,
-        "turnsPerSecond": 204.75351669283756,
+        "elapsedMs": 516.4845999999998,
+        "turnsPerSecond": 193.6166150936544,
         "latencyMs": {
           "count": 100,
-          "minimum": 4.204999999999927,
-          "maximum": 7.113699999999881,
-          "mean": 4.882574999999988,
-          "median": 4.7005999999996675,
-          "p05": 4.255704999999989,
-          "p95": 6.082310000000415,
-          "standardDeviation": 0.6264759411781194
+          "minimum": 4.395400000000336,
+          "maximum": 8.42489999999998,
+          "mean": 5.163708000000025,
+          "median": 4.957699999999932,
+          "p05": 4.426354999999603,
+          "p95": 6.413480000000618,
+          "standardDeviation": 0.6890185567429015
         },
-        "heapDeltaBytes": -11400008,
-        "approximateHeapDeltaPerTurnBytes": -114000.08
+        "heapDeltaBytes": -17762336,
+        "approximateHeapDeltaPerTurnBytes": -177623.36
       },
       "withTrace": {
         "iterations": 25,
-        "elapsedMs": 118.73730000000069,
-        "turnsPerSecond": 210.54883343313227,
+        "elapsedMs": 123.97819999999956,
+        "turnsPerSecond": 201.64835430745154,
         "latencyMs": {
           "count": 25,
-          "minimum": 4.201900000000023,
-          "maximum": 5.949900000000525,
-          "mean": 4.74812000000009,
-          "median": 4.514499999999316,
-          "p05": 4.25594000000001,
-          "p95": 5.565960000000087,
-          "standardDeviation": 0.5047172824464127
+          "minimum": 4.402600000000348,
+          "maximum": 6.3882000000003245,
+          "mean": 4.958031999999949,
+          "median": 4.994900000000598,
+          "p05": 4.4544000000003505,
+          "p95": 5.915419999999538,
+          "standardDeviation": 0.4672361293564152
         },
-        "heapDeltaBytes": -3113576,
-        "approximateHeapDeltaPerTurnBytes": -124543.04
+        "heapDeltaBytes": 12233688,
+        "approximateHeapDeltaPerTurnBytes": 489347.52
       },
-      "tracingMedianOverheadMs": 0
+      "tracingMedianOverheadMs": 0.03720000000066648
     },
     {
       "id": "batch_100",
       "withoutTrace": {
         "iterations": 50,
-        "elapsedMs": 524.6244999999999,
-        "turnsPerSecond": 95.3062619073261,
+        "elapsedMs": 536.5317999999997,
+        "turnsPerSecond": 93.19112119728975,
         "latencyMs": {
           "count": 50,
-          "minimum": 9.01760000000013,
-          "maximum": 16.498899999999594,
-          "mean": 10.490614000000042,
-          "median": 10.087399999999889,
-          "p05": 9.339599999999972,
-          "p95": 12.326070000000161,
-          "standardDeviation": 1.2685811245655105
+          "minimum": 9.260199999999713,
+          "maximum": 14.963999999999942,
+          "mean": 10.728879999999972,
+          "median": 10.434199999999691,
+          "p05": 9.513539999999875,
+          "p95": 12.97756000000031,
+          "standardDeviation": 1.1958085467164827
         },
-        "heapDeltaBytes": 23818336,
-        "approximateHeapDeltaPerTurnBytes": 476366.72
+        "heapDeltaBytes": -12166184,
+        "approximateHeapDeltaPerTurnBytes": -243323.68
       },
       "withTrace": {
         "iterations": 25,
-        "elapsedMs": 270.7619000000004,
-        "turnsPerSecond": 92.33204523974739,
+        "elapsedMs": 268.1997000000001,
+        "turnsPerSecond": 93.21412365487356,
         "latencyMs": {
           "count": 25,
-          "minimum": 9.516099999999824,
-          "maximum": 13.809599999999591,
-          "mean": 10.828247999999949,
-          "median": 10.560300000000097,
-          "p05": 9.64276000000009,
-          "p95": 12.778219999999962,
-          "standardDeviation": 1.0544601307284498
+          "minimum": 9.02520000000004,
+          "maximum": 15.47019999999975,
+          "mean": 10.726351999999897,
+          "median": 10.170099999999366,
+          "p05": 9.41001999999953,
+          "p95": 13.080760000000371,
+          "standardDeviation": 1.4136640328225476
         },
-        "heapDeltaBytes": -5034480,
-        "approximateHeapDeltaPerTurnBytes": -201379.2
+        "heapDeltaBytes": 9807032,
+        "approximateHeapDeltaPerTurnBytes": 392281.28
       },
-      "tracingMedianOverheadMs": 0.4729000000002088
+      "tracingMedianOverheadMs": 0
     },
     {
       "id": "batch_500",
       "withoutTrace": {
         "iterations": 20,
-        "elapsedMs": 1050.8235999999997,
-        "turnsPerSecond": 19.03269016797872,
+        "elapsedMs": 760.6352000000006,
+        "turnsPerSecond": 26.293813381237133,
         "latencyMs": {
           "count": 20,
-          "minimum": 40.05659999999989,
-          "maximum": 89.03800000000047,
-          "mean": 52.53751000000011,
-          "median": 48.52314999999999,
-          "p05": 41.6818600000006,
-          "p95": 75.39999000000108,
-          "standardDeviation": 11.968953167128154
+          "minimum": 34.22689999999966,
+          "maximum": 44.15400000000045,
+          "mean": 38.02920500000005,
+          "median": 37.860099999999875,
+          "p05": 34.309265000000366,
+          "p95": 41.27255500000165,
+          "standardDeviation": 2.3818375254151127
         },
-        "heapDeltaBytes": 25538000,
-        "approximateHeapDeltaPerTurnBytes": 1276900
+        "heapDeltaBytes": 21616,
+        "approximateHeapDeltaPerTurnBytes": 1080.8
       },
       "withTrace": {
         "iterations": 20,
-        "elapsedMs": 825.938900000001,
-        "turnsPerSecond": 24.21486625705603,
+        "elapsedMs": 856.2333999999992,
+        "turnsPerSecond": 23.358117074152936,
         "latencyMs": {
           "count": 20,
-          "minimum": 35.88980000000083,
-          "maximum": 54.80199999999968,
-          "mean": 41.29437000000007,
-          "median": 39.53300000000036,
-          "p05": 36.37050000000026,
-          "p95": 53.58828000000022,
-          "standardDeviation": 5.413722564197135
+          "minimum": 35.33250000000044,
+          "maximum": 60.03559999999925,
+          "mean": 42.808980000000155,
+          "median": 39.88915000000088,
+          "p05": 36.15139999999965,
+          "p95": 58.642900000000644,
+          "standardDeviation": 7.122521961398022
         },
-        "heapDeltaBytes": 18522080,
-        "approximateHeapDeltaPerTurnBytes": 926104
+        "heapDeltaBytes": 30518920,
+        "approximateHeapDeltaPerTurnBytes": 1525946
       },
-      "tracingMedianOverheadMs": 0
+      "tracingMedianOverheadMs": 2.029050000001007
     },
     {
       "id": "individual_100",
       "withoutTrace": {
         "iterations": 10,
-        "elapsedMs": 1219.5398000000005,
-        "turnsPerSecond": 8.199814389001489,
+        "elapsedMs": 1119.5177999999996,
+        "turnsPerSecond": 8.93241715317077,
         "latencyMs": {
           "count": 10,
-          "minimum": 109.56189999999879,
-          "maximum": 148.6864999999998,
-          "mean": 121.95116000000016,
-          "median": 117.26790000000074,
-          "p05": 109.77978999999914,
-          "p95": 145.17298999999957,
-          "standardDeviation": 12.695575585864432
+          "minimum": 107.23329999999987,
+          "maximum": 116.57650000000103,
+          "mean": 111.94971999999999,
+          "median": 111.97009999999955,
+          "p05": 108.41454999999988,
+          "p95": 116.2900300000003,
+          "standardDeviation": 2.72374633870336
         },
-        "heapDeltaBytes": -1717384,
-        "approximateHeapDeltaPerTurnBytes": -171738.4
+        "heapDeltaBytes": -31936232,
+        "approximateHeapDeltaPerTurnBytes": -3193623.2
       },
       "withTrace": {
         "iterations": 10,
-        "elapsedMs": 1176.7061000000012,
-        "turnsPerSecond": 8.498298768061106,
+        "elapsedMs": 1113.6502999999993,
+        "turnsPerSecond": 8.97947946496311,
         "latencyMs": {
           "count": 10,
-          "minimum": 111.52599999999984,
-          "maximum": 122.5028999999995,
-          "mean": 117.66819999999989,
-          "median": 116.59994999999981,
-          "p05": 113.00038000000013,
-          "p95": 122.21305499999971,
-          "standardDeviation": 3.4269546883493045
+          "minimum": 107.03590000000077,
+          "maximum": 118.6911,
+          "mean": 111.3626400000001,
+          "median": 110.64230000000043,
+          "p05": 107.85926500000005,
+          "p95": 116.69683499999955,
+          "standardDeviation": 3.1908610352690814
         },
-        "heapDeltaBytes": -37408904,
-        "approximateHeapDeltaPerTurnBytes": -3740890.4
+        "heapDeltaBytes": -70344608,
+        "approximateHeapDeltaPerTurnBytes": -7034460.8
       },
       "tracingMedianOverheadMs": 0
     },
@@ -310,57 +310,57 @@
       "id": "individual_500",
       "withoutTrace": {
         "iterations": 3,
-        "elapsedMs": 1670.8032999999996,
-        "turnsPerSecond": 1.795543496951437,
+        "elapsedMs": 1600.2724999999991,
+        "turnsPerSecond": 1.8746807184401417,
         "latencyMs": {
           "count": 3,
-          "minimum": 545.5104000000028,
-          "maximum": 576.7486999999983,
-          "mean": 556.9310333333336,
-          "median": 548.5339999999997,
-          "p05": 545.8127600000025,
-          "p95": 573.9272299999984,
-          "standardDeviation": 14.067467749462933
+          "minimum": 525.9340999999986,
+          "maximum": 540.5457999999999,
+          "mean": 533.4206666666663,
+          "median": 533.7821000000004,
+          "p05": 526.7188999999987,
+          "p95": 539.86943,
+          "standardDeviation": 5.970673873935459
         },
-        "heapDeltaBytes": 25803488,
-        "approximateHeapDeltaPerTurnBytes": 8601162.666666666
+        "heapDeltaBytes": 22028760,
+        "approximateHeapDeltaPerTurnBytes": 7342920
       },
       "withTrace": {
         "iterations": 1,
-        "elapsedMs": 601.4664000000012,
-        "turnsPerSecond": 1.6626032642887416,
+        "elapsedMs": 529.5457999999999,
+        "turnsPerSecond": 1.88841078524275,
         "latencyMs": {
           "count": 1,
-          "minimum": 601.459600000002,
-          "maximum": 601.459600000002,
-          "mean": 601.459600000002,
-          "median": 601.459600000002,
-          "p05": 601.459600000002,
-          "p95": 601.459600000002,
+          "minimum": 529.5397999999986,
+          "maximum": 529.5397999999986,
+          "mean": 529.5397999999986,
+          "median": 529.5397999999986,
+          "p05": 529.5397999999986,
+          "p95": 529.5397999999986,
           "standardDeviation": 0
         },
-        "heapDeltaBytes": 7236640,
-        "approximateHeapDeltaPerTurnBytes": 7236640
+        "heapDeltaBytes": 6847888,
+        "approximateHeapDeltaPerTurnBytes": 6847888
       },
-      "tracingMedianOverheadMs": 52.925600000002305
+      "tracingMedianOverheadMs": 0
     }
   ],
   "validation": {
     "iterations": 500,
     "latencyMs": {
       "count": 500,
-      "minimum": 0.01840000000083819,
-      "maximum": 0.32990000000063446,
-      "mean": 0.024334199999946578,
-      "median": 0.01960000000326545,
-      "p05": 0.01869999999689753,
-      "p95": 0.03429999999952997,
-      "standardDeviation": 0.016025009527642287
+      "minimum": 0.018000000000029104,
+      "maximum": 0.2802000000010594,
+      "mean": 0.021255799999933517,
+      "median": 0.01870000000053551,
+      "p05": 0.018199999998614658,
+      "p95": 0.027424999999129774,
+      "standardDeviation": 0.01576262117672625
     }
   },
   "batchSpeedup": {
-    "quantity100": 11.62518587544878,
-    "quantity500": 11.304583482317199
+    "quantity100": 10.731067067911566,
+    "quantity500": 14.098803225559418
   },
   "memoryNote": "Heap deltas are sampled without forcing garbage collection; negative or noisy values reflect normal runtime collection and are not retained-memory measurements."
 }

@@ -5,7 +5,7 @@ import { parserError } from "./errors.js";
 import { validateSchema } from "./schemas.js";
 
 export const ABILITY_PARSER_VERSION = "0.4.0";
-const PRESENTATION_FIELDS = new Set(["name", "description", "flavor", "author_notes", "metadata"]);
+const PRESENTATION_FIELDS = new Set(["name", "description", "flavor", "author_notes", "aliases", "metadata"]);
 const FORBIDDEN_OUTCOME_KEYS = new Set(["final_damage", "hit_outcome", "defense_result", "status_applied", "incapacitated", "final_resource_state", "final_world_state", "state_delta"]);
 
 function defaultContext(context = {}) {
@@ -35,6 +35,7 @@ function normalizeDefinition(definition) {
   value.cooldown ??= null;
   value.mechanics.strategy_fragments ??= [];
   value.metadata ??= {};
+  value.aliases ??= {};
   return value;
 }
 
@@ -199,6 +200,7 @@ export function compileAbilityDefinition(definition, suppliedContext = {}) {
     definition_hash: canonicalHash(normalized),
     mechanical_hash: canonicalHash(mechanical),
     registry_hashes: Object.fromEntries(Object.entries(context.registryHashes).sort(([a], [b]) => a.localeCompare(b))),
+    semantic_aliases: deepClone(normalized.aliases),
     parameters: deepClone(normalized.parameters),
     constants: deepClone(normalized.constants),
     requirements: deepClone(normalized.requirements),

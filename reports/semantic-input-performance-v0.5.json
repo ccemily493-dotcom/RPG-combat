@@ -1,0 +1,121 @@
+{
+  "version": "0.5.0",
+  "generated_at": "2026-09-05T14:02:28.743Z",
+  "measurements": [
+    {
+      "name": "simple_attack",
+      "iterations": 500,
+      "median_ms": 0.16399999999998727,
+      "p95_ms": 0.2963000000000875,
+      "operations_per_second": 4878.957932648891
+    },
+    {
+      "name": "movement",
+      "iterations": 500,
+      "median_ms": 0.21440000000006876,
+      "p95_ms": 0.31320000000005166,
+      "operations_per_second": 4266.652103160862
+    },
+    {
+      "name": "ability_alias",
+      "iterations": 500,
+      "median_ms": 0.2985999999998512,
+      "p95_ms": 0.42610000000001946,
+      "operations_per_second": 3085.04290986188
+    },
+    {
+      "name": "sequence",
+      "iterations": 500,
+      "median_ms": 0.4250000000001819,
+      "p95_ms": 0.5407000000000153,
+      "operations_per_second": 2247.7769485978115
+    },
+    {
+      "name": "strategy",
+      "iterations": 500,
+      "median_ms": 1.3640000000000327,
+      "p95_ms": 1.8044999999999618,
+      "operations_per_second": 697.7949261656247
+    },
+    {
+      "name": "warm_context_cache",
+      "iterations": 1000,
+      "median_ms": 0.08780000000024302,
+      "p95_ms": 0.126100000000406,
+      "operations_per_second": 10544.385536478165
+    },
+    {
+      "name": "warm_phrase_cache_new_context",
+      "iterations": 250,
+      "median_ms": 0.19610000000011496,
+      "p95_ms": 0.2986000000000786,
+      "operations_per_second": 4574.783063787015
+    },
+    {
+      "name": "fallback_boundary_validation",
+      "iterations": 250,
+      "median_ms": 0.16030000000000655,
+      "p95_ms": 0.29599999999982174,
+      "operations_per_second": 5438.29385494575
+    },
+    {
+      "name": "dictionary_compile_100",
+      "iterations": 1,
+      "median_ms": 2.5772000000001754,
+      "p95_ms": 2.5772000000001754,
+      "operations_per_second": 388.01800403536083
+    },
+    {
+      "name": "dictionary_compile_1000",
+      "iterations": 1,
+      "median_ms": 25.072900000000118,
+      "p95_ms": 25.072900000000118,
+      "operations_per_second": 39.88369913332703
+    },
+    {
+      "name": "dictionary_compile_10000",
+      "iterations": 1,
+      "median_ms": 256.25109999999995,
+      "p95_ms": 256.25109999999995,
+      "operations_per_second": 3.9024222725287823
+    },
+    {
+      "name": "dictionary_compile_50000",
+      "iterations": 1,
+      "median_ms": 1306.2064,
+      "p95_ms": 1306.2064,
+      "operations_per_second": 0.7655757926159296
+    },
+    {
+      "name": "dictionary_lookup_50000",
+      "iterations": 1000,
+      "median_ms": 0.014699999999720603,
+      "p95_ms": 0.018399999999928696,
+      "operations_per_second": 64158.085522745314
+    }
+  ],
+  "context_cache": {
+    "phrase_hits": 0,
+    "context_hits": 1000,
+    "misses": 1,
+    "phrase_size": 1,
+    "context_size": 1
+  },
+  "phrase_cache": {
+    "phrase_hits": 250,
+    "context_hits": 0,
+    "misses": 251,
+    "phrase_size": 1,
+    "context_size": 251
+  },
+  "fallback_mock_calls": 250,
+  "dictionary_50000": {
+    "version": "0.5.0",
+    "locale": "es",
+    "hash": "0f6e356b0bdbbab67e1a5d2ecb2379c032344598c4e3d4f763a923e68eabec45",
+    "entries": 50000,
+    "surfaces": 50000,
+    "collisions": []
+  },
+  "approximate_heap_delta_bytes_50000": 88954192
+}

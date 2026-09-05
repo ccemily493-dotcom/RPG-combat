@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.5/semantic-parse-result.schema.json",
+  "title": "Universal RPG Semantic Parse Result v0.5",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "intent", "normalization", "ambiguities", "errors", "candidates"],
+  "properties": {
+    "status": { "enum": ["RESOLVED", "NEEDS_DISAMBIGUATION", "LOW_CONFIDENCE", "UNRESOLVED", "REJECTED"] },
+    "intent": { "oneOf": [{ "$ref": "https://example.invalid/rpg/v0.5/semantic-intent.schema.json" }, { "type": "null" }] },
+    "normalization": {
+      "type": "object", "additionalProperties": false, "required": ["original_text", "normalized_text", "matching_text", "tokens"],
+      "properties": {
+        "original_text": { "type": "string" }, "normalized_text": { "type": "string" }, "matching_text": { "type": "string" },
+        "tokens": {
+          "type": "array",
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["text", "match", "start", "end"],
+            "properties": {
+              "text": { "type": "string" }, "match": { "type": "string" },
+              "start": { "type": "integer", "minimum": 0 }, "end": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "ambiguities": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["code", "field", "candidates", "source_span"],
+        "properties": {
+          "code": { "type": "string" }, "field": { "type": "string" },
+          "candidates": { "type": "array", "items": { "type": "string" } },
+          "source_span": { "type": ["object", "null"] }
+        }
+      }
+    },
+    "errors": { "type": "array", "items": { "type": "object", "additionalProperties": true, "required": ["code", "message"] } },
+    "candidates": { "type": "array", "items": { "type": "object", "additionalProperties": true } }
+  }
+}

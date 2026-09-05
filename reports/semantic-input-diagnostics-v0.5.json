@@ -1,0 +1,80 @@
+{
+  "version": "0.5.0",
+  "classification": "semantic_diagnostic",
+  "non_blocking": true,
+  "corpus_size": 16,
+  "total": 16,
+  "resolved": 13,
+  "rule_rate": 0.875,
+  "fallback_rate": 0.0625,
+  "cache_rate": 0,
+  "ambiguity_rate": 0.125,
+  "unresolved_rate": 0.0625,
+  "confidence": {
+    "intent_type": {
+      "minimum": 0.75,
+      "maximum": 0.99,
+      "average": 0.8960000000000002
+    },
+    "action": {
+      "minimum": 0.75,
+      "maximum": 0.95,
+      "average": 0.9357142857142856
+    },
+    "target": {
+      "minimum": 0.75,
+      "maximum": 0.95,
+      "average": 0.9042857142857142
+    },
+    "subtype": {
+      "minimum": 0.95,
+      "maximum": 0.95,
+      "average": 0.9500000000000001
+    },
+    "overall": {
+      "minimum": 0.75,
+      "maximum": 0.99,
+      "average": 0.8800000000000002
+    },
+    "negation": {
+      "minimum": 0.99,
+      "maximum": 0.99,
+      "average": 0.99
+    }
+  },
+  "top_unknown_phrases": [
+    {
+      "phrase": "hago una cosa indescriptible",
+      "count": 1
+    }
+  ],
+  "dictionary": {
+    "version": "0.5.0",
+    "locale": "es",
+    "hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+    "entries": 50,
+    "surfaces": 94,
+    "collisions": []
+  },
+  "cache": {
+    "phrase_hits": 0,
+    "context_hits": 1,
+    "misses": 16,
+    "phrase_size": 16,
+    "context_size": 15
+  },
+  "fallback_boundary": {
+    "live_provider_implemented": false,
+    "deterministic_mock_calls": 1
+  },
+  "candidate_learning": {
+    "automatic_promotion": false
+  },
+  "warnings": [
+    {
+      "input": "hago una cosa indescriptible",
+      "code": "UNKNOWN_ACTION",
+      "message": "Rule parsing did not produce an accepted intent."
+    }
+  ]
+}

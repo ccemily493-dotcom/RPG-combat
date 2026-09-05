@@ -1,0 +1,1968 @@
+{
+  "version": "0.5.0",
+  "scenarios": [
+    {
+      "scenario": "A",
+      "text": "le pego",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:93b9393648478da2",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "le pego",
+          "normalized_text": "le pego",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.88,
+            "subtype": 0.95,
+            "overall": 0.88
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.attack.punch"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 7
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "PUNCH",
+            "targets": [
+              {
+                "entity_id": "b",
+                "source_span": null
+              }
+            ],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "le pego",
+          "normalized_text": "le pego",
+          "matching_text": "le pego",
+          "tokens": [
+            {
+              "text": "le",
+              "match": "le",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "text": "pego",
+              "match": "pego",
+              "start": 3,
+              "end": 7
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "B",
+      "text": "le doy una patada",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:6405ab68f2db71e3",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "le doy una patada",
+          "normalized_text": "le doy una patada",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.88,
+            "subtype": 0.95,
+            "overall": 0.88
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.attack.kick"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 17
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "KICK",
+            "targets": [
+              {
+                "entity_id": "b",
+                "source_span": null
+              }
+            ],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "le doy una patada",
+          "normalized_text": "le doy una patada",
+          "matching_text": "le doy una patada",
+          "tokens": [
+            {
+              "text": "le",
+              "match": "le",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "text": "doy",
+              "match": "doy",
+              "start": 3,
+              "end": 6
+            },
+            {
+              "text": "una",
+              "match": "una",
+              "start": 7,
+              "end": 10
+            },
+            {
+              "text": "patada",
+              "match": "patada",
+              "start": 11,
+              "end": 17
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "C",
+      "text": "me alejo",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:28ff9c6f2697e34e",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "me alejo",
+          "normalized_text": "me alejo",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.95,
+            "overall": 0.9
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.retreat"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 8
+              }
+            ]
+          },
+          "action": {
+            "type": "RETREAT",
+            "subtype": null,
+            "targets": [
+              {
+                "entity_id": "b",
+                "source_span": null
+              }
+            ],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "MOVEMENT",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "me alejo",
+          "normalized_text": "me alejo",
+          "matching_text": "me alejo",
+          "tokens": [
+            {
+              "text": "me",
+              "match": "me",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "text": "alejo",
+              "match": "alejo",
+              "start": 3,
+              "end": 8
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "D",
+      "text": "esquivo",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:89bdd573e0e5d842",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "esquivo",
+          "normalized_text": "esquivo",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.95,
+            "overall": 0.9
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.dodge"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 7
+              }
+            ]
+          },
+          "action": {
+            "type": "DODGE",
+            "subtype": null,
+            "targets": [
+              {
+                "entity_id": "b",
+                "source_span": null
+              }
+            ],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "REACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "esquivo",
+          "normalized_text": "esquivo",
+          "matching_text": "esquivo",
+          "tokens": [
+            {
+              "text": "esquivo",
+              "match": "esquivo",
+              "start": 0,
+              "end": 7
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "E",
+      "text": "uso Heavy Strike contra B",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:3d40b7e50063f30e",
+          "intent_type": "ABILITY_USE",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "uso Heavy Strike contra B",
+          "normalized_text": "uso heavy strike contra b",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.95,
+            "overall": 0.9
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "ability.es.core.example.heavy_strike.0"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 4,
+                "end": 16
+              }
+            ]
+          },
+          "ability_use": {
+            "ability_id": "core.example.heavy_strike",
+            "actor_id": "a",
+            "targets": [
+              {
+                "type": "character",
+                "ref": "b",
+                "position": null,
+                "body_zone": null
+              }
+            ],
+            "parameters": {},
+            "declared_options": {
+              "turn": 0
+            }
+          }
+        },
+        "normalization": {
+          "original_text": "uso Heavy Strike contra B",
+          "normalized_text": "uso heavy strike contra b",
+          "matching_text": "uso heavy strike contra b",
+          "tokens": [
+            {
+              "text": "uso",
+              "match": "uso",
+              "start": 0,
+              "end": 3
+            },
+            {
+              "text": "heavy",
+              "match": "heavy",
+              "start": 4,
+              "end": 9
+            },
+            {
+              "text": "strike",
+              "match": "strike",
+              "start": 10,
+              "end": 16
+            },
+            {
+              "text": "contra",
+              "match": "contra",
+              "start": 17,
+              "end": 23
+            },
+            {
+              "text": "b",
+              "match": "b",
+              "start": 24,
+              "end": 25
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "F",
+      "text": "corro hacia B y lo golpeo",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:d440f35cfa14b969",
+          "intent_type": "SEQUENCE",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "corro hacia B y lo golpeo",
+          "normalized_text": "corro hacia b y lo golpeo",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.95,
+            "overall": 0.9
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.sequence"
+            ],
+            "dictionary_entries": [
+              "core.es.run",
+              "core.es.attack.punch"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 5
+              },
+              {
+                "start": 16,
+                "end": 25
+              }
+            ]
+          },
+          "sequence": [
+            {
+              "step_id": "step_1",
+              "kind": "ACTION",
+              "action": {
+                "type": "RUN",
+                "subtype": null,
+                "targets": [
+                  {
+                    "entity_id": "b",
+                    "source_span": {
+                      "start": 12,
+                      "end": 13
+                    }
+                  }
+                ],
+                "target_zone": null,
+                "direction": "TOWARD",
+                "distance": null,
+                "intensity": null,
+                "quantity": 1,
+                "object_ref": null,
+                "execution_class": "MOVEMENT",
+                "primitive": null
+              },
+              "primitive": null,
+              "execution_class": "MOVEMENT",
+              "depends_on": []
+            },
+            {
+              "step_id": "step_2",
+              "kind": "ACTION",
+              "action": {
+                "type": "ATTACK",
+                "subtype": "PUNCH",
+                "targets": [
+                  {
+                    "entity_id": "b",
+                    "source_span": {
+                      "start": 12,
+                      "end": 13
+                    }
+                  }
+                ],
+                "target_zone": null,
+                "direction": "TOWARD",
+                "distance": null,
+                "intensity": null,
+                "quantity": 1,
+                "object_ref": null,
+                "execution_class": "ACTION",
+                "primitive": null
+              },
+              "primitive": null,
+              "execution_class": "ACTION",
+              "depends_on": [
+                "step_1"
+              ]
+            }
+          ]
+        },
+        "normalization": {
+          "original_text": "corro hacia B y lo golpeo",
+          "normalized_text": "corro hacia b y lo golpeo",
+          "matching_text": "corro hacia b y lo golpeo",
+          "tokens": [
+            {
+              "text": "corro",
+              "match": "corro",
+              "start": 0,
+              "end": 5
+            },
+            {
+              "text": "hacia",
+              "match": "hacia",
+              "start": 6,
+              "end": 11
+            },
+            {
+              "text": "b",
+              "match": "b",
+              "start": 12,
+              "end": 13
+            },
+            {
+              "text": "y",
+              "match": "y",
+              "start": 14,
+              "end": 15
+            },
+            {
+              "text": "lo",
+              "match": "lo",
+              "start": 16,
+              "end": 18
+            },
+            {
+              "text": "golpeo",
+              "match": "golpeo",
+              "start": 19,
+              "end": 25
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "G",
+      "text": "tiro algo a su izquierda para distraerlo y me muevo detrás",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:f23ac1f35dd73d84",
+          "intent_type": "STRATEGY",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "tiro algo a su izquierda para distraerlo y me muevo detrás",
+          "normalized_text": "tiro algo a su izquierda para distraerlo y me muevo detrás",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.95,
+            "subtype": 0.95,
+            "overall": 0.9
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.strategy"
+            ],
+            "dictionary_entries": [
+              "core.es.throw.object",
+              "core.es.strategy.distraction",
+              "core.es.strategy.reposition"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 9
+              },
+              {
+                "start": 30,
+                "end": 40
+              },
+              {
+                "start": 43,
+                "end": 58
+              }
+            ]
+          },
+          "strategy": {
+            "strategy_id": "semantic:f23ac1f35dd73d84:strategy",
+            "owner": "a",
+            "steps": [
+              {
+                "step_id": "step_1",
+                "kind": "ACTION",
+                "action": {
+                  "type": "THROW",
+                  "subtype": "THROW_OBJECT",
+                  "targets": [
+                    {
+                      "entity_id": "b",
+                      "source_span": null
+                    }
+                  ],
+                  "target_zone": null,
+                  "direction": "BEHIND",
+                  "distance": null,
+                  "intensity": null,
+                  "quantity": 1,
+                  "object_ref": "declared_object",
+                  "execution_class": "ACTION",
+                  "primitive": null
+                },
+                "primitive": null,
+                "execution_class": "ACTION",
+                "depends_on": []
+              },
+              {
+                "step_id": "step_2",
+                "kind": "PRIMITIVE",
+                "action": {
+                  "type": "DISTRACTION",
+                  "subtype": null,
+                  "targets": [
+                    {
+                      "entity_id": "b",
+                      "source_span": null
+                    }
+                  ],
+                  "target_zone": null,
+                  "direction": "BEHIND",
+                  "distance": null,
+                  "intensity": null,
+                  "quantity": 1,
+                  "object_ref": null,
+                  "execution_class": "ACTION",
+                  "primitive": "DISTRACTION"
+                },
+                "primitive": "DISTRACTION",
+                "execution_class": "ACTION",
+                "depends_on": [
+                  "step_1"
+                ]
+              },
+              {
+                "step_id": "step_3",
+                "kind": "PRIMITIVE",
+                "action": {
+                  "type": "REPOSITION",
+                  "subtype": null,
+                  "targets": [
+                    {
+                      "entity_id": "b",
+                      "source_span": null
+                    }
+                  ],
+                  "target_zone": null,
+                  "direction": "BEHIND",
+                  "distance": null,
+                  "intensity": null,
+                  "quantity": 1,
+                  "object_ref": null,
+                  "execution_class": "MOVEMENT",
+                  "primitive": "REPOSITION"
+                },
+                "primitive": "REPOSITION",
+                "execution_class": "MOVEMENT",
+                "depends_on": [
+                  "step_2"
+                ]
+              }
+            ]
+          }
+        },
+        "normalization": {
+          "original_text": "tiro algo a su izquierda para distraerlo y me muevo detrás",
+          "normalized_text": "tiro algo a su izquierda para distraerlo y me muevo detrás",
+          "matching_text": "tiro algo a su izquierda para distraerlo y me muevo detras",
+          "tokens": [
+            {
+              "text": "tiro",
+              "match": "tiro",
+              "start": 0,
+              "end": 4
+            },
+            {
+              "text": "algo",
+              "match": "algo",
+              "start": 5,
+              "end": 9
+            },
+            {
+              "text": "a",
+              "match": "a",
+              "start": 10,
+              "end": 11
+            },
+            {
+              "text": "su",
+              "match": "su",
+              "start": 12,
+              "end": 14
+            },
+            {
+              "text": "izquierda",
+              "match": "izquierda",
+              "start": 15,
+              "end": 24
+            },
+            {
+              "text": "para",
+              "match": "para",
+              "start": 25,
+              "end": 29
+            },
+            {
+              "text": "distraerlo",
+              "match": "distraerlo",
+              "start": 30,
+              "end": 40
+            },
+            {
+              "text": "y",
+              "match": "y",
+              "start": 41,
+              "end": 42
+            },
+            {
+              "text": "me",
+              "match": "me",
+              "start": 43,
+              "end": 45
+            },
+            {
+              "text": "muevo",
+              "match": "muevo",
+              "start": 46,
+              "end": 51
+            },
+            {
+              "text": "detrás",
+              "match": "detras",
+              "start": 52,
+              "end": 58
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "H",
+      "text": "le doy una patada en la pierna",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:fce83dd3d9cedd7e",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "le doy una patada en la pierna",
+          "normalized_text": "le doy una patada en la pierna",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.88,
+            "subtype": 0.95,
+            "overall": 0.88
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.attack.kick"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 17
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "KICK",
+            "targets": [
+              {
+                "entity_id": "b",
+                "source_span": null
+              }
+            ],
+            "target_zone": "LEG",
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "le doy una patada en la pierna",
+          "normalized_text": "le doy una patada en la pierna",
+          "matching_text": "le doy una patada en la pierna",
+          "tokens": [
+            {
+              "text": "le",
+              "match": "le",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "text": "doy",
+              "match": "doy",
+              "start": 3,
+              "end": 6
+            },
+            {
+              "text": "una",
+              "match": "una",
+              "start": 7,
+              "end": 10
+            },
+            {
+              "text": "patada",
+              "match": "patada",
+              "start": 11,
+              "end": 17
+            },
+            {
+              "text": "en",
+              "match": "en",
+              "start": 18,
+              "end": 20
+            },
+            {
+              "text": "la",
+              "match": "la",
+              "start": 21,
+              "end": 23
+            },
+            {
+              "text": "pierna",
+              "match": "pierna",
+              "start": 24,
+              "end": 30
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "I",
+      "text": "ataco a B y C",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:2350c1fc3975fcc7",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "ataco a B y C",
+          "normalized_text": "ataco a b y c",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.95,
+            "subtype": 0.95,
+            "overall": 0.9
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.attack.punch"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 5
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "PUNCH",
+            "targets": [
+              {
+                "entity_id": "b",
+                "source_span": {
+                  "start": 8,
+                  "end": 9
+                }
+              },
+              {
+                "entity_id": "c",
+                "source_span": {
+                  "start": 12,
+                  "end": 13
+                }
+              }
+            ],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "ataco a B y C",
+          "normalized_text": "ataco a b y c",
+          "matching_text": "ataco a b y c",
+          "tokens": [
+            {
+              "text": "ataco",
+              "match": "ataco",
+              "start": 0,
+              "end": 5
+            },
+            {
+              "text": "a",
+              "match": "a",
+              "start": 6,
+              "end": 7
+            },
+            {
+              "text": "b",
+              "match": "b",
+              "start": 8,
+              "end": 9
+            },
+            {
+              "text": "y",
+              "match": "y",
+              "start": 10,
+              "end": 11
+            },
+            {
+              "text": "c",
+              "match": "c",
+              "start": 12,
+              "end": 13
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "J",
+      "text": "disparo cinco veces",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:72d5e0cbfe52e9b9",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "disparo cinco veces",
+          "normalized_text": "disparo cinco veces",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.95,
+            "subtype": 0.95,
+            "overall": 0.9
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.attack.shot"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 7
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "SHOT",
+            "targets": [
+              {
+                "entity_id": "b",
+                "source_span": null
+              }
+            ],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 5,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "disparo cinco veces",
+          "normalized_text": "disparo cinco veces",
+          "matching_text": "disparo cinco veces",
+          "tokens": [
+            {
+              "text": "disparo",
+              "match": "disparo",
+              "start": 0,
+              "end": 7
+            },
+            {
+              "text": "cinco",
+              "match": "cinco",
+              "start": 8,
+              "end": 13
+            },
+            {
+              "text": "veces",
+              "match": "veces",
+              "start": 14,
+              "end": 19
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "K",
+      "text": "no lo ataco",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:17172b05fee76c3f",
+          "intent_type": "WAIT",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "no lo ataco",
+          "normalized_text": "no lo ataco",
+          "confidence": {
+            "intent_type": 0.99,
+            "negation": 0.99,
+            "overall": 0.99
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "negation.basic"
+            ],
+            "dictionary_entries": [],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": []
+          }
+        },
+        "normalization": {
+          "original_text": "no lo ataco",
+          "normalized_text": "no lo ataco",
+          "matching_text": "no lo ataco",
+          "tokens": [
+            {
+              "text": "no",
+              "match": "no",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "text": "lo",
+              "match": "lo",
+              "start": 3,
+              "end": 5
+            },
+            {
+              "text": "ataco",
+              "match": "ataco",
+              "start": 6,
+              "end": 11
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "L",
+      "text": "ataco al enemigo",
+      "locale": "es",
+      "result": {
+        "status": "NEEDS_DISAMBIGUATION",
+        "intent": {
+          "intent_id": "semantic:adfec01c1f0a9e75",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "ataco al enemigo",
+          "normalized_text": "ataco al enemigo",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.8,
+            "subtype": 0.95,
+            "overall": 0.8
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.attack.punch"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 5
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "PUNCH",
+            "targets": [],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "ataco al enemigo",
+          "normalized_text": "ataco al enemigo",
+          "matching_text": "ataco al enemigo",
+          "tokens": [
+            {
+              "text": "ataco",
+              "match": "ataco",
+              "start": 0,
+              "end": 5
+            },
+            {
+              "text": "al",
+              "match": "al",
+              "start": 6,
+              "end": 8
+            },
+            {
+              "text": "enemigo",
+              "match": "enemigo",
+              "start": 9,
+              "end": 16
+            }
+          ]
+        },
+        "ambiguities": [
+          {
+            "code": "AMBIGUOUS_TARGET",
+            "field": "target",
+            "candidates": [
+              "b",
+              "c"
+            ],
+            "source_span": null
+          }
+        ],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "M",
+      "text": "hago una cosa indescriptible",
+      "locale": "es",
+      "result": {
+        "status": "UNRESOLVED",
+        "intent": null,
+        "normalization": {
+          "original_text": "hago una cosa indescriptible",
+          "normalized_text": "hago una cosa indescriptible",
+          "matching_text": "hago una cosa indescriptible",
+          "tokens": [
+            {
+              "text": "hago",
+              "match": "hago",
+              "start": 0,
+              "end": 4
+            },
+            {
+              "text": "una",
+              "match": "una",
+              "start": 5,
+              "end": 8
+            },
+            {
+              "text": "cosa",
+              "match": "cosa",
+              "start": 9,
+              "end": 13
+            },
+            {
+              "text": "indescriptible",
+              "match": "indescriptible",
+              "start": 14,
+              "end": 28
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [
+          {
+            "code": "UNKNOWN_ACTION",
+            "message": "Rule parsing did not produce an accepted intent."
+          }
+        ],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "N",
+      "text": "kick him",
+      "locale": "en",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:1ebedccbb730ee52",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "en",
+          "original_text": "kick him",
+          "normalized_text": "kick him",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.88,
+            "subtype": 0.95,
+            "overall": 0.88
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "en",
+            "dictionary_hash": "a302c0df3a90161c1e949d6cf2a7b8f56131adb656e99b3e562def816eefdef5",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.en.attack.kick"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 4
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "KICK",
+            "targets": [
+              {
+                "entity_id": "b",
+                "source_span": null
+              }
+            ],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "kick him",
+          "normalized_text": "kick him",
+          "matching_text": "kick him",
+          "tokens": [
+            {
+              "text": "kick",
+              "match": "kick",
+              "start": 0,
+              "end": 4
+            },
+            {
+              "text": "him",
+              "match": "him",
+              "start": 5,
+              "end": 8
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "O",
+      "text": "le meto un golpe",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:ad77aa59d8e74036",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "le meto un golpe",
+          "normalized_text": "le meto un golpe",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.88,
+            "subtype": 0.95,
+            "overall": 0.88
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.attack.punch"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 16
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "PUNCH",
+            "targets": [
+              {
+                "entity_id": "b",
+                "source_span": null
+              }
+            ],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "le meto un golpe",
+          "normalized_text": "le meto un golpe",
+          "matching_text": "le meto un golpe",
+          "tokens": [
+            {
+              "text": "le",
+              "match": "le",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "text": "meto",
+              "match": "meto",
+              "start": 3,
+              "end": 7
+            },
+            {
+              "text": "un",
+              "match": "un",
+              "start": 8,
+              "end": 10
+            },
+            {
+              "text": "golpe",
+              "match": "golpe",
+              "start": 11,
+              "end": 16
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "X",
+      "text": "ataco a B",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:9115259a00452bc5",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "ataco a B",
+          "normalized_text": "ataco a b",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.95,
+            "subtype": 0.95,
+            "overall": 0.9
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.attack.punch"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 5
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "PUNCH",
+            "targets": [
+              {
+                "entity_id": "b",
+                "source_span": {
+                  "start": 8,
+                  "end": 9
+                }
+              }
+            ],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "ataco a B",
+          "normalized_text": "ataco a b",
+          "matching_text": "ataco a b",
+          "tokens": [
+            {
+              "text": "ataco",
+              "match": "ataco",
+              "start": 0,
+              "end": 5
+            },
+            {
+              "text": "a",
+              "match": "a",
+              "start": 6,
+              "end": 7
+            },
+            {
+              "text": "b",
+              "match": "b",
+              "start": 8,
+              "end": 9
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "Y",
+      "text": "le pego",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:93b9393648478da2",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "le pego",
+          "normalized_text": "le pego",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.88,
+            "subtype": 0.95,
+            "overall": 0.88
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.attack.punch"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 7
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "PUNCH",
+            "targets": [
+              {
+                "entity_id": "b",
+                "source_span": null
+              }
+            ],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "le pego",
+          "normalized_text": "le pego",
+          "matching_text": "le pego",
+          "tokens": [
+            {
+              "text": "le",
+              "match": "le",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "text": "pego",
+              "match": "pego",
+              "start": 3,
+              "end": 7
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "Z",
+      "text": "le pego",
+      "locale": "es",
+      "result": {
+        "status": "NEEDS_DISAMBIGUATION",
+        "intent": {
+          "intent_id": "semantic:93b9393648478da2",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "le pego",
+          "normalized_text": "le pego",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.8,
+            "subtype": 0.95,
+            "overall": 0.8
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.attack.punch"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 7
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "PUNCH",
+            "targets": [],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "le pego",
+          "normalized_text": "le pego",
+          "matching_text": "le pego",
+          "tokens": [
+            {
+              "text": "le",
+              "match": "le",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "text": "pego",
+              "match": "pego",
+              "start": 3,
+              "end": 7
+            }
+          ]
+        },
+        "ambiguities": [
+          {
+            "code": "AMBIGUOUS_TARGET",
+            "field": "target",
+            "candidates": [
+              "b",
+              "c"
+            ],
+            "source_span": null
+          }
+        ],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "AA",
+      "text": "ataco al enemigo más cercano",
+      "locale": "es",
+      "result": {
+        "status": "RESOLVED",
+        "intent": {
+          "intent_id": "semantic:e885cb3460c37d3c",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "ataco al enemigo más cercano",
+          "normalized_text": "ataco al enemigo más cercano",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.95,
+            "subtype": 0.95,
+            "overall": 0.9
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.attack.punch"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 5
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "PUNCH",
+            "targets": [
+              {
+                "entity_id": "b",
+                "source_span": {
+                  "start": 21,
+                  "end": 28
+                }
+              }
+            ],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "ataco al enemigo más cercano",
+          "normalized_text": "ataco al enemigo más cercano",
+          "matching_text": "ataco al enemigo mas cercano",
+          "tokens": [
+            {
+              "text": "ataco",
+              "match": "ataco",
+              "start": 0,
+              "end": 5
+            },
+            {
+              "text": "al",
+              "match": "al",
+              "start": 6,
+              "end": 8
+            },
+            {
+              "text": "enemigo",
+              "match": "enemigo",
+              "start": 9,
+              "end": 16
+            },
+            {
+              "text": "más",
+              "match": "mas",
+              "start": 17,
+              "end": 20
+            },
+            {
+              "text": "cercano",
+              "match": "cercano",
+              "start": 21,
+              "end": 28
+            }
+          ]
+        },
+        "ambiguities": [],
+        "errors": [],
+        "candidates": []
+      }
+    },
+    {
+      "scenario": "AB",
+      "text": "ataco al mejor objetivo",
+      "locale": "es",
+      "result": {
+        "status": "NEEDS_DISAMBIGUATION",
+        "intent": {
+          "intent_id": "semantic:f6af64f3e8b4b90c",
+          "intent_type": "ACTION",
+          "actor_id": "a",
+          "locale": "es",
+          "original_text": "ataco al mejor objetivo",
+          "normalized_text": "ataco al mejor objetivo",
+          "confidence": {
+            "intent_type": 0.9,
+            "action": 0.95,
+            "target": 0.8,
+            "subtype": 0.95,
+            "overall": 0.8
+          },
+          "provenance": {
+            "parser_version": "0.5.0",
+            "parser_path": "RULE",
+            "locale": "es",
+            "dictionary_hash": "b4c1afab8b3dd961c46725c941ef11a495f304940652a8af9f44483701734f8d",
+            "rule_ids": [
+              "structure.single"
+            ],
+            "dictionary_entries": [
+              "core.es.attack.punch"
+            ],
+            "fallback_provider_id": null,
+            "cache_status": "MISS",
+            "source_spans": [
+              {
+                "start": 0,
+                "end": 5
+              }
+            ]
+          },
+          "action": {
+            "type": "ATTACK",
+            "subtype": "PUNCH",
+            "targets": [],
+            "target_zone": null,
+            "direction": null,
+            "distance": null,
+            "intensity": null,
+            "quantity": 1,
+            "object_ref": null,
+            "execution_class": "ACTION",
+            "primitive": null
+          }
+        },
+        "normalization": {
+          "original_text": "ataco al mejor objetivo",
+          "normalized_text": "ataco al mejor objetivo",
+          "matching_text": "ataco al mejor objetivo",
+          "tokens": [
+            {
+              "text": "ataco",
+              "match": "ataco",
+              "start": 0,
+              "end": 5
+            },
+            {
+              "text": "al",
+              "match": "al",
+              "start": 6,
+              "end": 8
+            },
+            {
+              "text": "mejor",
+              "match": "mejor",
+              "start": 9,
+              "end": 14
+            },
+            {
+              "text": "objetivo",
+              "match": "objetivo",
+              "start": 15,
+              "end": 23
+            }
+          ]
+        },
+        "ambiguities": [
+          {
+            "code": "AMBIGUOUS_TARGET",
+            "field": "target",
+            "candidates": [
+              "b",
+              "c"
+            ],
+            "source_span": null
+          }
+        ],
+        "errors": [],
+        "candidates": []
+      }
+    }
+  ]
+}

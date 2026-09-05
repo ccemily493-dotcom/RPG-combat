@@ -164,6 +164,7 @@ test("presentation-only edits preserve mechanical hash but change provenance has
   edited.name = "Presentation Only";
   edited.description = "No mechanical meaning.";
   edited.flavor = "Also presentation only.";
+  edited.aliases = { es: ["nombre puramente semántico"], en: ["presentation-only alias"] };
   const left = compileAbilityDefinition(original, context);
   const right = compileAbilityDefinition(edited, context);
   assert.equal(left.mechanical_hash, right.mechanical_hash);

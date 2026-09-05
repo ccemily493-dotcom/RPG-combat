@@ -26,7 +26,7 @@ function movement() {
 }
 
 function definition(id, name, components, extra = {}) {
-  return { ability_id: `core.example.${id}`, version: "1.0.0", namespace: "core", name, tags: ["example"], parameters: {}, constants: {}, requirements: [], resources: ["energy"], limitations: [], variants: {}, mechanics: { components, strategy_fragments: [] }, metadata: { fixture: true }, ...extra };
+  return { ability_id: `core.example.${id}`, version: "1.0.0", namespace: "core", name, aliases: { en: [name] }, tags: ["example"], parameters: {}, constants: {}, requirements: [], resources: ["energy"], limitations: [], variants: {}, mechanics: { components, strategy_fragments: [] }, metadata: { fixture: true }, ...extra };
 }
 
 function component(id, template, output, executionClass = null, when = null) {
@@ -45,7 +45,7 @@ export function buildGenericAbilityDefinitions() {
   const heavy = definition("heavy_strike", "Heavy Strike", [component("strike", "ATTACK", { action: attack({
     power: op("ADD", op("MULTIPLY", ref("actor.stats.physical_capability"), c(1.1)), op("MULTIPLY", ref("actor.stats.energy_output"), c(0.2))),
     accuracy: c(54), speed: c(48), cost: c(20)
-  }) })], { cooldown: { key: "core.example.heavy_strike", duration: 1, unit: "TURN", starts: "ON_USE" } });
+  }) })], { aliases: { en: ["Heavy Strike", "power strike"], es: ["Heavy Strike", "golpe fuerte", "ataque potente"] }, cooldown: { key: "core.example.heavy_strike", duration: 1, unit: "TURN", starts: "ON_USE" } });
 
   const barrageAction = attack({ power: op("MULTIPLY", ref("actor.stats.energy_output"), c(0.45)), accuracy: c(68), speed: c(82), quantity: c(5), cost: c(5) });
   barrageAction.costs[0] = { resource: "energy", amount: 5, timing: "reserve", mode: "PER_HIT", upfront_amount: 0, per_hit_amount: 0 };
@@ -80,7 +80,7 @@ export function buildGenericAbilityDefinitions() {
       { id: "attack", kind: "ACTION", execution_class: "ACTION", state: "PENDING", dependency_mode: "ALL_OF", dependencies: [{ node_id: "branch", when: "ON_SUCCESS" }], conditions: [], failure_policy: "CONTINUE", fallback_node_ids: [], completion_rule: "RESOLVED", action: strategyAction(), primitive: null, condition: null, effects: { on_success: [], on_partial: [], on_failure: [], on_completion: [] } }
     ]
   };
-  const tactical = definition("tactical_opening", "Tactical Opening", [component("plan", "STRATEGY_FRAGMENT", { strategy: tacticalDag })]);
+  const tactical = definition("tactical_opening", "Tactical Opening", [component("plan", "STRATEGY_FRAGMENT", { strategy: tacticalDag })], { aliases: { en: ["Tactical Opening"], es: ["Tactical Opening", "apertura táctica", "apertura tactica"] } });
 
   const parameterized = definition("parameterized_blast", "Parameterized Blast", [component("blast", "ATTACK", { action: attack({
     power: op("ADD", c(40), op("MULTIPLY", ref("parameters.charge"), c(80))),

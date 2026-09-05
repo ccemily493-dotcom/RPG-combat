@@ -25,6 +25,8 @@ import {
 import { clone, loadFixture, loadScenarioFixture, loadSessionScenarioFixture } from "./helpers.js";
 import { AbilityCompilationCache, compileAbilityDefinition, compileAbilityRegistry, evaluateExpression, instantiateAbilityUse, validateAbilityDefinition, validateCompiledAbility, validateExpression } from "../src/ability-parser/index.js";
 import { buildGenericAbilityDefinitions } from "../src/ability-parser/fixtures.js";
+import { CandidateLearningStore, DeterministicMockFallbackProvider, SemanticParseCache, compileSemanticDictionary, compileSemanticIntent, loadSemanticConfig, parseSemanticInput, validateSemanticIntent } from "../src/semantic-input/index.js";
+import { buildSemanticActionTemplates, buildSemanticDictionaryEntries, semanticEntities } from "../src/semantic-input/fixtures.js";
 
 const { engine, fixture } = await loadFixture();
 const { scenarios } = await loadScenarioFixture();
@@ -37,6 +39,10 @@ const abilityContext = { rulesetVersion: engine.config.version, stats: Object.ke
 const abilityRegistry = compileAbilityRegistry(abilityDefinitions, abilityContext);
 const abilityUse = (id, parameters = {}) => ({ ability_id: id, actor_id: "a", targets: [{ type: "character", ref: "b", position: null, body_zone: "core" }], parameters, declared_options: { turn: 0 } });
 const instantiateAbility = (id, parameters = {}) => instantiateAbilityUse(abilityRegistry.get(id), abilityUse(id, parameters), { characters: scenarios.A.characters, world: scenarios.A.world });
+const semanticConfig = await loadSemanticConfig();
+const semanticDictionary = compileSemanticDictionary(buildSemanticDictionaryEntries(abilityRegistry), { locale: "es" });
+const semanticContext = { actorId: "a", locale: "es", entities: semanticEntities(), defaultTargets: ["b"], focus: ["b"], abilityRegistry, world: scenarios.A.world, characters: scenarios.A.characters, actionTemplates: buildSemanticActionTemplates(scenarios.A.actions[0]), distances: { b: 2, c: 4 } };
+const semanticParse = (text, extra = {}) => parseSemanticInput(text, { dictionary: semanticDictionary, config: semanticConfig, locale: "es", context: { ...semanticContext, ...extra } });
 
 function resolve() {
   return engine.resolveEncounter(clone(fixture));
@@ -137,6 +143,67 @@ const checks = {
     const produced = engine.resolveTurn({ ...clone(scenarios.A), id: "inv088", actions: [generated], reactions: [], seed: "inv088" });
     assert.equal(direct.resultHash, produced.resultHash);
   },
+  "INV-089": async () => {
+    for (const file of sourceFiles) assert.doesNotMatch(await readFile(join(engine.config.specDir, "src", file), "utf8"), /from\s+["'][^"']*semantic-input/i, file);
+  },
+  "INV-090": async () => {
+    const directory = join(engine.config.specDir, "src", "ability-parser");
+    for (const file of (await readdir(directory)).filter((name) => name.endsWith(".js"))) assert.doesNotMatch(await readFile(join(directory, file), "utf8"), /semantic-input/i, file);
+  },
+  "INV-091": async () => {
+    const directory = join(engine.config.specDir, "src", "semantic-input");
+    for (const file of (await readdir(directory, { recursive: true })).filter((name) => name.endsWith(".js"))) {
+      const value = await readFile(join(directory, file), "utf8");
+      assert.doesNotMatch(value, /resolve(?:Turn|Encounter|Session)\s*\(|eval\s*\(|new\s+Function|child_process/);
+    }
+  },
+  "INV-092": () => {
+    const invalid = { ...(abilityUse("core.example.heavy_strike")), final_damage: 9 };
+    assert.throws(() => validateSemanticIntent(invalid, semanticContext));
+  },
+  "INV-093": async () => {
+    const provider = new DeterministicMockFallbackProvider("unused", () => ({}));
+    const result = await parseSemanticInput("le pego", { dictionary: semanticDictionary, config: semanticConfig, locale: "es", context: semanticContext, fallbackProvider: provider });
+    assert.equal(result.status, "RESOLVED"); assert.equal(provider.calls, 0);
+  },
+  "INV-094": async () => {
+    const provider = new DeterministicMockFallbackProvider("valid", () => ({ intent_type: "ACTION", action: { type: "ATTACK", subtype: "PUNCH", targets: [{ entity_id: "b", source_span: null }], target_zone: null, direction: null, distance: null, intensity: null, quantity: 1, object_ref: null, execution_class: "ACTION", primitive: null }, confidence: { intent_type: 0.8 } }));
+    assert.equal((await parseSemanticInput("unknown colloquial", { dictionary: semanticDictionary, config: semanticConfig, locale: "es", context: semanticContext, fallbackProvider: provider })).status, "RESOLVED");
+  },
+  "INV-095": async () => {
+    const provider = new DeterministicMockFallbackProvider("invalid", () => ({ intent_type: "ACTION", final_damage: 90 }));
+    assert.equal((await parseSemanticInput("unknown invalid", { dictionary: semanticDictionary, config: semanticConfig, locale: "es", context: semanticContext, fallbackProvider: provider })).status, "REJECTED");
+  },
+  "INV-096": () => assert.equal(compileSemanticDictionary(buildSemanticDictionaryEntries(abilityRegistry), { locale: "es" }).hash, semanticDictionary.hash),
+  "INV-097": () => {
+    const base = { entry_id: "test.low", locale: "es", namespace: "LOCALE", version: "1", surface_forms: ["x"], canonical_type: "ATTACK", canonical_subtype: null, ability_id: null, tags: [], priority: 0, constraints: {}, examples: [], source: "test" };
+    const high = { ...base, entry_id: "test.high", namespace: "SESSION", canonical_type: "BLOCK" };
+    assert.equal(compileSemanticDictionary([base, high], { locale: "es" }).match("x")[0].canonical_type, "BLOCK");
+    assert.equal(compileSemanticDictionary([high, base], { locale: "es" }).match("x")[0].canonical_type, "BLOCK");
+  },
+  "INV-098": () => {
+    const values = buildSemanticDictionaryEntries(abilityRegistry); assert.equal(compileSemanticDictionary(values, { locale: "es" }).hash, compileSemanticDictionary([...values].reverse(), { locale: "es" }).hash);
+  },
+  "INV-099": async () => assert.deepEqual((await semanticParse("le pego")).intent.action, (await semanticParse("le pego")).intent.action),
+  "INV-100": async () => {
+    const cache = new SemanticParseCache(); const cold = await parseSemanticInput("le pego", { dictionary: semanticDictionary, config: semanticConfig, locale: "es", context: semanticContext, cache }); const warm = await parseSemanticInput("le pego", { dictionary: semanticDictionary, config: semanticConfig, locale: "es", context: semanticContext, cache }); assert.deepEqual(cold.intent.action, warm.intent.action);
+  },
+  "INV-101": async () => {
+    const cache = new SemanticParseCache(); await parseSemanticInput("le pego", { dictionary: semanticDictionary, config: semanticConfig, locale: "es", context: semanticContext, cache }); await parseSemanticInput("le pego", { dictionary: semanticDictionary, config: semanticConfig, locale: "es", context: { ...semanticContext, focus: ["c"], defaultTargets: [] }, cache }); assert.equal(cache.stats().context_size, 2);
+  },
+  "INV-102": async () => assert.equal((await semanticParse("ataco al enemigo", { focus: [], defaultTargets: [] })).status, "NEEDS_DISAMBIGUATION"),
+  "INV-103": async () => assert.equal((await semanticParse("ataco al mejor objetivo", { focus: [], defaultTargets: [] })).status, "NEEDS_DISAMBIGUATION"),
+  "INV-104": () => { const store = new CandidateLearningStore(); store.record({ phrase: "x", locale: "es", proposed_mapping: { type: "ATTACK" }, fallback_source: "mock", confidence: 0.8 }); assert.equal(store.snapshot()[0].promoted, false); assert.throws(() => store.promote()); },
+  "INV-105": async () => assert.equal((await semanticParse("uso Divine Thunder Dragon", { focus: [], defaultTargets: [] })).status, "UNRESOLVED"),
+  "INV-106": async () => {
+    const rule = await semanticParse("le pego"); const fallback = clone(rule.intent); fallback.original_text = "unknown"; fallback.normalized_text = "unknown"; fallback.provenance.parser_path = "FALLBACK"; fallback.provenance.fallback_provider_id = "mock"; assert.deepEqual(compileSemanticIntent(rule.intent, semanticContext).actions, compileSemanticIntent(fallback, semanticContext).actions);
+  },
+  "INV-107": async () => {
+    const action = compileSemanticIntent((await semanticParse("le pego")).intent, semanticContext).actions[0]; const left = engine.resolveTurn({ ...clone(scenarios.A), actions: [action], reactions: [], trace: false, seed: "semantic-invariant" }); const right = engine.resolveTurn({ ...clone(scenarios.A), actions: [clone(action)], reactions: [], trace: false, seed: "semantic-invariant" }); assert.equal(left.resultHash, right.resultHash);
+  },
+  "INV-108": async () => { const intent = (await semanticParse("le pego")).intent; assert.deepEqual(compileSemanticIntent(intent, semanticContext).actions, compileSemanticIntent(clone(intent), semanticContext).actions); },
+  "INV-109": async () => { const result = await semanticParse("ataco a B"); assert.ok(result.normalization.tokens.every((token) => token.end >= token.start)); assert.doesNotThrow(() => validateSemanticIntent(result.intent, semanticContext)); },
+  "INV-110": async () => { const directory = join(engine.config.specDir, "src", "semantic-input"); const genericFiles = ["resolver.js", "rule-parser.js", "dictionary.js", "compiler.js", "taxonomy.js"]; for (const file of genericFiles) assert.doesNotMatch(await readFile(join(directory, file), "utf8"), /Nen|Chakra|Hatsu|Jutsu|Domain Expansion|cursed energy/i); },
   "INV-054": () => {
     // Zero-time limit: exceed max_zero_time_transitions_per_step
     const config = engine.config;

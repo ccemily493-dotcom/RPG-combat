@@ -1,6 +1,6 @@
 {
   "version": "0.3",
-  "generatedAt": "2026-09-05T13:06:51.491Z",
+  "generatedAt": "2026-09-05T13:59:15.066Z",
   "profileFixtureCount": 48,
   "statisticalEncounterCount": 21440,
   "neutralControls": [
@@ -258,52 +258,52 @@
   "performance": {
     "noTrace": {
       "iterations": 300,
-      "elapsedMs": 251.6869000000188,
-      "operationsPerSecond": 1191.9571499350088,
+      "elapsedMs": 261.9265000000087,
+      "operationsPerSecond": 1145.3594806176163,
       "latencyMs": {
         "count": 300,
-        "minimum": 0.7455000000009022,
-        "maximum": 2.81420000000071,
-        "mean": 0.838956333333396,
-        "median": 0.7851000000009662,
-        "p05": 0.753295000000253,
-        "p95": 1.0854900000009369,
-        "standardDeviation": 0.21230397608125542
+        "minimum": 0.7568000000028405,
+        "maximum": 4.844499999999243,
+        "mean": 0.8730883333333622,
+        "median": 0.7987000000011903,
+        "p05": 0.7616949999992357,
+        "p95": 1.1113599999993315,
+        "standardDeviation": 0.3401242983046323
       }
     },
     "withTrace": {
       "iterations": 300,
-      "elapsedMs": 251.71010000000388,
-      "operationsPerSecond": 1191.8472878124294,
+      "elapsedMs": 257.9662000000062,
+      "operationsPerSecond": 1162.943052229295,
       "latencyMs": {
         "count": 300,
-        "minimum": 0.7445000000006985,
-        "maximum": 3.0383999999976368,
-        "mean": 0.8390336666666796,
-        "median": 0.7868500000004133,
-        "p05": 0.7528999999994994,
-        "p95": 1.0792950000004566,
-        "standardDeviation": 0.20465220814798635
+        "minimum": 0.7485000000015134,
+        "maximum": 2.91189999999915,
+        "mean": 0.859887333333354,
+        "median": 0.7968999999993684,
+        "p05": 0.7615199999980178,
+        "p95": 1.1594400000007228,
+        "standardDeviation": 0.2161266654215583
       }
     },
     "schemaValidation": {
       "iterations": 300,
-      "elapsedMs": 7.670000000001892,
-      "operationsPerSecond": 39113.42894392777,
+      "elapsedMs": 7.818299999998999,
+      "operationsPerSecond": 38371.51298876206,
       "latencyMs": {
         "count": 300,
-        "minimum": 0.02019999999902211,
-        "maximum": 0.33140000000275904,
-        "mean": 0.025273666666629044,
-        "median": 0.0239000000001397,
-        "p05": 0.020400000001245644,
-        "p95": 0.030014999998820718,
-        "standardDeviation": 0.018248315170492996
+        "minimum": 0.019799999998213025,
+        "maximum": 0.32510000000183936,
+        "mean": 0.025732333333423108,
+        "median": 0.024099999998725252,
+        "p05": 0.020194999999148422,
+        "p95": 0.031005000002369346,
+        "standardDeviation": 0.017943120907268295
       }
     },
-    "tracingMedianOverheadMs": 0.0017499999994470272,
-    "tracingObservedMedianDeltaMs": 0.0017499999994470272,
-    "schemaMedianShareOfResolution": 0.030441981913272555,
+    "tracingMedianOverheadMs": 0,
+    "tracingObservedMedianDeltaMs": -0.0018000000018218998,
+    "schemaMedianShareOfResolution": 0.030174032801664374,
     "note": "Trace-on and trace-off samples are alternated with identical seeds. The engine always constructs the canonical mechanical audit needed for replay; trace=false suppresses return payload only. A negative observed delta is measurement noise and is reported as zero overhead."
   },
   "recommendations": [

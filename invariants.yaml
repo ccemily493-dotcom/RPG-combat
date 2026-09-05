@@ -318,6 +318,72 @@ invariants:
   - id: INV-088
     rule: "Identical normalized actions resolve identically whether authored manually or instantiated by Ability Parser."
     enforcement: mechanical_equivalence_test
+  - id: INV-089
+    rule: "The RPG Engine imports zero Semantic Input modules."
+    enforcement: semantic_dependency_lint
+  - id: INV-090
+    rule: "The Ability Parser imports zero Semantic Input modules."
+    enforcement: semantic_dependency_lint
+  - id: INV-091
+    rule: "Semantic Input invokes no mechanical outcome resolver and executes no arbitrary code."
+    enforcement: semantic_authority_lint
+  - id: INV-092
+    rule: "Semantic intents cannot contain final damage, hit, defense, status-application, resource, or strategy outcomes."
+    enforcement: semantic_outcome_boundary_test
+  - id: INV-093
+    rule: "A high-confidence rule parse never invokes the optional fallback provider."
+    enforcement: semantic_fast_path_test
+  - id: INV-094
+    rule: "Every fallback candidate passes schema, authority, entity, and registry validation before downstream compilation."
+    enforcement: fallback_validation_test
+  - id: INV-095
+    rule: "Invalid fallback data cannot reach the Ability Parser or RPG Engine."
+    enforcement: fallback_rejection_test
+  - id: INV-096
+    rule: "Semantic dictionary compilation and lookup are deterministic."
+    enforcement: dictionary_determinism_test
+  - id: INV-097
+    rule: "Dictionary namespace precedence is explicit, deterministic, and independent of file load order."
+    enforcement: dictionary_precedence_test
+  - id: INV-098
+    rule: "Synonym declaration ordering cannot change canonical semantic candidates."
+    enforcement: synonym_order_test
+  - id: INV-099
+    rule: "Identical normalized text and context produce the same semantic intent mechanics."
+    enforcement: semantic_determinism_test
+  - id: INV-100
+    rule: "Cached and uncached semantic parsing are mechanically equivalent."
+    enforcement: semantic_cache_test
+  - id: INV-101
+    rule: "Dictionary, ability-registry, and entity-context hash changes invalidate incompatible semantic cache entries."
+    enforcement: semantic_cache_invalidation_test
+  - id: INV-102
+    rule: "Ambiguous entity references are returned for disambiguation and never silently selected."
+    enforcement: semantic_ambiguity_test
+  - id: INV-103
+    rule: "Semantic Input never chooses a tactically best target for the player."
+    enforcement: semantic_target_authority_test
+  - id: INV-104
+    rule: "Learned semantic candidates are never promoted into canonical dictionaries automatically."
+    enforcement: candidate_learning_test
+  - id: INV-105
+    rule: "Descriptive ability names have no mechanics without an explicit registered alias and compiled ability."
+    enforcement: semantic_ability_reference_test
+  - id: INV-106
+    rule: "Rule-generated and fallback-generated identical SemanticIntent data compile to identical normalized mechanics."
+    enforcement: semantic_path_equivalence_test
+  - id: INV-107
+    rule: "Manually authored and semantically generated identical normalized actions resolve identically."
+    enforcement: semantic_mechanical_equivalence_test
+  - id: INV-108
+    rule: "Semantic trace and diagnostic inspection cannot change normalized intent or compiled mechanics."
+    enforcement: semantic_observability_test
+  - id: INV-109
+    rule: "Semantic schemas validate before compilation and preserve source-span data for structured errors and UI highlighting."
+    enforcement: semantic_schema_span_test
+  - id: INV-110
+    rule: "Spanish, English, extension, and ability vocabulary remain data packages; no franchise vocabulary is built into the universal parser."
+    enforcement: semantic_locale_boundary_test
 required_property_tests:
   stat_closure:
     samples:

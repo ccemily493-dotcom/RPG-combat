@@ -1,0 +1,52 @@
+spec_version: "0.5"
+document: semantic_input_layer
+status: provisional
+
+locales:
+  supported: [es, en]
+  default: es
+
+authority:
+  determines_structured_intent: true
+  determines_mechanical_outcomes: false
+  mutates_engine_state: false
+  core_imports_semantic_input: false
+  ability_parser_imports_semantic_input: false
+  arbitrary_code_forbidden: true
+
+thresholds:
+  direct_accept: { value: 0.90, tunable: true }
+  accept_with_missing_optional_fields: { value: 0.80, tunable: true }
+  fallback_required: { value: 0.65, tunable: true }
+
+dictionary_precedence:
+  SESSION: { value: 600, tunable: false, reason: "explicit session vocabulary has highest semantic precedence" }
+  EXTENSION: { value: 500, tunable: false, reason: "loaded extension vocabulary precedes generic vocabulary" }
+  CHARACTER: { value: 400, tunable: false, reason: "character-scoped aliases precede ability and locale aliases" }
+  ABILITY: { value: 300, tunable: false, reason: "registered ability aliases precede locale core vocabulary" }
+  LOCALE: { value: 200, tunable: false, reason: "locale core vocabulary precedes universal fallback" }
+  UNIVERSAL: { value: 100, tunable: false, reason: "universal fallback is lowest precedence" }
+
+confidence_evidence:
+  exact_dictionary: { value: 0.99, tunable: true }
+  normalized_dictionary: { value: 0.95, tunable: true }
+  rule_pattern: { value: 0.90, tunable: true }
+  unique_entity: { value: 0.95, tunable: true }
+  contextual_pronoun: { value: 0.88, tunable: true }
+  ability_alias: { value: 0.99, tunable: true }
+  ambiguous_penalty: { value: 0.30, tunable: true }
+  fallback_candidate: { value: 0.75, tunable: true }
+
+limits:
+  maximum_input_characters: { value: 4096, tunable: true }
+  maximum_sequence_steps: { value: 16, tunable: true }
+  maximum_candidates_per_field: { value: 32, tunable: true }
+
+cache:
+  phrase_cache_enabled: true
+  context_cache_enabled: true
+  stale_hashes_invalidate: true
+
+learning:
+  automatic_promotion: false
+  retained_context_examples: { value: 5, tunable: true }

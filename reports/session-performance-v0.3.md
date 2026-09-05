@@ -4,22 +4,22 @@ Node v24.19.0; 40 measured runs after 5 warmups.
 
 | Case | Median total (ms) | p95 total (ms) | Median/turn (ms) | Turns/s | Heap delta (bytes) |
 |---|---:|---:|---:|---:|---:|
-| v0.2 single-hit turn | 5.188 | 6.913 | 5.188 | 192.8 | 3252384 |
-| v0.2 empty-turn control | 2.279 | 3.055 | 2.279 | 438.8 | 2650024 |
-| 5-turn session, no strategy | 15.543 | 17.788 | 3.109 | 321.7 | 7965688 |
-| 5-turn linear Strategy DAG | 19.061 | 23.494 | 3.812 | 262.3 | 13545320 |
-| branching Strategy DAG | 9.007 | 10.406 | 4.504 | 222.0 | 20210752 |
-| multiple simultaneous strategies | 5.040 | 8.082 | 5.040 | 198.4 | 13733672 |
-| 20-turn session | 61.857 | 69.151 | 3.093 | 323.3 | 12449568 |
-| persistent modifiers | 19.849 | 20.978 | 6.616 | 151.1 | -13490928 |
-| delayed effects | 12.180 | 14.426 | 6.090 | 164.2 | 33104096 |
-| 5-turn Strategy DAG with trace | 17.409 | 20.543 | 3.482 | 287.2 | -50823880 |
+| v0.2 single-hit turn | 5.434 | 8.496 | 5.434 | 184.0 | -12539520 |
+| v0.2 empty-turn control | 2.195 | 2.969 | 2.195 | 455.6 | -12815136 |
+| 5-turn session, no strategy | 15.563 | 16.847 | 3.113 | 321.3 | -3299952 |
+| 5-turn linear Strategy DAG | 17.893 | 20.676 | 3.579 | 279.4 | 21078512 |
+| branching Strategy DAG | 7.768 | 8.694 | 3.884 | 257.5 | 24682248 |
+| multiple simultaneous strategies | 3.842 | 4.762 | 3.842 | 260.3 | 15238424 |
+| 20-turn session | 61.197 | 69.110 | 3.060 | 326.8 | 7815528 |
+| persistent modifiers | 20.425 | 24.489 | 6.808 | 146.9 | -6053928 |
+| delayed effects | 12.397 | 14.689 | 6.198 | 161.3 | 37922512 |
+| 5-turn Strategy DAG with trace | 17.813 | 22.296 | 3.563 | 280.7 | 29803912 |
 
 ## Measured overhead
 
-- Scheduler + temporal state: 0.830 ms/turn (36.4%).
-- Strategy DAG over no-strategy session: 0.704 ms/turn (22.6%).
-- Strategy trace: -0.330 ms/turn (-8.7%).
+- Scheduler + temporal state: 0.918 ms/turn (41.8%).
+- Strategy DAG over no-strategy session: 0.466 ms/turn (15.0%).
+- Strategy trace: -0.016 ms/turn (-0.4%).
 
 Heap deltas are coarse samples of the managed heap, not retained-memory measurements; garbage collection may make them negative.
 

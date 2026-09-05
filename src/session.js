@@ -14,6 +14,7 @@ import {
 import {
   beginStrategyStep,
   completeStrategyStep,
+  normalizeStrategyDag,
   strategyDiagnostics,
   strategyEffects,
   validateStrategyDag
@@ -32,6 +33,10 @@ function validateSessionSnapshot(engine, snapshot) {
     ids.add(strategy.strategy_id);
     validateStrategyDag(strategy, snapshot.characters, engine.config);
   }
+}
+
+function normalizeWorkingStrategies(strategies, config) {
+  for (const strategy of strategies) normalizeStrategyDag(strategy, config);
 }
 
 function preparedStrategyActions(bindings, turn) {
@@ -78,6 +83,7 @@ export function resolveSessionStep(engine, input) {
   const working = started.snapshot;
   working.strategies.sort((left, right) => left.strategy_id.localeCompare(right.strategy_id));
   for (const strategy of working.strategies) strategy.nodes.sort((left, right) => left.id.localeCompare(right.id));
+  normalizeWorkingStrategies(working.strategies, engine.config);
   const temporalEvents = [...started.events];
   const strategyStart = beginStrategyStep(engine.config, { ...working, declarations, seed: String(input.seed) }, working.strategies);
   const strategyActions = preparedStrategyActions(strategyStart.actionBindings, working.world.turn);

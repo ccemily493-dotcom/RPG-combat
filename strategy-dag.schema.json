@@ -4,56 +4,366 @@
   "title": "Universal RPG Strategy DAG v0.3",
   "type": "object",
   "additionalProperties": false,
-  "required": ["strategy_id", "owner", "state", "nodes", "metadata"],
+  "required": [
+    "strategy_id",
+    "owner",
+    "state",
+    "nodes",
+    "metadata"
+  ],
   "properties": {
-    "strategy_id": { "type": "string", "minLength": 1 },
-    "owner": { "type": "string", "minLength": 1 },
-    "state": { "enum": ["ACTIVE", "SUCCEEDED", "FAILED", "CANCELLED", "EXPIRED"] },
-    "nodes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/node" } },
-    "metadata": { "type": "object", "additionalProperties": true }
+    "strategy_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state": {
+      "enum": [
+        "ACTIVE",
+        "SUCCEEDED",
+        "FAILED",
+        "CANCELLED",
+        "EXPIRED",
+        "COMPLETED"
+      ]
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "goals": {
+      "type": "object",
+      "properties": {
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "optional": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "completion_policy": {
+      "type": "string"
+    }
   },
   "$defs": {
     "dependency": {
-      "type": "object", "additionalProperties": false, "required": ["node_id", "when"],
-      "properties": { "node_id": { "type": "string" }, "when": { "enum": ["ON_SUCCESS", "ON_FAILURE", "ON_COMPLETION"] } }
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "node_id",
+        "when"
+      ],
+      "properties": {
+        "node_id": {
+          "type": "string"
+        },
+        "when": {
+          "enum": [
+            "ON_SUCCESS",
+            "ON_FAILURE",
+            "ON_COMPLETION",
+            "ON_PARTIAL",
+            "ON_PARTIAL_OR_BETTER"
+          ]
+        }
+      }
     },
     "primitive": {
-      "type": "object", "additionalProperties": false, "required": ["id", "actor_ref", "target_ref"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "actor_ref",
+        "target_ref"
+      ],
       "properties": {
-        "id": { "enum": ["FEINT", "DISTRACTION", "AMBUSH", "FLANK", "BLIND_SPOT", "BAIT", "TRAP", "COVER", "REPOSITION", "INTERRUPT_SETUP", "COUNTER_SETUP", "ISOLATE", "RESOURCE_DENIAL", "AREA_DENIAL", "ESCAPE_SETUP"] },
-        "actor_ref": { "type": "string" }, "target_ref": { "type": ["string", "null"] }, "attention_channel": { "type": ["string", "null"] },
-        "actor_adjustment": { "type": "number" }, "opposition_adjustment": { "type": "number" }
+        "id": {
+          "enum": [
+            "FEINT",
+            "DISTRACTION",
+            "AMBUSH",
+            "FLANK",
+            "BLIND_SPOT",
+            "BAIT",
+            "TRAP",
+            "COVER",
+            "REPOSITION",
+            "INTERRUPT_SETUP",
+            "COUNTER_SETUP",
+            "ISOLATE",
+            "RESOURCE_DENIAL",
+            "AREA_DENIAL",
+            "ESCAPE_SETUP"
+          ]
+        },
+        "actor_ref": {
+          "type": "string"
+        },
+        "target_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "attention_channel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "actor_adjustment": {
+          "type": "number"
+        },
+        "opposition_adjustment": {
+          "type": "number"
+        }
       }
     },
     "node": {
-      "type": "object", "additionalProperties": false,
-      "required": ["id", "kind", "state", "dependency_mode", "dependencies", "conditions", "failure_policy", "fallback_node_ids", "completion_rule", "effects"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "state",
+        "dependency_mode",
+        "dependencies",
+        "conditions",
+        "failure_policy",
+        "fallback_node_ids",
+        "completion_rule",
+        "effects"
+      ],
       "properties": {
-        "id": { "type": "string", "minLength": 1 },
-        "kind": { "enum": ["ACTION", "PRIMITIVE", "CONDITION", "STATE_TRANSITION"] },
-        "state": { "enum": ["PENDING", "AVAILABLE", "RESERVED", "RESOLVING", "SUCCEEDED", "FAILED", "SKIPPED", "CANCELLED", "BLOCKED", "EXPIRED"] },
-        "dependency_mode": { "enum": ["ALL_OF", "ANY_OF"] },
-        "dependencies": { "type": "array", "items": { "$ref": "#/$defs/dependency" } },
-        "conditions": { "type": "array", "items": { "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/predicate" } },
-        "failure_policy": { "enum": ["CONTINUE", "CANCEL_DEPENDENTS", "CANCEL_BRANCH", "CANCEL_STRATEGY", "ACTIVATE_FALLBACK"] },
-        "fallback_node_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
-        "completion_rule": { "enum": ["RESOLVED", "CONTACT", "NO_CONTACT", "CANCELLED", "CONDITION_TRUE"] },
-        "action": { "oneOf": [{ "$ref": "https://example.invalid/rpg/v0.3/action.schema.json" }, { "type": "null" }] },
-        "primitive": { "oneOf": [{ "$ref": "#/$defs/primitive" }, { "type": "null" }] },
-        "condition": { "oneOf": [{ "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/predicate" }, { "type": "null" }] },
-        "effects": {
-          "type": "object", "additionalProperties": false, "required": ["on_success", "on_failure", "on_completion"],
-          "properties": {
-            "on_success": { "type": "array", "items": { "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/effect" } },
-            "on_failure": { "type": "array", "items": { "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/effect" } },
-            "on_completion": { "type": "array", "items": { "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/effect" } }
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "ACTION",
+            "PRIMITIVE",
+            "CONDITION",
+            "STATE_TRANSITION"
+          ]
+        },
+        "state": {
+          "enum": [
+            "PENDING",
+            "AVAILABLE",
+            "RESERVED",
+            "RESOLVING",
+            "SUCCEEDED",
+            "FAILED",
+            "SKIPPED",
+            "CANCELLED",
+            "BLOCKED",
+            "EXPIRED"
+          ]
+        },
+        "dependency_mode": {
+          "enum": [
+            "ALL_OF",
+            "ANY_OF"
+          ]
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dependency"
           }
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/predicate"
+          }
+        },
+        "failure_policy": {
+          "enum": [
+            "CONTINUE",
+            "CANCEL_DEPENDENTS",
+            "CANCEL_BRANCH",
+            "CANCEL_STRATEGY",
+            "ACTIVATE_FALLBACK"
+          ]
+        },
+        "fallback_node_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "completion_rule": {
+          "enum": [
+            "RESOLVED",
+            "CONTACT",
+            "NO_CONTACT",
+            "CANCELLED",
+            "CONDITION_TRUE"
+          ]
+        },
+        "action": {
+          "oneOf": [
+            {
+              "$ref": "https://example.invalid/rpg/v0.3/action.schema.json"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "primitive": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/primitive"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "condition": {
+          "oneOf": [
+            {
+              "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/predicate"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "effects": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "on_success",
+            "on_failure",
+            "on_completion"
+          ],
+          "properties": {
+            "on_success": {
+              "type": "array",
+              "items": {
+                "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/effect"
+              }
+            },
+            "on_failure": {
+              "type": "array",
+              "items": {
+                "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/effect"
+              }
+            },
+            "on_completion": {
+              "type": "array",
+              "items": {
+                "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/effect"
+              }
+            }
+          }
+        },
+        "execution_class": {
+          "type": "string",
+          "enum": [
+            "ZERO_TIME",
+            "ACTION",
+            "REACTION",
+            "MOVEMENT",
+            "PASSIVE"
+          ]
+        },
+        "completion_policy": {
+          "type": "string"
+        },
+        "result_band": {
+          "type": "string"
         }
       },
       "allOf": [
-        { "if": { "properties": { "kind": { "const": "ACTION" } }, "required": ["kind"] }, "then": { "properties": { "action": { "$ref": "https://example.invalid/rpg/v0.3/action.schema.json" } }, "required": ["action"] } },
-        { "if": { "properties": { "kind": { "const": "PRIMITIVE" } }, "required": ["kind"] }, "then": { "properties": { "primitive": { "$ref": "#/$defs/primitive" } }, "required": ["primitive"] } },
-        { "if": { "properties": { "kind": { "const": "CONDITION" } }, "required": ["kind"] }, "then": { "properties": { "condition": { "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/predicate" } }, "required": ["condition"] } }
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "ACTION"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "action": {
+                "$ref": "https://example.invalid/rpg/v0.3/action.schema.json"
+              }
+            },
+            "required": [
+              "action"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "PRIMITIVE"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primitive": {
+                "$ref": "#/$defs/primitive"
+              }
+            },
+            "required": [
+              "primitive"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "CONDITION"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "condition": {
+                "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/predicate"
+              }
+            },
+            "required": [
+              "condition"
+            ]
+          }
+        }
       ]
     }
   }

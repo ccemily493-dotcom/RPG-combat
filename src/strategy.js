@@ -11,6 +11,35 @@ function nodeMap(strategy) {
   return new Map(strategy.nodes.map((node) => [node.id, node]));
 }
 
+/**
+ * Fill in execution_class, completion_policy, and goals defaults on a strategy DAG.
+ * Must be called before schema validation and before the scheduler sees the DAG.
+ * Idempotent: existing explicit values are preserved.
+ */
+export function normalizeStrategyDag(strategy, config) {
+  if (!strategy.completion_policy) strategy.completion_policy = "ALL_TERMINAL";
+  if (!strategy.goals) strategy.goals = { required: [], optional: [] };
+  for (const node of strategy.nodes) {
+    if (!node.execution_class) {
+      if (node.kind === "CONDITION" || node.kind === "STATE_TRANSITION") {
+        node.execution_class = "ZERO_TIME";
+      } else if (node.kind === "ACTION") {
+        node.execution_class = "ACTION";
+      } else if (node.kind === "PRIMITIVE") {
+        // Opposed contests and action-backed primitives consume action economy; others are zero-time
+        const primitives = config?.specs?.["strategy.yaml"]?.primitive_resolution;
+        if (primitives && (primitives.opposed_contests[node.primitive?.id] || primitives.action_backed[node.primitive?.id])) {
+          node.execution_class = "ACTION";
+        } else {
+          node.execution_class = "ZERO_TIME";
+        }
+      } else {
+        node.execution_class = "PASSIVE";
+      }
+    }
+  }
+}
+
 export function validateStrategyDag(strategy, characters, config) {
   const map = nodeMap(strategy);
   if (map.size !== strategy.nodes.length) throw new ValidationError(`Strategy ${strategy.strategy_id} has duplicate node ids.`);
@@ -76,8 +105,18 @@ function reserveVirtualAction(action, characters) {
 }
 
 function dependencyMatches(dependency, predecessor) {
-  if (dependency.when === "ON_SUCCESS") return predecessor.state === "SUCCEEDED";
+  if (dependency.when === "ON_SUCCESS") {
+    // Strict: SUCCEEDED and result_band is not "partial". For action nodes, result_band is undefined → passes.
+    return predecessor.state === "SUCCEEDED" && predecessor.result_band !== "partial";
+  }
+  if (dependency.when === "ON_PARTIAL") {
+    return predecessor.state === "SUCCEEDED" && predecessor.result_band === "partial";
+  }
+  if (dependency.when === "ON_PARTIAL_OR_BETTER") {
+    return predecessor.state === "SUCCEEDED";
+  }
   if (dependency.when === "ON_FAILURE") return predecessor.state === "FAILED";
+  // ON_COMPLETION: any terminal state
   return TERMINAL.has(predecessor.state);
 }
 
@@ -114,6 +153,11 @@ export function scheduleStrategyNodes(strategies, context) {
         records.push({ strategyId: strategy.strategy_id, nodeId: node.id, eligible: false, reason: "terminal_or_active", state: node.state, dependencies: [] });
         continue;
       }
+      // PASSIVE nodes never execute via the scheduler's initiative
+      if (node.execution_class === "PASSIVE") {
+        records.push({ strategyId: strategy.strategy_id, nodeId: node.id, eligible: false, reason: "passive_trigger_driven", state: node.state, dependencies: [] });
+        continue;
+      }
       const dependencies = dependencyEligibility(node, map);
       if (dependencies.impossible) {
         node.state = "BLOCKED";
@@ -131,13 +175,16 @@ export function scheduleStrategyNodes(strategies, context) {
         records.push({ strategyId: strategy.strategy_id, nodeId: node.id, eligible: false, reason: "conditions_false", state: node.state, dependencies: dependencies.evaluations, conditions });
         continue;
       }
-      const availability = actionAvailability(node.action, { ...context, characters: availabilityCharacters });
-      if (!availability.available) {
-        node.state = "PENDING";
-        records.push({ strategyId: strategy.strategy_id, nodeId: node.id, eligible: false, reason: availability.reason, state: node.state, dependencies: dependencies.evaluations, conditions });
-        continue;
+      // Economy check only for non-ZERO_TIME nodes
+      if (node.execution_class !== "ZERO_TIME") {
+        const availability = actionAvailability(node.action, { ...context, characters: availabilityCharacters });
+        if (!availability.available) {
+          node.state = "PENDING";
+          records.push({ strategyId: strategy.strategy_id, nodeId: node.id, eligible: false, reason: availability.reason, state: node.state, dependencies: dependencies.evaluations, conditions });
+          continue;
+        }
+        if (node.action) reserveVirtualAction(node.action, availabilityCharacters);
       }
-      if (node.action) reserveVirtualAction(node.action, availabilityCharacters);
       node.state = "AVAILABLE";
       executable.push({ strategy, node });
       records.push({ strategyId: strategy.strategy_id, nodeId: node.id, eligible: true, reason: "ready", state: node.state, dependencies: dependencies.evaluations, conditions });
@@ -210,25 +257,60 @@ function resolveImmediateNode(config, snapshot, strategy, node) {
 }
 
 export function beginStrategyStep(config, schedulerSnapshot, strategies) {
+  const maxZeroTime = config.specs["strategy.yaml"].dag_execution?.strategy_scheduler?.max_zero_time_transitions_per_step?.value ?? 64;
   const context = { ...schedulerSnapshot, temporal_state: schedulerSnapshot.temporal_state };
-  const scheduled = scheduleStrategyNodes(strategies, context);
-  const immediateResults = [];
+  const allImmediateResults = [];
   const actionBindings = [];
-  for (const item of scheduled.executable) {
-    const { strategy, node } = item;
-    const actionBacked = node.kind === "ACTION"
-      || (node.kind === "PRIMITIVE" && config.specs["strategy.yaml"].primitive_resolution.action_backed[node.primitive.id]);
-    if (actionBacked) {
-      if (!node.action) throw new ValidationError(`Action-backed strategy node ${node.id} requires a normalized action.`);
-      node.state = "RESERVED";
-      actionBindings.push({ strategyId: strategy.strategy_id, nodeId: node.id, action: deepClone(node.action) });
-    } else {
+  let zeroTimeCount = 0;
+
+  // Iterative ZERO_TIME chain: resolve zero-time nodes until none are eligible, then schedule economy nodes.
+  // This replaces the v0.3 "one dependency layer per step" rule.
+  for (;;) {
+    const scheduled = scheduleStrategyNodes(strategies, context);
+    const zeroTimeBatch = scheduled.executable.filter(({ node }) => node.execution_class === "ZERO_TIME");
+
+    if (zeroTimeBatch.length === 0) {
+      // No more ZERO_TIME nodes eligible — schedule economy-consuming nodes and return.
+      for (const { strategy, node } of scheduled.executable) {
+        if (node.execution_class === "PASSIVE") continue; // Passive nodes never execute by scheduler initiative
+        const actionBacked = node.kind === "ACTION"
+          || (node.kind === "PRIMITIVE" && config.specs["strategy.yaml"].primitive_resolution.action_backed[node.primitive?.id]);
+        if (actionBacked) {
+          if (!node.action) throw new ValidationError(`Action-backed strategy node ${node.id} requires a normalized action.`);
+          node.state = "RESERVED";
+          actionBindings.push({ strategyId: strategy.strategy_id, nodeId: node.id, action: deepClone(node.action) });
+        } else {
+          // Non-action-backed ACTION-class nodes (e.g. opposed-contest primitives like DISTRACTION):
+          // they consume action economy but resolve immediately (not through resolveTurn)
+          const result = resolveImmediateNode(config, schedulerSnapshot, strategy, node);
+          node.state = result.passed ? "SUCCEEDED" : "FAILED";
+          if (result.band !== undefined) node.result_band = result.band;
+          allImmediateResults.push({ ...result, state: node.state });
+        }
+      }
+      // Return eligibility records from BEFORE economy-node resolution.
+      // failure policies run in completeStrategyStep and will set CANCELLED on nodes
+      // that scheduleStrategyNodes would otherwise mark BLOCKED.
+      return { eligibility: scheduled.records, immediateResults: allImmediateResults, actionBindings };
+    }
+
+    // Resolve each eligible ZERO_TIME node in this pass
+    for (const { strategy, node } of zeroTimeBatch) {
+      if (zeroTimeCount >= maxZeroTime) {
+        throw new ValidationError(
+          `Strategy ${strategy.strategy_id}: zero-time transition limit (${maxZeroTime}) exceeded at node ${node.id}. ` +
+          "Adjust strategy_scheduler.max_zero_time_transitions_per_step in strategy.yaml to raise the limit."
+        );
+      }
       const result = resolveImmediateNode(config, schedulerSnapshot, strategy, node);
       node.state = result.passed ? "SUCCEEDED" : "FAILED";
-      immediateResults.push({ ...result, state: node.state });
+      // Store result_band on the node so dependencyMatches can read it
+      if (result.band !== undefined) node.result_band = result.band;
+      allImmediateResults.push({ ...result, state: node.state });
+      zeroTimeCount += 1;
     }
+    // Loop: re-run scheduleStrategyNodes to discover newly eligible ZERO_TIME nodes
   }
-  return { eligibility: scheduled.records, immediateResults, actionBindings };
 }
 
 function actionPassed(rule, result) {
@@ -296,13 +378,37 @@ export function completeStrategyStep(strategies, startResult, actionResults) {
     const actionResult = actions.get(binding.action.id);
     const passed = actionPassed(node.completion_rule, actionResult);
     node.state = passed ? "SUCCEEDED" : "FAILED";
+    // Action-backed nodes carry no result_band (they are binary pass/fail via completion_rule)
     results.push({ strategyId: strategy.strategy_id, nodeId: node.id, kind: node.kind, resolver: "resolveTurn", actionId: binding.action.id, actionOutcome: actionResult?.outcome ?? "missing", passed, band: passed ? "success" : "failure", state: node.state });
     transitions.push({ strategyId: strategy.strategy_id, nodeId: node.id, to: node.state, reason: `action_completion:${node.completion_rule}` });
   }
   for (const strategy of [...strategies].sort((a, b) => a.strategy_id.localeCompare(b.strategy_id))) {
     for (const node of [...strategy.nodes].filter((candidate) => candidate.state === "FAILED").sort((a, b) => a.id.localeCompare(b.id))) applyFailurePolicy(strategy, node, transitions);
     if (strategy.state === "ACTIVE" && strategy.nodes.every((node) => TERMINAL.has(node.state))) {
-      strategy.state = strategy.nodes.some((node) => node.state === "SUCCEEDED") ? "SUCCEEDED" : "FAILED";
+      // Evaluate completion_policy (default ALL_TERMINAL means all nodes terminal → COMPLETED)
+      const policy = strategy.completion_policy ?? "ALL_TERMINAL";
+      let succeeded;
+      if (policy === "REQUIRED_GOALS") {
+        const required = (strategy.goals?.required ?? []);
+        succeeded = required.length === 0
+          ? strategy.nodes.some((node) => node.state === "SUCCEEDED")
+          : required.every((goalId) => {
+              const goalNode = strategy.nodes.find((node) => node.id === goalId);
+              return goalNode && goalNode.state === "SUCCEEDED";
+            });
+      } else if (policy === "ANY_GOAL") {
+        const allGoals = [...(strategy.goals?.required ?? []), ...(strategy.goals?.optional ?? [])];
+        succeeded = allGoals.length === 0
+          ? strategy.nodes.some((node) => node.state === "SUCCEEDED")
+          : allGoals.some((goalId) => {
+              const goalNode = strategy.nodes.find((node) => node.id === goalId);
+              return goalNode && goalNode.state === "SUCCEEDED";
+            });
+      } else {
+        // ALL_TERMINAL (default) and EXPLICIT_PREDICATE (provisional: falls back to any-succeeded heuristic)
+        succeeded = strategy.nodes.some((node) => node.state === "SUCCEEDED");
+      }
+      strategy.state = succeeded ? "SUCCEEDED" : "FAILED";
     }
   }
   transitions.sort((a, b) => a.strategyId.localeCompare(b.strategyId) || a.nodeId.localeCompare(b.nodeId) || a.reason.localeCompare(b.reason));

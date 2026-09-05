@@ -36,6 +36,7 @@ export {
 export {
   beginStrategyStep,
   completeStrategyStep,
+  normalizeStrategyDag,
   scheduleStrategyNodes,
   strategyDiagnostics,
   validateStrategyDag

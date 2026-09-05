@@ -1,7 +1,6 @@
 spec_version: "0.3"
 document: strategy_taxonomy
 status: provisional
-
 principles:
   global_strategy_score_forbidden: true
   strategy_is_a_plan_of_mechanical_subactions: true
@@ -9,356 +8,1060 @@ principles:
   llm_may_classify_or_decompose_only: true
   orchestration_provides_hidden_bonus: false
   ordinary_resolvers_remain_authoritative: true
-
 dag_execution:
   acyclic_only: true
-  eligible_layers_per_session_step: { value: 1, tunable: true }
-  stable_order: [strategy_id_lexicographic, node_id_lexicographic]
-  node_states: [PENDING, AVAILABLE, RESERVED, RESOLVING, SUCCEEDED, FAILED, SKIPPED, CANCELLED, BLOCKED, EXPIRED]
-  terminal_states: [SUCCEEDED, FAILED, SKIPPED, CANCELLED, BLOCKED, EXPIRED]
-  dependency_modes: [ALL_OF, ANY_OF]
-  dependency_conditions: [ON_SUCCESS, ON_FAILURE, ON_COMPLETION]
-  failure_policies: [CONTINUE, CANCEL_DEPENDENTS, CANCEL_BRANCH, CANCEL_STRATEGY, ACTIVATE_FALLBACK]
-  action_completion_rules: [RESOLVED, CONTACT, NO_CONTACT, CANCELLED]
+  eligible_layers_per_session_step:
+    value: 1
+    tunable: true
+  stable_order:
+    - strategy_id_lexicographic
+    - node_id_lexicographic
+  node_states:
+    - PENDING
+    - AVAILABLE
+    - RESERVED
+    - RESOLVING
+    - SUCCEEDED
+    - FAILED
+    - SKIPPED
+    - CANCELLED
+    - BLOCKED
+    - EXPIRED
+  terminal_states:
+    - SUCCEEDED
+    - FAILED
+    - SKIPPED
+    - CANCELLED
+    - BLOCKED
+    - EXPIRED
+  dependency_modes:
+    - ALL_OF
+    - ANY_OF
+  dependency_conditions:
+    - ON_SUCCESS
+    - ON_FAILURE
+    - ON_COMPLETION
+  failure_policies:
+    - CONTINUE
+    - CANCEL_DEPENDENTS
+    - CANCEL_BRANCH
+    - CANCEL_STRATEGY
+    - ACTIVATE_FALLBACK
+  action_completion_rules:
+    - RESOLVED
+    - CONTACT
+    - NO_CONTACT
+    - CANCELLED
   strategy_completion_rule: any_succeeded_after_all_nodes_terminal_unless_cancelled
   partial_primitive_counts_as_dependency_success: true
-
 primitive_resolution:
   outcome_bands:
-    failed_below: { value: 0, tunable: true }
-    partial_below: { value: 10, tunable: true }
+    failed_below:
+      value: 0
+      tunable: true
+    partial_below:
+      value: 10
+      tunable: true
   opposed_contests:
     FEINT:
-      requirements: [valid_actor, valid_target, target_can_perceive_cue]
+      requirements:
+        - valid_actor
+        - valid_target
+        - target_can_perceive_cue
       actor_terms:
-        coordination: { value: 0.40, tunable: true }
-        strategy: { value: 0.35, tunable: true }
-        reaction: { value: 0.25, tunable: true }
+        coordination:
+          value: 0.4
+          tunable: true
+        strategy:
+          value: 0.35
+          tunable: true
+        reaction:
+          value: 0.25
+          tunable: true
       opposition_terms:
-        perception: { value: 0.45, tunable: true }
-        strategy: { value: 0.35, tunable: true }
-        reaction: { value: 0.20, tunable: true }
-      possible_outputs: [reaction_consumption, timing_disadvantage, defense_penalty, attention_shift]
-      counterconditions: [prepared_counter, delayed_commitment, superior_perception]
+        perception:
+          value: 0.45
+          tunable: true
+        strategy:
+          value: 0.35
+          tunable: true
+        reaction:
+          value: 0.2
+          tunable: true
+      possible_outputs:
+        - reaction_consumption
+        - timing_disadvantage
+        - defense_penalty
+        - attention_shift
+      counterconditions:
+        - prepared_counter
+        - delayed_commitment
+        - superior_perception
     DISTRACTION:
-      requirements: [valid_actor, valid_target, declared_attention_channel]
+      requirements:
+        - valid_actor
+        - valid_target
+        - declared_attention_channel
       actor_terms:
-        strategy: { value: 0.40, tunable: true }
-        coordination: { value: 0.30, tunable: true }
-        perception: { value: 0.30, tunable: true }
+        strategy:
+          value: 0.4
+          tunable: true
+        coordination:
+          value: 0.3
+          tunable: true
+        perception:
+          value: 0.3
+          tunable: true
       opposition_terms:
-        perception: { value: 0.55, tunable: true }
-        strategy: { value: 0.25, tunable: true }
-        reaction: { value: 0.20, tunable: true }
-      possible_outputs: [attention_modifier, perception_modifier, reaction_latency_modifier, target_selection_disadvantage]
-      counterconditions: [multi_sensory_awareness, ally_warning, ignored_cue]
+        perception:
+          value: 0.55
+          tunable: true
+        strategy:
+          value: 0.25
+          tunable: true
+        reaction:
+          value: 0.2
+          tunable: true
+      possible_outputs:
+        - attention_modifier
+        - perception_modifier
+        - reaction_latency_modifier
+        - target_selection_disadvantage
+      counterconditions:
+        - multi_sensory_awareness
+        - ally_warning
+        - ignored_cue
     AMBUSH:
-      requirements: [valid_actor, valid_target, declared_concealment_or_geometry]
+      requirements:
+        - valid_actor
+        - valid_target
+        - declared_concealment_or_geometry
       actor_terms:
-        movement: { value: 0.30, tunable: true }
-        coordination: { value: 0.25, tunable: true }
-        strategy: { value: 0.45, tunable: true }
+        movement:
+          value: 0.3
+          tunable: true
+        coordination:
+          value: 0.25
+          tunable: true
+        strategy:
+          value: 0.45
+          tunable: true
       opposition_terms:
-        perception: { value: 0.60, tunable: true }
-        reaction: { value: 0.25, tunable: true }
-        strategy: { value: 0.15, tunable: true }
-      possible_outputs: [reaction_delay, positional_condition, timing_modifier]
-      counterconditions: [scouting, detection, prepared_defense]
+        perception:
+          value: 0.6
+          tunable: true
+        reaction:
+          value: 0.25
+          tunable: true
+        strategy:
+          value: 0.15
+          tunable: true
+      possible_outputs:
+        - reaction_delay
+        - positional_condition
+        - timing_modifier
+      counterconditions:
+        - scouting
+        - detection
+        - prepared_defense
   action_backed:
     REPOSITION:
-      requirements: [normalized_movement_action]
-      possible_outputs: [position_change, distance_change, cover_change, relational_eligibility]
-      counterconditions: [interception, area_denial, spatial_bounds]
+      requirements:
+        - normalized_movement_action
+      possible_outputs:
+        - position_change
+        - distance_change
+        - cover_change
+        - relational_eligibility
+      counterconditions:
+        - interception
+        - area_denial
+        - spatial_bounds
     INTERRUPT_SETUP:
-      requirements: [normalized_reaction_or_interrupt_action]
-      possible_outputs: [conditional_interrupt_opportunity]
-      counterconditions: [missed_window, insufficient_resource, incompatible_trigger]
+      requirements:
+        - normalized_reaction_or_interrupt_action
+      possible_outputs:
+        - conditional_interrupt_opportunity
+      counterconditions:
+        - missed_window
+        - insufficient_resource
+        - incompatible_trigger
   condition_backed:
     FLANK:
-      requirements: [relative_geometry_condition, awareness_condition]
-      possible_outputs: [coverage_modifier, compatibility_modifier, reaction_timing_modifier]
-      counterconditions: [facing_change, formation, area_defense]
+      requirements:
+        - relative_geometry_condition
+        - awareness_condition
+      possible_outputs:
+        - coverage_modifier
+        - compatibility_modifier
+        - reaction_timing_modifier
+      counterconditions:
+        - facing_change
+        - formation
+        - area_defense
     BLIND_SPOT:
-      requirements: [observer_actor_relation, geometry_or_attention_condition]
-      possible_outputs: [relational_tracking_condition, reaction_eligibility_modifier, timing_modifier]
-      counterconditions: [observer_reacquires_actor, alternate_sense, relation_expiration]
+      requirements:
+        - observer_actor_relation
+        - geometry_or_attention_condition
+      possible_outputs:
+        - relational_tracking_condition
+        - reaction_eligibility_modifier
+        - timing_modifier
+      counterconditions:
+        - observer_reacquires_actor
+        - alternate_sense
+        - relation_expiration
     ISOLATE:
-      requirements: [declared_relational_or_area_condition]
-      possible_outputs: [support_restriction, route_modifier, target_group_change]
-      counterconditions: [regroup, alternate_route, break_control]
+      requirements:
+        - declared_relational_or_area_condition
+      possible_outputs:
+        - support_restriction
+        - route_modifier
+        - target_group_change
+      counterconditions:
+        - regroup
+        - alternate_route
+        - break_control
   state_setup:
     BAIT:
-      requirements: [declared_trigger, normalized_payload]
-      possible_outputs: [conditional_opportunity]
-      counterconditions: [trigger_not_taken, expiration, alternate_action]
+      requirements:
+        - declared_trigger
+        - normalized_payload
+      possible_outputs:
+        - conditional_opportunity
+      counterconditions:
+        - trigger_not_taken
+        - expiration
+        - alternate_action
     TRAP:
-      requirements: [declared_trigger, area_or_target, normalized_payload, duration]
-      possible_outputs: [scheduled_effect, world_modifier, status_attempt]
-      counterconditions: [detection, disarm, trigger_not_met, expiration]
+      requirements:
+        - declared_trigger
+        - area_or_target
+        - normalized_payload
+        - duration
+      possible_outputs:
+        - scheduled_effect
+        - world_modifier
+        - status_attempt
+      counterconditions:
+        - detection
+        - disarm
+        - trigger_not_met
+        - expiration
     COVER:
-      requirements: [declared_geometry_or_world_hook]
-      possible_outputs: [accuracy_modifier, defense_modifier, compatibility_constraint]
-      counterconditions: [reposition, area_effect, penetration, cover_removed]
+      requirements:
+        - declared_geometry_or_world_hook
+      possible_outputs:
+        - accuracy_modifier
+        - defense_modifier
+        - compatibility_constraint
+      counterconditions:
+        - reposition
+        - area_effect
+        - penetration
+        - cover_removed
     COUNTER_SETUP:
-      requirements: [declared_trigger, normalized_reaction, coverage, duration, reservation_semantics]
-      possible_outputs: [conditional_reaction_opportunity]
-      counterconditions: [trigger_not_met, resource_unavailable, expiration]
+      requirements:
+        - declared_trigger
+        - normalized_reaction
+        - coverage
+        - duration
+        - reservation_semantics
+      possible_outputs:
+        - conditional_reaction_opportunity
+      counterconditions:
+        - trigger_not_met
+        - resource_unavailable
+        - expiration
     RESOURCE_DENIAL:
-      requirements: [declared_resource, normalized_delta_or_cost_modifier, duration]
-      possible_outputs: [resource_delta, cost_modifier, access_restriction, cooldown]
-      counterconditions: [alternate_resource, restore_access, expiration]
+      requirements:
+        - declared_resource
+        - normalized_delta_or_cost_modifier
+        - duration
+      possible_outputs:
+        - resource_delta
+        - cost_modifier
+        - access_restriction
+        - cooldown
+      counterconditions:
+        - alternate_resource
+        - restore_access
+        - expiration
     AREA_DENIAL:
-      requirements: [declared_area, normalized_world_payload, duration]
-      possible_outputs: [movement_modifier, entry_constraint, hazard_trigger, targeting_constraint]
-      counterconditions: [leave_area, remove_source, expiration]
+      requirements:
+        - declared_area
+        - normalized_world_payload
+        - duration
+      possible_outputs:
+        - movement_modifier
+        - entry_constraint
+        - hazard_trigger
+        - targeting_constraint
+      counterconditions:
+        - leave_area
+        - remove_source
+        - expiration
     ESCAPE_SETUP:
-      requirements: [declared_exit_or_break_condition, normalized_movement_or_relation_payload]
-      possible_outputs: [distance_condition, line_of_effect_condition, disengagement_opportunity]
-      counterconditions: [pursuit, route_block, tracking]
-
+      requirements:
+        - declared_exit_or_break_condition
+        - normalized_movement_or_relation_payload
+      possible_outputs:
+        - distance_condition
+        - line_of_effect_condition
+        - disengagement_opportunity
+      counterconditions:
+        - pursuit
+        - route_block
+        - tracking
 primitive_contracts:
   FEINT:
-    requirements: [valid_actor, valid_target, perceivable_declared_cue]
-    relevant_mechanical_inputs: [coordination, timing, strategy, target_perception, target_reaction, previous_mechanical_events]
-    possible_target_state: [reaction_consumed, attention_shift, temporary_defense_penalty]
+    requirements:
+      - valid_actor
+      - valid_target
+      - perceivable_declared_cue
+    relevant_mechanical_inputs:
+      - coordination
+      - timing
+      - strategy
+      - target_perception
+      - target_reaction
+      - previous_mechanical_events
+    possible_target_state:
+      - reaction_consumed
+      - attention_shift
+      - temporary_defense_penalty
     world_hooks: []
-    character_hooks: [attention, reaction_capacity, defense_timing]
+    character_hooks:
+      - attention
+      - reaction_capacity
+      - defense_timing
     duration_contract: explicit_temporary_effect_only
-    counterconditions: [prepared_counter, delayed_commitment, superior_perception]
+    counterconditions:
+      - prepared_counter
+      - delayed_commitment
+      - superior_perception
   DISTRACTION:
-    requirements: [valid_actor, valid_target, declared_attention_channel]
-    relevant_mechanical_inputs: [strategy, coordination, perception, target_perception, target_strategy, target_reaction]
-    possible_target_state: [attention_modifier, perception_modifier, reaction_latency_modifier]
-    world_hooks: [declared_salient_event]
-    character_hooks: [attention, perception, reaction_timing]
+    requirements:
+      - valid_actor
+      - valid_target
+      - declared_attention_channel
+    relevant_mechanical_inputs:
+      - strategy
+      - coordination
+      - perception
+      - target_perception
+      - target_strategy
+      - target_reaction
+    possible_target_state:
+      - attention_modifier
+      - perception_modifier
+      - reaction_latency_modifier
+    world_hooks:
+      - declared_salient_event
+    character_hooks:
+      - attention
+      - perception
+      - reaction_timing
     duration_contract: explicit_temporary_effect_only
-    counterconditions: [multi_sensory_awareness, ally_warning, ignored_cue]
+    counterconditions:
+      - multi_sensory_awareness
+      - ally_warning
+      - ignored_cue
   AMBUSH:
-    requirements: [valid_actor, valid_target, concealment_or_geometry_condition]
-    relevant_mechanical_inputs: [movement, coordination, strategy, target_perception, target_reaction]
-    possible_target_state: [reaction_delay, awareness_modifier, positional_relation]
-    world_hooks: [geometry, concealment]
-    character_hooks: [awareness, reaction_timing]
+    requirements:
+      - valid_actor
+      - valid_target
+      - concealment_or_geometry_condition
+    relevant_mechanical_inputs:
+      - movement
+      - coordination
+      - strategy
+      - target_perception
+      - target_reaction
+    possible_target_state:
+      - reaction_delay
+      - awareness_modifier
+      - positional_relation
+    world_hooks:
+      - geometry
+      - concealment
+    character_hooks:
+      - awareness
+      - reaction_timing
     duration_contract: explicit_temporary_effect_only
-    counterconditions: [scouting, detection, prepared_defense]
+    counterconditions:
+      - scouting
+      - detection
+      - prepared_defense
   FLANK:
-    requirements: [relative_geometry_condition, target_awareness_condition]
-    relevant_mechanical_inputs: [position, facing, movement, awareness]
-    possible_target_state: [coverage_modifier, compatibility_modifier, reaction_timing_modifier]
-    world_hooks: [geometry]
-    character_hooks: [awareness, defense_coverage]
+    requirements:
+      - relative_geometry_condition
+      - target_awareness_condition
+    relevant_mechanical_inputs:
+      - position
+      - facing
+      - movement
+      - awareness
+    possible_target_state:
+      - coverage_modifier
+      - compatibility_modifier
+      - reaction_timing_modifier
+    world_hooks:
+      - geometry
+    character_hooks:
+      - awareness
+      - defense_coverage
     duration_contract: relational_state_duration_required
-    counterconditions: [facing_change, formation, area_defense]
+    counterconditions:
+      - facing_change
+      - formation
+      - area_defense
   BLIND_SPOT:
-    requirements: [observer_actor_relation, geometry_or_attention_condition]
-    relevant_mechanical_inputs: [position, facing, perception, attention, movement]
-    possible_target_state: [tracking_restriction, reaction_eligibility_modifier, timing_modifier]
-    world_hooks: [geometry, visibility]
-    character_hooks: [attention, perception, reaction_timing]
+    requirements:
+      - observer_actor_relation
+      - geometry_or_attention_condition
+    relevant_mechanical_inputs:
+      - position
+      - facing
+      - perception
+      - attention
+      - movement
+    possible_target_state:
+      - tracking_restriction
+      - reaction_eligibility_modifier
+      - timing_modifier
+    world_hooks:
+      - geometry
+      - visibility
+    character_hooks:
+      - attention
+      - perception
+      - reaction_timing
     duration_contract: relational_state_duration_required
-    counterconditions: [observer_reacquires_actor, alternate_sense, relation_expiration]
+    counterconditions:
+      - observer_reacquires_actor
+      - alternate_sense
+      - relation_expiration
   BAIT:
-    requirements: [declared_trigger, normalized_payload]
-    relevant_mechanical_inputs: [declarative_trigger, resource_reservation, previous_mechanical_events]
-    possible_target_state: [conditional_opportunity]
-    world_hooks: [scheduled_trigger]
-    character_hooks: [prepared_opportunity]
+    requirements:
+      - declared_trigger
+      - normalized_payload
+    relevant_mechanical_inputs:
+      - declarative_trigger
+      - resource_reservation
+      - previous_mechanical_events
+    possible_target_state:
+      - conditional_opportunity
+    world_hooks:
+      - scheduled_trigger
+    character_hooks:
+      - prepared_opportunity
     duration_contract: opportunity_duration_required
-    counterconditions: [trigger_not_taken, expiration, alternate_action]
+    counterconditions:
+      - trigger_not_taken
+      - expiration
+      - alternate_action
   TRAP:
-    requirements: [declared_trigger, declared_area_or_target, normalized_payload]
-    relevant_mechanical_inputs: [trigger_predicate, coverage, detection_condition, payload]
-    possible_target_state: [status_attempt, resource_delta, movement_constraint]
-    world_hooks: [area, hazard, scheduled_trigger]
-    character_hooks: [detection, status_resistance]
+    requirements:
+      - declared_trigger
+      - declared_area_or_target
+      - normalized_payload
+    relevant_mechanical_inputs:
+      - trigger_predicate
+      - coverage
+      - detection_condition
+      - payload
+    possible_target_state:
+      - status_attempt
+      - resource_delta
+      - movement_constraint
+    world_hooks:
+      - area
+      - hazard
+      - scheduled_trigger
+    character_hooks:
+      - detection
+      - status_resistance
     duration_contract: opportunity_duration_required
-    counterconditions: [detection, disarm, avoidance, expiration]
+    counterconditions:
+      - detection
+      - disarm
+      - avoidance
+      - expiration
   COVER:
-    requirements: [declared_geometry_or_world_hook]
-    relevant_mechanical_inputs: [geometry, line_of_effect, coverage, compatibility, penetration]
-    possible_target_state: [accuracy_modifier, defense_modifier, compatibility_constraint]
-    world_hooks: [geometry, obstruction]
-    character_hooks: [defense_coverage]
+    requirements:
+      - declared_geometry_or_world_hook
+    relevant_mechanical_inputs:
+      - geometry
+      - line_of_effect
+      - coverage
+      - compatibility
+      - penetration
+    possible_target_state:
+      - accuracy_modifier
+      - defense_modifier
+      - compatibility_constraint
+    world_hooks:
+      - geometry
+      - obstruction
+    character_hooks:
+      - defense_coverage
     duration_contract: world_or_relational_duration_required
-    counterconditions: [reposition, area_effect, penetration, cover_removed]
+    counterconditions:
+      - reposition
+      - area_effect
+      - penetration
+      - cover_removed
   REPOSITION:
-    requirements: [normalized_movement_action]
-    relevant_mechanical_inputs: [movement, destination, maximum_distance, spatial_bounds]
-    possible_target_state: [position_change, distance_change, relational_eligibility]
-    world_hooks: [geometry, spatial_bounds]
-    character_hooks: [position]
+    requirements:
+      - normalized_movement_action
+    relevant_mechanical_inputs:
+      - movement
+      - destination
+      - maximum_distance
+      - spatial_bounds
+    possible_target_state:
+      - position_change
+      - distance_change
+      - relational_eligibility
+    world_hooks:
+      - geometry
+      - spatial_bounds
+    character_hooks:
+      - position
     duration_contract: ordinary_action_then_explicit_outputs
-    counterconditions: [interception, area_denial, spatial_bounds]
+    counterconditions:
+      - interception
+      - area_denial
+      - spatial_bounds
   INTERRUPT_SETUP:
-    requirements: [normalized_reaction_or_interrupt_action, declared_trigger]
-    relevant_mechanical_inputs: [reaction_latency, interrupt_window, potency, resistance, resource_cost]
-    possible_target_state: [conditional_interrupt_opportunity]
-    world_hooks: [timing_window]
-    character_hooks: [reaction_capacity, resource_reservation]
+    requirements:
+      - normalized_reaction_or_interrupt_action
+      - declared_trigger
+    relevant_mechanical_inputs:
+      - reaction_latency
+      - interrupt_window
+      - potency
+      - resistance
+      - resource_cost
+    possible_target_state:
+      - conditional_interrupt_opportunity
+    world_hooks:
+      - timing_window
+    character_hooks:
+      - reaction_capacity
+      - resource_reservation
     duration_contract: opportunity_duration_required
-    counterconditions: [missed_window, insufficient_resource, incompatible_trigger]
+    counterconditions:
+      - missed_window
+      - insufficient_resource
+      - incompatible_trigger
   COUNTER_SETUP:
-    requirements: [declared_trigger, normalized_reaction, explicit_coverage]
-    relevant_mechanical_inputs: [reaction_template, coverage, duration, resource_cost, action_economy_cost]
-    possible_target_state: [conditional_reaction_opportunity]
-    world_hooks: [trigger_window]
-    character_hooks: [reaction_capacity, resource_reservation]
+    requirements:
+      - declared_trigger
+      - normalized_reaction
+      - explicit_coverage
+    relevant_mechanical_inputs:
+      - reaction_template
+      - coverage
+      - duration
+      - resource_cost
+      - action_economy_cost
+    possible_target_state:
+      - conditional_reaction_opportunity
+    world_hooks:
+      - trigger_window
+    character_hooks:
+      - reaction_capacity
+      - resource_reservation
     duration_contract: opportunity_duration_required
-    counterconditions: [trigger_not_met, resource_unavailable, expiration]
+    counterconditions:
+      - trigger_not_met
+      - resource_unavailable
+      - expiration
   ISOLATE:
-    requirements: [declared_relational_or_area_condition]
-    relevant_mechanical_inputs: [position, area, support_relation, route_modifier]
-    possible_target_state: [support_restriction, route_modifier, isolation_relation]
-    world_hooks: [area, geometry]
-    character_hooks: [support_relation]
+    requirements:
+      - declared_relational_or_area_condition
+    relevant_mechanical_inputs:
+      - position
+      - area
+      - support_relation
+      - route_modifier
+    possible_target_state:
+      - support_restriction
+      - route_modifier
+      - isolation_relation
+    world_hooks:
+      - area
+      - geometry
+    character_hooks:
+      - support_relation
     duration_contract: relational_or_world_duration_required
-    counterconditions: [regroup, alternate_route, break_control]
+    counterconditions:
+      - regroup
+      - alternate_route
+      - break_control
   RESOURCE_DENIAL:
-    requirements: [declared_resource, normalized_delta_or_cost_modifier]
-    relevant_mechanical_inputs: [resource_current, resource_maximum, delta, cost_modifier, access_predicate]
-    possible_target_state: [resource_delta, cost_modifier, access_restriction]
-    world_hooks: [resource_access]
-    character_hooks: [resource_pool, cooldown]
+    requirements:
+      - declared_resource
+      - normalized_delta_or_cost_modifier
+    relevant_mechanical_inputs:
+      - resource_current
+      - resource_maximum
+      - delta
+      - cost_modifier
+      - access_predicate
+    possible_target_state:
+      - resource_delta
+      - cost_modifier
+      - access_restriction
+    world_hooks:
+      - resource_access
+    character_hooks:
+      - resource_pool
+      - cooldown
     duration_contract: explicit_when_effect_persists
-    counterconditions: [alternate_resource, restore_access, expiration]
+    counterconditions:
+      - alternate_resource
+      - restore_access
+      - expiration
   AREA_DENIAL:
-    requirements: [declared_area, normalized_world_payload]
-    relevant_mechanical_inputs: [area, movement_cost, entry_predicate, hazard_trigger, targeting_constraint]
-    possible_target_state: [movement_modifier, defense_modifier, targeting_restriction]
-    world_hooks: [area, hazard, geometry]
-    character_hooks: [movement, defense]
+    requirements:
+      - declared_area
+      - normalized_world_payload
+    relevant_mechanical_inputs:
+      - area
+      - movement_cost
+      - entry_predicate
+      - hazard_trigger
+      - targeting_constraint
+    possible_target_state:
+      - movement_modifier
+      - defense_modifier
+      - targeting_restriction
+    world_hooks:
+      - area
+      - hazard
+      - geometry
+    character_hooks:
+      - movement
+      - defense
     duration_contract: world_state_duration_required
-    counterconditions: [leave_area, remove_source, expiration]
+    counterconditions:
+      - leave_area
+      - remove_source
+      - expiration
   ESCAPE_SETUP:
-    requirements: [declared_exit_or_break_condition, normalized_movement_or_relation_payload]
-    relevant_mechanical_inputs: [distance, line_of_effect, movement, tracking, route_condition]
-    possible_target_state: [escape_window, distance_condition, line_of_effect_condition]
-    world_hooks: [geometry, route, visibility]
-    character_hooks: [movement, tracking]
+    requirements:
+      - declared_exit_or_break_condition
+      - normalized_movement_or_relation_payload
+    relevant_mechanical_inputs:
+      - distance
+      - line_of_effect
+      - movement
+      - tracking
+      - route_condition
+    possible_target_state:
+      - escape_window
+      - distance_condition
+      - line_of_effect_condition
+    world_hooks:
+      - geometry
+      - route
+      - visibility
+    character_hooks:
+      - movement
+      - tracking
     duration_contract: relational_or_opportunity_duration_required
-    counterconditions: [pursuit, route_block, tracking]
-
+    counterconditions:
+      - pursuit
+      - route_block
+      - tracking
+execution_classes:
+  - ZERO_TIME
+  - ACTION
+  - REACTION
+  - MOVEMENT
+  - PASSIVE
+zero_time:
+  chaining: same_step
+  max_transitions:
+    value: 64
+    tunable: true
+passive:
+  execution: trigger_driven
+  immediate_scheduler_execution: false
+partial_results:
+  preserve_as_distinct_outcome: true
+  on_success_accepts_partial: false
+strategy_completion:
+  separate_execution_from_goal_outcome: true
+  default_policy: ALL_TERMINAL
+execution_class_defaults:
+  allowed_during_normalization: true
+  allowed_inside_scheduler: false
 strategic_effects:
-  allowed: [ADD_MODIFIER, REMOVE_MODIFIER, ADD_RELATION, REMOVE_RELATION, SCHEDULE_EFFECT, CREATE_OPPORTUNITY, RESOURCE_DELTA]
-  consumption_semantics: [ON_ATTEMPT, ON_USE, ON_SUCCESS, ON_TRIGGER, NEVER]
+  allowed:
+    - ADD_MODIFIER
+    - REMOVE_MODIFIER
+    - ADD_RELATION
+    - REMOVE_RELATION
+    - SCHEDULE_EFFECT
+    - CREATE_OPPORTUNITY
+    - RESOURCE_DELTA
+  consumption_semantics:
+    - ON_ATTEMPT
+    - ON_USE
+    - ON_SUCCESS
+    - ON_TRIGGER
+    - NEVER
   no_narrative_payload_has_mechanical_authority: true
-
 diagnostics:
   non_blocking: true
-  metrics: [node_success_rate, branch_frequency, setup_duration, payoff_modifier, reaction_consumption, resource_expenditure, setup_failure_rate, unused_expired_opportunities]
+  metrics:
+    - node_success_rate
+    - branch_frequency
+    - setup_duration
+    - payoff_modifier
+    - reaction_consumption
+    - resource_expenditure
+    - setup_failure_rate
+    - unused_expired_opportunities
   universal_good_strategy_threshold_forbidden: true
-
 subaction_contract:
-  required: [id, type, actor_ref, targets, prerequisites, inputs, success_rule_ref, on_success, on_partial, on_failure]
+  required:
+    - id
+    - type
+    - actor_ref
+    - targets
+    - prerequisites
+    - inputs
+    - success_rule_ref
+    - on_success
+    - on_partial
+    - on_failure
   dependency_graph_must_be_acyclic: true
-  resolution: "Each ready subaction is resolved by its referenced deterministic rule against an immutable state snapshot."
-  common_inputs: [position, geometry, perception, reaction, coordination, movement, strategy, resources, statuses, modifiers, previous_turn_events]
+  resolution: Each ready subaction is resolved by its referenced deterministic
+    rule against an immutable state snapshot.
+  common_inputs:
+    - position
+    - geometry
+    - perception
+    - reaction
+    - coordination
+    - movement
+    - strategy
+    - resources
+    - statuses
+    - modifiers
+    - previous_turn_events
   outcome_bands:
-    failure_margin_below: { value: 0, tunable: true }
-    partial_margin_below: { value: 15, tunable: true }
-    success_margin_at_or_above: { value: 15, tunable: true }
-
+    failure_margin_below:
+      value: 0
+      tunable: true
+    partial_margin_below:
+      value: 15
+      tunable: true
+    success_margin_at_or_above:
+      value: 15
+      tunable: true
 taxonomy:
   feint:
-    intent: "Induce a defensive commitment toward a false threat."
-    decomposition: [present_false_cue, target_detects_or_misreads_cue, exploit_commitment]
-    primary_mechanics: [coordination_vs_perception, strategy_vs_strategy, reaction_commitment]
-    outputs: [temporary_defense_penalty, exposed_zone, reaction_consumed]
-    counters: [delay_commitment, superior_perception, prepared_counter]
+    intent: Induce a defensive commitment toward a false threat.
+    decomposition:
+      - present_false_cue
+      - target_detects_or_misreads_cue
+      - exploit_commitment
+    primary_mechanics:
+      - coordination_vs_perception
+      - strategy_vs_strategy
+      - reaction_commitment
+    outputs:
+      - temporary_defense_penalty
+      - exposed_zone
+      - reaction_consumed
+    counters:
+      - delay_commitment
+      - superior_perception
+      - prepared_counter
   distraction:
-    intent: "Redirect attention away from the true action or location."
-    decomposition: [create_salient_event, allocate_target_attention, execute_hidden_action]
-    primary_mechanics: [salience, perception_allocation, timing]
-    outputs: [perception_penalty, target_priority_change]
-    counters: [multi_sensory_awareness, ally_warning, ignore_distraction]
+    intent: Redirect attention away from the true action or location.
+    decomposition:
+      - create_salient_event
+      - allocate_target_attention
+      - execute_hidden_action
+    primary_mechanics:
+      - salience
+      - perception_allocation
+      - timing
+    outputs:
+      - perception_penalty
+      - target_priority_change
+    counters:
+      - multi_sensory_awareness
+      - ally_warning
+      - ignore_distraction
   ambush:
-    intent: "Begin an attack before targets establish normal awareness."
-    decomposition: [remain_undetected, acquire_target, initiate_from_concealment]
-    primary_mechanics: [concealment_vs_perception, line_of_sight, reaction_window]
-    outputs: [reduced_defense_timing, delayed_reaction, positional_advantage]
-    counters: [scouting, detection, prepared_defense]
+    intent: Begin an attack before targets establish normal awareness.
+    decomposition:
+      - remain_undetected
+      - acquire_target
+      - initiate_from_concealment
+    primary_mechanics:
+      - concealment_vs_perception
+      - line_of_sight
+      - reaction_window
+    outputs:
+      - reduced_defense_timing
+      - delayed_reaction
+      - positional_advantage
+    counters:
+      - scouting
+      - detection
+      - prepared_defense
   flank:
-    intent: "Attack from outside the target's effective facing or coverage."
-    decomposition: [reposition, preserve_access, attack_uncovered_arc]
-    primary_mechanics: [movement, geometry, facing, coverage]
-    outputs: [coverage_reduction, defense_method_restriction]
-    counters: [turn_to_face, formation, area_defense]
+    intent: Attack from outside the target's effective facing or coverage.
+    decomposition:
+      - reposition
+      - preserve_access
+      - attack_uncovered_arc
+    primary_mechanics:
+      - movement
+      - geometry
+      - facing
+      - coverage
+    outputs:
+      - coverage_reduction
+      - defense_method_restriction
+    counters:
+      - turn_to_face
+      - formation
+      - area_defense
   bait:
-    intent: "Offer an apparent opportunity to elicit a predicted action."
-    decomposition: [present_opportunity, predict_response, trigger_prepared_followup]
-    primary_mechanics: [strategy_prediction, target_preferences, interrupt_timing]
-    outputs: [action_commitment, prepared_bonus]
-    counters: [decline_bait, alternate_action, counter_bait]
+    intent: Offer an apparent opportunity to elicit a predicted action.
+    decomposition:
+      - present_opportunity
+      - predict_response
+      - trigger_prepared_followup
+    primary_mechanics:
+      - strategy_prediction
+      - target_preferences
+      - interrupt_timing
+    outputs:
+      - action_commitment
+      - prepared_bonus
+    counters:
+      - decline_bait
+      - alternate_action
+      - counter_bait
   trap:
-    intent: "Prepare a conditional effect tied to a location, event, or action."
-    decomposition: [prepare_mechanism, conceal_or_signal_mechanism, evaluate_trigger, resolve_effect]
-    primary_mechanics: [preparation_cost, concealment_vs_detection, trigger_predicate]
-    outputs: [conditional_action, movement_constraint, status_attempt]
-    counters: [detect, disarm, avoid_trigger, remote_trigger]
+    intent: Prepare a conditional effect tied to a location, event, or action.
+    decomposition:
+      - prepare_mechanism
+      - conceal_or_signal_mechanism
+      - evaluate_trigger
+      - resolve_effect
+    primary_mechanics:
+      - preparation_cost
+      - concealment_vs_detection
+      - trigger_predicate
+    outputs:
+      - conditional_action
+      - movement_constraint
+      - status_attempt
+    counters:
+      - detect
+      - disarm
+      - avoid_trigger
+      - remote_trigger
   cover:
-    intent: "Use geometry to obstruct detection or incoming effects."
-    decomposition: [reach_cover, establish_coverage, maintain_or_leave_cover]
-    primary_mechanics: [geometry_overlap, material_filter, movement]
-    outputs: [accuracy_penalty, defense_filter, line_of_sight_block]
-    counters: [reposition, area_effect, penetration, destroy_cover]
+    intent: Use geometry to obstruct detection or incoming effects.
+    decomposition:
+      - reach_cover
+      - establish_coverage
+      - maintain_or_leave_cover
+    primary_mechanics:
+      - geometry_overlap
+      - material_filter
+      - movement
+    outputs:
+      - accuracy_penalty
+      - defense_filter
+      - line_of_sight_block
+    counters:
+      - reposition
+      - area_effect
+      - penetration
+      - destroy_cover
   blind_spot:
-    intent: "Operate outside a target's current sensory coverage."
-    decomposition: [identify_sensory_arc, enter_or_act_within_gap, maintain_unobserved_state]
-    primary_mechanics: [perception, facing, movement, noise_or_signature]
-    outputs: [target_acquisition_penalty, reaction_delay]
-    counters: [rotate_scan, alternate_sense, ally_observer]
+    intent: Operate outside a target's current sensory coverage.
+    decomposition:
+      - identify_sensory_arc
+      - enter_or_act_within_gap
+      - maintain_unobserved_state
+    primary_mechanics:
+      - perception
+      - facing
+      - movement
+      - noise_or_signature
+    outputs:
+      - target_acquisition_penalty
+      - reaction_delay
+    counters:
+      - rotate_scan
+      - alternate_sense
+      - ally_observer
   reposition:
-    intent: "Change spatial state to improve a later action or deny one."
-    decomposition: [select_destination, validate_path, move, update_geometry]
-    primary_mechanics: [movement, terrain, collision, threat_zones]
-    outputs: [position_change, range_change, facing_change, cover_access]
-    counters: [intercept, zone_control, forced_movement]
+    intent: Change spatial state to improve a later action or deny one.
+    decomposition:
+      - select_destination
+      - validate_path
+      - move
+      - update_geometry
+    primary_mechanics:
+      - movement
+      - terrain
+      - collision
+      - threat_zones
+    outputs:
+      - position_change
+      - range_change
+      - facing_change
+      - cover_access
+    counters:
+      - intercept
+      - zone_control
+      - forced_movement
   interrupt:
-    intent: "Act during a declared window to delay, alter, or cancel another action."
-    decomposition: [detect_action, meet_interrupt_window, apply_interrupt_effect]
-    primary_mechanics: [perception, reaction, timing, stability_impact]
-    outputs: [delay, cost_loss, cancellation, degraded_action]
-    counters: [faster_execution, conceal_action, interrupt_resistance]
+    intent: Act during a declared window to delay, alter, or cancel another action.
+    decomposition:
+      - detect_action
+      - meet_interrupt_window
+      - apply_interrupt_effect
+    primary_mechanics:
+      - perception
+      - reaction
+      - timing
+      - stability_impact
+    outputs:
+      - delay
+      - cost_loss
+      - cancellation
+      - degraded_action
+    counters:
+      - faster_execution
+      - conceal_action
+      - interrupt_resistance
   counter:
-    intent: "Use a prepared or reactive action tailored to an opponent's action."
-    decomposition: [identify_action, validate_counter_compatibility, execute_counter, resolve_original_remainder]
-    primary_mechanics: [perception, reaction, compatibility, execution]
-    outputs: [incoming_filter, redirection, counterattack_window]
-    counters: [feint, uncounterable_tag, multi-vector_attack]
+    intent: Use a prepared or reactive action tailored to an opponent's action.
+    decomposition:
+      - identify_action
+      - validate_counter_compatibility
+      - execute_counter
+      - resolve_original_remainder
+    primary_mechanics:
+      - perception
+      - reaction
+      - compatibility
+      - execution
+    outputs:
+      - incoming_filter
+      - redirection
+      - counterattack_window
+    counters:
+      - feint
+      - uncounterable_tag
+      - multi-vector_attack
   isolation:
-    intent: "Separate a target from allies, support, or a useful region."
-    decomposition: [identify_connection, block_or_move_across_connection, maintain_separation]
-    primary_mechanics: [position, forced_movement, pathing, coverage]
-    outputs: [support_denial, target_group_change, route_block]
-    counters: [regroup, alternate_route, break_control]
+    intent: Separate a target from allies, support, or a useful region.
+    decomposition:
+      - identify_connection
+      - block_or_move_across_connection
+      - maintain_separation
+    primary_mechanics:
+      - position
+      - forced_movement
+      - pathing
+      - coverage
+    outputs:
+      - support_denial
+      - target_group_change
+      - route_block
+    counters:
+      - regroup
+      - alternate_route
+      - break_control
   resource_denial:
-    intent: "Reduce access to energy, ammunition, actions, space, or replenishment."
-    decomposition: [identify_resource_dependency, access_resource_or_link, disrupt, sustain_denial]
-    primary_mechanics: [strategy, interaction, damage_or_status, duration]
-    outputs: [resource_delta, cost_multiplier, cooldown, unavailable_action]
-    counters: [reserve_resource, alternate_resource, restore_access]
+    intent: Reduce access to energy, ammunition, actions, space, or replenishment.
+    decomposition:
+      - identify_resource_dependency
+      - access_resource_or_link
+      - disrupt
+      - sustain_denial
+    primary_mechanics:
+      - strategy
+      - interaction
+      - damage_or_status
+      - duration
+    outputs:
+      - resource_delta
+      - cost_multiplier
+      - cooldown
+      - unavailable_action
+    counters:
+      - reserve_resource
+      - alternate_resource
+      - restore_access
   escape:
-    intent: "End or reduce hostile engagement."
-    decomposition: [identify_exit_or_break_condition, create_separation, traverse_route, verify_disengagement]
-    primary_mechanics: [movement, concealment, pursuit, terrain]
-    outputs: [distance_gain, line_of_sight_break, engagement_state_change]
-    counters: [pursuit, route_block, tracking, containment]
-
+    intent: End or reduce hostile engagement.
+    decomposition:
+      - identify_exit_or_break_condition
+      - create_separation
+      - traverse_route
+      - verify_disengagement
+    primary_mechanics:
+      - movement
+      - concealment
+      - pursuit
+      - terrain
+    outputs:
+      - distance_gain
+      - line_of_sight_break
+      - engagement_state_change
+    counters:
+      - pursuit
+      - route_block
+      - tracking
+      - containment
 generic_contest:
-  actor_term: "weighted_stat_term(actor inputs) + actor situational modifiers"
-  opposition_term: "weighted_stat_term(opposition inputs) + opposition situational modifiers"
-  margin: "actor_term - opposition_term"
-  micro_variance: "attack.yaml#/micro_variance; apply only to continuous terms"
-  note: "Taxonomy entries select inputs and rule references. They never provide a single aggregated Strategy Score."
-
+  actor_term: weighted_stat_term(actor inputs) + actor situational modifiers
+  opposition_term: weighted_stat_term(opposition inputs) + opposition situational modifiers
+  margin: actor_term - opposition_term
+  micro_variance: attack.yaml#/micro_variance; apply only to continuous terms
+  note: Taxonomy entries select inputs and rule references. They never provide a
+    single aggregated Strategy Score.
 composition:
   multiple_taxonomy_ids_allowed: true
-  maximum_plan_depth: { value: 8, tunable: true }
-  maximum_subactions: { value: 32, tunable: true }
+  maximum_plan_depth:
+    value: 8
+    tunable: true
+  maximum_subactions:
+    value: 32
+    tunable: true
   shared_subactions_are_resolved_once: true
-  failed_prerequisite: "dependent subaction becomes unavailable, not automatically failed unless its rule declares dependency_required"
-
+  failed_prerequisite: dependent subaction becomes unavailable, not automatically
+    failed unless its rule declares dependency_required
 llm_boundary:
-  allowed: [choose_taxonomy_ids, propose_subaction_graph, map phrases_to_known_entities, emit_ambiguities]
-  forbidden: [calculate_values, roll_randomness, declare_success, invent_runtime_state, override_validation, create_unregistered_mechanics]
+  allowed:
+    - choose_taxonomy_ids
+    - propose_subaction_graph
+    - map phrases_to_known_entities
+    - emit_ambiguities
+  forbidden:
+    - calculate_values
+    - roll_randomness
+    - declare_success
+    - invent_runtime_state
+    - override_validation
+    - create_unregistered_mechanics
   output_must_validate_against: action.schema.json

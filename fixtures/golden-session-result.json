@@ -39,7 +39,7 @@
       "modifiers": [],
       "previous_turn": {
         "turn": 4,
-        "snapshot_hash": "5b931a3279a401b4f81e519905bfbae2d24acb81b5cd8b78b8a708e5d66d5ff2",
+        "snapshot_hash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
         "action_refs": [],
         "events": [],
         "resource_deltas": [],
@@ -49,7 +49,7 @@
         "action_economy_changes": [],
         "displacement_changes": [],
         "conflicts": [],
-        "resulting_snapshot_hash": "4cc88aa47c1d008b2d2d6e9fe75369a45f4c693a99f9bb3ded99218356d6c3e2",
+        "resulting_snapshot_hash": "5de9a20bedd3d6ab9bb7f5929ca0a80b1bc20ba07889ca49682b7fad0398cfb0",
         "summary_tags": [
           "combat_turn"
         ],
@@ -71,14 +71,7 @@
             "reactions_after": 2
           }
         ],
-        "strategy_changes": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ]
+        "strategy_changes": []
       },
       "extension_state": {}
     },
@@ -359,7 +352,7 @@
               "sequence": 1
             }
           ],
-          "snapshot_hash": "cfed6733e2dae20dabddceaa5b01fed8295cb21d592985379a0283fb53572291"
+          "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
         },
         {
           "turn": 2,
@@ -383,7 +376,7 @@
               "sequence": 1
             }
           ],
-          "snapshot_hash": "62a3c15794e70d25ab38bc32bbd5b431afeecaf25f2cc7d22f45bca38eec6777"
+          "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
         },
         {
           "turn": 3,
@@ -407,7 +400,7 @@
               "sequence": 1
             }
           ],
-          "snapshot_hash": "381b6949724fb95891707309c82d748d4581182c7b31d60dc646734ee87af3f5"
+          "snapshot_hash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b"
         },
         {
           "turn": 4,
@@ -431,7 +424,7 @@
               "sequence": 1
             }
           ],
-          "snapshot_hash": "2c279cce3075fb98565713c49177f936acaba718a9fca606f6c18dd9c449dc7c"
+          "snapshot_hash": "c139cd7b4f46bd40453283e5fec6616df58934fc592d48b9beb7822913e513ab"
         }
       ],
       "session": {
@@ -460,7 +453,9 @@
               "on_success": [],
               "on_failure": [],
               "on_completion": []
-            }
+            },
+            "execution_class": "ZERO_TIME",
+            "result_band": "success"
           },
           {
             "id": "N.node-2",
@@ -481,7 +476,9 @@
               "on_success": [],
               "on_failure": [],
               "on_completion": []
-            }
+            },
+            "execution_class": "ZERO_TIME",
+            "result_band": "success"
           },
           {
             "id": "N.node-3",
@@ -502,7 +499,9 @@
               "on_success": [],
               "on_failure": [],
               "on_completion": []
-            }
+            },
+            "execution_class": "ZERO_TIME",
+            "result_band": "success"
           },
           {
             "id": "N.node-4",
@@ -523,7 +522,9 @@
               "on_success": [],
               "on_failure": [],
               "on_completion": []
-            }
+            },
+            "execution_class": "ZERO_TIME",
+            "result_band": "success"
           },
           {
             "id": "N.node-5",
@@ -544,21 +545,28 @@
               "on_success": [],
               "on_failure": [],
               "on_completion": []
-            }
+            },
+            "execution_class": "ZERO_TIME",
+            "result_band": "success"
           }
         ],
         "metadata": {
           "fixture": true
+        },
+        "completion_policy": "ALL_TERMINAL",
+        "goals": {
+          "required": [],
+          "optional": []
         }
       }
     ]
   },
   "stepResultHashes": [
-    "d3f42933cc8af5ca8e0cd30a5624042eb82a50d01487bc939af46eb4ae32a182",
-    "602e7601656fe5f5edd08f01ef1cf709d567e2fac9b4e933b2cdf1f77b53feab",
-    "ea2cf2c24aaf01320744edce76463979316d113d4fb6f84cf9ae885db5bd3354",
-    "0c0f95e73d5f78731a37c82db2aafd65e526fb2ee1cec2a861e2c9fc79247228",
-    "fc6a9db04db863f545b26ea9b33f4f83110373b0fd9af27bbe8c7e8f5003ccc9"
+    "f40f130f98857b39c9af1b6c91f66823dcde23e08c0fa45798ddd8198932dfab",
+    "2e85ced49249845dfd06d6072d9312f1845dda57f096e124765f800ac2d2725f",
+    "342c3be09b0fce47d58de4c392ce714e8ca74076a569d0514da96f073ccd5dc1",
+    "d462f60950f17f37cbdfa762c2ae8d233d76c1af6d1ef018e785b6c9173a5db5",
+    "011cb536ea800d4475f2db38ffbe30d51b60dc8169ee1ef1e98857e24b61c6be"
   ],
   "snapshots": [
     {
@@ -1007,7 +1015,7 @@
           "action_economy_changes": [],
           "displacement_changes": [],
           "conflicts": [],
-          "resulting_snapshot_hash": "c68982309e763bad8354cf42a5ce0b7c5073f8a8ece1f654d3837a3bcb2588b3",
+          "resulting_snapshot_hash": "50de5c2f312b1f9e6f9980f4520413e3a8c4a6f874f4e8acaf0e78aaf80741b1",
           "summary_tags": [
             "combat_turn"
           ],
@@ -1033,6 +1041,30 @@
             {
               "strategyId": "N.chain",
               "nodeId": "N.node-1",
+              "to": "SUCCEEDED",
+              "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+            },
+            {
+              "strategyId": "N.chain",
+              "nodeId": "N.node-2",
+              "to": "SUCCEEDED",
+              "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+            },
+            {
+              "strategyId": "N.chain",
+              "nodeId": "N.node-3",
+              "to": "SUCCEEDED",
+              "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+            },
+            {
+              "strategyId": "N.chain",
+              "nodeId": "N.node-4",
+              "to": "SUCCEEDED",
+              "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+            },
+            {
+              "strategyId": "N.chain",
+              "nodeId": "N.node-5",
               "to": "SUCCEEDED",
               "reason": "resolver:NORMALIZED_STATE_TRANSITION"
             }
@@ -1306,7 +1338,7 @@
         {
           "strategy_id": "N.chain",
           "owner": "a",
-          "state": "ACTIVE",
+          "state": "SUCCEEDED",
           "nodes": [
             {
               "id": "N.node-1",
@@ -1322,12 +1354,14 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-2",
               "kind": "STATE_TRANSITION",
-              "state": "PENDING",
+              "state": "SUCCEEDED",
               "dependency_mode": "ALL_OF",
               "dependencies": [
                 {
@@ -1343,12 +1377,14 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-3",
               "kind": "STATE_TRANSITION",
-              "state": "PENDING",
+              "state": "SUCCEEDED",
               "dependency_mode": "ALL_OF",
               "dependencies": [
                 {
@@ -1364,12 +1400,14 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-4",
               "kind": "STATE_TRANSITION",
-              "state": "PENDING",
+              "state": "SUCCEEDED",
               "dependency_mode": "ALL_OF",
               "dependencies": [
                 {
@@ -1385,12 +1423,14 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-5",
               "kind": "STATE_TRANSITION",
-              "state": "PENDING",
+              "state": "SUCCEEDED",
               "dependency_mode": "ALL_OF",
               "dependencies": [
                 {
@@ -1406,11 +1446,18 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             }
           ],
           "metadata": {
             "fixture": true
+          },
+          "completion_policy": "ALL_TERMINAL",
+          "goals": {
+            "required": [],
+            "optional": []
           }
         }
       ]
@@ -1454,7 +1501,7 @@
         "modifiers": [],
         "previous_turn": {
           "turn": 1,
-          "snapshot_hash": "03c64c656eec48ebef1589be2aa0859312a78c84bde872d4fc0603adc6977933",
+          "snapshot_hash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
           "action_refs": [],
           "events": [],
           "resource_deltas": [],
@@ -1464,7 +1511,7 @@
           "action_economy_changes": [],
           "displacement_changes": [],
           "conflicts": [],
-          "resulting_snapshot_hash": "242cc714d528bcb80f8e5e7256b0376b36c7f1bc5cbd8855a1ade7a43fad0a70",
+          "resulting_snapshot_hash": "d56b104c4adf47ea19c8912cfc1e4c4e76376f57a137873334479339406efa32",
           "summary_tags": [
             "combat_turn"
           ],
@@ -1486,14 +1533,7 @@
               "reactions_after": 2
             }
           ],
-          "strategy_changes": [
-            {
-              "strategyId": "N.chain",
-              "nodeId": "N.node-2",
-              "to": "SUCCEEDED",
-              "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-            }
-          ]
+          "strategy_changes": []
         },
         "extension_state": {}
       },
@@ -1774,7 +1814,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "cfed6733e2dae20dabddceaa5b01fed8295cb21d592985379a0283fb53572291"
+            "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
           }
         ],
         "session": {
@@ -1787,7 +1827,7 @@
         {
           "strategy_id": "N.chain",
           "owner": "a",
-          "state": "ACTIVE",
+          "state": "SUCCEEDED",
           "nodes": [
             {
               "id": "N.node-1",
@@ -1803,7 +1843,9 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-2",
@@ -1824,12 +1866,14 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-3",
               "kind": "STATE_TRANSITION",
-              "state": "PENDING",
+              "state": "SUCCEEDED",
               "dependency_mode": "ALL_OF",
               "dependencies": [
                 {
@@ -1845,12 +1889,14 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-4",
               "kind": "STATE_TRANSITION",
-              "state": "PENDING",
+              "state": "SUCCEEDED",
               "dependency_mode": "ALL_OF",
               "dependencies": [
                 {
@@ -1866,12 +1912,14 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-5",
               "kind": "STATE_TRANSITION",
-              "state": "PENDING",
+              "state": "SUCCEEDED",
               "dependency_mode": "ALL_OF",
               "dependencies": [
                 {
@@ -1887,11 +1935,18 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             }
           ],
           "metadata": {
             "fixture": true
+          },
+          "completion_policy": "ALL_TERMINAL",
+          "goals": {
+            "required": [],
+            "optional": []
           }
         }
       ]
@@ -1935,7 +1990,7 @@
         "modifiers": [],
         "previous_turn": {
           "turn": 2,
-          "snapshot_hash": "d9ae4d1d37552d1b1b52a70d91625724629ce45ba4097f43dc425d1b796a431a",
+          "snapshot_hash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
           "action_refs": [],
           "events": [],
           "resource_deltas": [],
@@ -1945,7 +2000,7 @@
           "action_economy_changes": [],
           "displacement_changes": [],
           "conflicts": [],
-          "resulting_snapshot_hash": "59d5a4d748aade081a2040bd625c9d3099cf9b63df72fc956c40838da537fe50",
+          "resulting_snapshot_hash": "37bb6caef29c3e77da8dad35e890faabf65324295cf6d379acfaa7b52b4a9264",
           "summary_tags": [
             "combat_turn"
           ],
@@ -1967,14 +2022,7 @@
               "reactions_after": 2
             }
           ],
-          "strategy_changes": [
-            {
-              "strategyId": "N.chain",
-              "nodeId": "N.node-3",
-              "to": "SUCCEEDED",
-              "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-            }
-          ]
+          "strategy_changes": []
         },
         "extension_state": {}
       },
@@ -2255,7 +2303,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "cfed6733e2dae20dabddceaa5b01fed8295cb21d592985379a0283fb53572291"
+            "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
           },
           {
             "turn": 2,
@@ -2279,7 +2327,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "62a3c15794e70d25ab38bc32bbd5b431afeecaf25f2cc7d22f45bca38eec6777"
+            "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
           }
         ],
         "session": {
@@ -2292,7 +2340,7 @@
         {
           "strategy_id": "N.chain",
           "owner": "a",
-          "state": "ACTIVE",
+          "state": "SUCCEEDED",
           "nodes": [
             {
               "id": "N.node-1",
@@ -2308,7 +2356,9 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-2",
@@ -2329,7 +2379,9 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-3",
@@ -2350,12 +2402,14 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-4",
               "kind": "STATE_TRANSITION",
-              "state": "PENDING",
+              "state": "SUCCEEDED",
               "dependency_mode": "ALL_OF",
               "dependencies": [
                 {
@@ -2371,12 +2425,14 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-5",
               "kind": "STATE_TRANSITION",
-              "state": "PENDING",
+              "state": "SUCCEEDED",
               "dependency_mode": "ALL_OF",
               "dependencies": [
                 {
@@ -2392,11 +2448,18 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             }
           ],
           "metadata": {
             "fixture": true
+          },
+          "completion_policy": "ALL_TERMINAL",
+          "goals": {
+            "required": [],
+            "optional": []
           }
         }
       ]
@@ -2440,7 +2503,7 @@
         "modifiers": [],
         "previous_turn": {
           "turn": 3,
-          "snapshot_hash": "833eb3c2177a2fe8f605f393fcb22227d690c267d348091c22f24d7d33ceef0a",
+          "snapshot_hash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
           "action_refs": [],
           "events": [],
           "resource_deltas": [],
@@ -2450,7 +2513,7 @@
           "action_economy_changes": [],
           "displacement_changes": [],
           "conflicts": [],
-          "resulting_snapshot_hash": "89dd370d03703bdb81de7528c5e212bf0b7c53e0c450bb2e0387aa018c5fe8be",
+          "resulting_snapshot_hash": "4b187843871a66d51ef13925a9370fa36d9b902a50bb3322d6d65d05bb529974",
           "summary_tags": [
             "combat_turn"
           ],
@@ -2472,14 +2535,7 @@
               "reactions_after": 2
             }
           ],
-          "strategy_changes": [
-            {
-              "strategyId": "N.chain",
-              "nodeId": "N.node-4",
-              "to": "SUCCEEDED",
-              "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-            }
-          ]
+          "strategy_changes": []
         },
         "extension_state": {}
       },
@@ -2760,7 +2816,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "cfed6733e2dae20dabddceaa5b01fed8295cb21d592985379a0283fb53572291"
+            "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
           },
           {
             "turn": 2,
@@ -2784,7 +2840,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "62a3c15794e70d25ab38bc32bbd5b431afeecaf25f2cc7d22f45bca38eec6777"
+            "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
           },
           {
             "turn": 3,
@@ -2808,7 +2864,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "381b6949724fb95891707309c82d748d4581182c7b31d60dc646734ee87af3f5"
+            "snapshot_hash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b"
           }
         ],
         "session": {
@@ -2821,7 +2877,7 @@
         {
           "strategy_id": "N.chain",
           "owner": "a",
-          "state": "ACTIVE",
+          "state": "SUCCEEDED",
           "nodes": [
             {
               "id": "N.node-1",
@@ -2837,7 +2893,9 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-2",
@@ -2858,7 +2916,9 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-3",
@@ -2879,7 +2939,9 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-4",
@@ -2900,12 +2962,14 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-5",
               "kind": "STATE_TRANSITION",
-              "state": "PENDING",
+              "state": "SUCCEEDED",
               "dependency_mode": "ALL_OF",
               "dependencies": [
                 {
@@ -2921,11 +2985,18 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             }
           ],
           "metadata": {
             "fixture": true
+          },
+          "completion_policy": "ALL_TERMINAL",
+          "goals": {
+            "required": [],
+            "optional": []
           }
         }
       ]
@@ -2969,7 +3040,7 @@
         "modifiers": [],
         "previous_turn": {
           "turn": 4,
-          "snapshot_hash": "5b931a3279a401b4f81e519905bfbae2d24acb81b5cd8b78b8a708e5d66d5ff2",
+          "snapshot_hash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
           "action_refs": [],
           "events": [],
           "resource_deltas": [],
@@ -2979,7 +3050,7 @@
           "action_economy_changes": [],
           "displacement_changes": [],
           "conflicts": [],
-          "resulting_snapshot_hash": "4cc88aa47c1d008b2d2d6e9fe75369a45f4c693a99f9bb3ded99218356d6c3e2",
+          "resulting_snapshot_hash": "5de9a20bedd3d6ab9bb7f5929ca0a80b1bc20ba07889ca49682b7fad0398cfb0",
           "summary_tags": [
             "combat_turn"
           ],
@@ -3001,14 +3072,7 @@
               "reactions_after": 2
             }
           ],
-          "strategy_changes": [
-            {
-              "strategyId": "N.chain",
-              "nodeId": "N.node-5",
-              "to": "SUCCEEDED",
-              "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-            }
-          ]
+          "strategy_changes": []
         },
         "extension_state": {}
       },
@@ -3289,7 +3353,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "cfed6733e2dae20dabddceaa5b01fed8295cb21d592985379a0283fb53572291"
+            "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
           },
           {
             "turn": 2,
@@ -3313,7 +3377,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "62a3c15794e70d25ab38bc32bbd5b431afeecaf25f2cc7d22f45bca38eec6777"
+            "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
           },
           {
             "turn": 3,
@@ -3337,7 +3401,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "381b6949724fb95891707309c82d748d4581182c7b31d60dc646734ee87af3f5"
+            "snapshot_hash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b"
           },
           {
             "turn": 4,
@@ -3361,7 +3425,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "2c279cce3075fb98565713c49177f936acaba718a9fca606f6c18dd9c449dc7c"
+            "snapshot_hash": "c139cd7b4f46bd40453283e5fec6616df58934fc592d48b9beb7822913e513ab"
           }
         ],
         "session": {
@@ -3390,7 +3454,9 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-2",
@@ -3411,7 +3477,9 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-3",
@@ -3432,7 +3500,9 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-4",
@@ -3453,7 +3523,9 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             },
             {
               "id": "N.node-5",
@@ -3474,11 +3546,18 @@
                 "on_success": [],
                 "on_failure": [],
                 "on_completion": []
-              }
+              },
+              "execution_class": "ZERO_TIME",
+              "result_band": "success"
             }
           ],
           "metadata": {
             "fixture": true
+          },
+          "completion_policy": "ALL_TERMINAL",
+          "goals": {
+            "required": [],
+            "optional": []
           }
         }
       ]
@@ -3536,7 +3615,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "c68982309e763bad8354cf42a5ce0b7c5073f8a8ece1f654d3837a3bcb2588b3",
+            "resulting_snapshot_hash": "50de5c2f312b1f9e6f9980f4520413e3a8c4a6f874f4e8acaf0e78aaf80741b1",
             "summary_tags": [
               "combat_turn"
             ],
@@ -3562,6 +3641,30 @@
               {
                 "strategyId": "N.chain",
                 "nodeId": "N.node-1",
+                "to": "SUCCEEDED",
+                "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+              },
+              {
+                "strategyId": "N.chain",
+                "nodeId": "N.node-2",
+                "to": "SUCCEEDED",
+                "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+              },
+              {
+                "strategyId": "N.chain",
+                "nodeId": "N.node-3",
+                "to": "SUCCEEDED",
+                "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+              },
+              {
+                "strategyId": "N.chain",
+                "nodeId": "N.node-4",
+                "to": "SUCCEEDED",
+                "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+              },
+              {
+                "strategyId": "N.chain",
+                "nodeId": "N.node-5",
                 "to": "SUCCEEDED",
                 "reason": "resolver:NORMALIZED_STATE_TRANSITION"
               }
@@ -3835,7 +3938,7 @@
           {
             "strategy_id": "N.chain",
             "owner": "a",
-            "state": "ACTIVE",
+            "state": "SUCCEEDED",
             "nodes": [
               {
                 "id": "N.node-1",
@@ -3851,12 +3954,14 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-2",
                 "kind": "STATE_TRANSITION",
-                "state": "PENDING",
+                "state": "SUCCEEDED",
                 "dependency_mode": "ALL_OF",
                 "dependencies": [
                   {
@@ -3872,12 +3977,14 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-3",
                 "kind": "STATE_TRANSITION",
-                "state": "PENDING",
+                "state": "SUCCEEDED",
                 "dependency_mode": "ALL_OF",
                 "dependencies": [
                   {
@@ -3893,12 +4000,14 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-4",
                 "kind": "STATE_TRANSITION",
-                "state": "PENDING",
+                "state": "SUCCEEDED",
                 "dependency_mode": "ALL_OF",
                 "dependencies": [
                   {
@@ -3914,12 +4023,14 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-5",
                 "kind": "STATE_TRANSITION",
-                "state": "PENDING",
+                "state": "SUCCEEDED",
                 "dependency_mode": "ALL_OF",
                 "dependencies": [
                   {
@@ -3935,11 +4046,18 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               }
             ],
             "metadata": {
               "fixture": true
+            },
+            "completion_policy": "ALL_TERMINAL",
+            "goals": {
+              "required": [],
+              "optional": []
             }
           }
         ]
@@ -4230,7 +4348,7 @@
         "resultHash": "111cc055b0a7c8fdbb43dede4d42bc91bbfc6e7307d3030e812d59dfaa17b48a",
         "replayInformation": {
           "inputHash": "dc7f8ee2cc273f51d0382f4f54b088a277b8d19e48d756fe0ba6104fb0abca4c",
-          "configurationHash": "abbfd80526e85bd73c298d22bbf80f74c9b5fc43cd425645d61e4dfdb8fa46bf",
+          "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
           "traceHash": "701be5cd78a21c636e0a7af238a0b62aa710dad18c5e875fccdb77cefe77c6bd",
           "resultHash": "111cc055b0a7c8fdbb43dede4d42bc91bbfc6e7307d3030e812d59dfaa17b48a"
         },
@@ -4336,6 +4454,42 @@
             "passed": true,
             "band": "success",
             "state": "SUCCEEDED"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-2",
+            "kind": "STATE_TRANSITION",
+            "resolver": "NORMALIZED_STATE_TRANSITION",
+            "passed": true,
+            "band": "success",
+            "state": "SUCCEEDED"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-3",
+            "kind": "STATE_TRANSITION",
+            "resolver": "NORMALIZED_STATE_TRANSITION",
+            "passed": true,
+            "band": "success",
+            "state": "SUCCEEDED"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-4",
+            "kind": "STATE_TRANSITION",
+            "resolver": "NORMALIZED_STATE_TRANSITION",
+            "passed": true,
+            "band": "success",
+            "state": "SUCCEEDED"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-5",
+            "kind": "STATE_TRANSITION",
+            "resolver": "NORMALIZED_STATE_TRANSITION",
+            "passed": true,
+            "band": "success",
+            "state": "SUCCEEDED"
           }
         ],
         "transitions": [
@@ -4344,88 +4498,79 @@
             "nodeId": "N.node-1",
             "to": "SUCCEEDED",
             "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-2",
+            "to": "SUCCEEDED",
+            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-3",
+            "to": "SUCCEEDED",
+            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-4",
+            "to": "SUCCEEDED",
+            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-5",
+            "to": "SUCCEEDED",
+            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
           }
         ],
         "eligibility": [
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-1",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [],
-            "conditions": []
+            "eligible": false,
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           },
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-2",
             "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-1",
-                "when": "ON_SUCCESS",
-                "predecessorState": "AVAILABLE",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           },
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-3",
             "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-2",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           },
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-4",
             "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-3",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           },
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-5",
             "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           }
         ],
         "diagnostics": {
           "classification": "strategy_diagnostic",
           "nonBlocking": true,
-          "executedNodes": 1,
-          "succeededNodes": 1,
+          "executedNodes": 5,
+          "succeededNodes": 5,
           "failedNodes": 0,
           "nodeSuccessRate": 1,
           "branchTransitions": 0,
@@ -4444,12 +4589,12 @@
       },
       "replayData": {
         "inputHash": "1dab981f5cadd48fd62c973e8d48cc9a92e6385cb988a34fdde970bbf7893ecb",
-        "configurationHash": "abbfd80526e85bd73c298d22bbf80f74c9b5fc43cd425645d61e4dfdb8fa46bf",
+        "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
         "turnResultHash": "111cc055b0a7c8fdbb43dede4d42bc91bbfc6e7307d3030e812d59dfaa17b48a",
-        "traceHash": "ae42f449fb1772893cf95d1fba2c56fd97d58a6f5b3d385c1256ead2bb59c271",
-        "resultHash": "d3f42933cc8af5ca8e0cd30a5624042eb82a50d01487bc939af46eb4ae32a182"
+        "traceHash": "09e2b99d336dc1e6221c6d57e9ecb13ad4bc4c21cf1e9cff45c9ad4695243646",
+        "resultHash": "f40f130f98857b39c9af1b6c91f66823dcde23e08c0fa45798ddd8198932dfab"
       },
-      "resultHash": "d3f42933cc8af5ca8e0cd30a5624042eb82a50d01487bc939af46eb4ae32a182",
+      "resultHash": "f40f130f98857b39c9af1b6c91f66823dcde23e08c0fa45798ddd8198932dfab",
       "trace": {
         "specVersion": "0.3",
         "seed": "N:0",
@@ -4477,81 +4622,84 @@
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-1",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [],
-            "conditions": []
+            "eligible": false,
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           },
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-2",
             "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-1",
-                "when": "ON_SUCCESS",
-                "predecessorState": "AVAILABLE",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           },
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-3",
             "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-2",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           },
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-4",
             "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-3",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           },
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-5",
             "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           }
         ],
         "nodeExecution": [
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-1",
+            "kind": "STATE_TRANSITION",
+            "resolver": "NORMALIZED_STATE_TRANSITION",
+            "passed": true,
+            "band": "success",
+            "state": "SUCCEEDED"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-2",
+            "kind": "STATE_TRANSITION",
+            "resolver": "NORMALIZED_STATE_TRANSITION",
+            "passed": true,
+            "band": "success",
+            "state": "SUCCEEDED"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-3",
+            "kind": "STATE_TRANSITION",
+            "resolver": "NORMALIZED_STATE_TRANSITION",
+            "passed": true,
+            "band": "success",
+            "state": "SUCCEEDED"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-4",
+            "kind": "STATE_TRANSITION",
+            "resolver": "NORMALIZED_STATE_TRANSITION",
+            "passed": true,
+            "band": "success",
+            "state": "SUCCEEDED"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-5",
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
@@ -4640,10 +4788,34 @@
             "nodeId": "N.node-1",
             "to": "SUCCEEDED",
             "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-2",
+            "to": "SUCCEEDED",
+            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-3",
+            "to": "SUCCEEDED",
+            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-4",
+            "to": "SUCCEEDED",
+            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-5",
+            "to": "SUCCEEDED",
+            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
           }
         ],
         "temporalEnd": [],
-        "resultingSnapshotHash": "23764a941032cd871ec54cadec4264a240b275cc8065ec66c47a9abe4cf3e195",
+        "resultingSnapshotHash": "daaaea5550d749fb5d3904c9c3ad786982efafa3b6fd76c9f4cbe25e71397b9b",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -4694,7 +4866,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 1,
-            "snapshot_hash": "03c64c656eec48ebef1589be2aa0859312a78c84bde872d4fc0603adc6977933",
+            "snapshot_hash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -4704,7 +4876,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "242cc714d528bcb80f8e5e7256b0376b36c7f1bc5cbd8855a1ade7a43fad0a70",
+            "resulting_snapshot_hash": "d56b104c4adf47ea19c8912cfc1e4c4e76376f57a137873334479339406efa32",
             "summary_tags": [
               "combat_turn"
             ],
@@ -4726,14 +4898,7 @@
                 "reactions_after": 2
               }
             ],
-            "strategy_changes": [
-              {
-                "strategyId": "N.chain",
-                "nodeId": "N.node-2",
-                "to": "SUCCEEDED",
-                "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-              }
-            ]
+            "strategy_changes": []
           },
           "extension_state": {}
         },
@@ -5014,7 +5179,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "cfed6733e2dae20dabddceaa5b01fed8295cb21d592985379a0283fb53572291"
+              "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
             }
           ],
           "session": {
@@ -5027,7 +5192,7 @@
           {
             "strategy_id": "N.chain",
             "owner": "a",
-            "state": "ACTIVE",
+            "state": "SUCCEEDED",
             "nodes": [
               {
                 "id": "N.node-1",
@@ -5043,7 +5208,9 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-2",
@@ -5064,12 +5231,14 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-3",
                 "kind": "STATE_TRANSITION",
-                "state": "PENDING",
+                "state": "SUCCEEDED",
                 "dependency_mode": "ALL_OF",
                 "dependencies": [
                   {
@@ -5085,12 +5254,14 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-4",
                 "kind": "STATE_TRANSITION",
-                "state": "PENDING",
+                "state": "SUCCEEDED",
                 "dependency_mode": "ALL_OF",
                 "dependencies": [
                   {
@@ -5106,12 +5277,14 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-5",
                 "kind": "STATE_TRANSITION",
-                "state": "PENDING",
+                "state": "SUCCEEDED",
                 "dependency_mode": "ALL_OF",
                 "dependencies": [
                   {
@@ -5127,11 +5300,18 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               }
             ],
             "metadata": {
               "fixture": true
+            },
+            "completion_policy": "ALL_TERMINAL",
+            "goals": {
+              "required": [],
+              "optional": []
             }
           }
         ]
@@ -5176,7 +5356,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 1,
-            "snapshot_hash": "03c64c656eec48ebef1589be2aa0859312a78c84bde872d4fc0603adc6977933",
+            "snapshot_hash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -5186,7 +5366,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "aef26d5c60cb27d69f610062645e75c45601e3fefbed849bbce7015334fb31d8",
+            "resulting_snapshot_hash": "1723328353c2bf3b2b72971876189b505082869016561a9a0415655ca4945547",
             "summary_tags": [
               "combat_turn"
             ]
@@ -5421,17 +5601,17 @@
         "reactionResults": [],
         "events": [],
         "conflicts": [],
-        "resultHash": "b5a18fed407a6ead5df4436b4c509d8092316e1fea7d110164f6b028e95ccc67",
+        "resultHash": "878ffe71ba0afe8768b56ce439b36b629bdf1879a68e47f8d764fc8b65d2c440",
         "replayInformation": {
-          "inputHash": "acc959d81e7bae11e156141b551f6a61643dd49a0437da08977d5cbf2b8c2114",
-          "configurationHash": "abbfd80526e85bd73c298d22bbf80f74c9b5fc43cd425645d61e4dfdb8fa46bf",
-          "traceHash": "5d2ab7bb4026f7322e3919c7ce6615adbe86c7ddeb314cccd88274c3c726a327",
-          "resultHash": "b5a18fed407a6ead5df4436b4c509d8092316e1fea7d110164f6b028e95ccc67"
+          "inputHash": "ff1079d8fe237c652689d9ec42f27a336e376487775a7c750361685f4bec5767",
+          "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
+          "traceHash": "4961126c5156df297ef2c6eb076e314446bdb350ce0fa448fc02806c49cf4ca3",
+          "resultHash": "878ffe71ba0afe8768b56ce439b36b629bdf1879a68e47f8d764fc8b65d2c440"
         },
         "trace": {
           "specVersion": "0.3",
           "seed": "N:1:turn:1",
-          "startingSnapshotHash": "03c64c656eec48ebef1589be2aa0859312a78c84bde872d4fc0603adc6977933",
+          "startingSnapshotHash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
           "declarations": {
             "actionHashes": {},
             "reactionHashes": {}
@@ -5464,7 +5644,7 @@
           "merge": {
             "stagedDeltas": [
               {
-                "startingSnapshotHash": "03c64c656eec48ebef1589be2aa0859312a78c84bde872d4fc0603adc6977933",
+                "startingSnapshotHash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
                 "resourceDeltas": [],
                 "actionEconomyDeltas": [],
                 "reactionEconomyDeltas": [],
@@ -5487,7 +5667,7 @@
             "atomic": true,
             "turn": 2
           },
-          "resultingSnapshotHash": "cfed6733e2dae20dabddceaa5b01fed8295cb21d592985379a0283fb53572291",
+          "resultingSnapshotHash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590",
           "pipeline": [
             "snapshot",
             "declaration_validation",
@@ -5521,105 +5701,14 @@
         }
       ],
       "strategyProgress": {
-        "results": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "kind": "STATE_TRANSITION",
-            "resolver": "NORMALIZED_STATE_TRANSITION",
-            "passed": true,
-            "band": "success",
-            "state": "SUCCEEDED"
-          }
-        ],
-        "transitions": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ],
-        "eligibility": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-1",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [
-              {
-                "node_id": "N.node-1",
-                "when": "ON_SUCCESS",
-                "predecessorState": "SUCCEEDED",
-                "satisfied": true,
-                "terminal": true
-              }
-            ],
-            "conditions": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-2",
-                "when": "ON_SUCCESS",
-                "predecessorState": "AVAILABLE",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-3",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          }
-        ],
+        "results": [],
+        "transitions": [],
+        "eligibility": [],
         "diagnostics": {
           "classification": "strategy_diagnostic",
           "nonBlocking": true,
-          "executedNodes": 1,
-          "succeededNodes": 2,
+          "executedNodes": 0,
+          "succeededNodes": 5,
           "failedNodes": 0,
           "nodeSuccessRate": 1,
           "branchTransitions": 0,
@@ -5637,17 +5726,17 @@
         "delegatedResolver": "resolveTurn"
       },
       "replayData": {
-        "inputHash": "1e55213302a84417e614fb8bbff4e6d222f334b69a9d689bd2a2a67abba878a8",
-        "configurationHash": "abbfd80526e85bd73c298d22bbf80f74c9b5fc43cd425645d61e4dfdb8fa46bf",
-        "turnResultHash": "b5a18fed407a6ead5df4436b4c509d8092316e1fea7d110164f6b028e95ccc67",
-        "traceHash": "1b005a52cf316982325eed481c86da80ad94cf89e59afe16d5865c8d55d87086",
-        "resultHash": "602e7601656fe5f5edd08f01ef1cf709d567e2fac9b4e933b2cdf1f77b53feab"
+        "inputHash": "96cc11cca29dcfc19bbed42be611336c54a5cd02ca63b5ce2c506dd518ad5822",
+        "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
+        "turnResultHash": "878ffe71ba0afe8768b56ce439b36b629bdf1879a68e47f8d764fc8b65d2c440",
+        "traceHash": "62c733ef0666b61c379f0c2f371be182c5229d95d4e1a4f13996118df335f331",
+        "resultHash": "2e85ced49249845dfd06d6072d9312f1845dda57f096e124765f800ac2d2725f"
       },
-      "resultHash": "602e7601656fe5f5edd08f01ef1cf709d567e2fac9b4e933b2cdf1f77b53feab",
+      "resultHash": "2e85ced49249845dfd06d6072d9312f1845dda57f096e124765f800ac2d2725f",
       "trace": {
         "specVersion": "0.3",
         "seed": "N:1",
-        "startingSnapshotHash": "23764a941032cd871ec54cadec4264a240b275cc8065ec66c47a9abe4cf3e195",
+        "startingSnapshotHash": "daaaea5550d749fb5d3904c9c3ad786982efafa3b6fd76c9f4cbe25e71397b9b",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -5667,96 +5756,12 @@
           }
         ],
         "opportunityTriggers": [],
-        "strategyEligibility": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-1",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [
-              {
-                "node_id": "N.node-1",
-                "when": "ON_SUCCESS",
-                "predecessorState": "SUCCEEDED",
-                "satisfied": true,
-                "terminal": true
-              }
-            ],
-            "conditions": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-2",
-                "when": "ON_SUCCESS",
-                "predecessorState": "AVAILABLE",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-3",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          }
-        ],
-        "nodeExecution": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "kind": "STATE_TRANSITION",
-            "resolver": "NORMALIZED_STATE_TRANSITION",
-            "passed": true,
-            "band": "success",
-            "state": "SUCCEEDED"
-          }
-        ],
+        "strategyEligibility": [],
+        "nodeExecution": [],
         "combatResolution": {
           "specVersion": "0.3",
           "seed": "N:1:turn:1",
-          "startingSnapshotHash": "03c64c656eec48ebef1589be2aa0859312a78c84bde872d4fc0603adc6977933",
+          "startingSnapshotHash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
           "declarations": {
             "actionHashes": {},
             "reactionHashes": {}
@@ -5789,7 +5794,7 @@
           "merge": {
             "stagedDeltas": [
               {
-                "startingSnapshotHash": "03c64c656eec48ebef1589be2aa0859312a78c84bde872d4fc0603adc6977933",
+                "startingSnapshotHash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
                 "resourceDeltas": [],
                 "actionEconomyDeltas": [],
                 "reactionEconomyDeltas": [],
@@ -5812,7 +5817,7 @@
             "atomic": true,
             "turn": 2
           },
-          "resultingSnapshotHash": "cfed6733e2dae20dabddceaa5b01fed8295cb21d592985379a0283fb53572291",
+          "resultingSnapshotHash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590",
           "pipeline": [
             "snapshot",
             "declaration_validation",
@@ -5828,16 +5833,9 @@
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
-        "strategyTransitions": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ],
+        "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "999e44d02f0899748823874945d08effeea37f149978bf71affa36432e6b9038",
+        "resultingSnapshotHash": "b285b4dbc1ff76288337b1c8fa8a0e9034d8058bf1b025618044600b9c613c5b",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -5888,7 +5886,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 2,
-            "snapshot_hash": "d9ae4d1d37552d1b1b52a70d91625724629ce45ba4097f43dc425d1b796a431a",
+            "snapshot_hash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -5898,7 +5896,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "59d5a4d748aade081a2040bd625c9d3099cf9b63df72fc956c40838da537fe50",
+            "resulting_snapshot_hash": "37bb6caef29c3e77da8dad35e890faabf65324295cf6d379acfaa7b52b4a9264",
             "summary_tags": [
               "combat_turn"
             ],
@@ -5920,14 +5918,7 @@
                 "reactions_after": 2
               }
             ],
-            "strategy_changes": [
-              {
-                "strategyId": "N.chain",
-                "nodeId": "N.node-3",
-                "to": "SUCCEEDED",
-                "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-              }
-            ]
+            "strategy_changes": []
           },
           "extension_state": {}
         },
@@ -6208,7 +6199,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "cfed6733e2dae20dabddceaa5b01fed8295cb21d592985379a0283fb53572291"
+              "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
             },
             {
               "turn": 2,
@@ -6232,7 +6223,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "62a3c15794e70d25ab38bc32bbd5b431afeecaf25f2cc7d22f45bca38eec6777"
+              "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
             }
           ],
           "session": {
@@ -6245,7 +6236,7 @@
           {
             "strategy_id": "N.chain",
             "owner": "a",
-            "state": "ACTIVE",
+            "state": "SUCCEEDED",
             "nodes": [
               {
                 "id": "N.node-1",
@@ -6261,7 +6252,9 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-2",
@@ -6282,7 +6275,9 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-3",
@@ -6303,12 +6298,14 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-4",
                 "kind": "STATE_TRANSITION",
-                "state": "PENDING",
+                "state": "SUCCEEDED",
                 "dependency_mode": "ALL_OF",
                 "dependencies": [
                   {
@@ -6324,12 +6321,14 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-5",
                 "kind": "STATE_TRANSITION",
-                "state": "PENDING",
+                "state": "SUCCEEDED",
                 "dependency_mode": "ALL_OF",
                 "dependencies": [
                   {
@@ -6345,11 +6344,18 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               }
             ],
             "metadata": {
               "fixture": true
+            },
+            "completion_policy": "ALL_TERMINAL",
+            "goals": {
+              "required": [],
+              "optional": []
             }
           }
         ]
@@ -6394,7 +6400,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 2,
-            "snapshot_hash": "d9ae4d1d37552d1b1b52a70d91625724629ce45ba4097f43dc425d1b796a431a",
+            "snapshot_hash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -6404,7 +6410,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "5734256c1cc239366f30dad6609dc99def7412d540bd82787699bee0aa67b025",
+            "resulting_snapshot_hash": "9c9c471f0610ec97bdda914d1181fd522ff5bb7d8077e0e5b73b373ce13cc0ab",
             "summary_tags": [
               "combat_turn"
             ]
@@ -6639,17 +6645,17 @@
         "reactionResults": [],
         "events": [],
         "conflicts": [],
-        "resultHash": "4aea8b0ad343c2b04840311456c7fee7230f0cbcbe7bc15dfbc5964022e0942e",
+        "resultHash": "5c90dc02a9e1240396632d9705855563aa33be495a0a1b5680190a203f91a580",
         "replayInformation": {
-          "inputHash": "99dfdca0c8479e1b5639f9443bfbac0d7f15867e44ffacb69960dbbccde3f836",
-          "configurationHash": "abbfd80526e85bd73c298d22bbf80f74c9b5fc43cd425645d61e4dfdb8fa46bf",
-          "traceHash": "cdb0a3bb8a7c182ec77e168f29d8883463ed7dc591e6c4fa8a7cb8706be93b35",
-          "resultHash": "4aea8b0ad343c2b04840311456c7fee7230f0cbcbe7bc15dfbc5964022e0942e"
+          "inputHash": "2e8c78ddba72ea0ba8c55dafd5f5d27a689bf109f27f16905e5c75ed03263f47",
+          "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
+          "traceHash": "a0adc82f1eefca605d43e98e975b82fcae8e558bebc31fa8514d8cd807eabe1f",
+          "resultHash": "5c90dc02a9e1240396632d9705855563aa33be495a0a1b5680190a203f91a580"
         },
         "trace": {
           "specVersion": "0.3",
           "seed": "N:2:turn:2",
-          "startingSnapshotHash": "d9ae4d1d37552d1b1b52a70d91625724629ce45ba4097f43dc425d1b796a431a",
+          "startingSnapshotHash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
           "declarations": {
             "actionHashes": {},
             "reactionHashes": {}
@@ -6682,7 +6688,7 @@
           "merge": {
             "stagedDeltas": [
               {
-                "startingSnapshotHash": "d9ae4d1d37552d1b1b52a70d91625724629ce45ba4097f43dc425d1b796a431a",
+                "startingSnapshotHash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
                 "resourceDeltas": [],
                 "actionEconomyDeltas": [],
                 "reactionEconomyDeltas": [],
@@ -6705,7 +6711,7 @@
             "atomic": true,
             "turn": 3
           },
-          "resultingSnapshotHash": "62a3c15794e70d25ab38bc32bbd5b431afeecaf25f2cc7d22f45bca38eec6777",
+          "resultingSnapshotHash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03",
           "pipeline": [
             "snapshot",
             "declaration_validation",
@@ -6739,97 +6745,14 @@
         }
       ],
       "strategyProgress": {
-        "results": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "kind": "STATE_TRANSITION",
-            "resolver": "NORMALIZED_STATE_TRANSITION",
-            "passed": true,
-            "band": "success",
-            "state": "SUCCEEDED"
-          }
-        ],
-        "transitions": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ],
-        "eligibility": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-1",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [
-              {
-                "node_id": "N.node-2",
-                "when": "ON_SUCCESS",
-                "predecessorState": "SUCCEEDED",
-                "satisfied": true,
-                "terminal": true
-              }
-            ],
-            "conditions": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-3",
-                "when": "ON_SUCCESS",
-                "predecessorState": "AVAILABLE",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          }
-        ],
+        "results": [],
+        "transitions": [],
+        "eligibility": [],
         "diagnostics": {
           "classification": "strategy_diagnostic",
           "nonBlocking": true,
-          "executedNodes": 1,
-          "succeededNodes": 3,
+          "executedNodes": 0,
+          "succeededNodes": 5,
           "failedNodes": 0,
           "nodeSuccessRate": 1,
           "branchTransitions": 0,
@@ -6847,17 +6770,17 @@
         "delegatedResolver": "resolveTurn"
       },
       "replayData": {
-        "inputHash": "dfe1d9eafabf9d2e2322b64013bafde10d6beee57ca68299b115472ead9194e7",
-        "configurationHash": "abbfd80526e85bd73c298d22bbf80f74c9b5fc43cd425645d61e4dfdb8fa46bf",
-        "turnResultHash": "4aea8b0ad343c2b04840311456c7fee7230f0cbcbe7bc15dfbc5964022e0942e",
-        "traceHash": "ee5370ba83de81037e9d7c40a1a44b436cbc9e101ddd0dca5625804c7362523d",
-        "resultHash": "ea2cf2c24aaf01320744edce76463979316d113d4fb6f84cf9ae885db5bd3354"
+        "inputHash": "4a4e7e5a5e7081c2471697466709e7a6b9ea2b8a1c120a21a70114a156c69711",
+        "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
+        "turnResultHash": "5c90dc02a9e1240396632d9705855563aa33be495a0a1b5680190a203f91a580",
+        "traceHash": "1594b71f754db4f4af2681502a9dee67ad375fc324d8d02c3c159a5309203aa3",
+        "resultHash": "342c3be09b0fce47d58de4c392ce714e8ca74076a569d0514da96f073ccd5dc1"
       },
-      "resultHash": "ea2cf2c24aaf01320744edce76463979316d113d4fb6f84cf9ae885db5bd3354",
+      "resultHash": "342c3be09b0fce47d58de4c392ce714e8ca74076a569d0514da96f073ccd5dc1",
       "trace": {
         "specVersion": "0.3",
         "seed": "N:2",
-        "startingSnapshotHash": "999e44d02f0899748823874945d08effeea37f149978bf71affa36432e6b9038",
+        "startingSnapshotHash": "b285b4dbc1ff76288337b1c8fa8a0e9034d8058bf1b025618044600b9c613c5b",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -6877,88 +6800,12 @@
           }
         ],
         "opportunityTriggers": [],
-        "strategyEligibility": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-1",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [
-              {
-                "node_id": "N.node-2",
-                "when": "ON_SUCCESS",
-                "predecessorState": "SUCCEEDED",
-                "satisfied": true,
-                "terminal": true
-              }
-            ],
-            "conditions": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-3",
-                "when": "ON_SUCCESS",
-                "predecessorState": "AVAILABLE",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          }
-        ],
-        "nodeExecution": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "kind": "STATE_TRANSITION",
-            "resolver": "NORMALIZED_STATE_TRANSITION",
-            "passed": true,
-            "band": "success",
-            "state": "SUCCEEDED"
-          }
-        ],
+        "strategyEligibility": [],
+        "nodeExecution": [],
         "combatResolution": {
           "specVersion": "0.3",
           "seed": "N:2:turn:2",
-          "startingSnapshotHash": "d9ae4d1d37552d1b1b52a70d91625724629ce45ba4097f43dc425d1b796a431a",
+          "startingSnapshotHash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
           "declarations": {
             "actionHashes": {},
             "reactionHashes": {}
@@ -6991,7 +6838,7 @@
           "merge": {
             "stagedDeltas": [
               {
-                "startingSnapshotHash": "d9ae4d1d37552d1b1b52a70d91625724629ce45ba4097f43dc425d1b796a431a",
+                "startingSnapshotHash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
                 "resourceDeltas": [],
                 "actionEconomyDeltas": [],
                 "reactionEconomyDeltas": [],
@@ -7014,7 +6861,7 @@
             "atomic": true,
             "turn": 3
           },
-          "resultingSnapshotHash": "62a3c15794e70d25ab38bc32bbd5b431afeecaf25f2cc7d22f45bca38eec6777",
+          "resultingSnapshotHash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03",
           "pipeline": [
             "snapshot",
             "declaration_validation",
@@ -7030,16 +6877,9 @@
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
-        "strategyTransitions": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ],
+        "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "f050b7093542536958a0c2421f945bf9e615aa9be965ec8dc06ad1dc85e126a4",
+        "resultingSnapshotHash": "d0fa9d514427d1cfc2b21cf9b41bc761dbbb6ae1bd1a6cf3ad536aae2f4b394b",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -7090,7 +6930,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 3,
-            "snapshot_hash": "833eb3c2177a2fe8f605f393fcb22227d690c267d348091c22f24d7d33ceef0a",
+            "snapshot_hash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -7100,7 +6940,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "89dd370d03703bdb81de7528c5e212bf0b7c53e0c450bb2e0387aa018c5fe8be",
+            "resulting_snapshot_hash": "4b187843871a66d51ef13925a9370fa36d9b902a50bb3322d6d65d05bb529974",
             "summary_tags": [
               "combat_turn"
             ],
@@ -7122,14 +6962,7 @@
                 "reactions_after": 2
               }
             ],
-            "strategy_changes": [
-              {
-                "strategyId": "N.chain",
-                "nodeId": "N.node-4",
-                "to": "SUCCEEDED",
-                "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-              }
-            ]
+            "strategy_changes": []
           },
           "extension_state": {}
         },
@@ -7410,7 +7243,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "cfed6733e2dae20dabddceaa5b01fed8295cb21d592985379a0283fb53572291"
+              "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
             },
             {
               "turn": 2,
@@ -7434,7 +7267,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "62a3c15794e70d25ab38bc32bbd5b431afeecaf25f2cc7d22f45bca38eec6777"
+              "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
             },
             {
               "turn": 3,
@@ -7458,7 +7291,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "381b6949724fb95891707309c82d748d4581182c7b31d60dc646734ee87af3f5"
+              "snapshot_hash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b"
             }
           ],
           "session": {
@@ -7471,7 +7304,7 @@
           {
             "strategy_id": "N.chain",
             "owner": "a",
-            "state": "ACTIVE",
+            "state": "SUCCEEDED",
             "nodes": [
               {
                 "id": "N.node-1",
@@ -7487,7 +7320,9 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-2",
@@ -7508,7 +7343,9 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-3",
@@ -7529,7 +7366,9 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-4",
@@ -7550,12 +7389,14 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-5",
                 "kind": "STATE_TRANSITION",
-                "state": "PENDING",
+                "state": "SUCCEEDED",
                 "dependency_mode": "ALL_OF",
                 "dependencies": [
                   {
@@ -7571,11 +7412,18 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               }
             ],
             "metadata": {
               "fixture": true
+            },
+            "completion_policy": "ALL_TERMINAL",
+            "goals": {
+              "required": [],
+              "optional": []
             }
           }
         ]
@@ -7620,7 +7468,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 3,
-            "snapshot_hash": "833eb3c2177a2fe8f605f393fcb22227d690c267d348091c22f24d7d33ceef0a",
+            "snapshot_hash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -7630,7 +7478,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "2752c03e296c40edc4ed45a895c20851198def2c9440fff544c8d37fa8badb03",
+            "resulting_snapshot_hash": "c5c8aa950d24a8b09092f036b7f7d2bd1aff7a91b2a72d6770182dee38ec3f53",
             "summary_tags": [
               "combat_turn"
             ]
@@ -7865,17 +7713,17 @@
         "reactionResults": [],
         "events": [],
         "conflicts": [],
-        "resultHash": "5ccf660b55e8151097fda14b143e7d07302556dbcc4b3b848e5bf88a4f316b9d",
+        "resultHash": "a63dbaa9706b9a115107bbdffc2b1f90fc780a71bbdeee23b8d3ac169af9fa7e",
         "replayInformation": {
-          "inputHash": "eabc232d1c1444536b3e6d70795be1d950c98b5ccd73f4df6d55032e5a5caa85",
-          "configurationHash": "abbfd80526e85bd73c298d22bbf80f74c9b5fc43cd425645d61e4dfdb8fa46bf",
-          "traceHash": "1cc96b9a70b5a62daecfbef573a3138c7e80d60e010b95f3c4674e4bf7cf135a",
-          "resultHash": "5ccf660b55e8151097fda14b143e7d07302556dbcc4b3b848e5bf88a4f316b9d"
+          "inputHash": "af0174a2dcafee6a0099c8ec0597643a1f46a14de670ac998678f5be5f4685ad",
+          "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
+          "traceHash": "4e24309476ffdfcdcff23d153f44d1e99465a0f11f52fa4e7344bf4dcf999310",
+          "resultHash": "a63dbaa9706b9a115107bbdffc2b1f90fc780a71bbdeee23b8d3ac169af9fa7e"
         },
         "trace": {
           "specVersion": "0.3",
           "seed": "N:3:turn:3",
-          "startingSnapshotHash": "833eb3c2177a2fe8f605f393fcb22227d690c267d348091c22f24d7d33ceef0a",
+          "startingSnapshotHash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
           "declarations": {
             "actionHashes": {},
             "reactionHashes": {}
@@ -7908,7 +7756,7 @@
           "merge": {
             "stagedDeltas": [
               {
-                "startingSnapshotHash": "833eb3c2177a2fe8f605f393fcb22227d690c267d348091c22f24d7d33ceef0a",
+                "startingSnapshotHash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
                 "resourceDeltas": [],
                 "actionEconomyDeltas": [],
                 "reactionEconomyDeltas": [],
@@ -7931,7 +7779,7 @@
             "atomic": true,
             "turn": 4
           },
-          "resultingSnapshotHash": "381b6949724fb95891707309c82d748d4581182c7b31d60dc646734ee87af3f5",
+          "resultingSnapshotHash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b",
           "pipeline": [
             "snapshot",
             "declaration_validation",
@@ -7965,89 +7813,14 @@
         }
       ],
       "strategyProgress": {
-        "results": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "kind": "STATE_TRANSITION",
-            "resolver": "NORMALIZED_STATE_TRANSITION",
-            "passed": true,
-            "band": "success",
-            "state": "SUCCEEDED"
-          }
-        ],
-        "transitions": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ],
-        "eligibility": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-1",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [
-              {
-                "node_id": "N.node-3",
-                "when": "ON_SUCCESS",
-                "predecessorState": "SUCCEEDED",
-                "satisfied": true,
-                "terminal": true
-              }
-            ],
-            "conditions": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "AVAILABLE",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          }
-        ],
+        "results": [],
+        "transitions": [],
+        "eligibility": [],
         "diagnostics": {
           "classification": "strategy_diagnostic",
           "nonBlocking": true,
-          "executedNodes": 1,
-          "succeededNodes": 4,
+          "executedNodes": 0,
+          "succeededNodes": 5,
           "failedNodes": 0,
           "nodeSuccessRate": 1,
           "branchTransitions": 0,
@@ -8065,17 +7838,17 @@
         "delegatedResolver": "resolveTurn"
       },
       "replayData": {
-        "inputHash": "95ca92b2a3ddacfcf84b218263ba7f7ceb4574daeeb0266c279297402ec0e725",
-        "configurationHash": "abbfd80526e85bd73c298d22bbf80f74c9b5fc43cd425645d61e4dfdb8fa46bf",
-        "turnResultHash": "5ccf660b55e8151097fda14b143e7d07302556dbcc4b3b848e5bf88a4f316b9d",
-        "traceHash": "59b8b5e99d34751e4c0e89f5049aa5cbb4b3449958412ef718e51e1f35550fd5",
-        "resultHash": "0c0f95e73d5f78731a37c82db2aafd65e526fb2ee1cec2a861e2c9fc79247228"
+        "inputHash": "0c2d6b336ed0691fce6d6a4a7603e461d1e4dd76b163fd710cf2b0b93a4d9c0b",
+        "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
+        "turnResultHash": "a63dbaa9706b9a115107bbdffc2b1f90fc780a71bbdeee23b8d3ac169af9fa7e",
+        "traceHash": "12b9f8ed38aecfad77d9d26881d48e393c7b3f1b9ca47b99769fc0b6dd3a4d58",
+        "resultHash": "d462f60950f17f37cbdfa762c2ae8d233d76c1af6d1ef018e785b6c9173a5db5"
       },
-      "resultHash": "0c0f95e73d5f78731a37c82db2aafd65e526fb2ee1cec2a861e2c9fc79247228",
+      "resultHash": "d462f60950f17f37cbdfa762c2ae8d233d76c1af6d1ef018e785b6c9173a5db5",
       "trace": {
         "specVersion": "0.3",
         "seed": "N:3",
-        "startingSnapshotHash": "f050b7093542536958a0c2421f945bf9e615aa9be965ec8dc06ad1dc85e126a4",
+        "startingSnapshotHash": "d0fa9d514427d1cfc2b21cf9b41bc761dbbb6ae1bd1a6cf3ad536aae2f4b394b",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -8095,80 +7868,12 @@
           }
         ],
         "opportunityTriggers": [],
-        "strategyEligibility": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-1",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [
-              {
-                "node_id": "N.node-3",
-                "when": "ON_SUCCESS",
-                "predecessorState": "SUCCEEDED",
-                "satisfied": true,
-                "terminal": true
-              }
-            ],
-            "conditions": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "AVAILABLE",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          }
-        ],
-        "nodeExecution": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "kind": "STATE_TRANSITION",
-            "resolver": "NORMALIZED_STATE_TRANSITION",
-            "passed": true,
-            "band": "success",
-            "state": "SUCCEEDED"
-          }
-        ],
+        "strategyEligibility": [],
+        "nodeExecution": [],
         "combatResolution": {
           "specVersion": "0.3",
           "seed": "N:3:turn:3",
-          "startingSnapshotHash": "833eb3c2177a2fe8f605f393fcb22227d690c267d348091c22f24d7d33ceef0a",
+          "startingSnapshotHash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
           "declarations": {
             "actionHashes": {},
             "reactionHashes": {}
@@ -8201,7 +7906,7 @@
           "merge": {
             "stagedDeltas": [
               {
-                "startingSnapshotHash": "833eb3c2177a2fe8f605f393fcb22227d690c267d348091c22f24d7d33ceef0a",
+                "startingSnapshotHash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
                 "resourceDeltas": [],
                 "actionEconomyDeltas": [],
                 "reactionEconomyDeltas": [],
@@ -8224,7 +7929,7 @@
             "atomic": true,
             "turn": 4
           },
-          "resultingSnapshotHash": "381b6949724fb95891707309c82d748d4581182c7b31d60dc646734ee87af3f5",
+          "resultingSnapshotHash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b",
           "pipeline": [
             "snapshot",
             "declaration_validation",
@@ -8240,16 +7945,9 @@
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
-        "strategyTransitions": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ],
+        "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "cfb69311eaf7b6c537ba22b76639db0cb540ceb5e77e2c2b23c7274ba40f3a7f",
+        "resultingSnapshotHash": "2889a370463d986d002e892930bf813c0b23f9e425533b45529062215693581b",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -8300,7 +7998,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 4,
-            "snapshot_hash": "5b931a3279a401b4f81e519905bfbae2d24acb81b5cd8b78b8a708e5d66d5ff2",
+            "snapshot_hash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -8310,7 +8008,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "4cc88aa47c1d008b2d2d6e9fe75369a45f4c693a99f9bb3ded99218356d6c3e2",
+            "resulting_snapshot_hash": "5de9a20bedd3d6ab9bb7f5929ca0a80b1bc20ba07889ca49682b7fad0398cfb0",
             "summary_tags": [
               "combat_turn"
             ],
@@ -8332,14 +8030,7 @@
                 "reactions_after": 2
               }
             ],
-            "strategy_changes": [
-              {
-                "strategyId": "N.chain",
-                "nodeId": "N.node-5",
-                "to": "SUCCEEDED",
-                "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-              }
-            ]
+            "strategy_changes": []
           },
           "extension_state": {}
         },
@@ -8620,7 +8311,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "cfed6733e2dae20dabddceaa5b01fed8295cb21d592985379a0283fb53572291"
+              "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
             },
             {
               "turn": 2,
@@ -8644,7 +8335,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "62a3c15794e70d25ab38bc32bbd5b431afeecaf25f2cc7d22f45bca38eec6777"
+              "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
             },
             {
               "turn": 3,
@@ -8668,7 +8359,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "381b6949724fb95891707309c82d748d4581182c7b31d60dc646734ee87af3f5"
+              "snapshot_hash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b"
             },
             {
               "turn": 4,
@@ -8692,7 +8383,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "2c279cce3075fb98565713c49177f936acaba718a9fca606f6c18dd9c449dc7c"
+              "snapshot_hash": "c139cd7b4f46bd40453283e5fec6616df58934fc592d48b9beb7822913e513ab"
             }
           ],
           "session": {
@@ -8721,7 +8412,9 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-2",
@@ -8742,7 +8435,9 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-3",
@@ -8763,7 +8458,9 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-4",
@@ -8784,7 +8481,9 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               },
               {
                 "id": "N.node-5",
@@ -8805,11 +8504,18 @@
                   "on_success": [],
                   "on_failure": [],
                   "on_completion": []
-                }
+                },
+                "execution_class": "ZERO_TIME",
+                "result_band": "success"
               }
             ],
             "metadata": {
               "fixture": true
+            },
+            "completion_policy": "ALL_TERMINAL",
+            "goals": {
+              "required": [],
+              "optional": []
             }
           }
         ]
@@ -8854,7 +8560,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 4,
-            "snapshot_hash": "5b931a3279a401b4f81e519905bfbae2d24acb81b5cd8b78b8a708e5d66d5ff2",
+            "snapshot_hash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -8864,7 +8570,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "36050bdd9157c0e3e2b88d15f8f4d1525fb869db3e8a8268e161404cfea33879",
+            "resulting_snapshot_hash": "062bf4c60ed8eeddf0d9da4c1e46aadb65147d0d7f71c2db929cc71f1e3dec37",
             "summary_tags": [
               "combat_turn"
             ]
@@ -9099,17 +8805,17 @@
         "reactionResults": [],
         "events": [],
         "conflicts": [],
-        "resultHash": "aba57b88e0dcd032d5ea345bad518c74b43073bece5b348624bb2b6ed9bdb028",
+        "resultHash": "d1682ec8c8c62f4d7d69b1b8e4b70d0758bb99e62cbc868e2ddad136447629d8",
         "replayInformation": {
-          "inputHash": "cc8922eda5fe0b66d4799df4055f23b5b14aeb9516d68c4e348f16736c582931",
-          "configurationHash": "abbfd80526e85bd73c298d22bbf80f74c9b5fc43cd425645d61e4dfdb8fa46bf",
-          "traceHash": "b60b852fa0dd9d16e3b998a9157755545463126bb75879acfd45aa669a03596a",
-          "resultHash": "aba57b88e0dcd032d5ea345bad518c74b43073bece5b348624bb2b6ed9bdb028"
+          "inputHash": "00364900c1497ac3b0e10cb5810466e9a35d8f42f0427d481477dd40e9b5da62",
+          "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
+          "traceHash": "5c13655f3377d802582beec240fb26916935e4b2d6ccab5552320612fee99a30",
+          "resultHash": "d1682ec8c8c62f4d7d69b1b8e4b70d0758bb99e62cbc868e2ddad136447629d8"
         },
         "trace": {
           "specVersion": "0.3",
           "seed": "N:4:turn:4",
-          "startingSnapshotHash": "5b931a3279a401b4f81e519905bfbae2d24acb81b5cd8b78b8a708e5d66d5ff2",
+          "startingSnapshotHash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
           "declarations": {
             "actionHashes": {},
             "reactionHashes": {}
@@ -9142,7 +8848,7 @@
           "merge": {
             "stagedDeltas": [
               {
-                "startingSnapshotHash": "5b931a3279a401b4f81e519905bfbae2d24acb81b5cd8b78b8a708e5d66d5ff2",
+                "startingSnapshotHash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
                 "resourceDeltas": [],
                 "actionEconomyDeltas": [],
                 "reactionEconomyDeltas": [],
@@ -9165,7 +8871,7 @@
             "atomic": true,
             "turn": 5
           },
-          "resultingSnapshotHash": "2c279cce3075fb98565713c49177f936acaba718a9fca606f6c18dd9c449dc7c",
+          "resultingSnapshotHash": "c139cd7b4f46bd40453283e5fec6616df58934fc592d48b9beb7822913e513ab",
           "pipeline": [
             "snapshot",
             "declaration_validation",
@@ -9199,80 +8905,13 @@
         }
       ],
       "strategyProgress": {
-        "results": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "kind": "STATE_TRANSITION",
-            "resolver": "NORMALIZED_STATE_TRANSITION",
-            "passed": true,
-            "band": "success",
-            "state": "SUCCEEDED"
-          }
-        ],
-        "transitions": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ],
-        "eligibility": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-1",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "SUCCEEDED",
-                "satisfied": true,
-                "terminal": true
-              }
-            ],
-            "conditions": []
-          }
-        ],
+        "results": [],
+        "transitions": [],
+        "eligibility": [],
         "diagnostics": {
           "classification": "strategy_diagnostic",
           "nonBlocking": true,
-          "executedNodes": 1,
+          "executedNodes": 0,
           "succeededNodes": 5,
           "failedNodes": 0,
           "nodeSuccessRate": 1,
@@ -9291,17 +8930,17 @@
         "delegatedResolver": "resolveTurn"
       },
       "replayData": {
-        "inputHash": "84a8eddf5168fc716540698fdfabb57fcb80178baadcb637e88f7445be8d1a2f",
-        "configurationHash": "abbfd80526e85bd73c298d22bbf80f74c9b5fc43cd425645d61e4dfdb8fa46bf",
-        "turnResultHash": "aba57b88e0dcd032d5ea345bad518c74b43073bece5b348624bb2b6ed9bdb028",
-        "traceHash": "0d851e788bcddb3f3fddcd87f39602f59712ac22a3d422ece100a4ac476c16fd",
-        "resultHash": "fc6a9db04db863f545b26ea9b33f4f83110373b0fd9af27bbe8c7e8f5003ccc9"
+        "inputHash": "e26b18017a00e2fd7ce920483e1b79579901f4af86a0f6be08e85105c1085674",
+        "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
+        "turnResultHash": "d1682ec8c8c62f4d7d69b1b8e4b70d0758bb99e62cbc868e2ddad136447629d8",
+        "traceHash": "2f684a9035361e7f5109d94cd3d7d5e6dd6818f7937568de20cdf80c088ebefe",
+        "resultHash": "011cb536ea800d4475f2db38ffbe30d51b60dc8169ee1ef1e98857e24b61c6be"
       },
-      "resultHash": "fc6a9db04db863f545b26ea9b33f4f83110373b0fd9af27bbe8c7e8f5003ccc9",
+      "resultHash": "011cb536ea800d4475f2db38ffbe30d51b60dc8169ee1ef1e98857e24b61c6be",
       "trace": {
         "specVersion": "0.3",
         "seed": "N:4",
-        "startingSnapshotHash": "cfb69311eaf7b6c537ba22b76639db0cb540ceb5e77e2c2b23c7274ba40f3a7f",
+        "startingSnapshotHash": "2889a370463d986d002e892930bf813c0b23f9e425533b45529062215693581b",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -9321,72 +8960,12 @@
           }
         ],
         "opportunityTriggers": [],
-        "strategyEligibility": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-1",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "SUCCEEDED",
-                "satisfied": true,
-                "terminal": true
-              }
-            ],
-            "conditions": []
-          }
-        ],
-        "nodeExecution": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "kind": "STATE_TRANSITION",
-            "resolver": "NORMALIZED_STATE_TRANSITION",
-            "passed": true,
-            "band": "success",
-            "state": "SUCCEEDED"
-          }
-        ],
+        "strategyEligibility": [],
+        "nodeExecution": [],
         "combatResolution": {
           "specVersion": "0.3",
           "seed": "N:4:turn:4",
-          "startingSnapshotHash": "5b931a3279a401b4f81e519905bfbae2d24acb81b5cd8b78b8a708e5d66d5ff2",
+          "startingSnapshotHash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
           "declarations": {
             "actionHashes": {},
             "reactionHashes": {}
@@ -9419,7 +8998,7 @@
           "merge": {
             "stagedDeltas": [
               {
-                "startingSnapshotHash": "5b931a3279a401b4f81e519905bfbae2d24acb81b5cd8b78b8a708e5d66d5ff2",
+                "startingSnapshotHash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
                 "resourceDeltas": [],
                 "actionEconomyDeltas": [],
                 "reactionEconomyDeltas": [],
@@ -9442,7 +9021,7 @@
             "atomic": true,
             "turn": 5
           },
-          "resultingSnapshotHash": "2c279cce3075fb98565713c49177f936acaba718a9fca606f6c18dd9c449dc7c",
+          "resultingSnapshotHash": "c139cd7b4f46bd40453283e5fec6616df58934fc592d48b9beb7822913e513ab",
           "pipeline": [
             "snapshot",
             "declaration_validation",
@@ -9458,16 +9037,9 @@
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
-        "strategyTransitions": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ],
+        "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "6062c0e3350818265632035e16b1d90f37bd50a0703a0ecfac30b681040313bf",
+        "resultingSnapshotHash": "48cd3ce2e2f70706d8f98695de7e21f3c2118fe48310a571218bf0e358f18914",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -9480,9 +9052,9 @@
   ],
   "replayData": {
     "inputHash": "033d7b2889ff862b2355ada55635e045641a4b9e3e81631de8e765e77086e99f",
-    "resultHash": "8fa8d9493e83179c49468335ed9baf401992ccaf94758d2d0363b4e535901d4d"
+    "resultHash": "f526772a76563002ade5a36fc246e771302c7de50018b19732eefd6dd2dc37f6"
   },
-  "resultHash": "8fa8d9493e83179c49468335ed9baf401992ccaf94758d2d0363b4e535901d4d",
+  "resultHash": "f526772a76563002ade5a36fc246e771302c7de50018b19732eefd6dd2dc37f6",
   "trace": {
     "sessionId": "N-five-turn-replay",
     "steps": [
@@ -9513,81 +9085,84 @@
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-1",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [],
-            "conditions": []
+            "eligible": false,
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           },
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-2",
             "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-1",
-                "when": "ON_SUCCESS",
-                "predecessorState": "AVAILABLE",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           },
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-3",
             "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-2",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           },
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-4",
             "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-3",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           },
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-5",
             "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
+            "reason": "terminal_or_active",
+            "state": "SUCCEEDED",
+            "dependencies": []
           }
         ],
         "nodeExecution": [
           {
             "strategyId": "N.chain",
             "nodeId": "N.node-1",
+            "kind": "STATE_TRANSITION",
+            "resolver": "NORMALIZED_STATE_TRANSITION",
+            "passed": true,
+            "band": "success",
+            "state": "SUCCEEDED"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-2",
+            "kind": "STATE_TRANSITION",
+            "resolver": "NORMALIZED_STATE_TRANSITION",
+            "passed": true,
+            "band": "success",
+            "state": "SUCCEEDED"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-3",
+            "kind": "STATE_TRANSITION",
+            "resolver": "NORMALIZED_STATE_TRANSITION",
+            "passed": true,
+            "band": "success",
+            "state": "SUCCEEDED"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-4",
+            "kind": "STATE_TRANSITION",
+            "resolver": "NORMALIZED_STATE_TRANSITION",
+            "passed": true,
+            "band": "success",
+            "state": "SUCCEEDED"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-5",
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
@@ -9676,10 +9251,34 @@
             "nodeId": "N.node-1",
             "to": "SUCCEEDED",
             "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-2",
+            "to": "SUCCEEDED",
+            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-3",
+            "to": "SUCCEEDED",
+            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-4",
+            "to": "SUCCEEDED",
+            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          },
+          {
+            "strategyId": "N.chain",
+            "nodeId": "N.node-5",
+            "to": "SUCCEEDED",
+            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
           }
         ],
         "temporalEnd": [],
-        "resultingSnapshotHash": "23764a941032cd871ec54cadec4264a240b275cc8065ec66c47a9abe4cf3e195",
+        "resultingSnapshotHash": "daaaea5550d749fb5d3904c9c3ad786982efafa3b6fd76c9f4cbe25e71397b9b",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -9691,7 +9290,7 @@
       {
         "specVersion": "0.3",
         "seed": "N:1",
-        "startingSnapshotHash": "23764a941032cd871ec54cadec4264a240b275cc8065ec66c47a9abe4cf3e195",
+        "startingSnapshotHash": "daaaea5550d749fb5d3904c9c3ad786982efafa3b6fd76c9f4cbe25e71397b9b",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -9711,96 +9310,12 @@
           }
         ],
         "opportunityTriggers": [],
-        "strategyEligibility": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-1",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [
-              {
-                "node_id": "N.node-1",
-                "when": "ON_SUCCESS",
-                "predecessorState": "SUCCEEDED",
-                "satisfied": true,
-                "terminal": true
-              }
-            ],
-            "conditions": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-2",
-                "when": "ON_SUCCESS",
-                "predecessorState": "AVAILABLE",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-3",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          }
-        ],
-        "nodeExecution": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "kind": "STATE_TRANSITION",
-            "resolver": "NORMALIZED_STATE_TRANSITION",
-            "passed": true,
-            "band": "success",
-            "state": "SUCCEEDED"
-          }
-        ],
+        "strategyEligibility": [],
+        "nodeExecution": [],
         "combatResolution": {
           "specVersion": "0.3",
           "seed": "N:1:turn:1",
-          "startingSnapshotHash": "03c64c656eec48ebef1589be2aa0859312a78c84bde872d4fc0603adc6977933",
+          "startingSnapshotHash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
           "declarations": {
             "actionHashes": {},
             "reactionHashes": {}
@@ -9833,7 +9348,7 @@
           "merge": {
             "stagedDeltas": [
               {
-                "startingSnapshotHash": "03c64c656eec48ebef1589be2aa0859312a78c84bde872d4fc0603adc6977933",
+                "startingSnapshotHash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
                 "resourceDeltas": [],
                 "actionEconomyDeltas": [],
                 "reactionEconomyDeltas": [],
@@ -9856,7 +9371,7 @@
             "atomic": true,
             "turn": 2
           },
-          "resultingSnapshotHash": "cfed6733e2dae20dabddceaa5b01fed8295cb21d592985379a0283fb53572291",
+          "resultingSnapshotHash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590",
           "pipeline": [
             "snapshot",
             "declaration_validation",
@@ -9872,16 +9387,9 @@
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
-        "strategyTransitions": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ],
+        "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "999e44d02f0899748823874945d08effeea37f149978bf71affa36432e6b9038",
+        "resultingSnapshotHash": "b285b4dbc1ff76288337b1c8fa8a0e9034d8058bf1b025618044600b9c613c5b",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -9893,7 +9401,7 @@
       {
         "specVersion": "0.3",
         "seed": "N:2",
-        "startingSnapshotHash": "999e44d02f0899748823874945d08effeea37f149978bf71affa36432e6b9038",
+        "startingSnapshotHash": "b285b4dbc1ff76288337b1c8fa8a0e9034d8058bf1b025618044600b9c613c5b",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -9913,88 +9421,12 @@
           }
         ],
         "opportunityTriggers": [],
-        "strategyEligibility": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-1",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [
-              {
-                "node_id": "N.node-2",
-                "when": "ON_SUCCESS",
-                "predecessorState": "SUCCEEDED",
-                "satisfied": true,
-                "terminal": true
-              }
-            ],
-            "conditions": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-3",
-                "when": "ON_SUCCESS",
-                "predecessorState": "AVAILABLE",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "PENDING",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          }
-        ],
-        "nodeExecution": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "kind": "STATE_TRANSITION",
-            "resolver": "NORMALIZED_STATE_TRANSITION",
-            "passed": true,
-            "band": "success",
-            "state": "SUCCEEDED"
-          }
-        ],
+        "strategyEligibility": [],
+        "nodeExecution": [],
         "combatResolution": {
           "specVersion": "0.3",
           "seed": "N:2:turn:2",
-          "startingSnapshotHash": "d9ae4d1d37552d1b1b52a70d91625724629ce45ba4097f43dc425d1b796a431a",
+          "startingSnapshotHash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
           "declarations": {
             "actionHashes": {},
             "reactionHashes": {}
@@ -10027,7 +9459,7 @@
           "merge": {
             "stagedDeltas": [
               {
-                "startingSnapshotHash": "d9ae4d1d37552d1b1b52a70d91625724629ce45ba4097f43dc425d1b796a431a",
+                "startingSnapshotHash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
                 "resourceDeltas": [],
                 "actionEconomyDeltas": [],
                 "reactionEconomyDeltas": [],
@@ -10050,7 +9482,7 @@
             "atomic": true,
             "turn": 3
           },
-          "resultingSnapshotHash": "62a3c15794e70d25ab38bc32bbd5b431afeecaf25f2cc7d22f45bca38eec6777",
+          "resultingSnapshotHash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03",
           "pipeline": [
             "snapshot",
             "declaration_validation",
@@ -10066,16 +9498,9 @@
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
-        "strategyTransitions": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ],
+        "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "f050b7093542536958a0c2421f945bf9e615aa9be965ec8dc06ad1dc85e126a4",
+        "resultingSnapshotHash": "d0fa9d514427d1cfc2b21cf9b41bc761dbbb6ae1bd1a6cf3ad536aae2f4b394b",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -10087,7 +9512,7 @@
       {
         "specVersion": "0.3",
         "seed": "N:3",
-        "startingSnapshotHash": "f050b7093542536958a0c2421f945bf9e615aa9be965ec8dc06ad1dc85e126a4",
+        "startingSnapshotHash": "d0fa9d514427d1cfc2b21cf9b41bc761dbbb6ae1bd1a6cf3ad536aae2f4b394b",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -10107,80 +9532,12 @@
           }
         ],
         "opportunityTriggers": [],
-        "strategyEligibility": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-1",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [
-              {
-                "node_id": "N.node-3",
-                "when": "ON_SUCCESS",
-                "predecessorState": "SUCCEEDED",
-                "satisfied": true,
-                "terminal": true
-              }
-            ],
-            "conditions": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "eligible": false,
-            "reason": "dependencies_pending",
-            "state": "PENDING",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "AVAILABLE",
-                "satisfied": false,
-                "terminal": false
-              }
-            ]
-          }
-        ],
-        "nodeExecution": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "kind": "STATE_TRANSITION",
-            "resolver": "NORMALIZED_STATE_TRANSITION",
-            "passed": true,
-            "band": "success",
-            "state": "SUCCEEDED"
-          }
-        ],
+        "strategyEligibility": [],
+        "nodeExecution": [],
         "combatResolution": {
           "specVersion": "0.3",
           "seed": "N:3:turn:3",
-          "startingSnapshotHash": "833eb3c2177a2fe8f605f393fcb22227d690c267d348091c22f24d7d33ceef0a",
+          "startingSnapshotHash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
           "declarations": {
             "actionHashes": {},
             "reactionHashes": {}
@@ -10213,7 +9570,7 @@
           "merge": {
             "stagedDeltas": [
               {
-                "startingSnapshotHash": "833eb3c2177a2fe8f605f393fcb22227d690c267d348091c22f24d7d33ceef0a",
+                "startingSnapshotHash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
                 "resourceDeltas": [],
                 "actionEconomyDeltas": [],
                 "reactionEconomyDeltas": [],
@@ -10236,7 +9593,7 @@
             "atomic": true,
             "turn": 4
           },
-          "resultingSnapshotHash": "381b6949724fb95891707309c82d748d4581182c7b31d60dc646734ee87af3f5",
+          "resultingSnapshotHash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b",
           "pipeline": [
             "snapshot",
             "declaration_validation",
@@ -10252,16 +9609,9 @@
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
-        "strategyTransitions": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ],
+        "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "cfb69311eaf7b6c537ba22b76639db0cb540ceb5e77e2c2b23c7274ba40f3a7f",
+        "resultingSnapshotHash": "2889a370463d986d002e892930bf813c0b23f9e425533b45529062215693581b",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -10273,7 +9623,7 @@
       {
         "specVersion": "0.3",
         "seed": "N:4",
-        "startingSnapshotHash": "cfb69311eaf7b6c537ba22b76639db0cb540ceb5e77e2c2b23c7274ba40f3a7f",
+        "startingSnapshotHash": "2889a370463d986d002e892930bf813c0b23f9e425533b45529062215693581b",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -10293,72 +9643,12 @@
           }
         ],
         "opportunityTriggers": [],
-        "strategyEligibility": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-1",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-2",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-3",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-4",
-            "eligible": false,
-            "reason": "terminal_or_active",
-            "state": "SUCCEEDED",
-            "dependencies": []
-          },
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "eligible": true,
-            "reason": "ready",
-            "state": "AVAILABLE",
-            "dependencies": [
-              {
-                "node_id": "N.node-4",
-                "when": "ON_SUCCESS",
-                "predecessorState": "SUCCEEDED",
-                "satisfied": true,
-                "terminal": true
-              }
-            ],
-            "conditions": []
-          }
-        ],
-        "nodeExecution": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "kind": "STATE_TRANSITION",
-            "resolver": "NORMALIZED_STATE_TRANSITION",
-            "passed": true,
-            "band": "success",
-            "state": "SUCCEEDED"
-          }
-        ],
+        "strategyEligibility": [],
+        "nodeExecution": [],
         "combatResolution": {
           "specVersion": "0.3",
           "seed": "N:4:turn:4",
-          "startingSnapshotHash": "5b931a3279a401b4f81e519905bfbae2d24acb81b5cd8b78b8a708e5d66d5ff2",
+          "startingSnapshotHash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
           "declarations": {
             "actionHashes": {},
             "reactionHashes": {}
@@ -10391,7 +9681,7 @@
           "merge": {
             "stagedDeltas": [
               {
-                "startingSnapshotHash": "5b931a3279a401b4f81e519905bfbae2d24acb81b5cd8b78b8a708e5d66d5ff2",
+                "startingSnapshotHash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
                 "resourceDeltas": [],
                 "actionEconomyDeltas": [],
                 "reactionEconomyDeltas": [],
@@ -10414,7 +9704,7 @@
             "atomic": true,
             "turn": 5
           },
-          "resultingSnapshotHash": "2c279cce3075fb98565713c49177f936acaba718a9fca606f6c18dd9c449dc7c",
+          "resultingSnapshotHash": "c139cd7b4f46bd40453283e5fec6616df58934fc592d48b9beb7822913e513ab",
           "pipeline": [
             "snapshot",
             "declaration_validation",
@@ -10430,16 +9720,9 @@
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
-        "strategyTransitions": [
-          {
-            "strategyId": "N.chain",
-            "nodeId": "N.node-5",
-            "to": "SUCCEEDED",
-            "reason": "resolver:NORMALIZED_STATE_TRANSITION"
-          }
-        ],
+        "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "6062c0e3350818265632035e16b1d90f37bd50a0703a0ecfac30b681040313bf",
+        "resultingSnapshotHash": "48cd3ce2e2f70706d8f98695de7e21f3c2118fe48310a571218bf0e358f18914",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -10449,6 +9732,6 @@
         ]
       }
     ],
-    "finalSnapshotHash": "6062c0e3350818265632035e16b1d90f37bd50a0703a0ecfac30b681040313bf"
+    "finalSnapshotHash": "48cd3ce2e2f70706d8f98695de7e21f3c2118fe48310a571218bf0e358f18914"
   }
 }

@@ -1,7 +1,6 @@
 spec_version: "0.3"
 document: engine_invariants
 status: provisional
-
 validation_classes:
   hard_invariant:
     effect: fail_resolution_or_build
@@ -10,189 +9,296 @@ validation_classes:
     effect: emit_structured_warning
     authority: diagnostic_only
     may_fail_build: false
-
 invariants:
   - id: INV-001
-    rule: "Core stats are finite numbers in [0, 100] after resolution."
+    rule: Core stats are finite numbers in [0, 100] after resolution.
     enforcement: schema_and_runtime_assertion
   - id: INV-002
-    rule: "The engine never computes or consumes a global Attack Score."
+    rule: The engine never computes or consumes a global Attack Score.
     enforcement: api_contract_and_test
   - id: INV-003
-    rule: "The engine never resolves a complex plan using one Strategy Score."
+    rule: The engine never resolves a complex plan using one Strategy Score.
     enforcement: require_subaction_dag
   - id: INV-004
-    rule: "Accuracy and speed/timing resolve before defense and damage."
+    rule: Accuracy and speed/timing resolve before defense and damage.
     enforcement: pipeline_state_machine
   - id: INV-005
-    rule: "Power denotes delivered force/energy and cannot be written directly to health."
+    rule: Power denotes delivered force/energy and cannot be written directly to
+      health.
     enforcement: damage_conversion_api_only
   - id: INV-006
-    rule: "Penetration is clamped to [0, 1] and proportionally reduces compatible effective filters; it never subtracts flat defense."
+    rule: Penetration is clamped to [0, 1] and proportionally reduces compatible
+      effective filters; it never subtracts flat defense.
     enforcement: formula_contract
   - id: INV-007
-    rule: "Every defense attempt returns a filter in [0, 100] plus independently recorded secondary consequences."
+    rule: Every defense attempt returns a filter in [0, 100] plus independently
+      recorded secondary consequences.
     enforcement: typed_result_and_clamp
   - id: INV-008
-    rule: "A 100% defense filter may still consume resources or cause stability loss, displacement, or a next-turn modifier."
+    rule: A 100% defense filter may still consume resources or cause stability loss,
+      displacement, or a next-turn modifier.
     enforcement: independent_commit_tests
   - id: INV-009
-    rule: "Known body-zone resistance and vulnerability are used; fallback zone selection is deterministic."
+    rule: Known body-zone resistance and vulnerability are used; fallback zone
+      selection is deterministic.
     enforcement: contact_resolution_test
   - id: INV-010
-    rule: "WORLD, CHARACTER, and ACTION modifiers remain distinguishable in input and audit records."
+    rule: WORLD, CHARACTER, and ACTION modifiers remain distinguishable in input and
+      audit records.
     enforcement: layer_enum_and_trace
   - id: INV-011
-    rule: "Modifier order is deterministic: operation phase, layer, priority, then id."
+    rule: "Modifier order is deterministic: operation phase, layer, priority, then
+      id."
     enforcement: canonical_sort_test
   - id: INV-012
-    rule: "Conditional modifier predicates are side-effect-free and read only the immutable resolution snapshot."
+    rule: Conditional modifier predicates are side-effect-free and read only the
+      immutable resolution snapshot.
     enforcement: restricted_predicate_ast
   - id: INV-013
-    rule: "Micro-variance factor is always in [0.99, 1.01], is seeded reproducibly, and is applied no more than once per continuous component."
+    rule: Micro-variance factor is always in [0.99, 1.01], is seeded reproducibly,
+      and is applied no more than once per continuous component.
     enforcement: property_based_test
   - id: INV-014
-    rule: "Randomness never selects an action, bypasses feasibility, replaces an accuracy/speed contest, or grants an unmodeled mechanical effect."
+    rule: Randomness never selects an action, bypasses feasibility, replaces an
+      accuracy/speed contest, or grants an unmodeled mechanical effect.
     enforcement: rng_api_visibility_test
   - id: INV-015
-    rule: "Identical validated inputs, registry versions, ruleset version, and seed produce byte-identical canonical results."
+    rule: Identical validated inputs, registry versions, ruleset version, and seed
+      produce byte-identical canonical results.
     enforcement: replay_golden_test
   - id: INV-016
-    rule: "Small multi-attacks up to the configured threshold resolve individually; batches preserve power, costs, channels, and allocation."
+    rule: Small multi-attacks up to the configured threshold resolve individually;
+      batches preserve power, costs, channels, and allocation.
     enforcement: individual_vs_batch_conservation_test
   - id: INV-017
-    rule: "Mechanical success, damage, filtering, and state deltas are decided only by deterministic engine rules plus bounded seeded micro-variance."
+    rule: Mechanical success, damage, filtering, and state deltas are decided only
+      by deterministic engine rules plus bounded seeded micro-variance.
     enforcement: authority_boundary_test
   - id: INV-018
-    rule: "An LLM may classify or decompose text but its output has no mechanical authority and must pass deterministic validation."
+    rule: An LLM may classify or decompose text but its output has no mechanical
+      authority and must pass deterministic validation.
     enforcement: parser_adapter_contract
   - id: INV-019
-    rule: "The core RPG engine imports neither universe extensions, the Ability Parser, LLM clients, nor external dictionaries."
+    rule: The core RPG engine imports neither universe extensions, the Ability
+      Parser, LLM clients, nor external dictionaries.
     enforcement: dependency_graph_test
   - id: INV-020
-    rule: "Universe-specific state is namespaced and opaque unless converted into registered core inputs by the parser/adapter."
+    rule: Universe-specific state is namespaced and opaque unless converted into
+      registered core inputs by the parser/adapter.
     enforcement: namespace_schema_and_registry
   - id: INV-021
-    rule: "Costs are reserved before consequential resolution and committed according to declared cost timing."
+    rule: Costs are reserved before consequential resolution and committed according
+      to declared cost timing.
     enforcement: transaction_test
   - id: INV-022
-    rule: "Simultaneous actions read the same immutable snapshot; commit ordering cannot change computed outcomes."
+    rule: Simultaneous actions read the same immutable snapshot; commit ordering
+      cannot change computed outcomes.
     enforcement: permutation_test
   - id: INV-023
-    rule: "Every provisional numeric coefficient is stored with tunable=true; design-mandated constants use tunable=false with a reason."
+    rule: Every provisional numeric coefficient is stored with tunable=true;
+      design-mandated constants use tunable=false with a reason.
     enforcement: specification_linter
   - id: INV-024
-    rule: "NaN, infinities, missing required registry entries, invalid channel shares, and incompatible bounds fail validation rather than being coerced."
+    rule: NaN, infinities, missing required registry entries, invalid channel
+      shares, and incompatible bounds fail validation rather than being coerced.
     enforcement: input_validator
   - id: INV-025
-    rule: "All resolutions emit sufficient trace data to reproduce base values, modifiers, intermediate factors, variance key, and state delta."
+    rule: All resolutions emit sufficient trace data to reproduce base values,
+      modifiers, intermediate factors, variance key, and state delta.
     enforcement: audit_schema_test
   - id: INV-026
-    rule: "Turn resource reservations and commits conserve every resource and never permit a negative balance."
+    rule: Turn resource reservations and commits conserve every resource and never
+      permit a negative balance.
     enforcement: turn_resource_property_test
   - id: INV-027
-    rule: "Reaction remaining and reserved capacity never become negative, and a reaction declaration is consumed at most once."
+    rule: Reaction remaining and reserved capacity never become negative, and a
+      reaction declaration is consumed at most once.
     enforcement: reaction_ledger_property_test
   - id: INV-028
-    rule: "Mechanically simultaneous action results are independent of declaration-array order; explicit ordering uses stable declared values and action id only as the final tie-breaker."
+    rule: Mechanically simultaneous action results are independent of
+      declaration-array order; explicit ordering uses stable declared values and
+      action id only as the final tie-breaker.
     enforcement: turn_permutation_test
   - id: INV-029
-    rule: "A failed turn commit returns the unchanged starting snapshot and exposes no partial canonical mutation."
+    rule: A failed turn commit returns the unchanged starting snapshot and exposes
+      no partial canonical mutation.
     enforcement: atomic_turn_transaction_test
   - id: INV-030
-    rule: "Batch-safe resolution conserves quantity, target allocation, costs, and status semantics within configured equivalence tolerances."
+    rule: Batch-safe resolution conserves quantity, target allocation, costs, and
+      status semantics within configured equivalence tolerances.
     enforcement: batch_equivalence_test
   - id: INV-031
-    rule: "Every consumed defense source and status definition validates against its formal registry schema before resolution."
+    rule: Every consumed defense source and status definition validates against its
+      formal registry schema before resolution.
     enforcement: registry_schema_test
   - id: INV-032
-    rule: "A complete turn is byte-replayable from its starting snapshot, declarations, registries, configuration, and seed."
+    rule: A complete turn is byte-replayable from its starting snapshot,
+      declarations, registries, configuration, and seed.
     enforcement: turn_golden_replay_test
   - id: INV-033
-    rule: "Simultaneous status and geometry claims use explicit deterministic merge policies and never implicit last-write-wins behavior."
+    rule: Simultaneous status and geometry claims use explicit deterministic merge
+      policies and never implicit last-write-wins behavior.
     enforcement: merge_conflict_test
   - id: INV-034
-    rule: "Trace emission is optional and cannot alter complete-turn mechanics."
+    rule: Trace emission is optional and cannot alter complete-turn mechanics.
     enforcement: turn_trace_equivalence_test
   - id: INV-035
-    rule: "Strategy graphs are acyclic, have unique node ids, and reference only declared dependencies."
+    rule: Strategy graphs are acyclic, have unique node ids, and reference only
+      declared dependencies.
     enforcement: strategy_schema_and_dag_validation_test
   - id: INV-036
-    rule: "Strategy-node scheduling and eligibility are deterministic and independent of declaration-array ordering."
+    rule: Strategy-node scheduling and eligibility are deterministic and independent
+      of declaration-array ordering.
     enforcement: strategy_scheduler_permutation_test
   - id: INV-037
-    rule: "A strategy node cannot execute before its declared dependency semantics are satisfied."
+    rule: A strategy node cannot execute before its declared dependency semantics
+      are satisfied.
     enforcement: strategy_dependency_test
   - id: INV-038
-    rule: "Failed strategy nodes obey their declared failure policy without narrative inference."
+    rule: Failed strategy nodes obey their declared failure policy without narrative
+      inference.
     enforcement: strategy_failure_policy_test
   - id: INV-039
-    rule: "A consumed temporal opportunity cannot be consumed twice unless explicitly declared reusable."
+    rule: A consumed temporal opportunity cannot be consumed twice unless explicitly
+      declared reusable.
     enforcement: opportunity_consumption_test
   - id: INV-040
-    rule: "Duration remaining values never become negative and expiration occurs at the configured lifecycle point."
+    rule: Duration remaining values never become negative and expiration occurs at
+      the configured lifecycle point.
     enforcement: temporal_duration_property_test
   - id: INV-041
-    rule: "Cooldown availability and progression are deterministic, and unavailable actions fail before combat commit."
+    rule: Cooldown availability and progression are deterministic, and unavailable
+      actions fail before combat commit.
     enforcement: cooldown_property_test
   - id: INV-042
-    rule: "Expired modifiers cannot participate in later mechanical resolution."
+    rule: Expired modifiers cannot participate in later mechanical resolution.
     enforcement: modifier_expiration_test
   - id: INV-043
-    rule: "Delayed effects cannot activate before their declared temporal point."
+    rule: Delayed effects cannot activate before their declared temporal point.
     enforcement: scheduled_effect_timing_test
   - id: INV-044
-    rule: "Every relational-state endpoint references a valid entity in the immutable session snapshot."
+    rule: Every relational-state endpoint references a valid entity in the immutable
+      session snapshot.
     enforcement: relational_reference_validation_test
   - id: INV-045
-    rule: "Complete multi-turn sessions are byte-replayable from initial state, normalized steps, strategies, registries, configuration, and seed."
+    rule: Complete multi-turn sessions are byte-replayable from initial state,
+      normalized steps, strategies, registries, configuration, and seed.
     enforcement: session_golden_replay_test
   - id: INV-046
-    rule: "Session trace emission is optional and cannot alter temporal, strategy, or combat mechanics."
+    rule: Session trace emission is optional and cannot alter temporal, strategy, or
+      combat mechanics.
     enforcement: session_trace_equivalence_test
   - id: INV-047
-    rule: "Session orchestration never mutates historical input snapshots."
+    rule: Session orchestration never mutates historical input snapshots.
     enforcement: session_snapshot_immutability_test
   - id: INV-048
-    rule: "Recovery hooks remain within declared resource and capacity bounds."
+    rule: Recovery hooks remain within declared resource and capacity bounds.
     enforcement: recovery_bounds_property_test
   - id: INV-049
-    rule: "Strategy orchestration introduces no hidden mechanical score or bonus."
+    rule: Strategy orchestration introduces no hidden mechanical score or bonus.
     enforcement: strategy_authority_boundary_test
   - id: INV-050
-    rule: "An identical ordinary action resolves mechanically identically when declared directly or emitted by a strategy node."
+    rule: An identical ordinary action resolves mechanically identically when
+      declared directly or emitted by a strategy node.
     enforcement: strategy_direct_equivalence_test
   - id: INV-051
-    rule: "Bounded mechanical history never exceeds the configured maximum depth and contains normalized events only."
+    rule: Bounded mechanical history never exceeds the configured maximum depth and
+      contains normalized events only.
     enforcement: mechanical_history_bound_test
   - id: INV-052
-    rule: "Cooldowns, scheduled effects, modifiers, statuses, relations, opportunities, and strategy transitions use stable deterministic ordering."
+    rule: Cooldowns, scheduled effects, modifiers, statuses, relations,
+      opportunities, and strategy transitions use stable deterministic ordering.
     enforcement: temporal_ordering_test
   - id: INV-053
-    rule: "The session scheduler delegates combat actions to resolveTurn and does not duplicate the combat formulas."
+    rule: The session scheduler delegates combat actions to resolveTurn and does not
+      duplicate the combat formulas.
     enforcement: session_delegation_test
-
+  - id: INV-054
+    rule: "Zero-time transition count per step is bounded and produces a structured error if exceeded."
+    enforcement: zero_time_limit_test
+  - id: INV-055
+    rule: "Execution classes (ZERO_TIME, ACTION, REACTION, MOVEMENT, PASSIVE) map deterministically to scheduler phases."
+    enforcement: execution_class_scheduler_test
+  - id: INV-056
+    rule: "Action and movement economy determine whether economy-consuming nodes execute in the current step or wait."
+    enforcement: economy_boundary_test
+  - id: INV-057
+    rule: "PASSIVE nodes never execute during scheduler initiative; they only respond to declared triggers."
+    enforcement: passive_scheduler_test
+  - id: INV-058
+    rule: "ON_SUCCESS is strict: it evaluates false when the predecessor's result band is partial."
+    enforcement: on_success_strict_test
+  - id: INV-059
+    rule: "ON_PARTIAL_OR_BETTER evaluates true for both partial and full success bands."
+    enforcement: on_partial_or_better_test
+  - id: INV-060
+    rule: "Strategy completion_policy is evaluated after all nodes are terminal."
+    enforcement: completion_policy_test
+  - id: INV-061
+    rule: "REQUIRED_GOALS policy fails the strategy when any declared required goal node did not SUCCEED."
+    enforcement: required_goals_test
+  - id: INV-062
+    rule: "ACTIVATE_FALLBACK failure policy activates declared fallback nodes on primary failure."
+    enforcement: fallback_goal_test
+  - id: INV-063
+    rule: "Strategy completion_policy defaults to ALL_TERMINAL when not explicitly declared."
+    enforcement: completion_policy_default_test
+  - id: INV-064
+    rule: "cross_turn_resource_reservation defaults to false; no cross-turn economy is reserved by the scheduler."
+    enforcement: cross_turn_reservation_test
+  - id: INV-065
+    rule: "MOVEMENT nodes consume movement_economy for characters that declare it, otherwise fall back to action_economy."
+    enforcement: movement_economy_test
+  - id: INV-066
+    rule: "normalizeStrategyDag fills execution_class and goals defaults before validation."
+    enforcement: normalization_defaults_test
+  - id: INV-067
+    rule: "Every node reaching the scheduler has an explicit execution_class after normalization."
+    enforcement: execution_class_explicit_test
+  - id: INV-068
+    rule: "Partial primitive results preserve the partial band as a distinct outcome rather than coercing to success or failure."
+    enforcement: partial_band_preservation_test
+  - id: INV-069
+    rule: "Strategy diagnostics are non-blocking and never affect mechanical outcomes."
+    enforcement: diagnostics_nonblocking_test
+  - id: INV-070
+    rule: "ZERO_TIME nodes that complete in one step correctly unlock newly eligible dependent nodes in the same step."
+    enforcement: zero_time_chain_test
 required_property_tests:
   stat_closure:
-    samples: { value: 10000, tunable: true }
-    assertion: "resolved stat always lies in [0, 100]"
+    samples:
+      value: 10000
+      tunable: true
+    assertion: resolved stat always lies in [0, 100]
   modifier_determinism:
-    permutations: { value: 1000, tunable: true }
-    assertion: "input list permutation does not alter the final value or canonical trace"
+    permutations:
+      value: 1000
+      tunable: true
+    assertion: input list permutation does not alter the final value or canonical trace
   penetration_monotonicity:
-    samples: { value: 10000, tunable: true }
-    assertion: "for nonnegative defense and compatibility, greater penetration never increases effective filtering"
+    samples:
+      value: 10000
+      tunable: true
+    assertion: for nonnegative defense and compatibility, greater penetration never
+      increases effective filtering
   filter_bounds:
-    samples: { value: 10000, tunable: true }
-    assertion: "final defense filter always lies in [0, 100]"
+    samples:
+      value: 10000
+      tunable: true
+    assertion: final defense filter always lies in [0, 100]
   variance_bounds:
-    samples: { value: 100000, tunable: true }
-    assertion: "all sampled factors lie in [0.99, 1.01]"
+    samples:
+      value: 100000
+      tunable: true
+    assertion: all sampled factors lie in [0.99, 1.01]
   batch_conservation:
-    samples: { value: 5000, tunable: true }
-    tolerance: { value: 0.000001, tunable: true }
-    assertion: "batch partitioning conserves declared totals within tolerance"
-
+    samples:
+      value: 5000
+      tunable: true
+    tolerance:
+      value: 0.000001
+      tunable: true
+    assertion: batch partitioning conserves declared totals within tolerance
 validation_order:
   - schema
   - finite_numbers_and_ranges

@@ -1,0 +1,459 @@
+{
+  "version": "0.2",
+  "generatedAt": "2026-09-05T07:16:02.708Z",
+  "scenarioCount": 12,
+  "committed": 11,
+  "expectedPreCommitAborts": 1,
+  "scenarios": [
+    {
+      "id": "A",
+      "description": "one attacker, one defender, one hit",
+      "outcome": "committed",
+      "reason": null,
+      "actionOutcomes": [
+        {
+          "id": "A.attack",
+          "outcome": "resolved",
+          "resolutionMode": "individual",
+          "representedHits": 1,
+          "resolvedGroups": 1,
+          "healthDamage": 45.94,
+          "targetAllocation": [
+            {
+              "targetId": "b",
+              "count": 1
+            }
+          ],
+          "batchSafetyReasons": [
+            "hit_scoped_reaction"
+          ]
+        }
+      ],
+      "reactionOutcomes": [
+        {
+          "id": "A.block",
+          "outcome": "applied",
+          "reason": null,
+          "interruption": null
+        }
+      ],
+      "conflicts": [],
+      "resultHash": "1a3470e32159318486aaceb0e7c5080e4c676154b3c75748b16010313bcba35d"
+    },
+    {
+      "id": "B",
+      "description": "five individually resolved hits",
+      "outcome": "committed",
+      "reason": null,
+      "actionOutcomes": [
+        {
+          "id": "B.volley",
+          "outcome": "resolved",
+          "resolutionMode": "individual",
+          "representedHits": 5,
+          "resolvedGroups": 5,
+          "healthDamage": 307.86,
+          "targetAllocation": [
+            {
+              "targetId": "b",
+              "count": 5
+            }
+          ],
+          "batchSafetyReasons": []
+        }
+      ],
+      "reactionOutcomes": [],
+      "conflicts": [],
+      "resultHash": "b094868fe3cea42c194fb764b8e2842ccaab037708393f3fa8870b49db075e4a"
+    },
+    {
+      "id": "C",
+      "description": "500-hit batch-safe action",
+      "outcome": "committed",
+      "reason": null,
+      "actionOutcomes": [
+        {
+          "id": "C.batch",
+          "outcome": "resolved",
+          "resolutionMode": "batch",
+          "representedHits": 500,
+          "resolvedGroups": 32,
+          "healthDamage": 30836.48000000001,
+          "targetAllocation": [
+            {
+              "targetId": "b",
+              "count": 500
+            }
+          ],
+          "batchSafetyReasons": []
+        }
+      ],
+      "reactionOutcomes": [],
+      "conflicts": [],
+      "resultHash": "9cdcb07446b8758777450ec3f5142c75a0448dc2c62865e760cc244b3abc71a4"
+    },
+    {
+      "id": "D",
+      "description": "one action with explicit multi-target allocation",
+      "outcome": "committed",
+      "reason": null,
+      "actionOutcomes": [
+        {
+          "id": "D.multi",
+          "outcome": "resolved",
+          "resolutionMode": "individual",
+          "representedHits": 6,
+          "resolvedGroups": 6,
+          "healthDamage": 369.07,
+          "targetAllocation": [
+            {
+              "targetId": "b",
+              "count": 1
+            },
+            {
+              "targetId": "c",
+              "count": 2
+            },
+            {
+              "targetId": "d",
+              "count": 3
+            }
+          ],
+          "batchSafetyReasons": []
+        }
+      ],
+      "reactionOutcomes": [],
+      "conflicts": [],
+      "resultHash": "51a7c7da81cdfe0f006a1a41c8e85f834040d99f098c8c2c843bd1640fe2f916"
+    },
+    {
+      "id": "E",
+      "description": "two simultaneous reciprocal attacks",
+      "outcome": "committed",
+      "reason": null,
+      "actionOutcomes": [
+        {
+          "id": "E.a-attacks",
+          "outcome": "resolved",
+          "resolutionMode": "individual",
+          "representedHits": 1,
+          "resolvedGroups": 1,
+          "healthDamage": 62.18,
+          "targetAllocation": [
+            {
+              "targetId": "b",
+              "count": 1
+            }
+          ],
+          "batchSafetyReasons": []
+        },
+        {
+          "id": "E.b-attacks",
+          "outcome": "resolved",
+          "resolutionMode": "individual",
+          "representedHits": 1,
+          "resolvedGroups": 1,
+          "healthDamage": 15.95,
+          "targetAllocation": [
+            {
+              "targetId": "a",
+              "count": 1
+            }
+          ],
+          "batchSafetyReasons": []
+        }
+      ],
+      "reactionOutcomes": [],
+      "conflicts": [],
+      "resultHash": "887608410ff2026abd826ff65844bda7246f98b9b7a7ba965535b421c8834834"
+    },
+    {
+      "id": "F",
+      "description": "attack with defensive reaction",
+      "outcome": "committed",
+      "reason": null,
+      "actionOutcomes": [
+        {
+          "id": "F.attack",
+          "outcome": "resolved",
+          "resolutionMode": "individual",
+          "representedHits": 1,
+          "resolvedGroups": 1,
+          "healthDamage": 45.91,
+          "targetAllocation": [
+            {
+              "targetId": "b",
+              "count": 1
+            }
+          ],
+          "batchSafetyReasons": [
+            "hit_scoped_reaction"
+          ]
+        }
+      ],
+      "reactionOutcomes": [
+        {
+          "id": "F.block",
+          "outcome": "applied",
+          "reason": null,
+          "interruption": null
+        }
+      ],
+      "conflicts": [],
+      "resultHash": "6a05c507826a97ec0b8de3a01790119932a3faef1f65d4bb1d16ea9ee822b282"
+    },
+    {
+      "id": "G",
+      "description": "multi-hit action with limited reaction capacity",
+      "outcome": "committed",
+      "reason": null,
+      "actionOutcomes": [
+        {
+          "id": "G.volley",
+          "outcome": "resolved",
+          "resolutionMode": "individual",
+          "representedHits": 5,
+          "resolvedGroups": 5,
+          "healthDamage": 277.33,
+          "targetAllocation": [
+            {
+              "targetId": "b",
+              "count": 5
+            }
+          ],
+          "batchSafetyReasons": [
+            "hit_scoped_reaction"
+          ]
+        }
+      ],
+      "reactionOutcomes": [
+        {
+          "id": "G.block-1",
+          "outcome": "applied",
+          "reason": null,
+          "interruption": null
+        },
+        {
+          "id": "G.block-2",
+          "outcome": "applied",
+          "reason": null,
+          "interruption": null
+        },
+        {
+          "id": "G.block-3",
+          "outcome": "unavailable",
+          "reason": "reaction_capacity_exhausted",
+          "interruption": null
+        }
+      ],
+      "conflicts": [],
+      "resultHash": "fa12e6212105586935daa223f41de625bc5279860a1a4b94b5f249ea2664b90b"
+    },
+    {
+      "id": "H",
+      "description": "explicit reaction interruption",
+      "outcome": "committed",
+      "reason": null,
+      "actionOutcomes": [
+        {
+          "id": "H.attack",
+          "outcome": "cancelled",
+          "resolutionMode": null,
+          "representedHits": 0,
+          "resolvedGroups": 0,
+          "healthDamage": 0,
+          "targetAllocation": [],
+          "batchSafetyReasons": []
+        }
+      ],
+      "reactionOutcomes": [
+        {
+          "id": "H.interrupt",
+          "outcome": "applied",
+          "reason": null,
+          "interruption": {
+            "consequence": "CANCEL_ACTION",
+            "potency": 10,
+            "resistance": 5,
+            "margin": 5,
+            "success": true
+          }
+        }
+      ],
+      "conflicts": [],
+      "resultHash": "90a03f21708ef8cd8d6336513078f87ca3f59d358a96fe8a53e6dcc6c9842bc6"
+    },
+    {
+      "id": "I",
+      "description": "simultaneous repeated status applications",
+      "outcome": "committed",
+      "reason": null,
+      "actionOutcomes": [
+        {
+          "id": "I.a-status",
+          "outcome": "resolved",
+          "resolutionMode": "individual",
+          "representedHits": 1,
+          "resolvedGroups": 1,
+          "healthDamage": 62.12,
+          "targetAllocation": [
+            {
+              "targetId": "d",
+              "count": 1
+            }
+          ],
+          "batchSafetyReasons": [
+            "unaggregated_status_transition"
+          ]
+        },
+        {
+          "id": "I.b-status",
+          "outcome": "resolved",
+          "resolutionMode": "individual",
+          "representedHits": 1,
+          "resolvedGroups": 1,
+          "healthDamage": 30.8,
+          "targetAllocation": [
+            {
+              "targetId": "d",
+              "count": 1
+            }
+          ],
+          "batchSafetyReasons": [
+            "unaggregated_status_transition"
+          ]
+        }
+      ],
+      "reactionOutcomes": [],
+      "conflicts": [],
+      "resultHash": "effefc729d8f43b3f7baf086a7da43808ca015db7f634dc84d431c6ac27931ba"
+    },
+    {
+      "id": "J",
+      "description": "conflicting displacement assignments",
+      "outcome": "committed",
+      "reason": null,
+      "actionOutcomes": [
+        {
+          "id": "J.left",
+          "outcome": "resolved",
+          "resolutionMode": null,
+          "representedHits": 0,
+          "resolvedGroups": 0,
+          "healthDamage": 0,
+          "targetAllocation": [],
+          "batchSafetyReasons": []
+        },
+        {
+          "id": "J.right",
+          "outcome": "resolved",
+          "resolutionMode": null,
+          "representedHits": 0,
+          "resolvedGroups": 0,
+          "healthDamage": 0,
+          "targetAllocation": [],
+          "batchSafetyReasons": []
+        }
+      ],
+      "reactionOutcomes": [],
+      "conflicts": [
+        {
+          "code": "GEOMETRY_ASSIGNMENT_CONFLICT",
+          "characterId": "d",
+          "policy": "highest_explicit_priority_then_action_id",
+          "winner": "J.left",
+          "claims": [
+            {
+              "actionId": "J.left",
+              "priority": 0,
+              "vector": {
+                "x": 10,
+                "y": 0,
+                "z": 0
+              }
+            },
+            {
+              "actionId": "J.right",
+              "priority": 0,
+              "vector": {
+                "x": -10,
+                "y": 0,
+                "z": 0
+              }
+            }
+          ]
+        }
+      ],
+      "resultHash": "c1aa7b665951d035534cfb83a1e96196a7dfb3aa552ab23e177cdf1fb278e2d1"
+    },
+    {
+      "id": "K",
+      "description": "insufficient resources for declared quantity",
+      "outcome": "aborted",
+      "reason": "Character a requires 25 energy, but has 10.",
+      "actionOutcomes": [],
+      "reactionOutcomes": [],
+      "conflicts": [],
+      "resultHash": null
+    },
+    {
+      "id": "L",
+      "description": "status-heavy volley falling back to individual resolution",
+      "outcome": "committed",
+      "reason": null,
+      "actionOutcomes": [
+        {
+          "id": "L.status-volley",
+          "outcome": "resolved",
+          "resolutionMode": "individual",
+          "representedHits": 30,
+          "resolvedGroups": 30,
+          "healthDamage": 1849.71,
+          "targetAllocation": [
+            {
+              "targetId": "b",
+              "count": 30
+            }
+          ],
+          "batchSafetyReasons": [
+            "unaggregated_status_transition"
+          ]
+        }
+      ],
+      "reactionOutcomes": [],
+      "conflicts": [],
+      "resultHash": "f82149729a1becc735c17709e20ffe17bcd804ea4ec334735457d6eae2d6f9cc"
+    }
+  ],
+  "batchEquivalence": {
+    "withinTolerance": true,
+    "classifiedBatchSafe": true,
+    "validClassification": true,
+    "divergence": {
+      "damageRelative": 0.00013004078286609814,
+      "stabilityRelative": 0.00018067359563743234,
+      "resourceAbsolute": 0,
+      "hitCountAbsolute": 0,
+      "statusCountAbsolute": 0,
+      "targetAllocationEqual": true
+    },
+    "totals": {
+      "batch": {
+        "damage": 30836.48000000001,
+        "stability": 17988.24,
+        "hits": 500,
+        "statuses": 0
+      },
+      "individual": {
+        "damage": 30832.469999999976,
+        "stability": 17984.990000000013,
+        "hits": 500,
+        "statuses": 0
+      }
+    },
+    "resultHashes": {
+      "batch": "9cdcb07446b8758777450ec3f5142c75a0448dc2c62865e760cc244b3abc71a4",
+      "individual": "873dcefb604c6840976f62eea759dd8b959f68bdf90f9f681b5cbe52f2d8d2b7"
+    }
+  }
+}

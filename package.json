@@ -1,0 +1,31 @@
+{
+  "name": "universal-rpg-engine",
+  "version": "0.3.0",
+  "description": "Deterministic universal RPG simulation engine with temporal sessions and Strategy DAGs",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "validate": "node ./cli/validate.js",
+    "test": "node --test",
+    "replay": "node ./cli/replay.js",
+    "scenarios": "node ./cli/generate-scenarios.js",
+    "session:scenarios": "node ./cli/generate-session-scenarios.js",
+    "session:report": "node ./cli/report-session-scenarios.js",
+    "session:benchmark": "node ./cli/benchmark-sessions.js",
+    "combat:scenarios": "node ./cli/report-combat-scenarios.js",
+    "combat:benchmark": "node ./cli/benchmark-turns.js",
+    "simulate": "node ./cli/simulate.js",
+    "profiles": "node ./cli/generate-profiles.js",
+    "calibrate": "node ./cli/calibrate.js",
+    "sweep": "node ./cli/sweep.js",
+    "check": "npm run validate && npm test && npm run replay",
+    "calibration:check": "npm run profiles && npm run calibrate && npm run sweep"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "yaml": "^2.8.1"
+  }
+}

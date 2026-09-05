@@ -1,0 +1,101 @@
+spec_version: "0.3"
+document: universal_stats
+status: provisional
+
+scale:
+  minimum: { value: 0, tunable: false, reason: "core universal scale" }
+  maximum: { value: 100, tunable: false, reason: "core universal scale" }
+  higher_is_better: true
+  runtime_precision: { value: 0.001, tunable: true }
+  storage_precision: { value: 0.01, tunable: true }
+  clamp_after_resolution: true
+
+resolution:
+  precedence:
+    - explicit_resolved_value
+    - category_value_plus_declared_adjustments
+    - category_default
+  category_resolution_is_deterministic: true
+  missing_category: civilian
+  missing_category_tunable: true
+  formula: "clamp(0, 100, category.default.value + archetype_delta + universe_delta)"
+  adjustment_limits:
+    archetype_delta_abs_max: { value: 15, tunable: true }
+    universe_delta_abs_max: { value: 20, tunable: true }
+
+stats:
+  physical_capability:
+    label: Physical Capability
+    definition: "Capacity to generate force, carry load, grapple, jump, and perform gross physical work."
+    excludes: [movement_speed, coordination, resistance]
+    common_uses: [melee_power, lifting, grappling, forced_movement]
+  movement:
+    label: Movement
+    definition: "Controllable translational mobility across the current medium."
+    excludes: [reaction, coordination]
+    common_uses: [travel_speed, pursuit, evasion, reposition]
+  reaction:
+    label: Reaction
+    definition: "Latency and responsiveness to detected change."
+    excludes: [perception, strategy]
+    common_uses: [timing, interrupt, defense_window]
+  coordination:
+    label: Coordination
+    definition: "Precision of motor execution and synchronization of concurrent motions."
+    excludes: [reaction, perception]
+    common_uses: [accuracy, fine_control, multi_action_penalty]
+  resistance:
+    label: Resistance
+    definition: "General tolerance of injury, fatigue, shock, and hostile conditions."
+    excludes: [active_defense, energy_capacity]
+    common_uses: [body_filter, status_resistance, harm_capacity, recovery]
+  perception:
+    label: Perception
+    definition: "Ability to detect and resolve relevant signals through available senses."
+    excludes: [reaction, strategy]
+    common_uses: [target_acquisition, ambush_detection, blind_spot_awareness]
+  strategy:
+    label: Strategy
+    definition: "Ability to plan, predict, allocate resources, and select advantageous sub-actions."
+    excludes: [perception, execution_skill]
+    common_uses: [strategy_subaction_quality, prediction, resource_denial]
+  energy_capacity:
+    label: Energy Capacity
+    definition: "Maximum usable reserve for abilities and sustained exertion."
+    excludes: [energy_output, energy_efficiency]
+    common_uses: [maximum_energy, sustained_actions]
+  energy_output:
+    label: Energy Output
+    definition: "Maximum rate or magnitude of energy that can be delivered."
+    excludes: [energy_capacity, energy_control]
+    common_uses: [energy_power, barrier_strength, burst_limit]
+  energy_control:
+    label: Energy Control
+    definition: "Precision, shaping, targeting, and stabilization of energy."
+    excludes: [energy_output, coordination]
+    common_uses: [energy_accuracy, area_shaping, energy_penetration, channel_stability]
+  energy_efficiency:
+    label: Energy Efficiency
+    definition: "Fraction of expended reserve converted into intended effect."
+    excludes: [energy_capacity, energy_output]
+    common_uses: [energy_cost, sustained_efficiency, waste_heat]
+
+derived_value_rules:
+  weighted_stat_term:
+    formula: "sum(stat_value * weight.value) / sum(abs(weight.value))"
+    empty_terms_result: { value: 0, tunable: false, reason: "identity default" }
+  energy_resource_max:
+    formula: "base.value + energy_capacity * per_stat.value"
+    base: { value: 0, tunable: true }
+    per_stat: { value: 1, tunable: true }
+  harm_capacity:
+    formula: "base.value + resistance * per_stat.value"
+    base: { value: 50, tunable: true }
+    per_stat: { value: 1, tunable: true }
+
+extension_contract:
+  may_add_stats: false
+  may_alias_stats: true
+  may_add_derived_values: true
+  aliases_must_map_to_exactly_one_core_stat: true
+  rationale: "New universal stats require a core-version change; universe concepts should normally map to stats or derived values."

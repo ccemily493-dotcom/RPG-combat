@@ -1,0 +1,65 @@
+version: "0.2"
+canonical_unchanged: false
+factor_definitions:
+  capacity: "hooked defense capacity divided by 100"
+  feasibility: "1 when feasible, otherwise 0"
+  execution: "execution factor"
+  timing: "timing factor"
+  compatibility: "channel-weighted compatibility"
+  coverage: "spatial coverage"
+  stability: "stability factor"
+  paid_fraction: "paid defense-cost fraction"
+  penetration: "1 - penetration * compatibility"
+models:
+  current_fully_multiplicative:
+    label: "A. Current fully multiplicative"
+    canonical: false
+    expression:
+      op: product
+      terms:
+        - { source: capacity }
+        - { source: feasibility }
+        - { source: execution }
+        - { source: timing }
+        - { source: compatibility }
+        - { source: coverage }
+        - { source: stability }
+        - { source: paid_fraction }
+        - { source: penetration }
+  weighted_then_bounded:
+    label: "B. Weighted composition followed by bounded multipliers"
+    canonical: true
+    promoted_to_canonical: true
+    expression:
+      op: product
+      terms:
+        - { source: capacity }
+        - op: weighted_sum
+          terms:
+            - { source: execution, weight: { value: 0.30, tunable: true } }
+            - { source: timing, weight: { value: 0.25, tunable: true } }
+            - { source: compatibility, weight: { value: 0.25, tunable: true } }
+            - { source: coverage, weight: { value: 0.20, tunable: true } }
+        - { op: clamp, term: { source: stability }, minimum: { value: 0.50, tunable: true }, maximum: { value: 1.00, tunable: false, reason: "normalized upper bound" } }
+        - { source: feasibility }
+        - { source: paid_fraction }
+        - { source: penetration }
+  grouped_composition:
+    label: "C. Grouped execution/timing and compatibility/coverage"
+    canonical: false
+    expression:
+      op: product
+      terms:
+        - { source: capacity }
+        - op: weighted_sum
+          terms:
+            - { source: execution, weight: { value: 0.50, tunable: true } }
+            - { source: timing, weight: { value: 0.50, tunable: true } }
+        - op: weighted_sum
+          terms:
+            - { source: compatibility, weight: { value: 0.50, tunable: true } }
+            - { source: coverage, weight: { value: 0.50, tunable: true } }
+        - { source: stability }
+        - { source: feasibility }
+        - { source: paid_fraction }
+        - { source: penetration }

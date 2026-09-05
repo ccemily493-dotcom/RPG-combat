@@ -1,0 +1,314 @@
+{
+  "version": "0.3",
+  "generatedAt": "2026-09-05T07:59:07.096Z",
+  "profileFixtureCount": 48,
+  "statisticalEncounterCount": 21440,
+  "neutralControls": [
+    {
+      "matchup": "civilian:balanced vs civilian:balanced",
+      "count": 256,
+      "qualities": {
+        "miss": 0,
+        "graze": 0.4609375,
+        "partial": 0.5390625,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 256,
+        "minimum": -0.2306901992360011,
+        "maximum": 0.23379330987100033,
+        "mean": 0.006430647808066431,
+        "median": 0.008942773522500502,
+        "p05": -0.14730030929499982,
+        "p95": 0.1767953802404989,
+        "standardDeviation": 0.09601900546878815
+      },
+      "healthDamage": {
+        "count": 256,
+        "minimum": 12.69,
+        "maximum": 14.46,
+        "mean": 13.637851562499998,
+        "median": 14.245000000000001,
+        "p05": 12.7475,
+        "p95": 14.43,
+        "standardDeviation": 0.7565544799228336
+      },
+      "stabilityDamage": {
+        "count": 256,
+        "minimum": 9.42,
+        "maximum": 10.73,
+        "mean": 10.114023437499993,
+        "median": 10.57,
+        "p05": 9.47,
+        "p95": 10.7,
+        "standardDeviation": 0.5585526632070457
+      },
+      "activeDefenseFilter": {
+        "count": 256,
+        "minimum": 0.15604833777944,
+        "maximum": 0.15963412348126002,
+        "mean": 0.15798337994386388,
+        "median": 0.15807703313846,
+        "p05": 0.156818348068695,
+        "p95": 0.15907823780633001,
+        "standardDeviation": 0.000686682464964892
+      }
+    },
+    {
+      "matchup": "fighter:balanced vs civilian:balanced",
+      "count": 256,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 0,
+        "solid": 1
+      },
+      "accuracyMargin": {
+        "count": 256,
+        "minimum": 26.536529573358997,
+        "maximum": 27.499636373153002,
+        "mean": 26.993861919810282,
+        "median": 27.0012051735645,
+        "p05": 26.6430593361215,
+        "p95": 27.3295729304115,
+        "standardDeviation": 0.20217927268680813
+      },
+      "healthDamage": {
+        "count": 256,
+        "minimum": 50.05,
+        "maximum": 51,
+        "mean": 50.481171874999966,
+        "median": 50.47,
+        "p05": 50.14,
+        "p95": 50.81,
+        "standardDeviation": 0.1977001402604064
+      },
+      "stabilityDamage": {
+        "count": 256,
+        "minimum": 26.88,
+        "maximum": 27.33,
+        "mean": 27.09960937500003,
+        "median": 27.1,
+        "p05": 26.9675,
+        "p95": 27.2225,
+        "standardDeviation": 0.08203850414353836
+      },
+      "activeDefenseFilter": {
+        "count": 256,
+        "minimum": 0.13913900294391002,
+        "maximum": 0.14150263754716,
+        "mean": 0.1402743688561069,
+        "median": 0.14024610702123,
+        "p05": 0.13938954829001748,
+        "p95": 0.14112753484428,
+        "standardDeviation": 0.0005343549582612657
+      }
+    },
+    {
+      "matchup": "fighter:balanced vs fighter:balanced",
+      "count": 256,
+      "qualities": {
+        "miss": 0,
+        "graze": 0.546875,
+        "partial": 0.453125,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 256,
+        "minimum": -0.4870604081090022,
+        "maximum": 0.4673761288480023,
+        "mean": -0.01822405946410169,
+        "median": -0.023103974063499066,
+        "p05": -0.3729465607612532,
+        "p95": 0.3311273214460009,
+        "standardDeviation": 0.2134836708591419
+      },
+      "healthDamage": {
+        "count": 256,
+        "minimum": 16.3,
+        "maximum": 18.92,
+        "mean": 17.498242187500008,
+        "median": 16.69,
+        "p05": 16.44,
+        "p95": 18.78,
+        "standardDeviation": 1.0320124245716302
+      },
+      "stabilityDamage": {
+        "count": 256,
+        "minimum": 9.21,
+        "maximum": 10.62,
+        "mean": 9.840976562500005,
+        "median": 9.38,
+        "p05": 9.25,
+        "p95": 10.5525,
+        "standardDeviation": 0.5827221138335866
+      },
+      "activeDefenseFilter": {
+        "count": 256,
+        "minimum": 0.23521397118339,
+        "maximum": 0.23972018028823,
+        "mean": 0.23748851496055107,
+        "median": 0.237536219834315,
+        "p05": 0.2358398337301975,
+        "p95": 0.239063048517835,
+        "standardDeviation": 0.0009593653563258
+      }
+    },
+    {
+      "matchup": "elite:balanced vs fighter:balanced",
+      "count": 256,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 256,
+        "minimum": 15.396471048185006,
+        "maximum": 16.637868084204,
+        "mean": 15.979291411655492,
+        "median": 15.961128538992504,
+        "p05": 15.520627658961999,
+        "p95": 16.411506942037253,
+        "standardDeviation": 0.27960651514805573
+      },
+      "healthDamage": {
+        "count": 256,
+        "minimum": 37.61,
+        "maximum": 39.23,
+        "mean": 38.38796874999999,
+        "median": 38.375,
+        "p05": 37.870000000000005,
+        "p95": 38.912499999999994,
+        "standardDeviation": 0.3206423225705514
+      },
+      "stabilityDamage": {
+        "count": 256,
+        "minimum": 21,
+        "maximum": 21.85,
+        "mean": 21.4333984375,
+        "median": 21.415,
+        "p05": 21.1475,
+        "p95": 21.7425,
+        "standardDeviation": 0.18048484353972394
+      },
+      "activeDefenseFilter": {
+        "count": 256,
+        "minimum": 0.22611265449617998,
+        "maximum": 0.23072724861726002,
+        "mean": 0.2282230230549419,
+        "median": 0.228223329584565,
+        "p05": 0.226679394162575,
+        "p95": 0.2297092794068875,
+        "standardDeviation": 0.0009166346905352388
+      }
+    },
+    {
+      "matchup": "legendary:balanced vs civilian:balanced",
+      "count": 256,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 0,
+        "solid": 1
+      },
+      "accuracyMargin": {
+        "count": 256,
+        "minimum": 69.076650929634,
+        "maximum": 70.879940968462,
+        "mean": 69.99347402130141,
+        "median": 69.98826360138301,
+        "p05": 69.4118543443315,
+        "p95": 70.655763945876,
+        "standardDeviation": 0.38252542982891924
+      },
+      "healthDamage": {
+        "count": 256,
+        "minimum": 83.56,
+        "maximum": 85.18,
+        "mean": 84.40691406249995,
+        "median": 84.38499999999999,
+        "p05": 83.8675,
+        "p95": 84.99,
+        "standardDeviation": 0.3417079236932417
+      },
+      "stabilityDamage": {
+        "count": 256,
+        "minimum": 37.42,
+        "maximum": 38,
+        "mean": 37.691406249999964,
+        "median": 37.69,
+        "p05": 37.5075,
+        "p95": 37.8825,
+        "standardDeviation": 0.1213416816717878
+      },
+      "activeDefenseFilter": {
+        "count": 256,
+        "minimum": 0.13897284127006,
+        "maximum": 0.14169842033071,
+        "mean": 0.14024217726176033,
+        "median": 0.14020427288522502,
+        "p05": 0.13932220798566253,
+        "p95": 0.1411587871070425,
+        "standardDeviation": 0.0005699210011465651
+      }
+    }
+  ],
+  "performance": {
+    "noTrace": {
+      "iterations": 300,
+      "elapsedMs": 247.75320000003558,
+      "operationsPerSecond": 1210.88244268876,
+      "latencyMs": {
+        "count": 300,
+        "minimum": 0.7426000000014028,
+        "maximum": 2.791000000001077,
+        "mean": 0.8258440000001186,
+        "median": 0.779500000000553,
+        "p05": 0.7531899999992675,
+        "p95": 0.9854649999992035,
+        "standardDeviation": 0.20780265862269398
+      }
+    },
+    "withTrace": {
+      "iterations": 300,
+      "elapsedMs": 244.39059999999517,
+      "operationsPerSecond": 1227.5431215439787,
+      "latencyMs": {
+        "count": 300,
+        "minimum": 0.7419999999983702,
+        "maximum": 2.9442000000017288,
+        "mean": 0.8146353333333173,
+        "median": 0.7779500000015105,
+        "p05": 0.7505849999994098,
+        "p95": 0.9824100000010731,
+        "standardDeviation": 0.17476556626406478
+      }
+    },
+    "schemaValidation": {
+      "iterations": 300,
+      "elapsedMs": 7.613399999998364,
+      "operationsPerSecond": 39404.20836946232,
+      "latencyMs": {
+        "count": 300,
+        "minimum": 0.019700000000739237,
+        "maximum": 0.33069999999861466,
+        "mean": 0.025110666666781373,
+        "median": 0.02380000000266591,
+        "p05": 0.01990000000296277,
+        "p95": 0.027675000001181633,
+        "standardDeviation": 0.018248167567006805
+      }
+    },
+    "tracingMedianOverheadMs": 0,
+    "tracingObservedMedianDeltaMs": -0.001549999999042484,
+    "schemaMedianShareOfResolution": 0.030532392562731273,
+    "note": "Trace-on and trace-off samples are alternated with identical seeds. The engine always constructs the canonical mechanical audit needed for replay; trace=false suppresses return payload only. A negative observed delta is measurement noise and is reported as zero overhead."
+  },
+  "recommendations": [
+    "Keep schema validation enabled in public resolution; its isolated median cost is reported rather than removed.",
+    "Treat tracing overhead results as audit-emission overhead because canonical mechanical audit calculations remain enabled for replay integrity.",
+    "Use the same seeded cohorts when comparing future tuning profiles so performance and outcome changes are attributable."
+  ]
+}

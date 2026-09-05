@@ -1,0 +1,142 @@
+{
+  "version": "0.3",
+  "generatedAt": "2026-09-05T08:11:45.502Z",
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "win32",
+    "architecture": "x64",
+    "samples": 40,
+    "warmups": 5
+  },
+  "methodology": "Warm in-process medians and p95 wall-clock durations; negative sampled heap deltas indicate garbage collection during the sample window.",
+  "cases": [
+    {
+      "name": "v0.2 single-hit turn",
+      "samples": 40,
+      "turnsPerResolution": 1,
+      "medianResolutionMs": 4.339249999999993,
+      "p95ResolutionMs": 5.034414999999961,
+      "medianMsPerTurn": 4.339249999999993,
+      "p95MsPerTurn": 5.034414999999961,
+      "resolutionsPerSecond": 230.45457164256536,
+      "turnsPerSecond": 230.45457164256536,
+      "sampledHeapDeltaBytes": 1697880
+    },
+    {
+      "name": "v0.2 empty-turn control",
+      "samples": 40,
+      "turnsPerResolution": 1,
+      "medianResolutionMs": 1.9891000000000076,
+      "p95ResolutionMs": 2.608620000000064,
+      "medianMsPerTurn": 1.9891000000000076,
+      "p95MsPerTurn": 2.608620000000064,
+      "resolutionsPerSecond": 502.7399326328471,
+      "turnsPerSecond": 502.7399326328471,
+      "sampledHeapDeltaBytes": 2387752
+    },
+    {
+      "name": "5-turn session, no strategy",
+      "samples": 40,
+      "turnsPerResolution": 5,
+      "medianResolutionMs": 24.23135000000002,
+      "p95ResolutionMs": 26.15241999999995,
+      "medianMsPerTurn": 4.846270000000004,
+      "p95MsPerTurn": 5.23048399999999,
+      "resolutionsPerSecond": 41.26885212751247,
+      "turnsPerSecond": 206.34426063756231,
+      "sampledHeapDeltaBytes": 19600384
+    },
+    {
+      "name": "5-turn linear Strategy DAG",
+      "samples": 40,
+      "turnsPerResolution": 5,
+      "medianResolutionMs": 25.458399999999983,
+      "p95ResolutionMs": 27.025729999999882,
+      "medianMsPerTurn": 5.091679999999997,
+      "p95MsPerTurn": 5.405145999999976,
+      "resolutionsPerSecond": 39.27976620683156,
+      "turnsPerSecond": 196.3988310341578,
+      "sampledHeapDeltaBytes": 9141808
+    },
+    {
+      "name": "branching Strategy DAG",
+      "samples": 40,
+      "turnsPerResolution": 2,
+      "medianResolutionMs": 10.833650000000262,
+      "p95ResolutionMs": 15.835020000000071,
+      "medianMsPerTurn": 5.416825000000131,
+      "p95MsPerTurn": 7.917510000000036,
+      "resolutionsPerSecond": 92.30499416170689,
+      "turnsPerSecond": 184.60998832341377,
+      "sampledHeapDeltaBytes": 230912
+    },
+    {
+      "name": "multiple simultaneous strategies",
+      "samples": 40,
+      "turnsPerResolution": 1,
+      "medianResolutionMs": 5.261950000000297,
+      "p95ResolutionMs": 6.077390000000126,
+      "medianMsPerTurn": 5.261950000000297,
+      "p95MsPerTurn": 6.077390000000126,
+      "resolutionsPerSecond": 190.04361500963398,
+      "turnsPerSecond": 190.04361500963398,
+      "sampledHeapDeltaBytes": 1874912
+    },
+    {
+      "name": "20-turn session",
+      "samples": 40,
+      "turnsPerResolution": 20,
+      "medianResolutionMs": 93.22204999999985,
+      "p95ResolutionMs": 99.12501999999962,
+      "medianMsPerTurn": 4.661102499999993,
+      "p95MsPerTurn": 4.956250999999981,
+      "resolutionsPerSecond": 10.727075836671705,
+      "turnsPerSecond": 214.54151673343412,
+      "sampledHeapDeltaBytes": 111720
+    },
+    {
+      "name": "persistent modifiers",
+      "samples": 40,
+      "turnsPerResolution": 3,
+      "medianResolutionMs": 18.68840000000091,
+      "p95ResolutionMs": 21.116620000001056,
+      "medianMsPerTurn": 6.22946666666697,
+      "p95MsPerTurn": 7.038873333333686,
+      "resolutionsPerSecond": 53.50912865734634,
+      "turnsPerSecond": 160.527385972039,
+      "sampledHeapDeltaBytes": 29855184
+    },
+    {
+      "name": "delayed effects",
+      "samples": 40,
+      "turnsPerResolution": 2,
+      "medianResolutionMs": 12.301950000000033,
+      "p95ResolutionMs": 14.63684499999972,
+      "medianMsPerTurn": 6.150975000000017,
+      "p95MsPerTurn": 7.31842249999986,
+      "resolutionsPerSecond": 81.28792589792653,
+      "turnsPerSecond": 162.57585179585305,
+      "sampledHeapDeltaBytes": -33208248
+    },
+    {
+      "name": "5-turn Strategy DAG with trace",
+      "samples": 40,
+      "turnsPerResolution": 5,
+      "medianResolutionMs": 25.293749999999818,
+      "p95ResolutionMs": 27.751920000000155,
+      "medianMsPerTurn": 5.058749999999963,
+      "p95MsPerTurn": 5.550384000000031,
+      "resolutionsPerSecond": 39.535458364220695,
+      "turnsPerSecond": 197.67729182110347,
+      "sampledHeapDeltaBytes": 10224360
+    }
+  ],
+  "overhead": {
+    "schedulerAndTemporalMsPerTurn": 2.8571699999999964,
+    "schedulerAndTemporalPercent": 143.641345332059,
+    "strategyDagMsPerTurn": 0.24540999999999258,
+    "strategyDagPercent": 5.063894500306265,
+    "traceMsPerTurn": -0.03293000000003321,
+    "tracePercent": -0.6467413505961361
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.3/action.schema.json",
+  "title": "Universal RPG Action State v0.3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "turn", "actor_id", "kind", "phase", "targets", "costs", "modifiers", "tags"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "turn": { "type": "integer", "minimum": 0 },
+    "actor_id": { "type": "string", "minLength": 1 },
+    "kind": { "enum": ["attack", "defense", "movement", "interaction", "strategy", "wait", "extension"] },
+    "phase": { "enum": ["declared", "validated", "cost_reserved", "resolving", "resolved", "committed", "failed", "cancelled"] },
+    "intent_text": { "type": ["string", "null"], "default": null },
+    "targets": { "type": "array", "items": { "$ref": "#/$defs/target" } },
+    "timing": { "$ref": "#/$defs/timing" },
+    "attack": { "oneOf": [{ "$ref": "#/$defs/attack" }, { "type": "null" }], "default": null },
+    "defense": { "oneOf": [{ "$ref": "#/$defs/defense" }, { "type": "null" }], "default": null },
+    "movement": { "oneOf": [{ "$ref": "#/$defs/movement" }, { "type": "null" }], "default": null },
+    "strategy": { "oneOf": [{ "$ref": "#/$defs/strategy" }, { "type": "null" }], "default": null },
+    "subactions": { "type": "array", "items": { "$ref": "#/$defs/subaction" }, "default": [] },
+    "costs": { "type": "array", "items": { "$ref": "#/$defs/cost" } },
+    "modifiers": { "type": "array", "items": { "$ref": "#/$defs/modifier" } },
+    "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "depends_on": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true, "default": [] },
+    "effects": { "$ref": "#/$defs/effects" },
+    "cooldown": { "oneOf": [{ "$ref": "#/$defs/cooldown" }, { "type": "null" }], "default": null },
+    "parser_trace": { "oneOf": [{ "$ref": "#/$defs/parserTrace" }, { "type": "null" }], "default": null },
+    "resolution": { "oneOf": [{ "$ref": "#/$defs/resolution" }, { "type": "null" }], "default": null },
+    "extension_payload": {
+      "type": "object",
+      "propertyNames": { "pattern": "^[a-z][a-z0-9_-]*:" },
+      "additionalProperties": true,
+      "default": {}
+    }
+  },
+  "allOf": [
+    { "if": { "properties": { "kind": { "const": "attack" } }, "required": ["kind"] }, "then": { "properties": { "attack": { "$ref": "#/$defs/attack" } }, "required": ["attack"] } },
+    { "if": { "properties": { "kind": { "const": "defense" } }, "required": ["kind"] }, "then": { "properties": { "defense": { "$ref": "#/$defs/defense" } }, "required": ["defense"] } },
+    { "if": { "properties": { "kind": { "const": "movement" } }, "required": ["kind"] }, "then": { "properties": { "movement": { "$ref": "#/$defs/movement" } }, "required": ["movement"] } },
+    { "if": { "properties": { "kind": { "const": "strategy" } }, "required": ["kind"] }, "then": { "properties": { "strategy": { "$ref": "#/$defs/strategy" } }, "required": ["strategy"] } }
+  ],
+  "$defs": {
+    "vector3": {
+      "type": "object", "additionalProperties": false, "required": ["x", "y", "z"],
+      "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "z": { "type": "number" } }
+    },
+    "target": {
+      "type": "object", "additionalProperties": false, "required": ["type", "ref"],
+      "properties": {
+        "type": { "enum": ["character", "object", "position", "zone", "area", "self"] },
+        "ref": { "type": ["string", "null"] },
+        "position": { "oneOf": [{ "$ref": "#/$defs/vector3" }, { "type": "null" }], "default": null },
+        "body_zone": { "type": ["string", "null"], "default": null }
+      }
+    },
+    "timing": {
+      "type": "object", "additionalProperties": false, "required": ["declared_at", "duration_seconds", "priority"],
+      "properties": {
+        "declared_at": { "type": "number", "minimum": 0 },
+        "duration_seconds": { "type": "number", "minimum": 0, "default": 1, "x-tunable": true },
+        "priority": { "type": "integer", "default": 0, "x-tunable": true },
+        "interrupt_window_seconds": { "type": "number", "minimum": 0, "default": 0, "x-tunable": true }
+      }
+    },
+    "area": {
+      "type": "object", "additionalProperties": false, "required": ["shape", "dimensions", "falloff"],
+      "properties": {
+        "shape": { "enum": ["point", "line", "cone", "sphere", "cylinder", "box", "custom_extension"] },
+        "dimensions": { "type": "object", "additionalProperties": { "type": "number", "minimum": 0 } },
+        "falloff": { "enum": ["none", "linear", "inverse_square", "stepped", "extension"] }
+      }
+    },
+    "attack": {
+      "type": "object", "additionalProperties": false,
+      "required": ["delivery", "channels", "power", "accuracy", "speed", "penetration", "range", "area", "stability_impact", "status_effects"],
+      "properties": {
+        "delivery": { "enum": ["melee", "projectile", "beam", "wave", "field", "contact", "environmental"] },
+        "channels": { "type": "object", "minProperties": 1, "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 } },
+        "power": { "type": "number", "minimum": 0 },
+        "accuracy": { "type": "number", "minimum": 0, "maximum": 100 },
+        "speed": { "type": "number", "minimum": 0 },
+        "penetration": { "type": "number", "minimum": 0, "maximum": 1 },
+        "range": { "type": "number", "minimum": 0 },
+        "area": { "$ref": "#/$defs/area" },
+        "stability_impact": { "type": "number", "minimum": 0 },
+        "status_effects": { "type": "array", "items": { "$ref": "#/$defs/statusAttempt" } },
+        "quantity": { "type": "integer", "minimum": 1, "default": 1, "x-tunable": true },
+        "targeting": { "$ref": "#/$defs/targeting" },
+        "interrupt_resistance": { "type": "number", "minimum": 0, "default": 0, "x-tunable": true },
+        "batch_safety": { "enum": ["AUTO", "FORCE_INDIVIDUAL", "REQUIRE_SAFE_BATCH"], "default": "AUTO" }
+      }
+    },
+    "defense": {
+      "type": "object", "additionalProperties": false, "required": ["method", "source_ref", "declared_coverage", "cost"],
+      "properties": {
+        "method": { "enum": ["evade", "block", "parry", "barrier", "absorb", "deflect", "counterguard", "cover", "endure", "extension"] },
+        "source_ref": { "type": "string" },
+        "declared_coverage": { "type": "number", "minimum": 0, "maximum": 1 },
+        "cost": { "$ref": "#/$defs/cost" },
+        "fallback_method": { "type": ["string", "null"], "default": null }
+      }
+    },
+    "movement": {
+      "type": "object", "additionalProperties": false, "required": ["destination", "mode", "maximum_distance"],
+      "properties": {
+        "destination": { "$ref": "#/$defs/vector3" },
+        "mode": { "enum": ["walk", "run", "jump", "fly", "swim", "teleport", "forced", "extension"] },
+        "maximum_distance": { "type": "number", "minimum": 0 }
+      }
+    },
+    "strategy": {
+      "type": "object", "additionalProperties": false, "required": ["taxonomy_ids", "objective", "subaction_refs"],
+      "properties": {
+        "taxonomy_ids": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+        "objective": { "type": "string" },
+        "subaction_refs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "subaction": {
+      "type": "object", "additionalProperties": false, "required": ["id", "kind", "depends_on", "mechanical_inputs", "success_rule_ref"],
+      "properties": {
+        "id": { "type": "string" },
+        "kind": { "type": "string" },
+        "depends_on": { "type": "array", "items": { "type": "string" } },
+        "mechanical_inputs": { "type": "object", "additionalProperties": true },
+        "success_rule_ref": { "type": "string" }
+      }
+    },
+    "cost": {
+      "type": "object", "additionalProperties": false, "required": ["resource", "amount", "timing"],
+      "properties": {
+        "resource": { "type": "string" },
+        "amount": { "type": "number", "minimum": 0 },
+        "timing": { "enum": ["reserve", "on_attempt", "on_contact", "per_second", "per_target"] },
+        "mode": { "enum": ["PER_ACTION", "PER_HIT", "SHARED_POOL", "UPFRONT_PLUS_PER_HIT"], "default": "PER_ACTION" },
+        "upfront_amount": { "type": "number", "minimum": 0, "default": 0, "x-tunable": true },
+        "per_hit_amount": { "type": "number", "minimum": 0, "default": 0, "x-tunable": true }
+      },
+      "allOf": [
+        { "if": { "properties": { "mode": { "const": "UPFRONT_PLUS_PER_HIT" } }, "required": ["mode"] }, "then": { "required": ["upfront_amount", "per_hit_amount"] } }
+      ]
+    },
+    "cooldown": {
+      "type": "object", "additionalProperties": false, "required": ["duration", "unit", "starts"],
+      "properties": {
+        "key": { "type": ["string", "null"] },
+        "duration": { "type": "integer", "minimum": 1 },
+        "unit": { "const": "TURN" },
+        "starts": { "const": "ON_USE" }
+      }
+    },
+    "statusAttempt": {
+      "type": "object", "additionalProperties": false, "required": ["status_id", "potency", "duration_turns"],
+      "properties": {
+        "status_id": { "type": "string" },
+        "potency": { "type": "number", "minimum": 0 },
+        "duration_turns": { "type": "integer", "minimum": 0 },
+        "stacking_rule": { "enum": ["refresh", "stack", "replace", "ignore", "strongest_wins", "intensify", "independent", "reject"], "deprecated": true }
+      }
+    },
+    "targetAllocation": {
+      "type": "object", "additionalProperties": false, "required": ["target_ref", "quantity"],
+      "properties": {
+        "target_ref": { "type": "string", "minLength": 1 },
+        "quantity": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "targeting": {
+      "type": "object", "additionalProperties": false, "required": ["mode"],
+      "properties": {
+        "mode": { "enum": ["SINGLE", "EACH_TARGET", "DISTRIBUTED"] },
+        "allocations": { "type": "array", "items": { "$ref": "#/$defs/targetAllocation" }, "default": [] }
+      }
+    },
+    "displacementClaim": {
+      "type": "object", "additionalProperties": false, "required": ["target_ref", "mode", "vector", "priority"],
+      "properties": {
+        "target_ref": { "type": "string", "minLength": 1 },
+        "mode": { "enum": ["DELTA", "ASSIGN"] },
+        "vector": { "$ref": "#/$defs/vector3" },
+        "priority": { "type": "integer", "default": 0, "x-tunable": true },
+        "requires_contact": { "type": "boolean", "default": false }
+      }
+    },
+    "statusRemoval": {
+      "type": "object", "additionalProperties": false, "required": ["target_ref", "status_id"],
+      "properties": {
+        "target_ref": { "type": "string", "minLength": 1 },
+        "status_id": { "type": "string", "minLength": 1 }
+      }
+    },
+    "effects": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "displacements": { "type": "array", "items": { "$ref": "#/$defs/displacementClaim" }, "default": [] },
+        "status_removals": { "type": "array", "items": { "$ref": "#/$defs/statusRemoval" }, "default": [] }
+      },
+      "default": {}
+    },
+    "modifier": {
+      "type": "object", "additionalProperties": true, "required": ["id", "layer", "target", "operation"],
+      "properties": {
+        "id": { "type": "string" },
+        "layer": { "const": "ACTION" },
+        "target": { "type": "string" },
+        "operation": { "enum": ["additive", "percentage", "multiplicative", "bounded"] },
+        "value": { "type": "number" },
+        "lower": { "type": "number" },
+        "upper": { "type": "number" },
+        "priority": { "type": "integer", "default": 0, "x-tunable": true },
+        "when": { "type": "object" }
+      }
+    },
+    "parserTrace": {
+      "type": "object", "additionalProperties": false, "required": ["parser_version", "confidence", "fallback_used", "matched_rule_ids"],
+      "properties": {
+        "parser_version": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "fallback_used": { "type": "boolean" },
+        "matched_rule_ids": { "type": "array", "items": { "type": "string" } },
+        "warnings": { "type": "array", "items": { "type": "string" }, "default": [] }
+      }
+    },
+    "resolution": {
+      "type": "object", "additionalProperties": false, "required": ["outcome", "audit_ref", "state_delta"],
+      "properties": {
+        "outcome": { "enum": ["success", "partial", "failure", "cancelled", "invalid"] },
+        "audit_ref": { "type": "string" },
+        "state_delta": { "type": "object", "additionalProperties": true }
+      }
+    }
+  }
+}

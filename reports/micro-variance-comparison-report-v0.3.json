@@ -1,0 +1,662 @@
+{
+  "version": "0.3",
+  "canonicalDistribution": "centered_triangular",
+  "canonicalPromotionsApplied": true,
+  "samplesPerDistribution": 50000,
+  "distributions": [
+    {
+      "distribution": "uniform",
+      "factor": {
+        "count": 50000,
+        "minimum": 0.990000794147136,
+        "maximum": 1.009999776502233,
+        "mean": 1.000009206881835,
+        "median": 1.0000268188270445,
+        "p05": 0.9909731261758862,
+        "p95": 1.0090025527545963,
+        "standardDeviation": 0.005782238973295075
+      },
+      "maximumAbsoluteDeviation": 0.009999776502233049
+    },
+    {
+      "distribution": "centered_triangular",
+      "factor": {
+        "count": 50000,
+        "minimum": 0.990081424298005,
+        "maximum": 1.009959711210831,
+        "mean": 1.0000081504128124,
+        "median": 1.000007709138729,
+        "p05": 0.9931548567996301,
+        "p95": 1.006858188104678,
+        "standardDeviation": 0.004080563112728995
+      },
+      "maximumAbsoluteDeviation": 0.009959711210830946
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "factor": {
+        "count": 50000,
+        "minimum": 0.990652798467433,
+        "maximum": 1.008470879705616,
+        "mean": 1.0000167840828214,
+        "median": 1.0000090567971731,
+        "p05": 0.9961132165455738,
+        "p95": 1.0039301461156733,
+        "standardDeviation": 0.002370790925751058
+      },
+      "maximumAbsoluteDeviation": 0.009347201532566962
+    }
+  ],
+  "accuracyThresholdBehavior": [
+    {
+      "distribution": "uniform",
+      "threshold": -20,
+      "offset": -0.5,
+      "originalBand": "miss",
+      "flipFraction": 0
+    },
+    {
+      "distribution": "uniform",
+      "threshold": -20,
+      "offset": -0.1,
+      "originalBand": "miss",
+      "flipFraction": 0.3315
+    },
+    {
+      "distribution": "uniform",
+      "threshold": -20,
+      "offset": 0,
+      "originalBand": "graze",
+      "flipFraction": 0.513
+    },
+    {
+      "distribution": "uniform",
+      "threshold": -20,
+      "offset": 0.1,
+      "originalBand": "graze",
+      "flipFraction": 0.34
+    },
+    {
+      "distribution": "uniform",
+      "threshold": -20,
+      "offset": 0.5,
+      "originalBand": "graze",
+      "flipFraction": 0
+    },
+    {
+      "distribution": "uniform",
+      "threshold": 0,
+      "offset": -0.5,
+      "originalBand": "graze",
+      "flipFraction": 0
+    },
+    {
+      "distribution": "uniform",
+      "threshold": 0,
+      "offset": -0.1,
+      "originalBand": "graze",
+      "flipFraction": 0.387
+    },
+    {
+      "distribution": "uniform",
+      "threshold": 0,
+      "offset": 0,
+      "originalBand": "partial",
+      "flipFraction": 0.521
+    },
+    {
+      "distribution": "uniform",
+      "threshold": 0,
+      "offset": 0.1,
+      "originalBand": "partial",
+      "flipFraction": 0.393
+    },
+    {
+      "distribution": "uniform",
+      "threshold": 0,
+      "offset": 0.5,
+      "originalBand": "partial",
+      "flipFraction": 0.007
+    },
+    {
+      "distribution": "uniform",
+      "threshold": 20,
+      "offset": -0.5,
+      "originalBand": "partial",
+      "flipFraction": 0.1385
+    },
+    {
+      "distribution": "uniform",
+      "threshold": 20,
+      "offset": -0.1,
+      "originalBand": "partial",
+      "flipFraction": 0.4355
+    },
+    {
+      "distribution": "uniform",
+      "threshold": 20,
+      "offset": 0,
+      "originalBand": "solid",
+      "flipFraction": 0.485
+    },
+    {
+      "distribution": "uniform",
+      "threshold": 20,
+      "offset": 0.1,
+      "originalBand": "solid",
+      "flipFraction": 0.4205
+    },
+    {
+      "distribution": "uniform",
+      "threshold": 20,
+      "offset": 0.5,
+      "originalBand": "solid",
+      "flipFraction": 0.1465
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": -20,
+      "offset": -0.5,
+      "originalBand": "miss",
+      "flipFraction": 0
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": -20,
+      "offset": -0.1,
+      "originalBand": "miss",
+      "flipFraction": 0.2235
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": -20,
+      "offset": 0,
+      "originalBand": "graze",
+      "flipFraction": 0.5015
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": -20,
+      "offset": 0.1,
+      "originalBand": "graze",
+      "flipFraction": 0.2225
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": -20,
+      "offset": 0.5,
+      "originalBand": "graze",
+      "flipFraction": 0
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": 0,
+      "offset": -0.5,
+      "originalBand": "graze",
+      "flipFraction": 0
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": 0,
+      "offset": -0.1,
+      "originalBand": "graze",
+      "flipFraction": 0.3045
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": 0,
+      "offset": 0,
+      "originalBand": "partial",
+      "flipFraction": 0.508
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": 0,
+      "offset": 0.1,
+      "originalBand": "partial",
+      "flipFraction": 0.323
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": 0,
+      "offset": 0.5,
+      "originalBand": "partial",
+      "flipFraction": 0
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": 20,
+      "offset": -0.5,
+      "originalBand": "partial",
+      "flipFraction": 0.0385
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": 20,
+      "offset": -0.1,
+      "originalBand": "partial",
+      "flipFraction": 0.378
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": 20,
+      "offset": 0,
+      "originalBand": "solid",
+      "flipFraction": 0.485
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": 20,
+      "offset": 0.1,
+      "originalBand": "solid",
+      "flipFraction": 0.365
+    },
+    {
+      "distribution": "centered_triangular",
+      "threshold": 20,
+      "offset": 0.5,
+      "originalBand": "solid",
+      "flipFraction": 0.0485
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": -20,
+      "offset": -0.5,
+      "originalBand": "miss",
+      "flipFraction": 0
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": -20,
+      "offset": -0.1,
+      "originalBand": "miss",
+      "flipFraction": 0.0795
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": -20,
+      "offset": 0,
+      "originalBand": "graze",
+      "flipFraction": 0.5
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": -20,
+      "offset": 0.1,
+      "originalBand": "graze",
+      "flipFraction": 0.079
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": -20,
+      "offset": 0.5,
+      "originalBand": "graze",
+      "flipFraction": 0
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": 0,
+      "offset": -0.5,
+      "originalBand": "graze",
+      "flipFraction": 0
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": 0,
+      "offset": -0.1,
+      "originalBand": "graze",
+      "flipFraction": 0.194
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": 0,
+      "offset": 0,
+      "originalBand": "partial",
+      "flipFraction": 0.5015
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": 0,
+      "offset": 0.1,
+      "originalBand": "partial",
+      "flipFraction": 0.1905
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": 0,
+      "offset": 0.5,
+      "originalBand": "partial",
+      "flipFraction": 0
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": 20,
+      "offset": -0.5,
+      "originalBand": "partial",
+      "flipFraction": 0.001
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": 20,
+      "offset": -0.1,
+      "originalBand": "partial",
+      "flipFraction": 0.296
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": 20,
+      "offset": 0,
+      "originalBand": "solid",
+      "flipFraction": 0.5025
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": 20,
+      "offset": 0.1,
+      "originalBand": "solid",
+      "flipFraction": 0.273
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "threshold": 20,
+      "offset": 0.5,
+      "originalBand": "solid",
+      "flipFraction": 0
+    }
+  ],
+  "defenseBoundaryBehavior": [
+    {
+      "distribution": "uniform",
+      "baseFilter": 0,
+      "output": {
+        "count": 50000,
+        "minimum": 0,
+        "maximum": 0,
+        "mean": 0,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "standardDeviation": 0
+      },
+      "clippedLowFraction": 1,
+      "clippedHighFraction": 0
+    },
+    {
+      "distribution": "uniform",
+      "baseFilter": 0.1,
+      "output": {
+        "count": 50000,
+        "minimum": 0.09900007941471362,
+        "maximum": 0.10099997765022331,
+        "mean": 0.10000092068818374,
+        "median": 0.10000268188270445,
+        "p05": 0.09909731261758863,
+        "p95": 0.10090025527545964,
+        "standardDeviation": 0.0005782238973295093
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0
+    },
+    {
+      "distribution": "uniform",
+      "baseFilter": 1,
+      "output": {
+        "count": 50000,
+        "minimum": 0.990000794147136,
+        "maximum": 1.009999776502233,
+        "mean": 1.000009206881835,
+        "median": 1.0000268188270445,
+        "p05": 0.9909731261758862,
+        "p95": 1.0090025527545963,
+        "standardDeviation": 0.005782238973295075
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0
+    },
+    {
+      "distribution": "uniform",
+      "baseFilter": 99,
+      "output": {
+        "count": 50000,
+        "minimum": 98.01007862056647,
+        "maximum": 99.98997787372107,
+        "mean": 99.00091148130166,
+        "median": 99.0026550638774,
+        "p05": 98.10633949141273,
+        "p95": 99.89125272270505,
+        "standardDeviation": 0.5724416583562101
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0
+    },
+    {
+      "distribution": "uniform",
+      "baseFilter": 99.9,
+      "output": {
+        "count": 50000,
+        "minimum": 98.9010793352989,
+        "maximum": 100,
+        "mean": 99.69805768853551,
+        "median": 99.90267920082175,
+        "p05": 98.99821530497104,
+        "p95": 100,
+        "standardDeviation": 0.3613620987789993
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0.45066
+    },
+    {
+      "distribution": "uniform",
+      "baseFilter": 100,
+      "output": {
+        "count": 50000,
+        "minimum": 99.00007941471361,
+        "maximum": 100,
+        "mean": 99.75018671882184,
+        "median": 100,
+        "p05": 99.09731261758861,
+        "p95": 100,
+        "standardDeviation": 0.32343617161486393
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0.50122
+    },
+    {
+      "distribution": "centered_triangular",
+      "baseFilter": 0,
+      "output": {
+        "count": 50000,
+        "minimum": 0,
+        "maximum": 0,
+        "mean": 0,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "standardDeviation": 0
+      },
+      "clippedLowFraction": 1,
+      "clippedHighFraction": 0
+    },
+    {
+      "distribution": "centered_triangular",
+      "baseFilter": 0.1,
+      "output": {
+        "count": 50000,
+        "minimum": 0.09900814242980051,
+        "maximum": 0.1009959711210831,
+        "mean": 0.10000081504127924,
+        "median": 0.1000007709138729,
+        "p05": 0.09931548567996301,
+        "p95": 0.10068581881046783,
+        "standardDeviation": 0.0004080563112729018
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0
+    },
+    {
+      "distribution": "centered_triangular",
+      "baseFilter": 1,
+      "output": {
+        "count": 50000,
+        "minimum": 0.990081424298005,
+        "maximum": 1.009959711210831,
+        "mean": 1.0000081504128124,
+        "median": 1.000007709138729,
+        "p05": 0.9931548567996301,
+        "p95": 1.006858188104678,
+        "standardDeviation": 0.004080563112728995
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0
+    },
+    {
+      "distribution": "centered_triangular",
+      "baseFilter": 99,
+      "output": {
+        "count": 50000,
+        "minimum": 98.0180610055025,
+        "maximum": 99.98601140987226,
+        "mean": 99.00080689086806,
+        "median": 99.00076320473417,
+        "p05": 98.32233082316337,
+        "p95": 99.67896062236315,
+        "standardDeviation": 0.4039757481601734
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0
+    },
+    {
+      "distribution": "centered_triangular",
+      "baseFilter": 99.9,
+      "output": {
+        "count": 50000,
+        "minimum": 98.9091342873707,
+        "maximum": 100,
+        "mean": 99.77933131244134,
+        "median": 99.90077014295903,
+        "p05": 99.21617019428305,
+        "p95": 100,
+        "standardDeviation": 0.26947455879822424
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0.40514
+    },
+    {
+      "distribution": "centered_triangular",
+      "baseFilter": 100,
+      "output": {
+        "count": 50000,
+        "minimum": 99.0081424298005,
+        "maximum": 100,
+        "mean": 99.8339787752744,
+        "median": 100,
+        "p05": 99.315485679963,
+        "p95": 100,
+        "standardDeviation": 0.2354159850492786
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0.501
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "baseFilter": 0,
+      "output": {
+        "count": 50000,
+        "minimum": 0,
+        "maximum": 0,
+        "mean": 0,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "standardDeviation": 0
+      },
+      "clippedLowFraction": 1,
+      "clippedHighFraction": 0
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "baseFilter": 0.1,
+      "output": {
+        "count": 50000,
+        "minimum": 0.0990652798467433,
+        "maximum": 0.10084708797056162,
+        "mean": 0.10000167840828213,
+        "median": 0.10000090567971731,
+        "p05": 0.0996113216545574,
+        "p95": 0.10039301461156733,
+        "standardDeviation": 0.00023707909257510726
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "baseFilter": 1,
+      "output": {
+        "count": 50000,
+        "minimum": 0.990652798467433,
+        "maximum": 1.008470879705616,
+        "mean": 1.0000167840828214,
+        "median": 1.0000090567971731,
+        "p05": 0.9961132165455738,
+        "p95": 1.0039301461156733,
+        "standardDeviation": 0.002370790925751058
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "baseFilter": 99,
+      "output": {
+        "count": 50000,
+        "minimum": 98.07462704827587,
+        "maximum": 99.83861709085599,
+        "mean": 99.00166162419826,
+        "median": 99.00089662292012,
+        "p05": 98.6152084380118,
+        "p95": 99.38908446545165,
+        "standardDeviation": 0.2347083016493549
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "baseFilter": 99.9,
+      "output": {
+        "count": 50000,
+        "minimum": 98.96621456689657,
+        "maximum": 100,
+        "mean": 99.84759363661381,
+        "median": 99.90090477403758,
+        "p05": 99.51171033290284,
+        "p95": 100,
+        "standardDeviation": 0.16981882376300517
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0.34224
+    },
+    {
+      "distribution": "bounded_normal_like",
+      "baseFilter": 100,
+      "output": {
+        "count": 50000,
+        "minimum": 99.06527984674331,
+        "maximum": 100,
+        "mean": 99.90545157040917,
+        "median": 100,
+        "p05": 99.61132165455739,
+        "p95": 100,
+        "standardDeviation": 0.13698130055904936
+      },
+      "clippedLowFraction": 0,
+      "clippedHighFraction": 0.50152
+    }
+  ],
+  "recommendations": [
+    "Centered triangular is now canonical; retain uniform and bounded normal-like as explicit comparison profiles.",
+    "Centered triangular and bounded normal-like profiles reduce threshold-crossing frequency without changing bounds; compare that behavior specifically for cases already within one margin point of a threshold.",
+    "Do not widen the 0.99–1.01 interval to create more diverse outcomes. Accuracy-band diversity should come from modeled stats, actions, world state, and specialization."
+  ]
+}

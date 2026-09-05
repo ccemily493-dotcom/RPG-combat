@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.3/reaction.schema.json",
+  "title": "Universal RPG Reaction Declaration v0.3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "reactor_id", "target_action_id", "trigger", "method", "timing", "cost", "action_economy_cost", "coverage", "effect", "tags"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "reactor_id": { "type": "string", "minLength": 1 },
+    "target_action_id": { "type": "string", "minLength": 1 },
+    "trigger": { "enum": ["ACTION_DECLARED", "HIT_PENDING", "CONTACT", "AREA_ENTRY", "TIME_WINDOW"] },
+    "method": { "enum": ["dodge", "block", "parry", "intercept", "counter", "barrier", "movement"] },
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["latency_seconds", "priority", "chain_depth"],
+      "properties": {
+        "latency_seconds": { "type": "number", "minimum": 0 },
+        "priority": { "type": "integer" },
+        "chain_depth": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "cost": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resource", "amount"],
+      "properties": {
+        "resource": { "type": "string", "minLength": 1 },
+        "amount": { "type": "number", "minimum": 0 }
+      }
+    },
+    "action_economy_cost": { "type": "integer", "minimum": 0 },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scope"],
+      "properties": {
+        "scope": { "enum": ["ONE_HIT", "HIT_SUBSET", "ENTIRE_ACTION", "AREA", "TIME_WINDOW"] },
+        "hit_indices": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "uniqueItems": true },
+        "maximum_hits": { "type": ["integer", "null"], "minimum": 1 },
+        "target_refs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "start_seconds": { "type": "number", "minimum": 0 },
+        "end_seconds": { "type": "number", "minimum": 0 }
+      }
+    },
+    "defense": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "source_ref": { "type": "string", "minLength": 1 },
+        "declared_coverage": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind"],
+      "properties": {
+        "kind": { "enum": ["DEFEND", "INTERRUPT"] },
+        "consequence": { "enum": ["CANCEL_ACTION", "DELAY_ACTION", "REDUCE_EXECUTION", "ALTER_TARGET", "BREAK_CONCENTRATION", "CONSUME_REACTION"] },
+        "potency": { "type": "number", "minimum": 0 },
+        "magnitude": { "type": "number", "minimum": 0, "maximum": 1 },
+        "delay_seconds": { "type": "number", "minimum": 0 },
+        "alternate_target_ref": { "type": "string", "minLength": 1 }
+      }
+    },
+    "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "effect": { "properties": { "kind": { "const": "DEFEND" } }, "required": ["kind"] } } },
+      "then": { "required": ["defense"] }
+    },
+    {
+      "if": { "properties": { "effect": { "properties": { "kind": { "const": "INTERRUPT" } }, "required": ["kind"] } } },
+      "then": { "properties": { "effect": { "required": ["kind", "consequence", "potency"] } } }
+    }
+  ]
+}
+

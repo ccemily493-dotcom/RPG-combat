@@ -1,0 +1,6691 @@
+{
+  "version": "0.3",
+  "canonicalPromotionsApplied": true,
+  "seeds": "accuracy:<profile>:<repeat> and sensitivity:<owner>:<stat>:<value>:<repeat>",
+  "thresholds": [
+    -20,
+    0,
+    20
+  ],
+  "rawMarginDistribution": {
+    "count": 3072,
+    "minimum": -13.948391062171,
+    "maximum": 10.480988314643,
+    "mean": 0.8251721134309659,
+    "median": 2.297406308384497,
+    "p05": -11.910931435369397,
+    "p95": 9.017895182757396,
+    "standardDeviation": 5.811444963916894
+  },
+  "rawMarginHistogram": [
+    {
+      "minimumInclusive": null,
+      "maximumExclusive": -40,
+      "count": 0,
+      "fraction": 0
+    },
+    {
+      "minimumInclusive": -40,
+      "maximumExclusive": -20,
+      "count": 0,
+      "fraction": 0
+    },
+    {
+      "minimumInclusive": -20,
+      "maximumExclusive": -10,
+      "count": 321,
+      "fraction": 0.1044921875
+    },
+    {
+      "minimumInclusive": -10,
+      "maximumExclusive": 0,
+      "count": 648,
+      "fraction": 0.2109375
+    },
+    {
+      "minimumInclusive": 0,
+      "maximumExclusive": 10,
+      "count": 2068,
+      "fraction": 0.6731770833333334
+    },
+    {
+      "minimumInclusive": 10,
+      "maximumExclusive": 20,
+      "count": 35,
+      "fraction": 0.011393229166666666
+    },
+    {
+      "minimumInclusive": 20,
+      "maximumExclusive": 40,
+      "count": 0,
+      "fraction": 0
+    },
+    {
+      "minimumInclusive": 40,
+      "maximumExclusive": null,
+      "count": 0,
+      "fraction": 0
+    }
+  ],
+  "aggregateThresholdDiagnostics": {
+    "thresholds": [
+      {
+        "threshold": -20,
+        "near": {
+          "1": 0,
+          "2": 0,
+          "5": 0
+        }
+      },
+      {
+        "threshold": 0,
+        "near": {
+          "1": 0.15950520833333334,
+          "2": 0.22200520833333334,
+          "5": 0.6875
+        }
+      },
+      {
+        "threshold": 20,
+        "near": {
+          "1": 0,
+          "2": 0,
+          "5": 0
+        }
+      }
+    ],
+    "nearestDistance": {
+      "count": 3072,
+      "minimum": 0.0011253903020005396,
+      "maximum": 9.993760690769001,
+      "mean": 4.136161029575962,
+      "median": 3.2799679921445026,
+      "p05": 0.1097896496392476,
+      "p95": 9.264382088447647,
+      "standardDeviation": 2.929352283189865
+    }
+  },
+  "bySpecializedProfile": [
+    {
+      "profile": "civilian:balanced",
+      "defender": "civilian:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0.515625,
+        "partial": 0.484375,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -0.19229708930700085,
+        "maximum": 0.2072127508929995,
+        "mean": -0.0006021508378126761,
+        "median": -0.008616199937501179,
+        "p05": -0.17417575990490144,
+        "p95": 0.19309310424634843,
+        "standardDeviation": 0.11467024055588448
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 12.68,
+        "maximum": 14.45,
+        "mean": 13.557031250000001,
+        "median": 12.895,
+        "p05": 12.7215,
+        "p95": 14.4385,
+        "standardDeviation": 0.775440761131008
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 9.42,
+        "maximum": 10.7,
+        "mean": 10.0534375,
+        "median": 9.56,
+        "p05": 9.46,
+        "p95": 10.68,
+        "standardDeviation": 0.5732342964214107
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.15608816471754,
+        "maximum": 0.15972389074949,
+        "mean": 0.15804265868864778,
+        "median": 0.15802106111721,
+        "p05": 0.1568127625140965,
+        "p95": 0.15918979441074751,
+        "standardDeviation": 0.0007587856934099919
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 1,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.0024593758499982243,
+          "maximum": 0.2072127508929995,
+          "mean": 0.09675855530296862,
+          "median": 0.09413281936399898,
+          "p05": 0.008797589924549421,
+          "p95": 0.19354861572229876,
+          "standardDeviation": 0.06154192579419543
+        }
+      }
+    },
+    {
+      "profile": "civilian:power_specialist",
+      "defender": "civilian:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -4.667749093514999,
+        "maximum": -4.35636616887,
+        "mean": -4.529890063621251,
+        "median": -4.536588050280999,
+        "p05": -4.644603162996099,
+        "p95": -4.391197863162749,
+        "standardDeviation": 0.07493521156136249
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 13.06,
+        "maximum": 13.38,
+        "mean": 13.227031250000005,
+        "median": 13.22,
+        "p05": 13.123,
+        "p95": 13.354,
+        "standardDeviation": 0.06686459469283801
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 8.58,
+        "maximum": 8.77,
+        "mean": 8.675625000000002,
+        "median": 8.68,
+        "p05": 8.62,
+        "p95": 8.74,
+        "standardDeviation": 0.03844131078670438
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.15637767152866,
+        "maximum": 0.15943111320967002,
+        "mean": 0.15800921203158444,
+        "median": 0.15801392901705,
+        "p05": 0.1570127927140625,
+        "p95": 0.159101002490694,
+        "standardDeviation": 0.0006826053898948959
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 4.35636616887,
+          "maximum": 4.667749093514999,
+          "mean": 4.529890063621251,
+          "median": 4.536588050280999,
+          "p05": 4.391197863162749,
+          "p95": 4.644603162996099,
+          "standardDeviation": 0.07493521156136249
+        }
+      }
+    },
+    {
+      "profile": "civilian:speed_specialist",
+      "defender": "civilian:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 0.988370970011001,
+        "maximum": 1.466420261555001,
+        "mean": 1.2185737271906092,
+        "median": 1.223497591767,
+        "p05": 1.065106564797999,
+        "p95": 1.3491586415217502,
+        "standardDeviation": 0.0964664590250856
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 12.34,
+        "maximum": 12.66,
+        "mean": 12.51296875,
+        "median": 12.52,
+        "p05": 12.4015,
+        "p95": 12.62,
+        "standardDeviation": 0.07134160093127638
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 10.5,
+        "maximum": 10.69,
+        "mean": 10.6190625,
+        "median": 10.62,
+        "p05": 10.5515,
+        "p95": 10.68,
+        "standardDeviation": 0.040877819092387996
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.14329882788252,
+        "maximum": 0.14620137690829002,
+        "mean": 0.1444537678486366,
+        "median": 0.14437160347932498,
+        "p05": 0.1435398794883785,
+        "p95": 0.145435715928444,
+        "standardDeviation": 0.0006055878493017021
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0.015625,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.988370970011001,
+          "maximum": 1.466420261555001,
+          "mean": 1.2185737271906092,
+          "median": 1.223497591767,
+          "p05": 1.065106564797999,
+          "p95": 1.3491586415217502,
+          "standardDeviation": 0.0964664590250856
+        }
+      }
+    },
+    {
+      "profile": "civilian:accuracy_coordination_specialist",
+      "defender": "civilian:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 6.816157833409999,
+        "maximum": 7.32548409092,
+        "mean": 7.0727500860072965,
+        "median": 7.067439657272999,
+        "p05": 6.8793764594442495,
+        "p95": 7.2769193548805005,
+        "standardDeviation": 0.12675334712535943
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 14.29,
+        "maximum": 14.62,
+        "mean": 14.471250000000003,
+        "median": 14.47,
+        "p05": 14.34,
+        "p95": 14.6,
+        "standardDeviation": 0.0809417228628103
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 12.47,
+        "maximum": 12.78,
+        "mean": 12.619375,
+        "median": 12.62,
+        "p05": 12.52,
+        "p95": 12.7285,
+        "standardDeviation": 0.06432036516531912
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.15658299788819,
+        "maximum": 0.15954393862407001,
+        "mean": 0.15795464097434878,
+        "median": 0.15800314693662498,
+        "p05": 0.1569116996465835,
+        "p95": 0.15890618025699801,
+        "standardDeviation": 0.0006925228676055863
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 6.816157833409999,
+          "maximum": 7.32548409092,
+          "mean": 7.0727500860072965,
+          "median": 7.067439657272999,
+          "p05": 6.8793764594442495,
+          "p95": 7.2769193548805005,
+          "standardDeviation": 0.12675334712535943
+        }
+      }
+    },
+    {
+      "profile": "civilian:defense_resistance_specialist",
+      "defender": "civilian:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 1.8059041234340008,
+        "maximum": 2.243598833844999,
+        "mean": 2.0482456658011254,
+        "median": 2.0440641974439995,
+        "p05": 1.8887058462569,
+        "p95": 2.2299862365367007,
+        "standardDeviation": 0.10064040894709488
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 12.52,
+        "maximum": 12.87,
+        "mean": 12.706406249999995,
+        "median": 12.7,
+        "p05": 12.6015,
+        "p95": 12.8255,
+        "standardDeviation": 0.07020877766303502
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 10.67,
+        "maximum": 10.94,
+        "mean": 10.771875000000001,
+        "median": 10.76,
+        "p05": 10.71,
+        "p95": 10.88,
+        "standardDeviation": 0.05556176180611976
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.15627368988931,
+        "maximum": 0.15943757237858,
+        "mean": 0.15791041488821778,
+        "median": 0.15800554104078002,
+        "p05": 0.156736992451954,
+        "p95": 0.158816812706122,
+        "standardDeviation": 0.0006618804745333321
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0.359375,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 1.8059041234340008,
+          "maximum": 2.243598833844999,
+          "mean": 2.0482456658011254,
+          "median": 2.0440641974439995,
+          "p05": 1.8887058462569,
+          "p95": 2.2299862365367007,
+          "standardDeviation": 0.10064040894709488
+        }
+      }
+    },
+    {
+      "profile": "civilian:perception_reaction_specialist",
+      "defender": "civilian:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 2.1870210336559985,
+        "maximum": 2.681916270822999,
+        "mean": 2.4225679542588745,
+        "median": 2.4281930211229987,
+        "p05": 2.2412545753496493,
+        "p95": 2.5972945856870013,
+        "standardDeviation": 0.114943620716882
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 15.56,
+        "maximum": 15.96,
+        "mean": 15.745625,
+        "median": 15.74,
+        "p05": 15.6015,
+        "p95": 15.89,
+        "standardDeviation": 0.09161527915691792
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 11.56,
+        "maximum": 11.84,
+        "mean": 11.683906249999998,
+        "median": 11.68,
+        "p05": 11.5915,
+        "p95": 11.77,
+        "standardDeviation": 0.05851327807376288
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.15224591698954001,
+        "maximum": 0.15593279387094,
+        "mean": 0.15419610045997859,
+        "median": 0.15417849782089998,
+        "p05": 0.1529624066440485,
+        "p95": 0.1555615576793755,
+        "standardDeviation": 0.0008416404688810862
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.1870210336559985,
+          "maximum": 2.681916270822999,
+          "mean": 2.4225679542588745,
+          "median": 2.4281930211229987,
+          "p05": 2.2412545753496493,
+          "p95": 2.5972945856870013,
+          "standardDeviation": 0.114943620716882
+        }
+      }
+    },
+    {
+      "profile": "civilian:low_defense_glass_cannon",
+      "defender": "civilian:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 4.389031092410999,
+        "maximum": 4.9257633475799985,
+        "mean": 4.651563750444219,
+        "median": 4.6536375302225,
+        "p05": 4.456832670112351,
+        "p95": 4.831620276685501,
+        "standardDeviation": 0.12061578655237169
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 20.78,
+        "maximum": 21.36,
+        "mean": 21.06296875,
+        "median": 21.08,
+        "p05": 20.8675,
+        "p95": 21.2185,
+        "standardDeviation": 0.1186470565308617
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 13.43,
+        "maximum": 13.72,
+        "mean": 13.585312499999995,
+        "median": 13.585,
+        "p05": 13.4415,
+        "p95": 13.68,
+        "standardDeviation": 0.06708131143433331
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.15704700261433,
+        "maximum": 0.15957284726314,
+        "mean": 0.15818561871194098,
+        "median": 0.158128148550255,
+        "p05": 0.157182872958545,
+        "p95": 0.159100288375133,
+        "standardDeviation": 0.0006194368270476403
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 4.389031092410999,
+          "maximum": 4.9257633475799985,
+          "mean": 4.651563750444219,
+          "median": 4.6536375302225,
+          "p05": 4.456832670112351,
+          "p95": 4.831620276685501,
+          "standardDeviation": 0.12061578655237169
+        }
+      }
+    },
+    {
+      "profile": "civilian:low_accuracy_high_power_attacker",
+      "defender": "civilian:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -13.948391062171,
+        "maximum": -13.782493472852,
+        "mean": -13.864518464139966,
+        "median": -13.861746683455,
+        "p05": -13.9362041591726,
+        "p95": -13.7925329106432,
+        "standardDeviation": 0.04651142336167031
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 8.53,
+        "maximum": 8.69,
+        "mean": 8.6034375,
+        "median": 8.6,
+        "p05": 8.54,
+        "p95": 8.6685,
+        "standardDeviation": 0.039655498909356886
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 5.5,
+        "maximum": 5.6,
+        "mean": 5.547968749999999,
+        "median": 5.55,
+        "p05": 5.51,
+        "p95": 5.58,
+        "standardDeviation": 0.023596854100441062
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.15672103690869,
+        "maximum": 0.15960725758129,
+        "mean": 0.1580178203203338,
+        "median": 0.157953981239905,
+        "p05": 0.156976493192014,
+        "p95": 0.1592209312090275,
+        "standardDeviation": 0.0006771001118506918
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 6.051608937829,
+          "maximum": 6.217506527148,
+          "mean": 6.135481535860033,
+          "median": 6.138253316545,
+          "p05": 6.0637958408274,
+          "p95": 6.2074670893568005,
+          "standardDeviation": 0.0465114233616703
+        }
+      }
+    },
+    {
+      "profile": "trained:balanced",
+      "defender": "trained:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0.46875,
+        "partial": 0.53125,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -0.3414575280690002,
+        "maximum": 0.3528800139679973,
+        "mean": 0.028446817953687087,
+        "median": 0.018496637499499258,
+        "p05": -0.20814254872635302,
+        "p95": 0.2810895488620478,
+        "standardDeviation": 0.14974601178955893
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 15.07,
+        "maximum": 17.3,
+        "mean": 16.18359375,
+        "median": 16.935000000000002,
+        "p05": 15.1015,
+        "p95": 17.2155,
+        "standardDeviation": 0.939899208671301
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 9.53,
+        "maximum": 10.9,
+        "mean": 10.2228125,
+        "median": 10.705,
+        "p05": 9.5615,
+        "p95": 10.8385,
+        "standardDeviation": 0.5846806520176208
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.18721460507248,
+        "maximum": 0.190988576058,
+        "mean": 0.18900026739103493,
+        "median": 0.18897277189835998,
+        "p05": 0.187734846110852,
+        "p95": 0.19016389628614652,
+        "standardDeviation": 0.0007645186029838028
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 1,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.001792826051001839,
+          "maximum": 0.3528800139679973,
+          "mean": 0.12322924805287461,
+          "median": 0.09324128405249965,
+          "p05": 0.011676626427950155,
+          "p95": 0.28226616001320154,
+          "standardDeviation": 0.0897086502121843
+        }
+      }
+    },
+    {
+      "profile": "trained:power_specialist",
+      "defender": "trained:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -3.4696848208700004,
+        "maximum": -2.886883956920002,
+        "mean": -3.159978760834874,
+        "median": -3.138681521740498,
+        "p05": -3.401939327105651,
+        "p95": -2.96113109006815,
+        "standardDeviation": 0.13397539632638447
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 16.1,
+        "maximum": 16.55,
+        "mean": 16.3096875,
+        "median": 16.31,
+        "p05": 16.12,
+        "p95": 16.467,
+        "standardDeviation": 0.10776085719661825
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 9.17,
+        "maximum": 9.45,
+        "mean": 9.282031249999998,
+        "median": 9.285,
+        "p05": 9.2,
+        "p95": 9.366999999999999,
+        "standardDeviation": 0.054663164228184645
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.18731324931737,
+        "maximum": 0.19104069859477998,
+        "mean": 0.18920047376530466,
+        "median": 0.18922048690311,
+        "p05": 0.1877277462031825,
+        "p95": 0.19069502366232952,
+        "standardDeviation": 0.0009103930987787027
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.886883956920002,
+          "maximum": 3.4696848208700004,
+          "mean": 3.159978760834874,
+          "median": 3.138681521740498,
+          "p05": 2.96113109006815,
+          "p95": 3.401939327105651,
+          "standardDeviation": 0.13397539632638447
+        }
+      }
+    },
+    {
+      "profile": "trained:speed_specialist",
+      "defender": "trained:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 2.348530133201997,
+        "maximum": 2.8698366699060003,
+        "mean": 2.6210189020275467,
+        "median": 2.620811716245999,
+        "p05": 2.4153776781372533,
+        "p95": 2.8617214752571987,
+        "standardDeviation": 0.14133816318673686
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 16.94,
+        "maximum": 17.39,
+        "mean": 17.189687500000005,
+        "median": 17.2,
+        "p05": 17.04,
+        "p95": 17.35,
+        "standardDeviation": 0.10657991060115418
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 11.37,
+        "maximum": 11.7,
+        "mean": 11.525312499999998,
+        "median": 11.51,
+        "p05": 11.42,
+        "p95": 11.6285,
+        "standardDeviation": 0.06862417463073778
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.17825885584998002,
+        "maximum": 0.18164110121037003,
+        "mean": 0.18001088656726982,
+        "median": 0.18001753702606998,
+        "p05": 0.1787161167910785,
+        "p95": 0.181141372579487,
+        "standardDeviation": 0.0007424409104224387
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.348530133201997,
+          "maximum": 2.8698366699060003,
+          "mean": 2.6210189020275467,
+          "median": 2.620811716245999,
+          "p05": 2.4153776781372533,
+          "p95": 2.8617214752571987,
+          "standardDeviation": 0.14133816318673686
+        }
+      }
+    },
+    {
+      "profile": "trained:accuracy_coordination_specialist",
+      "defender": "trained:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 8.674614736949998,
+        "maximum": 9.448639366894,
+        "mean": 9.037904519873985,
+        "median": 9.026475880707,
+        "p05": 8.800134581348152,
+        "p95": 9.336350734848748,
+        "standardDeviation": 0.1663725539049174
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 20.04,
+        "maximum": 20.69,
+        "mean": 20.380156249999995,
+        "median": 20.365000000000002,
+        "p05": 20.2115,
+        "p95": 20.576999999999998,
+        "standardDeviation": 0.12377515132665985
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 13.75,
+        "maximum": 14.05,
+        "mean": 13.90109375,
+        "median": 13.895,
+        "p05": 13.7715,
+        "p95": 14.02,
+        "standardDeviation": 0.07800475120745856
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.18772014365438,
+        "maximum": 0.19084495856808,
+        "mean": 0.1892485790021316,
+        "median": 0.18913579451882,
+        "p05": 0.187888616699445,
+        "p95": 0.19041480979778497,
+        "standardDeviation": 0.0007830026857125304
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 8.674614736949998,
+          "maximum": 9.448639366894,
+          "mean": 9.037904519873985,
+          "median": 9.026475880707,
+          "p05": 8.800134581348152,
+          "p95": 9.336350734848748,
+          "standardDeviation": 0.1663725539049174
+        }
+      }
+    },
+    {
+      "profile": "trained:defense_resistance_specialist",
+      "defender": "trained:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 3.127956794615997,
+        "maximum": 3.810266701741,
+        "mean": 3.4501194690850956,
+        "median": 3.4297776097050026,
+        "p05": 3.199054453478648,
+        "p95": 3.6926100052540476,
+        "standardDeviation": 0.15627569222613244
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 17.25,
+        "maximum": 17.79,
+        "mean": 17.515781249999996,
+        "median": 17.515,
+        "p05": 17.3215,
+        "p95": 17.72,
+        "standardDeviation": 0.12393048312839537
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 11.58,
+        "maximum": 11.95,
+        "mean": 11.743437499999997,
+        "median": 11.745000000000001,
+        "p05": 11.6215,
+        "p95": 11.8585,
+        "standardDeviation": 0.07701904695430856
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.18762370524245,
+        "maximum": 0.19095944043913998,
+        "mean": 0.18921681332201176,
+        "median": 0.189216727154675,
+        "p05": 0.18790792002559448,
+        "p95": 0.190691060161829,
+        "standardDeviation": 0.0008106825020792579
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 3.127956794615997,
+          "maximum": 3.810266701741,
+          "mean": 3.4501194690850956,
+          "median": 3.4297776097050026,
+          "p05": 3.199054453478648,
+          "p95": 3.6926100052540476,
+          "standardDeviation": 0.15627569222613244
+        }
+      }
+    },
+    {
+      "profile": "trained:perception_reaction_specialist",
+      "defender": "trained:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 2.7399142263920027,
+        "maximum": 3.408370879567002,
+        "mean": 3.074629649918157,
+        "median": 3.0834911671029985,
+        "p05": 2.8057643080451005,
+        "p95": 3.3519741982768,
+        "standardDeviation": 0.16876333908623478
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 18.81,
+        "maximum": 19.41,
+        "mean": 19.117343749999996,
+        "median": 19.13,
+        "p05": 18.9015,
+        "p95": 19.3485,
+        "standardDeviation": 0.14487324403055768
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 11.92,
+        "maximum": 12.25,
+        "mean": 12.076250000000005,
+        "median": 12.075,
+        "p05": 11.94,
+        "p95": 12.2085,
+        "standardDeviation": 0.08155711189099334
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.18341714209296,
+        "maximum": 0.18651548895656,
+        "mean": 0.1849851183021254,
+        "median": 0.1850244836901,
+        "p05": 0.183711966705698,
+        "p95": 0.18618643042218702,
+        "standardDeviation": 0.0007396501947324619
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.7399142263920027,
+          "maximum": 3.408370879567002,
+          "mean": 3.074629649918157,
+          "median": 3.0834911671029985,
+          "p05": 2.8057643080451005,
+          "p95": 3.3519741982768,
+          "standardDeviation": 0.16876333908623478
+        }
+      }
+    },
+    {
+      "profile": "trained:low_defense_glass_cannon",
+      "defender": "trained:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 6.286483168791001,
+        "maximum": 7.056120018309002,
+        "mean": 6.625462993352202,
+        "median": 6.610450529426,
+        "p05": 6.332852518415152,
+        "p95": 6.892958576898053,
+        "standardDeviation": 0.1704155301224866
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 25.83,
+        "maximum": 26.58,
+        "mean": 26.138437500000006,
+        "median": 26.14,
+        "p05": 25.883,
+        "p95": 26.4125,
+        "standardDeviation": 0.15954249776705262
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 14.52,
+        "maximum": 14.94,
+        "mean": 14.71734375,
+        "median": 14.73,
+        "p05": 14.5715,
+        "p95": 14.8355,
+        "standardDeviation": 0.07939698883419631
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.18732051655319001,
+        "maximum": 0.19083591191654,
+        "mean": 0.18916836183973576,
+        "median": 0.189245594899485,
+        "p05": 0.187717666156587,
+        "p95": 0.19022318668904253,
+        "standardDeviation": 0.0007879148817924425
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 6.286483168791001,
+          "maximum": 7.056120018309002,
+          "mean": 6.625462993352202,
+          "median": 6.610450529426,
+          "p05": 6.332852518415152,
+          "p95": 6.892958576898053,
+          "standardDeviation": 0.1704155301224866
+        }
+      }
+    },
+    {
+      "profile": "trained:low_accuracy_high_power_attacker",
+      "defender": "trained:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -12.100254380696999,
+        "maximum": -11.632754954101,
+        "mean": -11.888825680717218,
+        "median": -11.8863297051855,
+        "p05": -12.05634416031525,
+        "p95": -11.71443922071075,
+        "standardDeviation": 0.10210271624279212
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 11.08,
+        "maximum": 11.4,
+        "mean": 11.233593749999999,
+        "median": 11.25,
+        "p05": 11.12,
+        "p95": 11.3485,
+        "standardDeviation": 0.07728533147329768
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 6.25,
+        "maximum": 6.43,
+        "mean": 6.32296875,
+        "median": 6.325,
+        "p05": 6.26,
+        "p95": 6.3885,
+        "standardDeviation": 0.040684751731299804
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.1875425087972,
+        "maximum": 0.19097291514843998,
+        "mean": 0.18927388601856204,
+        "median": 0.18938843719777,
+        "p05": 0.18803334532514102,
+        "p95": 0.190338420362706,
+        "standardDeviation": 0.0007548857227449338
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 7.899745619303001,
+          "maximum": 8.367245045899,
+          "mean": 8.11117431928278,
+          "median": 8.1136702948145,
+          "p05": 7.94365583968475,
+          "p95": 8.28556077928925,
+          "standardDeviation": 0.10210271624279212
+        }
+      }
+    },
+    {
+      "profile": "fighter:balanced",
+      "defender": "fighter:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0.546875,
+        "partial": 0.453125,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -0.42840341855499986,
+        "maximum": 0.4435326264029982,
+        "mean": 0.00798919039482815,
+        "median": -0.027428243770998506,
+        "p05": -0.38572577571875044,
+        "p95": 0.3956966735118488,
+        "standardDeviation": 0.2288758588012946
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 16.31,
+        "maximum": 18.89,
+        "mean": 17.515156249999997,
+        "median": 16.71,
+        "p05": 16.423000000000002,
+        "p95": 18.82,
+        "standardDeviation": 1.061634930466183
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 9.22,
+        "maximum": 10.62,
+        "mean": 9.85671875,
+        "median": 9.375,
+        "p05": 9.2515,
+        "p95": 10.6,
+        "standardDeviation": 0.5983912147570662
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.23554255250481,
+        "maximum": 0.23999707984114,
+        "mean": 0.2375285198572966,
+        "median": 0.23746254321469,
+        "p05": 0.2359022542371925,
+        "p95": 0.2391344521741945,
+        "standardDeviation": 0.0010110877818580648
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 1,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.0011253903020005396,
+          "maximum": 0.4435326264029982,
+          "mean": 0.18819353812245287,
+          "median": 0.1683506746900001,
+          "p05": 0.016978099859400332,
+          "p95": 0.40034072435920115,
+          "standardDeviation": 0.13050355594445637
+        }
+      }
+    },
+    {
+      "profile": "fighter:power_specialist",
+      "defender": "fighter:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -2.8733236589259974,
+        "maximum": -2.0521504719360024,
+        "mean": -2.4749029538020615,
+        "median": -2.4799164685405017,
+        "p05": -2.7810601808833,
+        "p95": -2.1425694160226505,
+        "standardDeviation": 0.19517884902079402
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 17.48,
+        "maximum": 18.2,
+        "mean": 17.855000000000008,
+        "median": 17.845,
+        "p05": 17.6215,
+        "p95": 18.1085,
+        "standardDeviation": 0.15808423387548803
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 9.07,
+        "maximum": 9.4,
+        "mean": 9.240781249999996,
+        "median": 9.23,
+        "p05": 9.123,
+        "p95": 9.38,
+        "standardDeviation": 0.07742546188714347
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.23488819740238,
+        "maximum": 0.23934136532968,
+        "mean": 0.23732421853443894,
+        "median": 0.237218267913055,
+        "p05": 0.2356387264226075,
+        "p95": 0.23886502414646998,
+        "standardDeviation": 0.001018732335751581
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.0521504719360024,
+          "maximum": 2.8733236589259974,
+          "mean": 2.4749029538020615,
+          "median": 2.4799164685405017,
+          "p05": 2.14256941602265,
+          "p95": 2.7810601808833,
+          "standardDeviation": 0.19517884902079402
+        }
+      }
+    },
+    {
+      "profile": "fighter:speed_specialist",
+      "defender": "fighter:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 2.800479734926,
+        "maximum": 3.7124014309009965,
+        "mean": 3.257078498731547,
+        "median": 3.2505682581279984,
+        "p05": 2.890274105374,
+        "p95": 3.5877529836307467,
+        "standardDeviation": 0.20219496491045139
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 19.61,
+        "maximum": 20.38,
+        "mean": 19.924999999999997,
+        "median": 19.905,
+        "p05": 19.6915,
+        "p95": 20.1285,
+        "standardDeviation": 0.15440409644824837
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 11.39,
+        "maximum": 11.84,
+        "mean": 11.574531250000005,
+        "median": 11.57,
+        "p05": 11.43,
+        "p95": 11.7285,
+        "standardDeviation": 0.09024151081092073
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.22829918114389,
+        "maximum": 0.23270798483945002,
+        "mean": 0.23063881817526397,
+        "median": 0.230690982496535,
+        "p05": 0.228686620006048,
+        "p95": 0.2325773274001875,
+        "standardDeviation": 0.0011075586855333246
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.800479734926,
+          "maximum": 3.7124014309009965,
+          "mean": 3.257078498731547,
+          "median": 3.2505682581279984,
+          "p05": 2.890274105374,
+          "p95": 3.5877529836307467,
+          "standardDeviation": 0.20219496491045139
+        }
+      }
+    },
+    {
+      "profile": "fighter:accuracy_coordination_specialist",
+      "defender": "fighter:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 9.480993948772003,
+        "maximum": 10.480988314643,
+        "mean": 10.011518658075795,
+        "median": 10.021240899336,
+        "p05": 9.621221129426548,
+        "p95": 10.32910142682105,
+        "standardDeviation": 0.24398440806449437
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 23.52,
+        "maximum": 24.48,
+        "mean": 23.99765625,
+        "median": 24.025,
+        "p05": 23.674500000000002,
+        "p95": 24.277,
+        "standardDeviation": 0.19775096544881285
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 14.26,
+        "maximum": 14.81,
+        "mean": 14.547968749999997,
+        "median": 14.565000000000001,
+        "p05": 14.3315,
+        "p95": 14.72,
+        "standardDeviation": 0.1271708949541424
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.23548181106472,
+        "maximum": 0.23926584294097,
+        "mean": 0.23724705470325894,
+        "median": 0.237180492418405,
+        "p05": 0.235678833607474,
+        "p95": 0.2386097135842265,
+        "standardDeviation": 0.0008840488459945225
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 9.480993948772003,
+          "maximum": 9.993760690769001,
+          "mean": 9.79644019221886,
+          "median": 9.794204446754499,
+          "p05": 9.5425407956783,
+          "p95": 9.979916248081048,
+          "standardDeviation": 0.13499805746215024
+        }
+      }
+    },
+    {
+      "profile": "fighter:defense_resistance_specialist",
+      "defender": "fighter:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 3.6585083818490034,
+        "maximum": 4.653443561351999,
+        "mean": 4.125150891492783,
+        "median": 4.137378312990002,
+        "p05": 3.743058596911499,
+        "p95": 4.515987036981252,
+        "standardDeviation": 0.23305127857924854
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 19.95,
+        "maximum": 20.83,
+        "mean": 20.332343749999996,
+        "median": 20.335,
+        "p05": 20.0015,
+        "p95": 20.6685,
+        "standardDeviation": 0.19462096324891995
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 11.6,
+        "maximum": 12.1,
+        "mean": 11.824062499999998,
+        "median": 11.82,
+        "p05": 11.64,
+        "p95": 11.9955,
+        "standardDeviation": 0.11040718316192107
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.23482778235198,
+        "maximum": 0.23973050216930003,
+        "mean": 0.23739462082770763,
+        "median": 0.23743458991726502,
+        "p05": 0.235461026495716,
+        "p95": 0.23896859613786448,
+        "standardDeviation": 0.0011248723819049095
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 3.6585083818490034,
+          "maximum": 4.653443561351999,
+          "mean": 4.125150891492783,
+          "median": 4.137378312990002,
+          "p05": 3.743058596911499,
+          "p95": 4.515987036981252,
+          "standardDeviation": 0.23305127857924854
+        }
+      }
+    },
+    {
+      "profile": "fighter:perception_reaction_specialist",
+      "defender": "fighter:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 2.863528202791997,
+        "maximum": 3.7692389698439968,
+        "mean": 3.354916493060017,
+        "median": 3.3429509064059992,
+        "p05": 2.9891922054278024,
+        "p95": 3.699548814901653,
+        "standardDeviation": 0.22909827834903937
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 20.52,
+        "maximum": 21.57,
+        "mean": 21.093906249999996,
+        "median": 21.1,
+        "p05": 20.793,
+        "p95": 21.364,
+        "standardDeviation": 0.19367835116743834
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 11.61,
+        "maximum": 12.13,
+        "mean": 11.86546875,
+        "median": 11.87,
+        "p05": 11.7015,
+        "p95": 12.0185,
+        "standardDeviation": 0.09932474653095023
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.23184241831091998,
+        "maximum": 0.23697379795884,
+        "mean": 0.23403422945642519,
+        "median": 0.23397124368301497,
+        "p05": 0.2327164723074515,
+        "p95": 0.23550464823564202,
+        "standardDeviation": 0.0009217626922293732
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.863528202791997,
+          "maximum": 3.7692389698439968,
+          "mean": 3.354916493060017,
+          "median": 3.3429509064059992,
+          "p05": 2.9891922054278024,
+          "p95": 3.699548814901653,
+          "standardDeviation": 0.22909827834903937
+        }
+      }
+    },
+    {
+      "profile": "fighter:low_defense_glass_cannon",
+      "defender": "fighter:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 7.1511862673660005,
+        "maximum": 8.180122820869997,
+        "mean": 7.621510233554719,
+        "median": 7.606601371404,
+        "p05": 7.244481051189151,
+        "p95": 8.118404210327048,
+        "standardDeviation": 0.24518785923704375
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 28.2,
+        "maximum": 29.41,
+        "mean": 28.675937499999993,
+        "median": 28.68,
+        "p05": 28.3015,
+        "p95": 29.05,
+        "standardDeviation": 0.25007323146180604
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 15.48,
+        "maximum": 16.2,
+        "mean": 15.8353125,
+        "median": 15.844999999999999,
+        "p05": 15.61,
+        "p95": 16.12,
+        "standardDeviation": 0.15631467411522834
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.23546837569283,
+        "maximum": 0.23962254485136,
+        "mean": 0.23752180075364845,
+        "median": 0.2375227046491,
+        "p05": 0.236109948071024,
+        "p95": 0.23936077332878747,
+        "standardDeviation": 0.0009488957130673094
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 7.1511862673660005,
+          "maximum": 8.180122820869997,
+          "mean": 7.621510233554719,
+          "median": 7.606601371404,
+          "p05": 7.244481051189151,
+          "p95": 8.118404210327048,
+          "standardDeviation": 0.24518785923704375
+        }
+      }
+    },
+    {
+      "profile": "fighter:low_accuracy_high_power_attacker",
+      "defender": "fighter:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -11.22617955714,
+        "maximum": -10.524751388949,
+        "mean": -10.868154419716953,
+        "median": -10.865045020421501,
+        "p05": -11.190326784511699,
+        "p95": -10.573706099523251,
+        "standardDeviation": 0.19556729262034134
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 12.39,
+        "maximum": 12.89,
+        "mean": 12.624375000000004,
+        "median": 12.625,
+        "p05": 12.4115,
+        "p95": 12.837,
+        "standardDeviation": 0.13586384498828225
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 6.36,
+        "maximum": 6.62,
+        "mean": 6.4789062500000005,
+        "median": 6.485,
+        "p05": 6.3715,
+        "p95": 6.5785,
+        "standardDeviation": 0.06626455471017288
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.23535156258168002,
+        "maximum": 0.23974557605792998,
+        "mean": 0.23735003460097706,
+        "median": 0.237394277156275,
+        "p05": 0.2355690282690445,
+        "p95": 0.239091204666519,
+        "standardDeviation": 0.001086720003522656
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 8.77382044286,
+          "maximum": 9.475248611051,
+          "mean": 9.131845580283047,
+          "median": 9.134954979578499,
+          "p05": 8.809673215488301,
+          "p95": 9.426293900476749,
+          "standardDeviation": 0.19556729262034134
+        }
+      }
+    },
+    {
+      "profile": "elite:balanced",
+      "defender": "elite:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0.40625,
+        "partial": 0.59375,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -0.5880538233149935,
+        "maximum": 0.5595793082739959,
+        "mean": 0.04279289052606283,
+        "median": 0.05381880223700364,
+        "p05": -0.41251390904960133,
+        "p95": 0.4567290790324459,
+        "standardDeviation": 0.2854723723089435
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 17.46,
+        "maximum": 20.3,
+        "mean": 19.058124999999993,
+        "median": 19.814999999999998,
+        "p05": 17.513,
+        "p95": 20.2125,
+        "standardDeviation": 1.1366286154127039
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 9.52,
+        "maximum": 11.51,
+        "mean": 10.6503125,
+        "median": 11.2,
+        "p05": 9.583,
+        "p95": 11.487,
+        "standardDeviation": 0.815251051728086
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.30332913477657003,
+        "maximum": 0.30918935668568,
+        "mean": 0.3061074721209875,
+        "median": 0.30629859070953,
+        "p05": 0.3037828962533865,
+        "p95": 0.3082254549049905,
+        "standardDeviation": 0.0013764004445513801
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 1,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.004468760750000911,
+          "maximum": 0.5880538233149935,
+          "mean": 0.24164758226675054,
+          "median": 0.23692279679949735,
+          "p05": 0.019906182017354015,
+          "p95": 0.5122961442682993,
+          "standardDeviation": 0.15789918560874747
+        }
+      }
+    },
+    {
+      "profile": "elite:power_specialist",
+      "defender": "elite:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -3.6973085097619958,
+        "maximum": -2.6025481141320057,
+        "mean": -3.0996636359722816,
+        "median": -3.1174451533774956,
+        "p05": -3.6597876641574487,
+        "p95": -2.6837381212397062,
+        "standardDeviation": 0.2852884373074281
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 17.38,
+        "maximum": 18.39,
+        "mean": 17.921718749999997,
+        "median": 17.94,
+        "p05": 17.55,
+        "p95": 18.2755,
+        "standardDeviation": 0.2112947784457474
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 9.02,
+        "maximum": 9.65,
+        "mean": 9.356718750000004,
+        "median": 9.37,
+        "p05": 9.1115,
+        "p95": 9.5685,
+        "standardDeviation": 0.14221522737891867
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.30401092797987,
+        "maximum": 0.30878978141515,
+        "mean": 0.30631374081051266,
+        "median": 0.30638064393835496,
+        "p05": 0.30439027339422847,
+        "p95": 0.30839227818251647,
+        "standardDeviation": 0.001178691274438032
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.6025481141320057,
+          "maximum": 3.6973085097619958,
+          "mean": 3.0996636359722816,
+          "median": 3.1174451533774956,
+          "p05": 2.6837381212397062,
+          "p95": 3.6597876641574483,
+          "standardDeviation": 0.2852884373074281
+        }
+      }
+    },
+    {
+      "profile": "elite:speed_specialist",
+      "defender": "elite:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 2.018814785255998,
+        "maximum": 3.285693624583004,
+        "mean": 2.6167839348189377,
+        "median": 2.613445813698995,
+        "p05": 2.1857679420977485,
+        "p95": 2.9830487845475515,
+        "standardDeviation": 0.25222453019743707
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 20.2,
+        "maximum": 21.17,
+        "mean": 20.774687500000002,
+        "median": 20.795,
+        "p05": 20.483,
+        "p95": 21.0855,
+        "standardDeviation": 0.2131458475873972
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 11.74,
+        "maximum": 12.46,
+        "mean": 12.097968750000001,
+        "median": 12.114999999999998,
+        "p05": 11.8715,
+        "p95": 12.3,
+        "standardDeviation": 0.14983511445398073
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.2985599290381,
+        "maximum": 0.30383711877716,
+        "mean": 0.3014023702176356,
+        "median": 0.301546704702725,
+        "p05": 0.29937615885652397,
+        "p95": 0.3032676684521255,
+        "standardDeviation": 0.0011488353098451827
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.018814785255998,
+          "maximum": 3.285693624583004,
+          "mean": 2.6167839348189377,
+          "median": 2.613445813698995,
+          "p05": 2.1857679420977485,
+          "p95": 2.9830487845475515,
+          "standardDeviation": 0.25222453019743707
+        }
+      }
+    },
+    {
+      "profile": "elite:accuracy_coordination_specialist",
+      "defender": "elite:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 8.376230308779995,
+        "maximum": 9.708717002458002,
+        "mean": 9.015924874534669,
+        "median": 8.992146673715496,
+        "p05": 8.513321594868346,
+        "p95": 9.575832935034144,
+        "standardDeviation": 0.33847001481311817
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 24.52,
+        "maximum": 25.51,
+        "mean": 24.9828125,
+        "median": 24.945,
+        "p05": 24.6215,
+        "p95": 25.4085,
+        "standardDeviation": 0.25807259607279126
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 15.05,
+        "maximum": 15.76,
+        "mean": 15.381249999999996,
+        "median": 15.36,
+        "p05": 15.0915,
+        "p95": 15.721,
+        "standardDeviation": 0.18753749625074984
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.30374682794537,
+        "maximum": 0.30864178628157,
+        "mean": 0.30613095831599807,
+        "median": 0.306207152164845,
+        "p05": 0.303951681769553,
+        "p95": 0.3076036156970005,
+        "standardDeviation": 0.0011714172782035265
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 8.376230308779995,
+          "maximum": 9.708717002458002,
+          "mean": 9.015924874534669,
+          "median": 8.992146673715496,
+          "p05": 8.513321594868346,
+          "p95": 9.575832935034144,
+          "standardDeviation": 0.33847001481311817
+        }
+      }
+    },
+    {
+      "profile": "elite:defense_resistance_specialist",
+      "defender": "elite:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 2.790898631152004,
+        "maximum": 4.067059699891004,
+        "mean": 3.4452859577852504,
+        "median": 3.470628516510999,
+        "p05": 2.954057729211198,
+        "p95": 3.938053699106151,
+        "standardDeviation": 0.296813377328918
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 20.78,
+        "maximum": 21.94,
+        "mean": 21.251093750000006,
+        "median": 21.255000000000003,
+        "p05": 20.8415,
+        "p95": 21.667,
+        "standardDeviation": 0.25276667345783066
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 12.18,
+        "maximum": 12.97,
+        "mean": 12.546093749999999,
+        "median": 12.55,
+        "p05": 12.25,
+        "p95": 12.8255,
+        "standardDeviation": 0.17163385071406387
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.30340378387957,
+        "maximum": 0.30849413572489,
+        "mean": 0.3060659672209691,
+        "median": 0.30619406587140996,
+        "p05": 0.304165316819986,
+        "p95": 0.30756508778555347,
+        "standardDeviation": 0.001116400086353436
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.790898631152004,
+          "maximum": 4.067059699891004,
+          "mean": 3.4452859577852504,
+          "median": 3.470628516510999,
+          "p05": 2.954057729211198,
+          "p95": 3.938053699106151,
+          "standardDeviation": 0.296813377328918
+        }
+      }
+    },
+    {
+      "profile": "elite:perception_reaction_specialist",
+      "defender": "elite:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 2.529659095594994,
+        "maximum": 3.663529107032005,
+        "mean": 3.097136473480265,
+        "median": 3.0906451693104984,
+        "p05": 2.5863157166670483,
+        "p95": 3.5810015305984493,
+        "standardDeviation": 0.2906100217399213
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 21.75,
+        "maximum": 22.92,
+        "mean": 22.326562499999994,
+        "median": 22.35,
+        "p05": 21.9815,
+        "p95": 22.729499999999998,
+        "standardDeviation": 0.2337681727561517
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 12.58,
+        "maximum": 13.36,
+        "mean": 12.954843749999998,
+        "median": 12.955,
+        "p05": 12.6745,
+        "p95": 13.2455,
+        "standardDeviation": 0.1664894158375765
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.30162030483762,
+        "maximum": 0.30698640277991,
+        "mean": 0.30439512882149816,
+        "median": 0.30446543629695,
+        "p05": 0.3023260861513645,
+        "p95": 0.3062618309693625,
+        "standardDeviation": 0.0012099374815614605
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.529659095594994,
+          "maximum": 3.663529107032005,
+          "mean": 3.097136473480265,
+          "median": 3.0906451693104984,
+          "p05": 2.5863157166670483,
+          "p95": 3.5810015305984493,
+          "standardDeviation": 0.2906100217399213
+        }
+      }
+    },
+    {
+      "profile": "elite:low_defense_glass_cannon",
+      "defender": "elite:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 5.983200119106996,
+        "maximum": 7.243963264849995,
+        "mean": 6.582523592095217,
+        "median": 6.599662847187503,
+        "p05": 6.1064215754155535,
+        "p95": 7.093440684401053,
+        "standardDeviation": 0.31609845715517343
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 27.81,
+        "maximum": 29.24,
+        "mean": 28.466093750000002,
+        "median": 28.465,
+        "p05": 28.0015,
+        "p95": 28.980999999999998,
+        "standardDeviation": 0.3167787930258865
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 16.12,
+        "maximum": 17.02,
+        "mean": 16.524687500000006,
+        "median": 16.505000000000003,
+        "p05": 16.2415,
+        "p95": 16.88,
+        "standardDeviation": 0.20604890764997988
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.30307937354455,
+        "maximum": 0.30895676851785003,
+        "mean": 0.3059938793430031,
+        "median": 0.30586324964998,
+        "p05": 0.304030180839778,
+        "p95": 0.308318471377709,
+        "standardDeviation": 0.001391565723660113
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 5.983200119106996,
+          "maximum": 7.243963264849995,
+          "mean": 6.582523592095217,
+          "median": 6.599662847187503,
+          "p05": 6.1064215754155535,
+          "p95": 7.093440684401053,
+          "standardDeviation": 0.31609845715517343
+        }
+      }
+    },
+    {
+      "profile": "elite:low_accuracy_high_power_attacker",
+      "defender": "elite:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -12.372586943670001,
+        "maximum": -11.392321045225998,
+        "mean": -11.904076572489513,
+        "median": -11.911062021806497,
+        "p05": -12.309101343782947,
+        "p95": -11.469629036017801,
+        "standardDeviation": 0.25168334983886637
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 11.86,
+        "maximum": 12.61,
+        "mean": 12.222812500000002,
+        "median": 12.23,
+        "p05": 11.936,
+        "p95": 12.5485,
+        "standardDeviation": 0.18813616038324482
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 5.58,
+        "maximum": 5.91,
+        "mean": 5.7425,
+        "median": 5.735,
+        "p05": 5.6045,
+        "p95": 5.88,
+        "standardDeviation": 0.08703447592764613
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.30387291971541,
+        "maximum": 0.30869799298855,
+        "mean": 0.3062599168189335,
+        "median": 0.306384651431795,
+        "p05": 0.30415873007225147,
+        "p95": 0.308230927784391,
+        "standardDeviation": 0.0012408098921958843
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 7.627413056329999,
+          "maximum": 8.607678954774002,
+          "mean": 8.095923427510485,
+          "median": 8.088937978193503,
+          "p05": 7.690898656217052,
+          "p95": 8.530370963982199,
+          "standardDeviation": 0.25168334983886637
+        }
+      }
+    },
+    {
+      "profile": "superhuman:balanced",
+      "defender": "superhuman:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0.53125,
+        "partial": 0.46875,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -0.6605068661410058,
+        "maximum": 0.6689457097200062,
+        "mean": 0.02779542100976551,
+        "median": -0.017564302219497563,
+        "p05": -0.4838760938770051,
+        "p95": 0.6061742064204452,
+        "standardDeviation": 0.339277449179089
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 17.29,
+        "maximum": 20.27,
+        "mean": 18.699843750000003,
+        "median": 17.78,
+        "p05": 17.362000000000002,
+        "p95": 20.167,
+        "standardDeviation": 1.1927810101128948
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 10.55,
+        "maximum": 12.9,
+        "mean": 11.641875000000004,
+        "median": 10.895,
+        "p05": 10.633000000000001,
+        "p95": 12.7985,
+        "standardDeviation": 0.9306715905060173
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.37865810561631,
+        "maximum": 0.38495624734109,
+        "mean": 0.3820332634510431,
+        "median": 0.38205630671923996,
+        "p05": 0.3795165796147165,
+        "p95": 0.384740176981344,
+        "standardDeviation": 0.0015854057072704803
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 1,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.002996099588997936,
+          "maximum": 0.6689457097200062,
+          "mean": 0.2755993893815467,
+          "median": 0.23087144200849963,
+          "p05": 0.02570139035394732,
+          "p95": 0.6477982731295006,
+          "standardDeviation": 0.19981678989288668
+        }
+      }
+    },
+    {
+      "profile": "superhuman:power_specialist",
+      "defender": "superhuman:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -3.875383301010004,
+        "maximum": -2.4671004201459965,
+        "mean": -3.179168321627017,
+        "median": -3.1660287958895026,
+        "p05": -3.74050934700295,
+        "p95": -2.6189034896628987,
+        "standardDeviation": 0.3377550955320053
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 16.89,
+        "maximum": 17.95,
+        "mean": 17.495781249999997,
+        "median": 17.515,
+        "p05": 17.1515,
+        "p95": 17.8355,
+        "standardDeviation": 0.21797939042129072
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 9.97,
+        "maximum": 10.69,
+        "mean": 10.3490625,
+        "median": 10.364999999999998,
+        "p05": 10.09,
+        "p95": 10.6085,
+        "standardDeviation": 0.1673480537495133
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.37843627585133,
+        "maximum": 0.38509057596199,
+        "mean": 0.3820295905366198,
+        "median": 0.38215575872965,
+        "p05": 0.37916203182117897,
+        "p95": 0.38462864645510997,
+        "standardDeviation": 0.0015779372836174318
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.4671004201459965,
+          "maximum": 3.875383301010004,
+          "mean": 3.179168321627017,
+          "median": 3.1660287958895026,
+          "p05": 2.618903489662898,
+          "p95": 3.74050934700295,
+          "standardDeviation": 0.3377550955320053
+        }
+      }
+    },
+    {
+      "profile": "superhuman:speed_specialist",
+      "defender": "superhuman:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 1.8250190302480007,
+        "maximum": 3.3282425859879936,
+        "mean": 2.60962521327372,
+        "median": 2.6315982790720014,
+        "p05": 1.9505645146153967,
+        "p95": 3.2150083042047037,
+        "standardDeviation": 0.38360891443590756
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 20.21,
+        "maximum": 21.63,
+        "mean": 20.84421875,
+        "median": 20.884999999999998,
+        "p05": 20.296,
+        "p95": 21.217,
+        "standardDeviation": 0.3107239766230432
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 12.98,
+        "maximum": 13.94,
+        "mean": 13.43640625,
+        "median": 13.504999999999999,
+        "p05": 13.033,
+        "p95": 13.74,
+        "standardDeviation": 0.23322043748552035
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.37493776593029,
+        "maximum": 0.38199217302075,
+        "mean": 0.3784737514124901,
+        "median": 0.37844502855408,
+        "p05": 0.37572544842805755,
+        "p95": 0.38130890056037053,
+        "standardDeviation": 0.001684832453882746
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0.078125,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 1.8250190302480007,
+          "maximum": 3.3282425859879936,
+          "mean": 2.60962521327372,
+          "median": 2.6315982790720014,
+          "p05": 1.9505645146153967,
+          "p95": 3.2150083042047037,
+          "standardDeviation": 0.38360891443590756
+        }
+      }
+    },
+    {
+      "profile": "superhuman:accuracy_coordination_specialist",
+      "defender": "superhuman:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 8.233647206122995,
+        "maximum": 9.765906569112005,
+        "mean": 8.943092543904559,
+        "median": 8.941619096490498,
+        "p05": 8.511652969011594,
+        "p95": 9.532883847404701,
+        "standardDeviation": 0.3423268460102637
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 24.54,
+        "maximum": 25.66,
+        "mean": 25.141406249999992,
+        "median": 25.134999999999998,
+        "p05": 24.75,
+        "p95": 25.5655,
+        "standardDeviation": 0.26205239926575274
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 16.57,
+        "maximum": 17.46,
+        "mean": 17.020000000000003,
+        "median": 17.005000000000003,
+        "p05": 16.7515,
+        "p95": 17.387,
+        "standardDeviation": 0.20063960227233302
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.37796281646270996,
+        "maximum": 0.38590125940963,
+        "mean": 0.3818660465831904,
+        "median": 0.38157078616149,
+        "p05": 0.3791658961415615,
+        "p95": 0.38534879498262703,
+        "standardDeviation": 0.0019049937944862095
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 8.233647206122995,
+          "maximum": 9.765906569112005,
+          "mean": 8.943092543904559,
+          "median": 8.941619096490498,
+          "p05": 8.511652969011594,
+          "p95": 9.532883847404701,
+          "standardDeviation": 0.3423268460102637
+        }
+      }
+    },
+    {
+      "profile": "superhuman:defense_resistance_specialist",
+      "defender": "superhuman:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 2.6649716515150033,
+        "maximum": 4.2391845735189975,
+        "mean": 3.3814215398531395,
+        "median": 3.369418854296505,
+        "p05": 2.7484840418036547,
+        "p95": 4.080567671012746,
+        "standardDeviation": 0.38828367408912545
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 20.7,
+        "maximum": 21.99,
+        "mean": 21.317812500000006,
+        "median": 21.27,
+        "p05": 20.842,
+        "p95": 21.8955,
+        "standardDeviation": 0.30591802798094453
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 13.45,
+        "maximum": 14.47,
+        "mean": 13.9053125,
+        "median": 13.885000000000002,
+        "p05": 13.523,
+        "p95": 14.2985,
+        "standardDeviation": 0.23313065509226807
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.37876165154040004,
+        "maximum": 0.38538652185239997,
+        "mean": 0.38192039331116534,
+        "median": 0.38201272324427005,
+        "p05": 0.379713464974679,
+        "p95": 0.383919081101014,
+        "standardDeviation": 0.0014254221210724795
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.6649716515150033,
+          "maximum": 4.2391845735189975,
+          "mean": 3.3814215398531395,
+          "median": 3.369418854296505,
+          "p05": 2.7484840418036547,
+          "p95": 4.080567671012746,
+          "standardDeviation": 0.38828367408912545
+        }
+      }
+    },
+    {
+      "profile": "superhuman:perception_reaction_specialist",
+      "defender": "superhuman:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 2.2908479140379967,
+        "maximum": 3.6954598137880055,
+        "mean": 3.036293793647001,
+        "median": 3.0486815408125025,
+        "p05": 2.505254335414403,
+        "p95": 3.477542608130955,
+        "standardDeviation": 0.2944171799413748
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 21.57,
+        "maximum": 22.69,
+        "mean": 22.159843749999993,
+        "median": 22.155,
+        "p05": 21.6905,
+        "p95": 22.587,
+        "standardDeviation": 0.25914216771096404
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 13.87,
+        "maximum": 14.73,
+        "mean": 14.308125,
+        "median": 14.32,
+        "p05": 13.933,
+        "p95": 14.61,
+        "standardDeviation": 0.19245027766932432
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.37749751639735,
+        "maximum": 0.38493318542937,
+        "mean": 0.38086712678190543,
+        "median": 0.38093350565441497,
+        "p05": 0.378086220894044,
+        "p95": 0.3833498470754895,
+        "standardDeviation": 0.001538366765961902
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.2908479140379967,
+          "maximum": 3.6954598137880055,
+          "mean": 3.036293793647001,
+          "median": 3.0486815408125025,
+          "p05": 2.505254335414403,
+          "p95": 3.477542608130955,
+          "standardDeviation": 0.2944171799413748
+        }
+      }
+    },
+    {
+      "profile": "superhuman:low_defense_glass_cannon",
+      "defender": "superhuman:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 5.890145379537003,
+        "maximum": 7.459542341567996,
+        "mean": 6.696360830571905,
+        "median": 6.697455982944497,
+        "p05": 6.16685142078565,
+        "p95": 7.294222901856205,
+        "standardDeviation": 0.3676069856387786
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 27.16,
+        "maximum": 28.56,
+        "mean": 27.84468750000001,
+        "median": 27.865000000000002,
+        "p05": 27.309,
+        "p95": 28.38,
+        "standardDeviation": 0.33891817204710345
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 17.7,
+        "maximum": 18.8,
+        "mean": 18.20999999999999,
+        "median": 18.2,
+        "p05": 17.8345,
+        "p95": 18.6265,
+        "standardDeviation": 0.24750631305079884
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.37886961677153,
+        "maximum": 0.38558329963535004,
+        "mean": 0.38260581455895776,
+        "median": 0.38256476139447504,
+        "p05": 0.380274452873991,
+        "p95": 0.384937409430633,
+        "standardDeviation": 0.0015205629134314796
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 5.890145379537003,
+          "maximum": 7.459542341567996,
+          "mean": 6.696360830571905,
+          "median": 6.697455982944497,
+          "p05": 6.16685142078565,
+          "p95": 7.294222901856205,
+          "standardDeviation": 0.3676069856387786
+        }
+      }
+    },
+    {
+      "profile": "superhuman:low_accuracy_high_power_attacker",
+      "defender": "superhuman:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -12.399173837944005,
+        "maximum": -11.204635589085001,
+        "mean": -11.88435950672236,
+        "median": -11.911072021755004,
+        "p05": -12.246634978656948,
+        "p95": -11.345408420146248,
+        "standardDeviation": 0.2716375178482857
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 11.52,
+        "maximum": 12.47,
+        "mean": 11.9359375,
+        "median": 11.92,
+        "p05": 11.6775,
+        "p95": 12.3295,
+        "standardDeviation": 0.19945800584020174
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 5.8,
+        "maximum": 6.48,
+        "mean": 6.0890625,
+        "median": 6.08,
+        "p05": 5.9030000000000005,
+        "p95": 6.357,
+        "standardDeviation": 0.14169419922406842
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.37852591912062006,
+        "maximum": 0.38576562397274006,
+        "mean": 0.38231592676347914,
+        "median": 0.38210861679466,
+        "p05": 0.3799579575929525,
+        "p95": 0.385006239489519,
+        "standardDeviation": 0.001540040374668215
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 7.600826162055995,
+          "maximum": 8.795364410914999,
+          "mean": 8.11564049327764,
+          "median": 8.088927978244996,
+          "p05": 7.753365021343052,
+          "p95": 8.654591579853752,
+          "standardDeviation": 0.2716375178482857
+        }
+      }
+    },
+    {
+      "profile": "legendary:balanced",
+      "defender": "legendary:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0.484375,
+        "partial": 0.515625,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -0.9273798365099992,
+        "maximum": 0.9034617459160046,
+        "mean": 0.008934455408436737,
+        "median": 0.030991961620500774,
+        "p05": -0.7005660843759948,
+        "p95": 0.6119237027867953,
+        "standardDeviation": 0.41347564727268865
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 16.31,
+        "maximum": 19.4,
+        "mean": 17.893281249999998,
+        "median": 18.63,
+        "p05": 16.473,
+        "p95": 19.1855,
+        "standardDeviation": 1.1473952221873844
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 11.47,
+        "maximum": 14.2,
+        "mean": 12.859687499999998,
+        "median": 13.58,
+        "p05": 11.623,
+        "p95": 14.007,
+        "standardDeviation": 1.0186724951345991
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.44690801619726,
+        "maximum": 0.45437361935054,
+        "mean": 0.4503073104120584,
+        "median": 0.45031997638467,
+        "p05": 0.4474015451778875,
+        "p95": 0.4530331180925915,
+        "standardDeviation": 0.0017477556180916227
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 1,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.0021085412490009503,
+          "maximum": 0.9273798365099992,
+          "mean": 0.32864605822259385,
+          "median": 0.2637897169600052,
+          "p05": 0.026875126015397658,
+          "p95": 0.7708202096934044,
+          "standardDeviation": 0.25106513855126456
+        }
+      }
+    },
+    {
+      "profile": "legendary:power_specialist",
+      "defender": "legendary:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -4.111130671466995,
+        "maximum": -2.5040725214689985,
+        "mean": -3.231428150417562,
+        "median": -3.221848919768,
+        "p05": -3.9200908852721956,
+        "p95": -2.570282813386656,
+        "standardDeviation": 0.395913749906776
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 15.05,
+        "maximum": 16.22,
+        "mean": 15.653906250000004,
+        "median": 15.65,
+        "p05": 15.243,
+        "p95": 16.0385,
+        "standardDeviation": 0.2560005931847375
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 10.3,
+        "maximum": 11.18,
+        "mean": 10.775937499999998,
+        "median": 10.78,
+        "p05": 10.393,
+        "p95": 11.0885,
+        "standardDeviation": 0.21000534777416976
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.44746459355237,
+        "maximum": 0.45466369264230005,
+        "mean": 0.4507509289115566,
+        "median": 0.45033302714302,
+        "p05": 0.447750908019434,
+        "p95": 0.4538211538840535,
+        "standardDeviation": 0.0018994479513308364
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.5040725214689985,
+          "maximum": 4.111130671466995,
+          "mean": 3.231428150417562,
+          "median": 3.221848919768,
+          "p05": 2.5702828133866555,
+          "p95": 3.920090885272195,
+          "standardDeviation": 0.395913749906776
+        }
+      }
+    },
+    {
+      "profile": "legendary:speed_specialist",
+      "defender": "legendary:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0.171875,
+        "partial": 0.828125,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -0.5008338169150051,
+        "maximum": 1.195473284060995,
+        "mean": 0.3802431918649214,
+        "median": 0.43289775409849796,
+        "p05": -0.24955655253449718,
+        "p95": 0.9888900194389548,
+        "standardDeviation": 0.37089228940708696
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 15.75,
+        "maximum": 18.97,
+        "mean": 17.9440625,
+        "median": 18.25,
+        "p05": 16.04,
+        "p95": 18.7685,
+        "standardDeviation": 0.8890562389937714
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 11.13,
+        "maximum": 13.86,
+        "mean": 13.0140625,
+        "median": 13.28,
+        "p05": 11.299,
+        "p95": 13.697,
+        "standardDeviation": 0.7834553248869713
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.44449081962902,
+        "maximum": 0.45228859916465,
+        "mean": 0.44895913093460665,
+        "median": 0.44894469491397493,
+        "p05": 0.44540744873380694,
+        "p95": 0.45208950197641445,
+        "standardDeviation": 0.0018931076205808163
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0.953125,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.01640647615600699,
+          "maximum": 1.195473284060995,
+          "mean": 0.44699292740285923,
+          "median": 0.4399243169925029,
+          "p05": 0.05843330289424671,
+          "p95": 0.9888900194389548,
+          "standardDeviation": 0.2869552197696986
+        }
+      }
+    },
+    {
+      "profile": "legendary:accuracy_coordination_specialist",
+      "defender": "legendary:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 2.9597172956830065,
+        "maximum": 4.627346071622995,
+        "mean": 3.851793871167592,
+        "median": 3.807524841501497,
+        "p05": 3.1870622284826013,
+        "p95": 4.581698260921349,
+        "standardDeviation": 0.40765391572687276
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 19.78,
+        "maximum": 21.18,
+        "mean": 20.5428125,
+        "median": 20.560000000000002,
+        "p05": 20.01,
+        "p95": 21.031,
+        "standardDeviation": 0.3181315998824227
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 14.82,
+        "maximum": 15.97,
+        "mean": 15.415156249999995,
+        "median": 15.375,
+        "p05": 14.977500000000001,
+        "p95": 15.8935,
+        "standardDeviation": 0.26608264803616477
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.4467377033983,
+        "maximum": 0.45386452143248,
+        "mean": 0.450319407449216,
+        "median": 0.45008399410188005,
+        "p05": 0.4477298130347305,
+        "p95": 0.453108435489131,
+        "standardDeviation": 0.0018021644249478445
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.9597172956830065,
+          "maximum": 4.627346071622995,
+          "mean": 3.851793871167592,
+          "median": 3.807524841501497,
+          "p05": 3.1870622284826013,
+          "p95": 4.581698260921349,
+          "standardDeviation": 0.40765391572687276
+        }
+      }
+    },
+    {
+      "profile": "legendary:defense_resistance_specialist",
+      "defender": "legendary:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0.015625,
+        "partial": 0.984375,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -0.08024454295200201,
+        "maximum": 1.6571980003839997,
+        "mean": 0.9229017140384379,
+        "median": 0.9220766955239981,
+        "p05": 0.26836485555585415,
+        "p95": 1.5304238425461465,
+        "standardDeviation": 0.4022692459256705
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 16.09,
+        "maximum": 19.28,
+        "mean": 18.56375,
+        "median": 18.619999999999997,
+        "p05": 18.1345,
+        "p95": 19.072499999999998,
+        "standardDeviation": 0.4271471497037058
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 11.41,
+        "maximum": 14.17,
+        "mean": 13.620156249999996,
+        "median": 13.66,
+        "p05": 13.236,
+        "p95": 14.027,
+        "standardDeviation": 0.3742554783646293
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.44721225968628,
+        "maximum": 0.45471798476384995,
+        "mean": 0.45048543700457894,
+        "median": 0.45035397451541004,
+        "p05": 0.44777657619101496,
+        "p95": 0.4531777803189655,
+        "standardDeviation": 0.0017704827301589714
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0.5625,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.08024454295200201,
+          "maximum": 1.6571980003839997,
+          "mean": 0.925409356005688,
+          "median": 0.9220766955239981,
+          "p05": 0.26836485555585415,
+          "p95": 1.5304238425461465,
+          "standardDeviation": 0.39646644726865865
+        }
+      }
+    },
+    {
+      "profile": "legendary:perception_reaction_specialist",
+      "defender": "legendary:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 0.4191191534760037,
+        "maximum": 2.0884613301959973,
+        "mean": 1.407125117181266,
+        "median": 1.4186997487759996,
+        "p05": 0.7533526715443962,
+        "p95": 1.9857741056447487,
+        "standardDeviation": 0.37676303247847176
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 19.09,
+        "maximum": 20.36,
+        "mean": 19.823437499999997,
+        "median": 19.835,
+        "p05": 19.3015,
+        "p95": 20.26,
+        "standardDeviation": 0.29933895268365945
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 13.98,
+        "maximum": 14.99,
+        "mean": 14.580624999999998,
+        "median": 14.58,
+        "p05": 14.13,
+        "p95": 14.9785,
+        "standardDeviation": 0.2453879263024161
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.44633756656573,
+        "maximum": 0.45512146850434,
+        "mean": 0.45068544658019377,
+        "median": 0.450627635754955,
+        "p05": 0.447517652121084,
+        "p95": 0.4532181294061125,
+        "standardDeviation": 0.0017117246292640911
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0.125,
+              "2": 0.953125,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.4191191534760037,
+          "maximum": 2.0884613301959973,
+          "mean": 1.407125117181266,
+          "median": 1.4186997487759996,
+          "p05": 0.7533526715443962,
+          "p95": 1.9857741056447487,
+          "standardDeviation": 0.37676303247847176
+        }
+      }
+    },
+    {
+      "profile": "legendary:low_defense_glass_cannon",
+      "defender": "legendary:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": 1.4378902813569994,
+        "maximum": 3.1433760000300026,
+        "mean": 2.2909695729883905,
+        "median": 2.2813195291175035,
+        "p05": 1.6626941105445021,
+        "p95": 2.869616690304645,
+        "standardDeviation": 0.4137433506563324
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 20.78,
+        "maximum": 22.14,
+        "mean": 21.414843750000003,
+        "median": 21.45,
+        "p05": 20.9,
+        "p95": 21.9025,
+        "standardDeviation": 0.31561444134566696
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 15.18,
+        "maximum": 16.47,
+        "mean": 15.809687499999999,
+        "median": 15.815000000000001,
+        "p05": 15.3675,
+        "p95": 16.2385,
+        "standardDeviation": 0.2844345748036796
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.44665735632333997,
+        "maximum": 0.45478962887582,
+        "mean": 0.4503343214483335,
+        "median": 0.45019948533054,
+        "p05": 0.4476530898034605,
+        "p95": 0.4537119800003255,
+        "standardDeviation": 0.0019665579447905894
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0.265625,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 1.4378902813569994,
+          "maximum": 3.1433760000300026,
+          "mean": 2.2909695729883905,
+          "median": 2.2813195291175035,
+          "p05": 1.6626941105445021,
+          "p95": 2.869616690304645,
+          "standardDeviation": 0.4137433506563324
+        }
+      }
+    },
+    {
+      "profile": "legendary:low_accuracy_high_power_attacker",
+      "defender": "legendary:balanced",
+      "count": 64,
+      "qualities": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "accuracyMargin": {
+        "count": 64,
+        "minimum": -10.023589878615994,
+        "maximum": -8.581700240610004,
+        "mean": -9.292622363786812,
+        "median": -9.324848505761501,
+        "p05": -9.934144378113801,
+        "p95": -8.654584208816996,
+        "standardDeviation": 0.37041359233035787
+      },
+      "healthDamage": {
+        "count": 64,
+        "minimum": 11.76,
+        "maximum": 12.69,
+        "mean": 12.19421875,
+        "median": 12.17,
+        "p05": 11.8015,
+        "p95": 12.5955,
+        "standardDeviation": 0.23593434393584473
+      },
+      "stabilityDamage": {
+        "count": 64,
+        "minimum": 7.32,
+        "maximum": 8.13,
+        "mean": 7.711718750000001,
+        "median": 7.7,
+        "p05": 7.4,
+        "p95": 8.057,
+        "standardDeviation": 0.1973619350291172
+      },
+      "activeDefenseFilter": {
+        "count": 64,
+        "minimum": 0.44681500449326,
+        "maximum": 0.45463627456138,
+        "mean": 0.45064838071404156,
+        "median": 0.45073568127752,
+        "p05": 0.44727086286282747,
+        "p95": 0.4539351170913005,
+        "standardDeviation": 0.0019865833485500557
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 8.581700240610004,
+          "maximum": 9.97897668537,
+          "mean": 9.291885180080062,
+          "median": 9.324848505761501,
+          "p05": 8.654584208816996,
+          "p95": 9.934144378113801,
+          "standardDeviation": 0.3690023731731166
+        }
+      }
+    }
+  ],
+  "independentStatSensitivity": [
+    {
+      "owner": "actor",
+      "stat": "coordination",
+      "value": 40,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 1,
+          "partial": 0,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -8.592287492053003,
+          "maximum": -7.848102442883999,
+          "mean": -8.266172006730077,
+          "median": -8.293757184583999,
+          "p05": -8.522852444868649,
+          "p95": -7.950695200338248,
+          "standardDeviation": 0.17082778565848106
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 11.86,
+          "maximum": 12.31,
+          "mean": 12.076875000000003,
+          "median": 12.09,
+          "p05": 11.9,
+          "p95": 12.277,
+          "standardDeviation": 0.10606417573808792
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 6.67,
+          "maximum": 6.93,
+          "mean": 6.79125,
+          "median": 6.79,
+          "p05": 6.7,
+          "p95": 6.88,
+          "standardDeviation": 0.059121167951927275
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23541986503293,
+          "maximum": 0.23944227442396,
+          "mean": 0.2372516225883652,
+          "median": 0.237177083232675,
+          "p05": 0.2357054893874205,
+          "p95": 0.238800520875601,
+          "standardDeviation": 0.001023287165583045
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 7.848102442883999,
+          "maximum": 8.592287492053003,
+          "mean": 8.266172006730077,
+          "median": 8.293757184583999,
+          "p05": 7.950695200338248,
+          "p95": 8.522852444868647,
+          "standardDeviation": 0.17082778565848106
+        }
+      }
+    },
+    {
+      "owner": "actor",
+      "stat": "coordination",
+      "value": 46,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 1,
+          "partial": 0,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -4.538677574028,
+          "maximum": -3.741710825538,
+          "mean": -4.120564322608172,
+          "median": -4.1226828859485,
+          "p05": -4.443630685725602,
+          "p95": -3.8327477199040523,
+          "standardDeviation": 0.19228902956647415
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 14.12,
+          "maximum": 14.63,
+          "mean": 14.36625,
+          "median": 14.364999999999998,
+          "p05": 14.1715,
+          "p95": 14.581,
+          "standardDeviation": 0.12172587029879889
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 7.96,
+          "maximum": 8.23,
+          "mean": 8.08125,
+          "median": 8.08,
+          "p05": 7.9815000000000005,
+          "p95": 8.1785,
+          "standardDeviation": 0.061428311876528086
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23538148021524002,
+          "maximum": 0.23989759399476,
+          "mean": 0.23739796380487482,
+          "median": 0.237348301953005,
+          "p05": 0.23574522138782597,
+          "p95": 0.238968233729494,
+          "standardDeviation": 0.0010897525210735609
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 3.741710825538,
+          "maximum": 4.538677574028,
+          "mean": 4.120564322608172,
+          "median": 4.1226828859485,
+          "p05": 3.8327477199040523,
+          "p95": 4.443630685725601,
+          "standardDeviation": 0.19228902956647415
+        }
+      }
+    },
+    {
+      "owner": "actor",
+      "stat": "coordination",
+      "value": 52,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0.484375,
+          "partial": 0.515625,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -0.39909574959899885,
+          "maximum": 0.42857280507099915,
+          "mean": 0.016199055938000417,
+          "median": 0.014740976503002656,
+          "p05": -0.2839090688932511,
+          "p95": 0.31340096311735083,
+          "standardDeviation": 0.18262933652914032
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 16.33,
+          "maximum": 18.92,
+          "mean": 17.63328125,
+          "median": 18.425,
+          "p05": 16.4515,
+          "p95": 18.757,
+          "standardDeviation": 1.0275183311739202
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 9.19,
+          "maximum": 10.62,
+          "mean": 9.915625000000002,
+          "median": 10.385000000000002,
+          "p05": 9.26,
+          "p95": 10.5555,
+          "standardDeviation": 0.5776971389707587
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23541695316085,
+          "maximum": 0.23963099586502998,
+          "mean": 0.2374480326570223,
+          "median": 0.23748895591147,
+          "p05": 0.23569289898821652,
+          "p95": 0.2388678099069595,
+          "standardDeviation": 0.0010486479748590433
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 1,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.0010072852870024462,
+          "maximum": 0.42857280507099915,
+          "mean": 0.14516762617134338,
+          "median": 0.09966687547449737,
+          "p05": 0.00786237868234814,
+          "p95": 0.334461628038353,
+          "standardDeviation": 0.11199216171738782
+        }
+      }
+    },
+    {
+      "owner": "actor",
+      "stat": "coordination",
+      "value": 58,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0,
+          "partial": 1,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": 3.6827188296459994,
+          "maximum": 4.634468850612997,
+          "mean": 4.20724026728364,
+          "median": 4.200997784839,
+          "p05": 3.7939754769214487,
+          "p95": 4.5587996821433,
+          "standardDeviation": 0.22449293238318707
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 21.15,
+          "maximum": 22.08,
+          "mean": 21.627031249999995,
+          "median": 21.619999999999997,
+          "p05": 21.29,
+          "p95": 21.9185,
+          "standardDeviation": 0.19574121697649055
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 11.98,
+          "maximum": 12.5,
+          "mean": 12.266093750000001,
+          "median": 12.265,
+          "p05": 12.05,
+          "p95": 12.467,
+          "standardDeviation": 0.1237514796313058
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23510689669437,
+          "maximum": 0.23933178630535,
+          "mean": 0.23737311805744696,
+          "median": 0.23730595988021,
+          "p05": 0.2359861440655865,
+          "p95": 0.23902683422672252,
+          "standardDeviation": 0.0009592878406435355
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 3.6827188296459994,
+          "maximum": 4.634468850612997,
+          "mean": 4.20724026728364,
+          "median": 4.200997784839,
+          "p05": 3.7939754769214487,
+          "p95": 4.5587996821433,
+          "standardDeviation": 0.22449293238318707
+        }
+      }
+    },
+    {
+      "owner": "actor",
+      "stat": "coordination",
+      "value": 64,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0,
+          "partial": 1,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": 7.769226227144003,
+          "maximum": 8.733746858106997,
+          "mean": 8.23821922059816,
+          "median": 8.226598450039003,
+          "p05": 7.882751987070198,
+          "p95": 8.625094810248001,
+          "standardDeviation": 0.22859228859550496
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 24.21,
+          "maximum": 25.06,
+          "mean": 24.600468750000008,
+          "median": 24.61,
+          "p05": 24.25,
+          "p95": 24.9485,
+          "standardDeviation": 0.20931009954953791
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 14.09,
+          "maximum": 14.68,
+          "mean": 14.371874999999998,
+          "median": 14.375,
+          "p05": 14.1715,
+          "p95": 14.5885,
+          "standardDeviation": 0.13047838662016023
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23547663992899,
+          "maximum": 0.23948115113362,
+          "mean": 0.23741434107106799,
+          "median": 0.237336002669505,
+          "p05": 0.2359431733068435,
+          "p95": 0.23879970383651852,
+          "standardDeviation": 0.000925742752949365
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 7.769226227144003,
+          "maximum": 8.733746858106997,
+          "mean": 8.23821922059816,
+          "median": 8.226598450039003,
+          "p05": 7.882751987070198,
+          "p95": 8.625094810248001,
+          "standardDeviation": 0.22859228859550496
+        }
+      }
+    },
+    {
+      "owner": "actor",
+      "stat": "perception",
+      "value": 40,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 1,
+          "partial": 0,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -4.054206074606,
+          "maximum": -3.3041404375030012,
+          "mean": -3.7456555040727335,
+          "median": -3.751420578647,
+          "p05": -4.0128167200773515,
+          "p95": -3.4332554800062005,
+          "standardDeviation": 0.18242261066461748
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 14.29,
+          "maximum": 14.85,
+          "mean": 14.5809375,
+          "median": 14.585,
+          "p05": 14.3915,
+          "p95": 14.7685,
+          "standardDeviation": 0.12218989767468502
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 8.06,
+          "maximum": 8.36,
+          "mean": 8.202031250000003,
+          "median": 8.2,
+          "p05": 8.1015,
+          "p95": 8.317,
+          "standardDeviation": 0.06270415874116725
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23562853533470998,
+          "maximum": 0.23892160954213998,
+          "mean": 0.2373347488409811,
+          "median": 0.23738489388249,
+          "p05": 0.23573897101574,
+          "p95": 0.23875538194886348,
+          "standardDeviation": 0.000979289835756894
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 3.3041404375030012,
+          "maximum": 4.054206074606,
+          "mean": 3.7456555040727335,
+          "median": 3.751420578647,
+          "p05": 3.4332554800062,
+          "p95": 4.0128167200773515,
+          "standardDeviation": 0.18242261066461748
+        }
+      }
+    },
+    {
+      "owner": "actor",
+      "stat": "perception",
+      "value": 46,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 1,
+          "partial": 0,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -2.3355211019320024,
+          "maximum": -1.3918380591650035,
+          "mean": -1.8888889694768283,
+          "median": -1.872441802630501,
+          "p05": -2.2371121254618496,
+          "p95": -1.56113405478355,
+          "standardDeviation": 0.2079574567130112
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 15.38,
+          "maximum": 15.87,
+          "mean": 15.61390625,
+          "median": 15.625,
+          "p05": 15.4215,
+          "p95": 15.8,
+          "standardDeviation": 0.11793294158519702
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 8.65,
+          "maximum": 8.92,
+          "mean": 8.782812499999997,
+          "median": 8.78,
+          "p05": 8.69,
+          "p95": 8.89,
+          "standardDeviation": 0.06467391161627697
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23541927796479,
+          "maximum": 0.23929110159735997,
+          "mean": 0.23741172688044268,
+          "median": 0.23738853077390001,
+          "p05": 0.23609510440223647,
+          "p95": 0.23884500386462448,
+          "standardDeviation": 0.0008821890254253431
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0.71875,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 1.3918380591650035,
+          "maximum": 2.3355211019320024,
+          "mean": 1.8888889694768283,
+          "median": 1.872441802630501,
+          "p05": 1.56113405478355,
+          "p95": 2.2371121254618496,
+          "standardDeviation": 0.2079574567130112
+        }
+      }
+    },
+    {
+      "owner": "actor",
+      "stat": "perception",
+      "value": 52,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0.453125,
+          "partial": 0.546875,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -0.4110093851169978,
+          "maximum": 0.4427389622419966,
+          "mean": -0.0007102479861875732,
+          "median": 0.04435258223100291,
+          "p05": -0.38993231507895165,
+          "p95": 0.31941189766185074,
+          "standardDeviation": 0.23911744621374056
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 16.27,
+          "maximum": 18.94,
+          "mean": 17.687187500000004,
+          "median": 18.485,
+          "p05": 16.3945,
+          "p95": 18.8185,
+          "standardDeviation": 1.0734996343007064
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 9.18,
+          "maximum": 10.63,
+          "mean": 9.94859375,
+          "median": 10.41,
+          "p05": 9.2415,
+          "p95": 10.5485,
+          "standardDeviation": 0.5972904109065685
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23534612510113,
+          "maximum": 0.23950335669030998,
+          "mean": 0.23751420298825893,
+          "median": 0.237361635362295,
+          "p05": 0.236385305718587,
+          "p95": 0.2389629406077295,
+          "standardDeviation": 0.0008708703518578893
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 1,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.0039568681740007605,
+          "maximum": 0.4427389622419966,
+          "mean": 0.20926970342671902,
+          "median": 0.21701062812800131,
+          "p05": 0.03132077778485254,
+          "p95": 0.3966562862770505,
+          "standardDeviation": 0.11568858527822037
+        }
+      }
+    },
+    {
+      "owner": "actor",
+      "stat": "perception",
+      "value": 58,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0,
+          "partial": 1,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": 1.4609200879899973,
+          "maximum": 2.2907189645749995,
+          "mean": 1.8786663414322184,
+          "median": 1.8713731967010006,
+          "p05": 1.5254979638043493,
+          "p95": 2.1811866032896976,
+          "standardDeviation": 0.20304278330666176
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 19.53,
+          "maximum": 20.22,
+          "mean": 19.900625000000005,
+          "median": 19.905,
+          "p05": 19.64,
+          "p95": 20.127,
+          "standardDeviation": 0.16026223627230451
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 10.99,
+          "maximum": 11.35,
+          "mean": 11.195312499999996,
+          "median": 11.195,
+          "p05": 11.06,
+          "p95": 11.3185,
+          "standardDeviation": 0.08582265052857536
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23547888557061,
+          "maximum": 0.2396478494005,
+          "mean": 0.2375838515524584,
+          "median": 0.23758534243988,
+          "p05": 0.23606644303489002,
+          "p95": 0.239142084238238,
+          "standardDeviation": 0.0010063934952773892
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0.6875,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 1.4609200879899973,
+          "maximum": 2.2907189645749995,
+          "mean": 1.8786663414322184,
+          "median": 1.8713731967010006,
+          "p05": 1.5254979638043493,
+          "p95": 2.1811866032896976,
+          "standardDeviation": 0.20304278330666176
+        }
+      }
+    },
+    {
+      "owner": "actor",
+      "stat": "perception",
+      "value": 64,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0,
+          "partial": 1,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": 3.2857582891509978,
+          "maximum": 4.1661146440389984,
+          "mean": 3.7888344732715935,
+          "median": 3.8083141897949986,
+          "p05": 3.4761400760243015,
+          "p95": 4.074584832297202,
+          "standardDeviation": 0.1920279879103538
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 20.82,
+          "maximum": 21.71,
+          "mean": 21.327656250000008,
+          "median": 21.33,
+          "p05": 21.0475,
+          "p95": 21.634,
+          "standardDeviation": 0.17783192721200985
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 11.75,
+          "maximum": 12.29,
+          "mean": 12.054375000000002,
+          "median": 12.055,
+          "p05": 11.9,
+          "p95": 12.2355,
+          "standardDeviation": 0.10879848057303006
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23504993742549002,
+          "maximum": 0.23987034376396998,
+          "mean": 0.23730222547564742,
+          "median": 0.23726022628363003,
+          "p05": 0.235887151600053,
+          "p95": 0.23886187017795452,
+          "standardDeviation": 0.00096357360966246
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 3.2857582891509978,
+          "maximum": 4.1661146440389984,
+          "mean": 3.7888344732715935,
+          "median": 3.8083141897949986,
+          "p05": 3.4761400760243015,
+          "p95": 4.074584832297202,
+          "standardDeviation": 0.1920279879103538
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "movement",
+      "value": 40,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0,
+          "partial": 1,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": 4.310498857833998,
+          "maximum": 5.267273443339995,
+          "mean": 4.780051811333762,
+          "median": 4.755281165057497,
+          "p05": 4.439166581355949,
+          "p95": 5.135922811975349,
+          "standardDeviation": 0.21259056274685684
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 21.64,
+          "maximum": 22.49,
+          "mean": 22.073125000000005,
+          "median": 22.055,
+          "p05": 21.793,
+          "p95": 22.431,
+          "standardDeviation": 0.19809936742705664
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 12.32,
+          "maximum": 12.85,
+          "mean": 12.585156250000002,
+          "median": 12.57,
+          "p05": 12.387500000000001,
+          "p95": 12.8125,
+          "standardDeviation": 0.12210385164251578
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23558850722608,
+          "maximum": 0.23940696310599002,
+          "mean": 0.23731943215287699,
+          "median": 0.237308876695555,
+          "p05": 0.2358532618142915,
+          "p95": 0.2387467057829515,
+          "standardDeviation": 0.0009197022684777997
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0.875
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 4.310498857833998,
+          "maximum": 5.267273443339995,
+          "mean": 4.780051811333762,
+          "median": 4.755281165057497,
+          "p05": 4.439166581355949,
+          "p95": 5.135922811975349,
+          "standardDeviation": 0.21259056274685684
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "movement",
+      "value": 46,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0,
+          "partial": 1,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": 2.003279663047998,
+          "maximum": 2.853126600906002,
+          "mean": 2.4231384476866538,
+          "median": 2.435938174552497,
+          "p05": 2.1008409595499486,
+          "p95": 2.7379266875333994,
+          "standardDeviation": 0.1947798788056632
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 19.99,
+          "maximum": 20.84,
+          "mean": 20.296875,
+          "median": 20.295,
+          "p05": 20.043,
+          "p95": 20.4985,
+          "standardDeviation": 0.15673300346449082
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 11.22,
+          "maximum": 11.65,
+          "mean": 11.416249999999998,
+          "median": 11.42,
+          "p05": 11.273,
+          "p95": 11.536999999999999,
+          "standardDeviation": 0.08713315958921719
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.2352632958801,
+          "maximum": 0.23969717082207,
+          "mean": 0.2374362422148943,
+          "median": 0.23744948434808502,
+          "p05": 0.235602478605107,
+          "p95": 0.23909960185043452,
+          "standardDeviation": 0.0010694628264698617
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.003279663047998,
+          "maximum": 2.853126600906002,
+          "mean": 2.4231384476866538,
+          "median": 2.435938174552497,
+          "p05": 2.1008409595499486,
+          "p95": 2.7379266875333994,
+          "standardDeviation": 0.1947798788056632
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "movement",
+      "value": 52,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0.53125,
+          "partial": 0.46875,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -0.39839573934899875,
+          "maximum": 0.3827497368950006,
+          "mean": 0.0007470198297186981,
+          "median": -0.01622006459599845,
+          "p05": -0.34582224861784744,
+          "p95": 0.34733703606530175,
+          "standardDeviation": 0.19237013354779534
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 16.36,
+          "maximum": 18.88,
+          "mean": 17.524687500000002,
+          "median": 16.665,
+          "p05": 16.4545,
+          "p95": 18.8235,
+          "standardDeviation": 1.031512797954417
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 9.23,
+          "maximum": 10.61,
+          "mean": 9.861406250000002,
+          "median": 9.385000000000002,
+          "p05": 9.2545,
+          "p95": 10.567,
+          "standardDeviation": 0.5786942931815879
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23489606927055,
+          "maximum": 0.23969784269597,
+          "mean": 0.23755957661523447,
+          "median": 0.237407069246405,
+          "p05": 0.2360495969167225,
+          "p95": 0.2390710498022875,
+          "standardDeviation": 0.0009830534226955606
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 1,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.009345440250001502,
+          "maximum": 0.39839573934899875,
+          "mean": 0.15325554615678116,
+          "median": 0.11257480170699807,
+          "p05": 0.02519458689140102,
+          "p95": 0.3794126590336983,
+          "standardDeviation": 0.1162736594934955
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "movement",
+      "value": 58,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 1,
+          "partial": 0,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -2.876376727888996,
+          "maximum": -1.9023143474380007,
+          "mean": -2.4042769686168883,
+          "median": -2.4155309814529993,
+          "p05": -2.7462403989415973,
+          "p95": -2.043002264347396,
+          "standardDeviation": 0.22523703411850368
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 15,
+          "maximum": 15.58,
+          "mean": 15.31796875,
+          "median": 15.31,
+          "p05": 15.1315,
+          "p95": 15.507,
+          "standardDeviation": 0.13194671850196774
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 8.48,
+          "maximum": 8.78,
+          "mean": 8.62,
+          "median": 8.62,
+          "p05": 8.51,
+          "p95": 8.73,
+          "standardDeviation": 0.07373940601876315
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.2354491967224,
+          "maximum": 0.23913998365571998,
+          "mean": 0.23734897305654434,
+          "median": 0.23727402914185497,
+          "p05": 0.235950242422981,
+          "p95": 0.238804941709408,
+          "standardDeviation": 0.0008573173145744221
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0.046875,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 1.9023143474380007,
+          "maximum": 2.876376727888996,
+          "mean": 2.4042769686168883,
+          "median": 2.4155309814529993,
+          "p05": 2.043002264347396,
+          "p95": 2.7462403989415973,
+          "standardDeviation": 0.22523703411850368
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "movement",
+      "value": 64,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 1,
+          "partial": 0,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -5.136870880848996,
+          "maximum": -4.324903681437,
+          "mean": -4.769234976380042,
+          "median": -4.785327952622495,
+          "p05": -5.094319474122849,
+          "p95": -4.448705185919147,
+          "standardDeviation": 0.2031892616335667
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 13.75,
+          "maximum": 14.25,
+          "mean": 14.009999999999996,
+          "median": 14,
+          "p05": 13.8215,
+          "p95": 14.22,
+          "standardDeviation": 0.1191244097571947
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 7.74,
+          "maximum": 8.02,
+          "mean": 7.877812500000001,
+          "median": 7.88,
+          "p05": 7.7715,
+          "p95": 7.97,
+          "standardDeviation": 0.06426188484436164
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.2352063286829,
+          "maximum": 0.23904835342385,
+          "mean": 0.23728781748849082,
+          "median": 0.23734099274526,
+          "p05": 0.235842571452535,
+          "p95": 0.23885998287817248,
+          "standardDeviation": 0.0008890796197401322
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0.828125
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 4.324903681437,
+          "maximum": 5.136870880848996,
+          "mean": 4.769234976380042,
+          "median": 4.785327952622495,
+          "p05": 4.448705185919147,
+          "p95": 5.094319474122849,
+          "standardDeviation": 0.2031892616335667
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "reaction",
+      "value": 40,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0,
+          "partial": 1,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": 3.733455741413003,
+          "maximum": 4.609195513850004,
+          "mean": 4.18498090076991,
+          "median": 4.181867495755505,
+          "p05": 3.839958035551704,
+          "p95": 4.54896505714645,
+          "standardDeviation": 0.21266751231292694
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 21.79,
+          "maximum": 22.52,
+          "mean": 22.129843750000006,
+          "median": 22.12,
+          "p05": 21.87,
+          "p95": 22.3985,
+          "standardDeviation": 0.16273533140021407
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 12.24,
+          "maximum": 12.6,
+          "mean": 12.447500000000003,
+          "median": 12.44,
+          "p05": 12.29,
+          "p95": 12.5985,
+          "standardDeviation": 0.09310612224768045
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.21676257587704,
+          "maximum": 0.22091788369416002,
+          "mean": 0.21902658825622595,
+          "median": 0.21885685789514503,
+          "p05": 0.21774575332485302,
+          "p95": 0.2205239757880425,
+          "standardDeviation": 0.0008532974382599334
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 3.733455741413003,
+          "maximum": 4.609195513850004,
+          "mean": 4.18498090076991,
+          "median": 4.181867495755505,
+          "p05": 3.839958035551704,
+          "p95": 4.54896505714645,
+          "standardDeviation": 0.21266751231292694
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "reaction",
+      "value": 46,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0,
+          "partial": 1,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": 1.6788886376060006,
+          "maximum": 2.560964200133,
+          "mean": 2.1051674934682665,
+          "median": 2.1101206761209994,
+          "p05": 1.8007482199002989,
+          "p95": 2.464885680137952,
+          "standardDeviation": 0.20657591071281028
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 19.85,
+          "maximum": 20.82,
+          "mean": 20.324062500000004,
+          "median": 20.32,
+          "p05": 20.0615,
+          "p95": 20.6185,
+          "standardDeviation": 0.17977171939365205
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 11.19,
+          "maximum": 11.68,
+          "mean": 11.428437500000005,
+          "median": 11.42,
+          "p05": 11.2815,
+          "p95": 11.5985,
+          "standardDeviation": 0.09255435480705382
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.22572593713056002,
+          "maximum": 0.22960625749866,
+          "mean": 0.227476330571953,
+          "median": 0.22736006037256,
+          "p05": 0.2260156469462825,
+          "p95": 0.2291902981724285,
+          "standardDeviation": 0.0009195839402325617
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0.359375,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 1.6788886376060006,
+          "maximum": 2.560964200133,
+          "mean": 2.1051674934682665,
+          "median": 2.1101206761209994,
+          "p05": 1.8007482199002989,
+          "p95": 2.464885680137952,
+          "standardDeviation": 0.20657591071281028
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "reaction",
+      "value": 52,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0.484375,
+          "partial": 0.515625,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -0.4239882669450026,
+          "maximum": 0.39418398565000246,
+          "mean": -0.0018525287472968,
+          "median": 0.008134083456997843,
+          "p05": -0.36922921088755095,
+          "p95": 0.31527479463840213,
+          "standardDeviation": 0.22140016913545418
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 16.33,
+          "maximum": 18.77,
+          "mean": 17.610468750000003,
+          "median": 18.43,
+          "p05": 16.443,
+          "p95": 18.7185,
+          "standardDeviation": 1.0268009022071596
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 9.2,
+          "maximum": 10.59,
+          "mean": 9.909843749999999,
+          "median": 10.38,
+          "p05": 9.2415,
+          "p95": 10.54,
+          "standardDeviation": 0.5864898022011445
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23518170747102002,
+          "maximum": 0.23976528574723002,
+          "mean": 0.23733486162481662,
+          "median": 0.237358832592755,
+          "p05": 0.23548393461317899,
+          "p95": 0.238970723061288,
+          "standardDeviation": 0.0010302993777047845
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 1,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.001854255010997008,
+          "maximum": 0.4239882669450026,
+          "mean": 0.18887985377623462,
+          "median": 0.18739236210450017,
+          "p05": 0.014471418920849289,
+          "p95": 0.37999438704680266,
+          "standardDeviation": 0.11552431602669419
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "reaction",
+      "value": 58,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 1,
+          "partial": 0,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -2.510186864182998,
+          "maximum": -1.6528513456430005,
+          "mean": -2.0692174615200334,
+          "median": -2.0901721341540025,
+          "p05": -2.4004198181768026,
+          "p95": -1.7198919710009013,
+          "standardDeviation": 0.19938123725900952
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 15.06,
+          "maximum": 15.63,
+          "mean": 15.30125,
+          "median": 15.285,
+          "p05": 15.11,
+          "p95": 15.535499999999999,
+          "standardDeviation": 0.12617572072312486
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 8.48,
+          "maximum": 8.76,
+          "mean": 8.609843750000001,
+          "median": 8.61,
+          "p05": 8.5115,
+          "p95": 8.72,
+          "standardDeviation": 0.06639117475943254
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.24568866597386,
+          "maximum": 0.24982816243654,
+          "mean": 0.24772450649625213,
+          "median": 0.247636843049925,
+          "p05": 0.2461563729103525,
+          "p95": 0.24946496081271352,
+          "standardDeviation": 0.0010346941458572215
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0.34375,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 1.6528513456430005,
+          "maximum": 2.510186864182998,
+          "mean": 2.0692174615200334,
+          "median": 2.0901721341540025,
+          "p05": 1.719891971000901,
+          "p95": 2.4004198181768026,
+          "standardDeviation": 0.19938123725900952
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "reaction",
+      "value": 64,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 1,
+          "partial": 0,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -4.6775002730379995,
+          "maximum": -3.775414335344003,
+          "mean": -4.196863520282706,
+          "median": -4.184882097390503,
+          "p05": -4.549735149825103,
+          "p95": -3.8844044177603014,
+          "standardDeviation": 0.20321740809528166
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 13.64,
+          "maximum": 14.24,
+          "mean": 13.941562499999998,
+          "median": 13.934999999999999,
+          "p05": 13.7345,
+          "p95": 14.1555,
+          "standardDeviation": 0.12604833832205
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 7.68,
+          "maximum": 7.97,
+          "mean": 7.839687499999999,
+          "median": 7.84,
+          "p05": 7.7515,
+          "p95": 7.93,
+          "standardDeviation": 0.06279850590380315
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.2562680703773,
+          "maximum": 0.26063681912311,
+          "mean": 0.2582879316944408,
+          "median": 0.258305401336245,
+          "p05": 0.2566320555069055,
+          "p95": 0.259776991753666,
+          "standardDeviation": 0.000971779248351053
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 3.775414335344003,
+          "maximum": 4.6775002730379995,
+          "mean": 4.196863520282706,
+          "median": 4.184882097390503,
+          "p05": 3.8844044177603014,
+          "p95": 4.549735149825103,
+          "standardDeviation": 0.20321740809528166
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "coordination",
+      "value": 40,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0,
+          "partial": 1,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": 2.5497057767789997,
+          "maximum": 3.4796013932529988,
+          "mean": 3.0351828030684542,
+          "median": 3.029690547288002,
+          "p05": 2.6351918558856005,
+          "p95": 3.3456518278156984,
+          "standardDeviation": 0.22717144455496083
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 20.83,
+          "maximum": 21.68,
+          "mean": 21.253125,
+          "median": 21.270000000000003,
+          "p05": 20.97,
+          "p95": 21.5555,
+          "standardDeviation": 0.18796504828025884
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 11.73,
+          "maximum": 12.2,
+          "mean": 11.960312500000002,
+          "median": 11.965,
+          "p05": 11.7815,
+          "p95": 12.1385,
+          "standardDeviation": 0.10407282231087046
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.21687623250263002,
+          "maximum": 0.22068132935131002,
+          "mean": 0.21877918458210924,
+          "median": 0.21867241468941,
+          "p05": 0.2176512534850945,
+          "p95": 0.220317782021549,
+          "standardDeviation": 0.0008733891860422748
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.5497057767789997,
+          "maximum": 3.4796013932529988,
+          "mean": 3.0351828030684542,
+          "median": 3.029690547288002,
+          "p05": 2.6351918558856005,
+          "p95": 3.3456518278156984,
+          "standardDeviation": 0.22717144455496083
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "coordination",
+      "value": 46,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0,
+          "partial": 1,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": 1.0494896447520006,
+          "maximum": 1.9003430980240026,
+          "mean": 1.498423450443375,
+          "median": 1.5377654852600031,
+          "p05": 1.1412441463867502,
+          "p95": 1.8019799277550528,
+          "standardDeviation": 0.21328057989414964
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 19.53,
+          "maximum": 20.18,
+          "mean": 19.85953125,
+          "median": 19.884999999999998,
+          "p05": 19.57,
+          "p95": 20.0985,
+          "standardDeviation": 0.1697003764681666
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 10.99,
+          "maximum": 11.37,
+          "mean": 11.167187500000002,
+          "median": 11.184999999999999,
+          "p05": 11.02,
+          "p95": 11.317,
+          "standardDeviation": 0.09472771423268907
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.2262124871606,
+          "maximum": 0.22993513361155,
+          "mean": 0.22813766799408466,
+          "median": 0.22818922317593,
+          "p05": 0.22639306250117353,
+          "p95": 0.22967518658435299,
+          "standardDeviation": 0.0009441873000635866
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 1.0494896447520006,
+          "maximum": 1.9003430980240026,
+          "mean": 1.498423450443375,
+          "median": 1.5377654852600031,
+          "p05": 1.1412441463867502,
+          "p95": 1.8019799277550528,
+          "standardDeviation": 0.21328057989414964
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "coordination",
+      "value": 52,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 0.34375,
+          "partial": 0.65625,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -0.5051348020120017,
+          "maximum": 0.5008454065759977,
+          "mean": 0.09172610012162496,
+          "median": 0.11576400225650119,
+          "p05": -0.32338704878599955,
+          "p95": 0.3868363780034975,
+          "standardDeviation": 0.21345345840110563
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 16.36,
+          "maximum": 18.92,
+          "mean": 17.9465625,
+          "median": 18.59,
+          "p05": 16.4915,
+          "p95": 18.8625,
+          "standardDeviation": 1.0022743180356117
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 9.21,
+          "maximum": 10.63,
+          "mean": 10.097812500000002,
+          "median": 10.45,
+          "p05": 9.283,
+          "p95": 10.59,
+          "standardDeviation": 0.5632341563184446
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.23542211853426998,
+          "maximum": 0.23938671420056998,
+          "mean": 0.237548662373676,
+          "median": 0.237439969373885,
+          "p05": 0.235822182741889,
+          "p95": 0.23916696266113102,
+          "standardDeviation": 0.001009824563236793
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 1,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 0.014418608242003472,
+          "maximum": 0.5051348020120017,
+          "mean": 0.19221429356434427,
+          "median": 0.15890411769450097,
+          "p05": 0.024939592331149642,
+          "p95": 0.4011946964195512,
+          "standardDeviation": 0.13049797583286482
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "coordination",
+      "value": 58,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 1,
+          "partial": 0,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -1.8404332394770009,
+          "maximum": -1.0882565126469999,
+          "mean": -1.4499751208939848,
+          "median": -1.4512865694504988,
+          "p05": -1.7089259580534992,
+          "p95": -1.1299267947290528,
+          "standardDeviation": 0.1835863789125071
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 15.42,
+          "maximum": 15.92,
+          "mean": 15.6434375,
+          "median": 15.63,
+          "p05": 15.4915,
+          "p95": 15.82,
+          "standardDeviation": 0.10984675049244758
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 8.68,
+          "maximum": 8.94,
+          "mean": 8.800937499999998,
+          "median": 8.79,
+          "p05": 8.7215,
+          "p95": 8.8985,
+          "standardDeviation": 0.05727452395044415
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.24514411050998,
+          "maximum": 0.2493223237523,
+          "mean": 0.24697261495078876,
+          "median": 0.247108811645775,
+          "p05": 0.2452128673280425,
+          "p95": 0.2484925474692735,
+          "standardDeviation": 0.00105080164601682
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 1,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 1.0882565126469999,
+          "maximum": 1.8404332394770009,
+          "mean": 1.4499751208939848,
+          "median": 1.4512865694504988,
+          "p05": 1.1299267947290528,
+          "p95": 1.7089259580534992,
+          "standardDeviation": 0.1835863789125071
+        }
+      }
+    },
+    {
+      "owner": "target",
+      "stat": "coordination",
+      "value": 64,
+      "summary": {
+        "count": 64,
+        "qualities": {
+          "miss": 0,
+          "graze": 1,
+          "partial": 0,
+          "solid": 0
+        },
+        "accuracyMargin": {
+          "count": 64,
+          "minimum": -3.4360754463579966,
+          "maximum": -2.6801225369390025,
+          "mean": -3.047270012941344,
+          "median": -3.057436152988,
+          "p05": -3.4035844007169973,
+          "p95": -2.7031983984383516,
+          "standardDeviation": 0.2072467306607739
+        },
+        "healthDamage": {
+          "count": 64,
+          "minimum": 14.33,
+          "maximum": 14.88,
+          "mean": 14.558906249999998,
+          "median": 14.55,
+          "p05": 14.38,
+          "p95": 14.79,
+          "standardDeviation": 0.13247779516182134
+        },
+        "stabilityDamage": {
+          "count": 64,
+          "minimum": 8.07,
+          "maximum": 8.35,
+          "mean": 8.197187499999998,
+          "median": 8.2,
+          "p05": 8.1015,
+          "p95": 8.3185,
+          "standardDeviation": 0.06762647295068705
+        },
+        "activeDefenseFilter": {
+          "count": 64,
+          "minimum": 0.25485444114981,
+          "maximum": 0.25875941169990996,
+          "mean": 0.25695279734238363,
+          "median": 0.25679088234773495,
+          "p05": 0.255240459691228,
+          "p95": 0.25843770886614953,
+          "standardDeviation": 0.0009916717715107123
+        }
+      },
+      "thresholdDiagnostics": {
+        "thresholds": [
+          {
+            "threshold": -20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          },
+          {
+            "threshold": 0,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 1
+            }
+          },
+          {
+            "threshold": 20,
+            "near": {
+              "1": 0,
+              "2": 0,
+              "5": 0
+            }
+          }
+        ],
+        "nearestDistance": {
+          "count": 64,
+          "minimum": 2.6801225369390025,
+          "maximum": 3.4360754463579966,
+          "mean": 3.047270012941344,
+          "median": 3.057436152988,
+          "p05": 2.7031983984383516,
+          "p95": 3.4035844007169973,
+          "standardDeviation": 0.2072467306607739
+        }
+      }
+    }
+  ],
+  "recommendations": [
+    "Retain the current band thresholds until profile-specific target outcomes are agreed; the new results show deterministic specialization effects but do not define desired win rates.",
+    "Opposed weight normalization removes the structural category-level drift while preserving differences created by within-category specialization.",
+    "Review scenarios within five margin points of -20, 0, or 20 first, because small coefficient changes can change their categorical band while micro-variance cannot rescue distant cases.",
+    "Judge actor coordination/perception and defender movement/reaction/coordination slopes separately before changing thresholds; their configured weights create different leverage by design.",
+    "Keep category-neutral cohorts as controls, but use specialized profiles for future acceptance ranges so a category label is never treated as a complete identity."
+  ]
+}

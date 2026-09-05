@@ -1,0 +1,132 @@
+spec_version: "0.3"
+document: damage_resolution
+status: provisional
+
+principles:
+  power_is_not_damage: true
+  damage_is_post_contact_consequence: true
+  active_and_intrinsic_filters_are_sequential: true
+  body_zone_specificity_required_when_contact_zone_known: true
+
+immunity_rule:
+  representation: "an active character status with tag `immunity:<channel>`"
+  predicate: "has_active_status_tag(character, concat('immunity:', channel))"
+  effect: "that channel's post-filter harm and associated status attempts are zero"
+  resistance_100_is_not_immunity: true
+
+core_channels:
+  kinetic: "impact, cutting, piercing, pressure, and other mechanical transfer"
+  thermal: "heating or cooling"
+  electrical: "electric current and charge effects"
+  chemical: "corrosion, toxin, or reactive chemistry"
+  radiological: "ionizing or analogous radiation"
+  psychic: "direct cognitive or mental disruption"
+  exotic: "unclassified extension-mediated energy; must provide explicit compatibility mappings"
+
+contact_power:
+  formula: "attack.power * accuracy_exposure_factor * area_target_factor"
+  note: "Attack timing gates defense opportunity; it does not multiply delivered power unless an extension explicitly models velocity-dependent kinetic power before this step."
+
+body_zone_selection:
+  explicit_aim: "use aimed zone if geometry intersects it"
+  geometry_contact: "use intersected zone with greatest overlap"
+  unresolved_tie_break: "lowest lexicographic zone id"
+  no_geometry_data: core
+  fallback_zone: core
+  fallback_zone_tunable: true
+
+intrinsic_body_filter:
+  per_channel_formula: "clamp(0, max_body_filter.value, zone.resistance[channel] + character.resolved_stats.resistance * resistance_weight.value)"
+  resistance_weight: { value: 0.35, tunable: true }
+  max_body_filter: { value: 95, tunable: true }
+  note: "Values are percentages; immunity must be an explicit status or extension rule rather than an implicit stat result."
+
+penetration_application:
+  active_filter_formula: "active_filter * (1 - penetration * active_penetration_compatibility)"
+  body_filter_formula: "body_filter * (1 - penetration * body_penetration_compatibility)"
+  compatibility_range: [0, 1]
+  combined_filter_formula: "1 - (1 - active_after / 100) * (1 - body_after / 100)"
+  penetration_range: [0, 1]
+
+harm_conversion:
+  per_channel_residual_power: "contact_power * channel_share * (1 - combined_filter)"
+  channel_coefficients:
+    kinetic: { value: 1.0, tunable: true }
+    thermal: { value: 0.9, tunable: true }
+    electrical: { value: 0.8, tunable: true }
+    chemical: { value: 0.7, tunable: true }
+    radiological: { value: 0.6, tunable: true }
+    psychic: { value: 0.8, tunable: true }
+    exotic: { value: 1.0, tunable: true }
+  raw_harm_formula: "sum(per_channel_residual_power * channel_coefficient.value)"
+  vulnerability_formula: "vulnerability_multiplier = clamp(min_vulnerability.value, max_vulnerability.value, zone.vulnerability[channel])"
+  min_vulnerability: { value: 0.0, tunable: true }
+  max_vulnerability: { value: 3.0, tunable: true }
+  zone_harm_formula: "sum(channel_raw_harm * vulnerability_multiplier[channel])"
+  health_damage_formula: "zone_harm * bounded_harm_capacity_multiplier(character.harm_capacity)"
+  reference_harm_capacity: { value: 100, tunable: true }
+  epsilon: { value: 0.000001, tunable: true }
+  harm_capacity_multiplier:
+    formula: "piecewise_linear_clamped(character.harm_capacity / reference_harm_capacity.value, anchors)"
+    interpolation: linear
+    below_minimum: clamp_to_first_anchor
+    above_maximum: clamp_to_last_anchor
+    anchors:
+      - { capacity_ratio: { value: 0.00, tunable: true }, multiplier: { value: 1.35, tunable: true }, label: extremely_fragile }
+      - { capacity_ratio: { value: 0.25, tunable: true }, multiplier: { value: 1.35, tunable: true }, label: extremely_fragile }
+      - { capacity_ratio: { value: 0.50, tunable: true }, multiplier: { value: 1.20, tunable: true }, label: fragile }
+      - { capacity_ratio: { value: 0.75, tunable: true }, multiplier: { value: 1.10, tunable: true }, label: somewhat_fragile }
+      - { capacity_ratio: { value: 1.00, tunable: true }, multiplier: { value: 1.00, tunable: true }, label: normal }
+    monotonic: nonincreasing_with_capacity
+    bounded: true
+  minimum_recorded_damage: { value: 0.01, tunable: true }
+  rounding_decimals: { value: 2, tunable: true }
+
+zone_defaults:
+  core:
+    allocation_weight: { value: 0.45, tunable: true }
+    vulnerability: { value: 1.0, tunable: true }
+  head:
+    allocation_weight: { value: 0.10, tunable: true }
+    vulnerability: { value: 1.5, tunable: true }
+  arms:
+    allocation_weight: { value: 0.20, tunable: true }
+    vulnerability: { value: 0.8, tunable: true }
+  legs:
+    allocation_weight: { value: 0.25, tunable: true }
+    vulnerability: { value: 0.9, tunable: true }
+  weights_must_sum_to: { value: 1.0, tunable: false, reason: "probability/allocation normalization" }
+  note: "Defaults are generic humanoid fallbacks; character or universe data should declare anatomy explicitly."
+
+stability_damage:
+  formula: "attack.stability_impact * accuracy_exposure_factor * (1 - stability_filter / 100) + defense.secondary_consequences.stability_loss"
+  health_to_stability_transfer: { value: 0.25, tunable: true }
+  additional_formula: "stability_damage += health_damage * health_to_stability_transfer.value"
+
+status_effects:
+  authority: deterministic_rules_only
+  attempt_formula: "potency - resistance_threshold"
+  resistance_threshold: "base_threshold + relevant_stat * stat_weight.value + modifiers"
+  base_threshold: { value: 20, tunable: true }
+  stat_weight: { value: 0.5, tunable: true }
+  bands:
+    resisted_below: { value: 0, tunable: true }
+    partial_below: { value: 20, tunable: true }
+    full_at_or_above: { value: 20, tunable: true }
+  partial_duration_factor: { value: 0.5, tunable: true }
+  stacking: "status definition declares refresh, intensify, independent, or reject"
+
+resource_and_state_commit:
+  order:
+    - pay_committed_action_and_defense_costs
+    - apply_health_damage
+    - apply_stability_damage
+    - apply_displacement
+    - apply_status_changes
+    - create_next_turn_modifiers
+  simultaneous_actions: "compute from the same immutable snapshot, then commit together in action id order for audit only"
+  knockout_default_health: { value: 0, tunable: true }
+  death_not_core_implied: true
+
+audit:
+  include: [contact_zone, contact_power, channel_breakdown, active_filter, body_filter, penetration_by_filter, vulnerability_by_channel, health_damage, stability_damage, statuses, state_delta]

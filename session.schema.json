@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.3/session.schema.json",
+  "title": "Universal RPG Session Step Input v0.3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "snapshot", "declarations", "registries", "seed"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "snapshot": {
+      "type": "object", "additionalProperties": false, "required": ["world", "characters", "temporal_state", "strategies"],
+      "properties": {
+        "world": { "$ref": "https://example.invalid/rpg/v0.3/world-state.schema.json" },
+        "characters": { "type": "object", "minProperties": 1, "additionalProperties": { "$ref": "https://example.invalid/rpg/v0.3/character-state.schema.json" } },
+        "temporal_state": { "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json" },
+        "strategies": { "type": "array", "items": { "$ref": "https://example.invalid/rpg/v0.3/strategy-dag.schema.json" } }
+      }
+    },
+    "declarations": {
+      "type": "object", "additionalProperties": false, "required": ["actions", "reactions"],
+      "properties": {
+        "actions": { "type": "array", "items": { "$ref": "https://example.invalid/rpg/v0.3/action.schema.json" } },
+        "reactions": { "type": "array", "items": { "$ref": "https://example.invalid/rpg/v0.3/reaction.schema.json" } }
+      }
+    },
+    "registries": { "$ref": "https://example.invalid/rpg/v0.3/turn.schema.json#/$defs/registries" },
+    "termination_predicates": { "type": "array", "items": { "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/predicate" } },
+    "seed": { "type": ["string", "number", "integer"] },
+    "trace": { "type": "boolean", "default": true }
+  }
+}

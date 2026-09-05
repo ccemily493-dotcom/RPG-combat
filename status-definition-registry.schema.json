@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.3/status-definition-registry.schema.json",
+  "title": "Universal RPG Status Definition Registry v0.3",
+  "type": "object",
+  "additionalProperties": { "$ref": "#/$defs/definition" },
+  "$defs": {
+    "definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["merge_policy", "tags"],
+      "properties": {
+        "channel": { "type": ["string", "null"] },
+        "merge_policy": { "enum": ["refresh", "stack", "replace", "ignore", "strongest_wins"] },
+        "priority": { "type": "integer", "default": 0, "x-tunable": true },
+        "max_stacks": { "type": ["integer", "null"], "minimum": 1 },
+        "intensity_cap": { "type": ["number", "null"], "minimum": 0 },
+        "duration_cap": { "type": ["integer", "null"], "minimum": 0 },
+        "batch_aggregation": { "enum": ["none", "count", "potency_sum", "strongest"], "default": "none" },
+        "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,202 @@
+spec_version: "0.3"
+document: defense_resolution
+status: provisional
+
+output_contract:
+  filter_percent_range: [0, 100]
+  meaning:
+    0: "defense failed; it filters none of the incoming compatible effect"
+    100: "defense completely filters the incoming compatible effect"
+  additional_outputs: [stability_loss, resource_cost, displacement, next_turn_disadvantage, audit]
+
+composition:
+  canonical_composition: weighted
+  accepted_for_v0_3: true
+  preserve_gates_and_compatibility: true
+  hard_applicability_gates: [feasibility, nonzero_compatibility, nonzero_coverage, paid_cost]
+  weighted_performance:
+    formula: "execution * execution_weight.value + timing * timing_weight.value + compatibility * compatibility_weight.value + coverage * coverage_weight.value"
+    execution_weight: { value: 0.30, tunable: true }
+    timing_weight: { value: 0.25, tunable: true }
+    compatibility_weight: { value: 0.25, tunable: true }
+    coverage_weight: { value: 0.20, tunable: true }
+    weights_must_sum_to: { value: 1.0, tunable: false, reason: "promoted normalized weighted composition" }
+  bounded_multipliers:
+    stability_minimum: { value: 0.50, tunable: true }
+    stability_maximum: { value: 1.00, tunable: false, reason: "normalized upper bound" }
+  formula: "gate * hooked_capacity * weighted_performance * bounded_stability * paid_fraction"
+
+defense_effectiveness_bands:
+  failed: { min: 0.00, max: 0.00 }
+  poor: { min_exclusive: 0.00, max: 0.15 }
+  weak: { min_exclusive: 0.15, max: 0.30 }
+  effective: { min_exclusive: 0.30, max: 0.50 }
+  strong: { min_exclusive: 0.50, max: 0.70 }
+  exceptional: { min_exclusive: 0.70, max: 0.90 }
+  near_perfect: { min_exclusive: 0.90, max_exclusive: 1.00 }
+  perfect: { value: 1.00, tunable: false, reason: "diagnostic label for the exact upper bound" }
+  purpose: diagnostic_vocabulary_only
+
+methods:
+  evade:
+    how: "move the threatened zone out of the effect geometry"
+    primary_stats:
+      movement: { value: 0.45, tunable: true }
+      reaction: { value: 0.35, tunable: true }
+      coordination: { value: 0.20, tunable: true }
+    compatible_delivery: [melee, projectile, beam, wave, field]
+    coverage_default: { value: 1.0, tunable: true }
+  block:
+    how: "interpose a body part, shield, object, or barrier"
+    primary_stats:
+      reaction: { value: 0.25, tunable: true }
+      coordination: { value: 0.25, tunable: true }
+      resistance: { value: 0.25, tunable: true }
+      physical_capability: { value: 0.25, tunable: true }
+    compatible_delivery: [melee, projectile, beam, wave, contact]
+    coverage_default: { value: 0.7, tunable: true }
+  parry:
+    how: "redirect a discrete attack through timed contact"
+    primary_stats:
+      reaction: { value: 0.35, tunable: true }
+      coordination: { value: 0.45, tunable: true }
+      physical_capability: { value: 0.20, tunable: true }
+    compatible_delivery: [melee, projectile]
+    coverage_default: { value: 0.35, tunable: true }
+  barrier:
+    how: "create or sustain an intervening defensive field"
+    primary_stats:
+      energy_output: { value: 0.35, tunable: true }
+      energy_control: { value: 0.35, tunable: true }
+      reaction: { value: 0.15, tunable: true }
+      energy_efficiency: { value: 0.15, tunable: true }
+    compatible_delivery: [melee, projectile, beam, wave, field, contact, environmental]
+    coverage_default: { value: 0.85, tunable: true }
+  absorb:
+    how: "convert a compatible incoming channel into a harmless or stored form"
+    primary_stats:
+      energy_control: { value: 0.40, tunable: true }
+      energy_capacity: { value: 0.30, tunable: true }
+      energy_efficiency: { value: 0.30, tunable: true }
+    compatible_delivery: [beam, wave, field, contact, environmental]
+    coverage_default: { value: 0.6, tunable: true }
+  deflect:
+    how: "change the incoming trajectory without absorbing its full power"
+    primary_stats:
+      reaction: { value: 0.30, tunable: true }
+      coordination: { value: 0.35, tunable: true }
+      energy_control: { value: 0.35, tunable: true }
+    compatible_delivery: [projectile, beam, melee]
+    coverage_default: { value: 0.4, tunable: true }
+  counterguard:
+    how: "interrupt the attack's delivery while maintaining defensive coverage"
+    primary_stats:
+      reaction: { value: 0.30, tunable: true }
+      coordination: { value: 0.25, tunable: true }
+      strategy: { value: 0.30, tunable: true }
+      perception: { value: 0.15, tunable: true }
+    compatible_delivery: [melee, projectile, beam, contact]
+    coverage_default: { value: 0.3, tunable: true }
+  cover:
+    how: "use world geometry or another entity as an obstacle"
+    primary_stats:
+      perception: { value: 0.25, tunable: true }
+      reaction: { value: 0.25, tunable: true }
+      movement: { value: 0.25, tunable: true }
+      strategy: { value: 0.25, tunable: true }
+    compatible_delivery: [melee, projectile, beam, wave, field]
+    coverage_default: { value: 0.65, tunable: true }
+  endure:
+    how: "accept contact and reduce consequences through intrinsic resistance"
+    primary_stats:
+      resistance: { value: 0.75, tunable: true }
+      physical_capability: { value: 0.25, tunable: true }
+    compatible_delivery: [melee, projectile, beam, wave, field, contact, environmental]
+    coverage_default: { value: 1.0, tunable: false, reason: "contact is accepted" }
+
+defense_intent_schema:
+  required: [id, actor_id, method, source, declared_coverage, cost]
+  fields:
+    source: "body, item, ability, terrain, or status reference defining capacity and channel compatibility"
+    feasibility_tags: "facts required by the method"
+    declared_coverage: "0..1 spatial/zone coverage"
+    cost: "resource commitment"
+    modifiers: "ACTION modifiers from modifiers.yaml"
+    fallback_method: "optional method id used only if explicitly declared and feasible"
+
+resolution:
+  step_1_feasibility:
+    hard_requirements: [actor_conscious_or_automatic_source, source_available, method_supports_delivery, required_mobility_or_geometry, payable_minimum_cost]
+    result_if_any_hard_requirement_fails:
+      filter_percent: { value: 0, tunable: false, reason: "failed defense filters nothing" }
+    soft_feasibility_formula: "clamp(0, 1, product(soft_requirement_factors))"
+  step_2_relevant_stats:
+    formula: "sum(stat * method.primary_stats[stat].value)"
+    weights_must_sum_to: { value: 1.0, tunable: false, reason: "normalized weighted mean" }
+  step_3_base_capacity:
+    formula: "source.base_filter + relevant_stats * stat_to_filter.value"
+    stat_to_filter: { value: 0.55, tunable: true }
+  step_4_hooks:
+    formula: "resolve_modifiers(base_capacity, 'defense.filter')"
+    layers: [WORLD, CHARACTER, ACTION]
+  step_5_execution:
+    formula: "clamp(0, 1, base_execution.value + coordination * coordination_weight.value + method_skill_bonus)"
+    base_execution: { value: 0.25, tunable: true }
+    coordination_weight: { value: 0.0075, tunable: true }
+  step_6_timing:
+    input: "attack.speed_timing_filter.timing_factor"
+    formula: "clamp(0, 1, timing_factor + prepared_bonus.value - commitment_penalty)"
+    prepared_bonus: { value: 0.15, tunable: true }
+  step_7_compatibility:
+    formula: "channel_weighted_mean(source.compatibility[channel])"
+    range: [0, 1]
+    unspecified_channel_default: { value: 0, tunable: true }
+  step_8_coverage:
+    formula: "clamp(0, 1, declared_coverage * geometry_overlap * method.coverage_default.value)"
+  step_9_stability:
+    formula: "clamp(0, 1, current_stability / max(max_stability, epsilon.value))"
+    epsilon: { value: 0.000001, tunable: true }
+    low_stability_floor: { value: 0.1, tunable: true }
+    applied_factor: "max(low_stability_floor.value, stability_ratio)"
+  step_10_cost:
+    efficiency_formula: "clamp(min_efficiency.value, max_efficiency.value, base_efficiency.value + energy_efficiency * per_stat.value)"
+    base_efficiency: { value: 0.5, tunable: true }
+    per_stat: { value: 0.005, tunable: true }
+    min_efficiency: { value: 0.25, tunable: true }
+    max_efficiency: { value: 1.0, tunable: true }
+    paid_fraction_formula: "clamp(0, 1, paid_cost / max(required_cost / efficiency, epsilon.value))"
+  step_11_filter:
+    formula: "clamp(0, 100, applicability_gate * hooked_capacity * weighted_performance * bounded_stability * paid_fraction)"
+  step_12_penetration:
+    formula: "filter_after_penetration = filter_before_penetration * (1 - attack.penetration * penetration_compatibility)"
+    penetration_compatibility_range: [0, 1]
+  step_13_variance:
+    formula: "final_filter = clamp(0, 100, filter_after_penetration * micro_variance_factor)"
+    factor_source: attack.yaml#/micro_variance
+
+secondary_consequences:
+  absorbed_power: "incoming_power * final_filter / 100"
+  stability_loss:
+    formula: "max(0, absorbed_power * method_stability_transfer.value - source_stability_capacity)"
+    method_stability_transfer: { value: 0.35, tunable: true }
+  displacement:
+    formula: "max(0, incoming_momentum - anchor_capacity) * displacement_per_impulse.value"
+    displacement_per_impulse: { value: 0.02, tunable: true }
+  next_turn_disadvantage:
+    trigger_stability_ratio_below: { value: 0.25, tunable: true }
+    modifier:
+      target: defense.execution
+      operation: percentage
+      value: -20
+      tunable: true
+      duration_turns: { value: 1, tunable: true }
+  note: "A 100% damage filter does not cancel paid cost, absorbed impulse, stability loss, displacement, or declared status side effects."
+
+multiple_defenses:
+  combine_sequentially: true
+  order: [avoidance_geometry, active_interception, cover, intrinsic_body_filter]
+  formula: "combined_filter = 100 * (1 - product(1 - each_filter / 100))"
+  duplicate_source_prohibited: true
+
+audit:
+  include: [method, feasibility_checks, relevant_stat_terms, hook_trace, execution, timing, compatibility, coverage, stability_factor, cost, pre_penetration_filter, penetration_effect, final_filter, secondary_consequences]

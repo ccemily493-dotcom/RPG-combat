@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.3/temporal-state.schema.json",
+  "title": "Universal RPG Temporal State v0.3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["phase", "scheduled_effects", "relations", "opportunities", "recovery_hooks", "mechanical_history", "session"],
+  "properties": {
+    "phase": { "enum": ["TURN_START", "PRE_ACTION", "ACTION_RESOLUTION", "POST_ACTION", "TURN_END"] },
+    "scheduled_effects": { "type": "array", "items": { "$ref": "#/$defs/scheduledEffect" } },
+    "relations": { "type": "array", "items": { "$ref": "#/$defs/relation" } },
+    "opportunities": { "type": "array", "items": { "$ref": "#/$defs/opportunity" } },
+    "recovery_hooks": { "type": "array", "items": { "$ref": "#/$defs/recoveryHook" } },
+    "mechanical_history": { "type": "array", "items": { "$ref": "#/$defs/historyTurn" } },
+    "session": {
+      "type": "object", "additionalProperties": false, "required": ["status", "step_index"],
+      "properties": {
+        "status": { "enum": ["ACTIVE", "PAUSED", "COMPLETED"] },
+        "step_index": { "type": "integer", "minimum": 0 },
+        "termination_reason": { "type": ["string", "null"] }
+      }
+    }
+  },
+  "$defs": {
+    "duration": {
+      "type": "object", "additionalProperties": false, "required": ["type"],
+      "properties": {
+        "type": { "enum": ["TURN", "PHASE", "ACTION", "REACTION_WINDOW", "UNTIL_TRIGGERED", "UNTIL_CONDITION", "PERMANENT"] },
+        "remaining": { "type": ["integer", "null"], "minimum": 0 },
+        "phase": { "enum": ["TURN_START", "PRE_ACTION", "ACTION_RESOLUTION", "POST_ACTION", "TURN_END"] },
+        "trigger": { "type": "string" },
+        "condition": { "$ref": "#/$defs/predicate" }
+      },
+      "allOf": [
+        { "if": { "properties": { "type": { "enum": ["TURN", "PHASE", "ACTION", "REACTION_WINDOW"] } }, "required": ["type"] }, "then": { "required": ["remaining"] } },
+        { "if": { "properties": { "type": { "const": "PHASE" } }, "required": ["type"] }, "then": { "required": ["phase"] } },
+        { "if": { "properties": { "type": { "const": "UNTIL_TRIGGERED" } }, "required": ["type"] }, "then": { "required": ["trigger"] } },
+        { "if": { "properties": { "type": { "const": "UNTIL_CONDITION" } }, "required": ["type"] }, "then": { "required": ["condition"] } }
+      ]
+    },
+    "predicate": {
+      "type": "object", "minProperties": 1, "maxProperties": 1,
+      "properties": {
+        "all": { "type": "array", "items": { "$ref": "#/$defs/predicate" } },
+        "any": { "type": "array", "items": { "$ref": "#/$defs/predicate" } },
+        "not": { "$ref": "#/$defs/predicate" },
+        "compare": {
+          "type": "object", "additionalProperties": false, "required": ["left", "operator", "right"],
+          "properties": {
+            "left": {},
+            "operator": { "enum": ["eq", "ne", "lt", "lte", "gt", "gte", "in", "contains"] },
+            "right": {}
+          }
+        },
+        "has_tag": {
+          "type": "object", "additionalProperties": false, "required": ["subject", "tag"],
+          "properties": { "subject": { "type": "string" }, "tag": { "type": "string" } }
+        },
+        "event_occurred": {
+          "type": "object", "additionalProperties": false, "required": ["type"],
+          "properties": {
+            "type": { "type": "string" }, "actor_ref": { "type": "string" }, "target_ref": { "type": "string" }, "action_ref": { "type": "string" }
+          }
+        },
+        "relation_exists": {
+          "type": "object", "additionalProperties": false, "required": ["kind", "subject_ref", "object_ref"],
+          "properties": { "kind": { "type": "string" }, "subject_ref": { "type": "string" }, "object_ref": { "type": "string" } }
+        },
+        "status_present": {
+          "type": "object", "additionalProperties": false, "required": ["character_ref", "status_id"],
+          "properties": { "character_ref": { "type": "string" }, "status_id": { "type": "string" } }
+        },
+        "distance": {
+          "type": "object", "additionalProperties": false, "required": ["left_ref", "right_ref", "operator", "value"],
+          "properties": {
+            "left_ref": { "type": "string" }, "right_ref": { "type": "string" },
+            "operator": { "enum": ["lt", "lte", "gt", "gte", "eq", "ne"] }, "value": { "type": "number", "minimum": 0 }
+          }
+        },
+        "area_occupied": {
+          "type": "object", "additionalProperties": false, "required": ["entity_ref", "area_ref"],
+          "properties": { "entity_ref": { "type": "string" }, "area_ref": { "type": "string" } }
+        }
+      },
+      "additionalProperties": false
+    },
+    "modifier": {
+      "type": "object", "additionalProperties": true, "required": ["id", "layer", "target", "operation"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "layer": { "enum": ["WORLD", "CHARACTER", "ACTION"] },
+        "target": { "type": "string" },
+        "operation": { "enum": ["additive", "percentage", "multiplicative", "bounded"] },
+        "value": { "type": "number" }, "lower": { "type": "number" }, "upper": { "type": "number" },
+        "priority": { "type": "integer" }, "source_ref": { "type": "string" }, "when": { "type": "object" }
+      }
+    },
+    "relationModifier": {
+      "type": "object", "additionalProperties": false, "required": ["actor_ref", "target_ref", "modifier"],
+      "properties": {
+        "actor_ref": { "type": "string" }, "target_ref": { "type": "string" },
+        "action_kind": { "type": ["string", "null"] }, "modifier": { "$ref": "#/$defs/modifier" }
+      }
+    },
+    "relation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "subject_ref", "object_ref", "source_ref", "duration", "consumption", "modifiers", "created_turn"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["BLIND_SPOT", "TRACKING", "PREPARED_COUNTER", "FLANKING", "BAIT", "ISOLATION", "ESCAPE_WINDOW", "CUSTOM_CORE"] },
+        "subject_ref": { "type": "string" }, "object_ref": { "type": "string" }, "source_ref": { "type": "string" },
+        "duration": { "$ref": "#/$defs/duration" },
+        "consumption": { "enum": ["ON_ATTEMPT", "ON_USE", "ON_SUCCESS", "ON_TRIGGER", "NEVER"] },
+        "modifiers": { "type": "array", "items": { "$ref": "#/$defs/relationModifier" } },
+        "created_turn": { "type": "integer", "minimum": 0 }, "consumed": { "type": "boolean", "default": false },
+        "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "reactionTemplate": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "reactor_id", "trigger", "method", "timing", "cost", "action_economy_cost", "coverage", "effect", "tags"],
+      "properties": {
+        "id": { "type": "string" }, "reactor_id": { "type": "string" }, "trigger": { "type": "string" }, "method": { "type": "string" },
+        "timing": { "type": "object", "additionalProperties": true }, "cost": { "type": "object", "additionalProperties": true },
+        "action_economy_cost": { "type": "integer", "minimum": 0 }, "coverage": { "type": "object", "additionalProperties": true },
+        "defense": { "type": ["object", "null"], "additionalProperties": true }, "effect": { "type": "object", "additionalProperties": true },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "opportunity": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "source_ref", "owner_ref", "trigger", "effects", "duration", "consumption", "created_turn", "trigger_count"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 }, "kind": { "enum": ["BAIT", "TRAP", "COUNTER_SETUP", "AREA_DENIAL", "INTERRUPT_SETUP", "CUSTOM_CORE"] },
+        "source_ref": { "type": "string" }, "owner_ref": { "type": "string" }, "target_ref": { "type": ["string", "null"] },
+        "trigger": { "$ref": "#/$defs/predicate" }, "effects": { "type": "array", "items": { "$ref": "#/$defs/effect" } },
+        "reaction_template": { "oneOf": [{ "$ref": "#/$defs/reactionTemplate" }, { "type": "null" }] },
+        "duration": { "$ref": "#/$defs/duration" }, "consumption": { "enum": ["ON_ATTEMPT", "ON_USE", "ON_SUCCESS", "ON_TRIGGER", "NEVER"] },
+        "created_turn": { "type": "integer", "minimum": 0 }, "trigger_count": { "type": "integer", "minimum": 0 }, "consumed": { "type": "boolean", "default": false },
+        "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "activation": {
+      "type": "object", "additionalProperties": false, "required": ["type"],
+      "properties": {
+        "type": { "enum": ["TURN", "PHASE", "ACTION", "CONDITION"] }, "turn": { "type": "integer", "minimum": 0 },
+        "phase": { "enum": ["TURN_START", "PRE_ACTION", "ACTION_RESOLUTION", "POST_ACTION", "TURN_END"] },
+        "action_count": { "type": "integer", "minimum": 0 }, "condition": { "$ref": "#/$defs/predicate" }
+      }
+    },
+    "scheduledEffect": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "source_ref", "target_ref", "activation", "effects", "priority", "created_turn", "activated"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 }, "source_ref": { "type": "string" }, "target_ref": { "type": ["string", "null"] },
+        "activation": { "$ref": "#/$defs/activation" }, "effects": { "type": "array", "items": { "$ref": "#/$defs/effect" } },
+        "priority": { "type": "integer" }, "created_turn": { "type": "integer", "minimum": 0 }, "activated": { "type": "boolean" }
+      }
+    },
+    "effect": {
+      "type": "object", "additionalProperties": true, "required": ["type"],
+      "properties": {
+        "type": { "enum": ["ADD_MODIFIER", "REMOVE_MODIFIER", "ADD_RELATION", "REMOVE_RELATION", "SCHEDULE_EFFECT", "CREATE_OPPORTUNITY", "RESOURCE_DELTA"] },
+        "scope": { "enum": ["WORLD", "CHARACTER", "ACTION"] }, "target_ref": { "type": ["string", "null"] },
+        "modifier": { "$ref": "#/$defs/modifier" }, "modifier_id": { "type": "string" }, "duration": { "$ref": "#/$defs/duration" },
+        "relation": { "$ref": "#/$defs/relation" }, "relation_id": { "type": "string" },
+        "scheduled_effect": { "$ref": "#/$defs/scheduledEffect" }, "opportunity": { "$ref": "#/$defs/opportunity" },
+        "resource": { "type": "string" }, "amount": { "type": "number" }
+      }
+    },
+    "recoveryHook": {
+      "type": "object", "additionalProperties": false, "required": ["id", "kind", "character_ref", "amount", "phase", "enabled"],
+      "properties": {
+        "id": { "type": "string" }, "kind": { "enum": ["RESOURCE", "ACTION_CAPACITY", "REACTION_CAPACITY"] },
+        "character_ref": { "type": "string" }, "resource": { "type": ["string", "null"] }, "amount": { "type": "number", "minimum": 0 },
+        "phase": { "const": "TURN_START" }, "enabled": { "type": "boolean" }
+      }
+    },
+    "historyTurn": {
+      "type": "object", "additionalProperties": false, "required": ["turn", "events", "snapshot_hash"],
+      "properties": {
+        "turn": { "type": "integer", "minimum": 0 }, "events": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+        "snapshot_hash": { "type": "string" }
+      }
+    }
+  }
+}

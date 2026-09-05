@@ -1,0 +1,93 @@
+spec_version: "0.3"
+document: universal_combat_loop
+status: provisional
+
+turn_contract:
+  consumes: [immutable_world_snapshot, immutable_character_map, normalized_actions, normalized_reactions, immutable_registries, seed]
+  produces: [new_immutable_snapshot, action_results, reaction_results, events, canonical_trace, replay_information]
+  phases:
+    - snapshot
+    - declaration_validation
+    - resource_and_economy_reservation
+    - target_and_geometry_resolution
+    - reaction_opportunities
+    - action_and_hit_resolution
+    - secondary_consequences
+    - simultaneous_merge
+    - atomic_commit
+    - replay_record
+  individual_actions_mutate_canonical_state: false
+  failed_commit_returns_starting_snapshot: true
+
+action_ordering:
+  mechanics_order:
+    - explicit_dependencies
+    - timing.declared_at_ascending
+    - timing.priority_descending
+    - actor.resolved_stats.movement_descending
+    - action.id_lexicographic
+  action_id_role: final_tie_breaker_and_audit_only
+  simultaneous_window_epsilon_seconds: { value: 0.000001, tunable: true }
+
+cost_modes:
+  PER_ACTION: "amount is reserved and paid once for the declaration"
+  PER_HIT: "amount is reserved for every declared resolved hit"
+  SHARED_POOL: "amount is one reserved pool shared across all represented hits"
+  UPFRONT_PLUS_PER_HIT: "upfront_amount plus per_hit_amount for every declared resolved hit"
+  legacy_default: PER_ACTION
+  reserve_maximum_before_resolution: true
+
+targeting_modes:
+  SINGLE: "all quantity is assigned to exactly one declared target"
+  EACH_TARGET: "the declared quantity is independently applied to every declared target"
+  DISTRIBUTED: "the declared total quantity is allocated by explicit integer allocations"
+  deterministic_target_order: target_ref_lexicographic
+
+reactions:
+  ordering:
+    - target_action_timing
+    - reaction_latency_ascending
+    - declared_priority_descending
+    - reactor_reaction_stat_descending
+    - reaction_id_lexicographic
+  maximum_chain_depth: { value: 8, tunable: true }
+  coverage_scopes: [ONE_HIT, HIT_SUBSET, ENTIRE_ACTION, AREA, TIME_WINDOW]
+  effect_kinds: [DEFEND, INTERRUPT]
+  interruption_consequences: [CANCEL_ACTION, DELAY_ACTION, REDUCE_EXECUTION, ALTER_TARGET, BREAK_CONCENTRATION, CONSUME_REACTION]
+  undeclared_chaining_forbidden: true
+
+status_merge:
+  policies: [refresh, stack, replace, ignore, strongest_wins]
+  removal_before_addition: true
+  deterministic_winner_order: [definition_priority_descending, intensity_descending, duration_descending, source_ref_lexicographic]
+  missing_definition: validation_error
+
+simultaneous_merge:
+  additive: [health_delta, stability_delta, resource_delta, reaction_delta, action_economy_delta]
+  set_like: [status_add, status_remove, modifier_add, modifier_remove]
+  incapacity_evaluated_after_additive_merge: true
+  implicit_last_write_wins_forbidden: true
+  geometry:
+    additive_displacements_commute: true
+    identical_assignments_coalesce: true
+    conflicting_assignment_policy: highest_explicit_priority_then_action_id
+    apply_additive_after_assignment: true
+    unresolved_conflict: emit_structured_conflict
+
+batching:
+  safe_requirements:
+    - homogeneous_attack_signature
+    - deterministic_target_allocation
+    - no_unaggregated_status_transition
+    - no_hit_scoped_reaction
+    - no_hit_specific_interruption
+  fallback_when_unsafe: individual
+  aggregation: contiguous_groups_from_attack_yaml
+  variance_key_uses_group_start_index: true
+  equivalence_reference: attack.yaml#/multi_attack/equivalence_tolerance
+
+trace:
+  optional_return: true
+  mechanics_independent_of_return: true
+  sections: [starting_snapshot_hash, declarations, validation, reservations, ordering, reactions, action_resolutions, merge, conflicts, commit, resulting_snapshot_hash]
+

@@ -1,0 +1,101 @@
+spec_version: "0.3"
+document: universal_categories
+status: provisional
+
+application:
+  applies_to_every_stat_in: stats.yaml
+  stat_coverage:
+    - physical_capability
+    - movement
+    - reaction
+    - coordination
+    - resistance
+    - perception
+    - strategy
+    - energy_capacity
+    - energy_output
+    - energy_control
+    - energy_efficiency
+  per_stat_assignment_allowed: true
+  whole_character_category_is_only_a_default: true
+  ranges_overlap: true
+  overlap_reason: "Training domains differ; a trained specialist may exceed a generic fighter in one stat."
+
+categories:
+  civilian:
+    order: 0
+    range:
+      min: { value: 10, tunable: true }
+      max: { value: 34, tunable: true }
+    default: { value: 25, tunable: true }
+  trained:
+    order: 1
+    range:
+      min: { value: 25, tunable: true }
+      max: { value: 49, tunable: true }
+    default: { value: 38, tunable: true }
+  fighter:
+    order: 2
+    range:
+      min: { value: 40, tunable: true }
+      max: { value: 64, tunable: true }
+    default: { value: 52, tunable: true }
+  elite:
+    order: 3
+    range:
+      min: { value: 55, tunable: true }
+      max: { value: 79, tunable: true }
+    default: { value: 68, tunable: true }
+  superhuman:
+    order: 4
+    range:
+      min: { value: 70, tunable: true }
+      max: { value: 94, tunable: true }
+    default: { value: 83, tunable: true }
+  legendary:
+    order: 5
+    range:
+      min: { value: 85, tunable: true }
+      max: { value: 100, tunable: true }
+    default: { value: 95, tunable: true }
+
+unresolved_stat_schema:
+  required: [category]
+  fields:
+    category: "category id"
+    placement:
+      type: enum
+      values: [minimum, lower, default, upper, maximum]
+      default: default
+    adjustment:
+      type: number
+      default: { value: 0, tunable: true }
+  placement_rules:
+    minimum: "category.range.min.value"
+    lower: "lerp(category.range.min.value, category.default.value, lower_fraction.value)"
+    default: "category.default.value"
+    upper: "lerp(category.default.value, category.range.max.value, upper_fraction.value)"
+    maximum: "category.range.max.value"
+  lower_fraction: { value: 0.5, tunable: true }
+  upper_fraction: { value: 0.5, tunable: true }
+  formula: "round_to_storage(placement_rule + adjustment.value)"
+
+profile_default:
+  category: civilian
+  category_tunable: true
+  placement: default
+  per_stat_overrides: {}
+
+extension_contract:
+  namespace_required: true
+  id_format: "<universe>:<category>"
+  intermediate_tier:
+    allowed: true
+    requirements: [order, min, max, default]
+  multiplied_tier:
+    allowed: true
+    normalized_stat_remains_clamped_0_100: true
+    external_scale_multiplier_schema:
+      value: { type: number, exclusiveMinimum: 0 }
+      tunable: { const: true }
+    note: "Magnitude beyond the core scale is expressed as a universe-owned scale multiplier consumed through modifiers, never by raising a stat above 100."

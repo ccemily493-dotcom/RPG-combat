@@ -1,0 +1,12 @@
+version: "0.2"
+canonical_distribution: centered_triangular
+canonical_unchanged: false
+profiles:
+  uniform:
+    distribution: uniform
+  centered_triangular:
+    distribution: centered_triangular
+    canonical: true
+  bounded_normal_like:
+    distribution: bounded_normal_like
+    sample_count_pointer: "attack.yaml#/micro_variance/bounded_normal_like/sample_count/value"

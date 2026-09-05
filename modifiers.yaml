@@ -1,0 +1,108 @@
+spec_version: "0.3"
+document: normalized_modifiers
+status: provisional
+
+schema:
+  required: [id, layer, target, operation]
+  fields:
+    id: { type: string, unique_within_resolution: true }
+    layer: { enum: [WORLD, CHARACTER, ACTION] }
+    target: { type: string, format: "dot.path or registered tag selector" }
+    operation: { enum: [additive, percentage, multiplicative, bounded] }
+    value:
+      description: "Required for additive, percentage, and multiplicative operations."
+      type: number
+    tunable:
+      description: "Required for coefficients declared by a specification or tuning profile; runtime state-derived values may omit it."
+      type: boolean
+    lower:
+      description: "Optional lower bound for bounded operation."
+      type: number
+    upper:
+      description: "Optional upper bound for bounded operation."
+      type: number
+    when:
+      description: "Optional side-effect-free conditional predicate AST; absence means always active."
+      $ref: "#/predicate"
+    priority:
+      type: integer
+      default: { value: 0, tunable: true }
+    stacking_key:
+      type: string
+      default: "id"
+    stacking_rule:
+      enum: [stack, highest, lowest, latest, unique]
+      default: unique
+    source_ref: { type: string }
+    duration_turns:
+      type: [integer, "null"]
+      minimum: 0
+      default: null
+    tags:
+      type: array
+      items: { type: string }
+
+predicate:
+  allowed_nodes:
+    all: { children: "predicate[]" }
+    any: { children: "predicate[]" }
+    not: { child: predicate }
+    compare:
+      fields:
+        left: "registered read-only state path"
+        operator: { enum: [eq, ne, lt, lte, gt, gte, in, contains] }
+        right: "literal or registered read-only state path"
+    has_tag: { subject: "state path", tag: string }
+  prohibited: [function_calls, mutation, network_access, arbitrary_code, nondeterministic_reads]
+  missing_path_result: false
+
+semantics:
+  additive: "x := x + value"
+  percentage: "x := x * (1 + value / 100)"
+  multiplicative: "x := x * value"
+  bounded: "x := clamp(lower if present, upper if present, x)"
+  percent_unit: "percentage points; 10 means +10%, -10 means -10%"
+
+evaluation:
+  steps:
+    - "Select modifiers whose target exactly matches or whose registered selector matches."
+    - "Evaluate `when` predicates against the immutable resolution snapshot."
+    - "Resolve stacking within each (layer, operation, stacking_key)."
+    - "Apply operation phases in order: additive, percentage, multiplicative, bounded."
+    - "Within each phase apply layers in order: WORLD, CHARACTER, ACTION."
+    - "Within a layer sort by priority ascending, then id lexicographically."
+    - "Apply the target's declared final clamp and rounding once."
+  layer_order: [WORLD, CHARACTER, ACTION]
+  operation_order: [additive, percentage, multiplicative, bounded]
+  conflict_rules:
+    incompatible_bounds: "raise resolution_error; do not guess"
+    duplicate_id: "raise validation_error"
+    unknown_target: "raise validation_error unless extension registry owns the target"
+
+normalization_examples:
+  heavy_gravity:
+    id: world.heavy_gravity.movement
+    layer: WORLD
+    target: stat.movement
+    operation: percentage
+    value: -15
+    tunable: true
+    source_ref: world.environment.gravity
+  injured_arm:
+    id: character.injured_arm.accuracy
+    layer: CHARACTER
+    target: attack.accuracy
+    operation: multiplicative
+    value: 0.8
+    tunable: true
+    when: { has_tag: { subject: action, tag: uses_injured_arm } }
+  careful_aim:
+    id: action.careful_aim.accuracy
+    layer: ACTION
+    target: attack.accuracy
+    operation: additive
+    value: 12
+    tunable: true
+
+audit_output:
+  include: [base_value, active_modifier_ids, rejected_modifier_ids_with_reason, phase_subtotals, final_value]

@@ -1,0 +1,172 @@
+spec_version: "0.3"
+document: attack_resolution
+status: provisional
+
+principles:
+  global_attack_score_forbidden: true
+  power_is_delivered_force_or_energy: true
+  accuracy_and_speed_are_pre_damage_filters: true
+  small_multi_attacks_resolve_individually: true
+
+attack_intent_schema:
+  required: [id, actor_id, delivery, power, accuracy, speed, penetration, range, area, costs]
+  fields:
+    id: string
+    actor_id: string
+    target_refs: "character ids and/or world geometry refs"
+    delivery: { enum: [melee, projectile, beam, wave, field, contact, environmental] }
+    channels: "map<registered damage channel, share>; shares sum to 1"
+    power: "nonnegative effect units"
+    accuracy: "0..100"
+    speed: "nonnegative world distance units per second or registered instantaneous tag"
+    penetration: "0..1 proportion of compatible effective defense ignored"
+    range: "nonnegative world distance units"
+    area:
+      shape: { enum: [point, line, cone, sphere, cylinder, box, custom_extension] }
+      dimensions: "shape-specific nonnegative world distance units"
+      falloff: { enum: [none, linear, inverse_square, stepped, extension] }
+    stability_impact: "nonnegative stability impulse units"
+    costs: "array of resource reservations"
+    status_effects: "array of status attempts"
+    modifiers: "ACTION modifiers from modifiers.yaml"
+    tags: "string[]"
+
+derived_offense:
+  accuracy_normalization:
+    normalize_opposed_weight_totals: true
+    formula: "sum(stat * weight.value) / sum(weight.value)"
+    note: "Both offensive accuracy and target evasion use normalized weighted means. Base accuracy and explicit modifiers remain unnormalized additions."
+  physical_power:
+    formula: "base_power + physical_capability * physical_weight.value"
+    physical_weight: { value: 1.0, tunable: true }
+  energy_power:
+    formula: "min(declared_power, energy_output * output_weight.value)"
+    output_weight: { value: 1.5, tunable: true }
+  physical_accuracy:
+    formula: "base_accuracy + coordination * coordination_weight.value + perception * perception_weight.value"
+    coordination_weight: { value: 0.55, tunable: true }
+    perception_weight: { value: 0.25, tunable: true }
+  energy_accuracy:
+    formula: "base_accuracy + energy_control * control_weight.value + perception * perception_weight.value"
+    control_weight: { value: 0.55, tunable: true }
+    perception_weight: { value: 0.25, tunable: true }
+  target_evasion:
+    formula: "movement * movement_weight.value + reaction * reaction_weight.value + coordination * coordination_weight.value"
+    movement_weight: { value: 0.40, tunable: true }
+    reaction_weight: { value: 0.35, tunable: true }
+    coordination_weight: { value: 0.25, tunable: true }
+  apply_modifiers_via: modifiers.yaml
+
+resolution_pipeline:
+  - validate_and_snapshot
+  - reserve_costs
+  - target_and_geometry
+  - accuracy_filter
+  - speed_timing_filter
+  - defense_resolution
+  - penetration_application
+  - damage_and_secondary_effects
+  - commit_costs_and_state
+  - emit_audit_record
+
+geometry:
+  beyond_range_result: automatic_miss
+  range_edge_grace_fraction: { value: 0.0, tunable: true }
+  area_target_factor:
+    formula: "clamp(0, 1, overlap_fraction * falloff_factor)"
+    point_hit_overlap: { value: 1.0, tunable: false, reason: "identity" }
+    inverse_square_reference_range_fraction: { value: 1.0, tunable: true }
+    stepped_full_until_range_fraction: { value: 0.5, tunable: true }
+    stepped_outer_factor: { value: 0.5, tunable: true }
+  area_accuracy_adjustment:
+    formula: "min(max_bonus.value, log2(1 + target_projected_area / reference_area.value) * per_doubling.value)"
+    reference_area: { value: 1.0, tunable: true }
+    per_doubling: { value: 4.0, tunable: true }
+    max_bonus: { value: 20.0, tunable: true }
+
+accuracy_filter:
+  keep_current_thresholds: true
+  require_desired_rate_targets_before_changes: false
+  attack_score: "resolve_modifiers(accuracy + situational_aim + area_accuracy_adjustment, 'attack.accuracy')"
+  target_score: "resolve_modifiers(target_evasion + cover + concealment, 'defense.avoidance')"
+  margin: "attack_score - target_score"
+  quality_bands:
+    miss:
+      margin_lt: { value: -20, tunable: true }
+      exposure_factor: { value: 0.0, tunable: false, reason: "no contact" }
+    graze:
+      margin_min: { value: -20, tunable: true }
+      margin_max_exclusive: { value: 0, tunable: true }
+      exposure_formula: "lerp(graze_min.value, graze_max.value, (margin - margin_min.value) / (margin_max_exclusive.value - margin_min.value))"
+      graze_min: { value: 0.15, tunable: true }
+      graze_max: { value: 0.45, tunable: true }
+    partial:
+      margin_min: { value: 0, tunable: true }
+      margin_max_exclusive: { value: 20, tunable: true }
+      exposure_formula: "lerp(partial_min.value, partial_max.value, (margin - margin_min.value) / (margin_max_exclusive.value - margin_min.value))"
+      partial_min: { value: 0.5, tunable: true }
+      partial_max: { value: 0.9, tunable: true }
+    solid:
+      margin_min: { value: 20, tunable: true }
+      exposure_factor: { value: 1.0, tunable: false, reason: "full nominal exposure" }
+
+speed_timing_filter:
+  defender_response_latency_ms: "max(minimum_latency_ms.value, resolve_modifiers(base_latency_ms.value - reaction * reaction_ms_per_point.value, 'defense.response_latency'))"
+  base_latency_ms: { value: 600, tunable: true }
+  reaction_ms_per_point: { value: 5, tunable: true }
+  minimum_latency_ms: { value: 80, tunable: true }
+  attack_arrival_ms: "distance / max(speed, speed_floor.value) * milliseconds_per_second.value"
+  milliseconds_per_second: { value: 1000, tunable: false, reason: "unit conversion" }
+  speed_floor: { value: 0.001, tunable: true }
+  timing_margin_ms: "attack_arrival_ms - defender_response_latency_ms - defender_commitment_delay_ms"
+  timing_factor:
+    formula: "clamp(min_factor.value, 1, neutral_factor.value + timing_margin_ms / response_span_ms.value)"
+    min_factor: { value: 0.1, tunable: true }
+    neutral_factor: { value: 0.5, tunable: true }
+    response_span_ms: { value: 500, tunable: true }
+  note: "Timing factor scales the available active-defense execution, not attack power. An undefended target uses factor 1."
+
+penetration:
+  input_range: [0, 1]
+  formula: "effective_filter_after_penetration = effective_filter_before_penetration * (1 - penetration * compatibility_with_defense)"
+  compatibility_range: [0, 1]
+  does_not_subtract_flat_defense: true
+
+multi_attack:
+  individual_resolution_max_count: { value: 24, tunable: true }
+  batch_allowed_when_count_gt: { value: 24, tunable: true }
+  batch_size: { value: 16, tunable: true }
+  batch_method: "partition deterministically by target, attack signature, and contiguous sequence; resolve expected hit-quality band counts with largest-remainder rounding"
+  preserve: [total_power, total_cost, channel_shares, target_allocation]
+  status_attempts: "resolve once per represented hit unless the status declares batch_aggregation"
+  aggregate_status_default: false
+  stateful_status_fallback: individual_resolution
+  equivalence_tolerance:
+    relative_damage: { value: 0.02, tunable: true }
+    relative_stability: { value: 0.02, tunable: true }
+    resource_absolute: { value: 0.000001, tunable: true }
+    hit_count_absolute: { value: 0, tunable: false, reason: "declared quantity must be conserved exactly" }
+    status_count_absolute: { value: 0, tunable: false, reason: "batch-safe actions cannot approximate unaggregated statuses" }
+    target_allocation_absolute: { value: 0, tunable: false, reason: "target allocation must be conserved exactly" }
+  safety:
+    accuracy_threshold_guard: { value: 2.0, tunable: true }
+    unsafe_when: [per_hit_status_transition, hit_scoped_reaction, hit_specific_interruption, heterogeneous_hits, explicit_batch_unsafe_tag]
+
+micro_variance:
+  generator: "counter-based seeded PRNG keyed by simulation_id, turn, action_id, target_id, component"
+  distribution: centered_triangular
+  distribution_tunable: true
+  supported_distributions: [uniform, centered_triangular, bounded_normal_like]
+  bounded_normal_like:
+    sample_count: { value: 6, tunable: true }
+  minimum_factor: { value: 0.99, tunable: false, reason: "design constraint maximum negative variance" }
+  mode: { value: 1.00, tunable: false, reason: "approved centered triangular canonical mode" }
+  maximum_factor: { value: 1.01, tunable: false, reason: "design constraint maximum positive variance" }
+  application: "apply once to each final continuous attack component after deterministic modifiers and before final clamping"
+  prohibited_uses: [choosing_actions, bypassing_feasibility, replacing_accuracy_or_speed_logic, changing categorical rules]
+
+failure_rules:
+  insufficient_reserved_cost: action_fails_before_targeting
+  invalid_channel_shares: validation_error
+  negative_power_speed_range_or_area: validation_error
+  unknown_extension_tag: validation_error

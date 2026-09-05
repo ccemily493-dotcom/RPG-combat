@@ -1,0 +1,66 @@
+version: "0.2"
+description: "Within-category stat placements used to generate deterministic specialized benchmark fixtures."
+applicable_categories: [civilian, trained, fighter, elite, superhuman, legendary]
+default_placement: category_default
+profiles:
+  balanced:
+    description: "Neutral category control using the declared category default for every stat."
+    placements: {}
+  power_specialist:
+    description: "High physical and energy output with reduced reaction and coordination."
+    placements:
+      physical_capability: { value: 0.95, tunable: true }
+      energy_output: { value: 0.90, tunable: true }
+      energy_capacity: { value: 0.70, tunable: true }
+      coordination: { value: 0.35, tunable: true }
+      reaction: { value: 0.35, tunable: true }
+  speed_specialist:
+    description: "High movement and reaction with reduced resistance and raw output."
+    placements:
+      movement: { value: 0.95, tunable: true }
+      reaction: { value: 0.90, tunable: true }
+      coordination: { value: 0.70, tunable: true }
+      resistance: { value: 0.25, tunable: true }
+      physical_capability: { value: 0.35, tunable: true }
+  accuracy_coordination_specialist:
+    description: "High coordination, perception, and energy control with reduced power."
+    placements:
+      coordination: { value: 0.95, tunable: true }
+      perception: { value: 0.85, tunable: true }
+      energy_control: { value: 0.90, tunable: true }
+      physical_capability: { value: 0.30, tunable: true }
+      energy_output: { value: 0.30, tunable: true }
+  defense_resistance_specialist:
+    description: "High resistance and defensive execution stats with reduced offense."
+    placements:
+      resistance: { value: 0.95, tunable: true }
+      coordination: { value: 0.75, tunable: true }
+      reaction: { value: 0.70, tunable: true }
+      energy_efficiency: { value: 0.80, tunable: true }
+      physical_capability: { value: 0.35, tunable: true }
+      energy_output: { value: 0.30, tunable: true }
+  perception_reaction_specialist:
+    description: "High detection and response with reduced output and resistance."
+    placements:
+      perception: { value: 0.95, tunable: true }
+      reaction: { value: 0.95, tunable: true }
+      movement: { value: 0.70, tunable: true }
+      resistance: { value: 0.30, tunable: true }
+      energy_output: { value: 0.35, tunable: true }
+  low_defense_glass_cannon:
+    description: "High power and accuracy inputs with category-minimum resistance."
+    placements:
+      physical_capability: { value: 1.00, tunable: true }
+      energy_output: { value: 0.95, tunable: true }
+      coordination: { value: 0.85, tunable: true }
+      perception: { value: 0.75, tunable: true }
+      resistance: { value: 0.00, tunable: true }
+      energy_efficiency: { value: 0.20, tunable: true }
+  low_accuracy_high_power_attacker:
+    description: "Maximum output with category-minimum coordination and low perception/control."
+    placements:
+      physical_capability: { value: 1.00, tunable: true }
+      energy_output: { value: 1.00, tunable: true }
+      coordination: { value: 0.00, tunable: true }
+      perception: { value: 0.15, tunable: true }
+      energy_control: { value: 0.15, tunable: true }

@@ -1,0 +1,1121 @@
+{
+  "outcome": "success",
+  "quality": "solid",
+  "healthDamage": 55.07,
+  "stabilityDamage": 34.07,
+  "defenseFilter": 0.25743572453703,
+  "defenseFilterPercent": 25.743572453703,
+  "traceHash": "4345600524f6ce5953d00fa32d64d281be835c295b64a4b6ad8b4e8fa005039c",
+  "trace": {
+    "specVersion": "0.3",
+    "seed": "reference-seed-v0.1",
+    "inputHashes": {
+      "world": "77a5ab1d6b12d6da70168e114d52bb5586bc50dfe0efd8c3b8ce150f661a922d",
+      "actor": "649f81617aaddc6e9c8d5e8a9278a2cfac6260047d5522a9b2646e21fe2762fa",
+      "target": "bf3c0042593fd8e3de8affae749cc7f953b884055a9820e79e0565059f038e25",
+      "action": "63a19ad3eb66791dfaa0e79838c4e0fa02749b5a006102181df106a86ff8d933",
+      "registries": "61441b5513a19b855fa545cf6bbb415263a05a9a1756f3cc294a620dd30cb471"
+    },
+    "pipeline": [
+      "validate_and_snapshot",
+      "reserve_costs",
+      "target_and_geometry",
+      "accuracy_filter",
+      "speed_timing_filter",
+      "defense_resolution",
+      "penetration_application",
+      "damage_and_secondary_effects",
+      "commit_costs_and_state",
+      "emit_audit_record"
+    ],
+    "offense": {
+      "physical": true,
+      "selectedStats": [
+        "physical_capability",
+        "coordination",
+        "perception"
+      ],
+      "accuracyNormalization": {
+        "enabled": true,
+        "numerator": 58.2,
+        "weightTotal": 0.8,
+        "normalizedTerm": 72.75
+      },
+      "resolved": {
+        "power": {
+          "baseValue": 96,
+          "target": "attack.power",
+          "activeModifierIds": [
+            "character.role.power"
+          ],
+          "rejected": [
+            {
+              "id": "world.visibility.avoidance",
+              "reason": "target_mismatch"
+            },
+            {
+              "id": "action.aim.accuracy",
+              "reason": "target_mismatch"
+            }
+          ],
+          "steps": [
+            {
+              "id": "character.role.power",
+              "layer": "CHARACTER",
+              "operation": "multiplicative",
+              "before": 96,
+              "after": 100.80000000000001
+            }
+          ],
+          "finalValue": 100.8
+        },
+        "accuracy": {
+          "baseValue": 80.75,
+          "target": "attack.accuracy",
+          "activeModifierIds": [
+            "action.aim.accuracy"
+          ],
+          "rejected": [
+            {
+              "id": "world.visibility.avoidance",
+              "reason": "target_mismatch"
+            },
+            {
+              "id": "character.role.power",
+              "reason": "target_mismatch"
+            }
+          ],
+          "steps": [
+            {
+              "id": "action.aim.accuracy",
+              "layer": "ACTION",
+              "operation": "additive",
+              "before": 80.75,
+              "after": 85.75
+            }
+          ],
+          "finalValue": 85.75
+        },
+        "speed": {
+          "baseValue": 32,
+          "target": "attack.speed",
+          "activeModifierIds": [],
+          "rejected": [
+            {
+              "id": "world.visibility.avoidance",
+              "reason": "target_mismatch"
+            },
+            {
+              "id": "character.role.power",
+              "reason": "target_mismatch"
+            },
+            {
+              "id": "action.aim.accuracy",
+              "reason": "target_mismatch"
+            }
+          ],
+          "steps": [],
+          "finalValue": 32
+        },
+        "penetration": {
+          "baseValue": 0.35,
+          "target": "attack.penetration",
+          "activeModifierIds": [],
+          "rejected": [
+            {
+              "id": "world.visibility.avoidance",
+              "reason": "target_mismatch"
+            },
+            {
+              "id": "character.role.power",
+              "reason": "target_mismatch"
+            },
+            {
+              "id": "action.aim.accuracy",
+              "reason": "target_mismatch"
+            }
+          ],
+          "steps": [],
+          "finalValue": 0.35
+        },
+        "range": {
+          "baseValue": 20,
+          "target": "attack.range",
+          "activeModifierIds": [],
+          "rejected": [
+            {
+              "id": "world.visibility.avoidance",
+              "reason": "target_mismatch"
+            },
+            {
+              "id": "character.role.power",
+              "reason": "target_mismatch"
+            },
+            {
+              "id": "action.aim.accuracy",
+              "reason": "target_mismatch"
+            }
+          ],
+          "steps": [],
+          "finalValue": 20
+        },
+        "stabilityImpact": {
+          "baseValue": 28,
+          "target": "attack.stability_impact",
+          "activeModifierIds": [],
+          "rejected": [
+            {
+              "id": "world.visibility.avoidance",
+              "reason": "target_mismatch"
+            },
+            {
+              "id": "character.role.power",
+              "reason": "target_mismatch"
+            },
+            {
+              "id": "action.aim.accuracy",
+              "reason": "target_mismatch"
+            }
+          ],
+          "steps": [],
+          "finalValue": 28
+        }
+      },
+      "varied": {
+        "power": {
+          "input": 100.8,
+          "key": "reference-seed-v0.1\u001freference-encounter\u001f0\u001freference-strike-001\u001fdefender\u001fattack.power",
+          "distribution": "centered_triangular",
+          "samples": [
+            0.39557137807299236,
+            0.8356751663527011
+          ],
+          "sample": 0.6156232722128467,
+          "factor": 1.002312465444257,
+          "minimum": 0.99,
+          "maximum": 1.01,
+          "output": 101.033096516781
+        },
+        "accuracy": {
+          "input": 85.75,
+          "key": "reference-seed-v0.1\u001freference-encounter\u001f0\u001freference-strike-001\u001fdefender\u001fattack.accuracy",
+          "distribution": "centered_triangular",
+          "samples": [
+            0.3335025984735044,
+            0.9043238317995871
+          ],
+          "sample": 0.6189132151365457,
+          "factor": 1.002378264302731,
+          "minimum": 0.99,
+          "maximum": 1.01,
+          "output": 85.953936163959
+        },
+        "speed": {
+          "input": 32,
+          "key": "reference-seed-v0.1\u001freference-encounter\u001f0\u001freference-strike-001\u001fdefender\u001fattack.speed",
+          "distribution": "centered_triangular",
+          "samples": [
+            0.37702643795414253,
+            0.8979659765275285
+          ],
+          "sample": 0.6374962072408356,
+          "factor": 1.002749924144817,
+          "minimum": 0.99,
+          "maximum": 1.01,
+          "output": 32.087997572634
+        },
+        "penetration": {
+          "input": 0.35,
+          "key": "reference-seed-v0.1\u001freference-encounter\u001f0\u001freference-strike-001\u001fdefender\u001fattack.penetration",
+          "distribution": "centered_triangular",
+          "samples": [
+            0.2998062678495746,
+            0.6344680116548405
+          ],
+          "sample": 0.4671371397522075,
+          "factor": 0.999342742795044,
+          "minimum": 0.99,
+          "maximum": 1.01,
+          "output": 0.349769959978
+        },
+        "range": {
+          "input": 20,
+          "key": "reference-seed-v0.1\u001freference-encounter\u001f0\u001freference-strike-001\u001fdefender\u001fattack.range",
+          "distribution": "centered_triangular",
+          "samples": [
+            0.4560600502714955,
+            0.1430923090051469
+          ],
+          "sample": 0.29957617963832117,
+          "factor": 0.995991523592767,
+          "minimum": 0.99,
+          "maximum": 1.01,
+          "output": 19.919830471855
+        },
+        "stabilityImpact": {
+          "input": 28,
+          "key": "reference-seed-v0.1\u001freference-encounter\u001f0\u001freference-strike-001\u001fdefender\u001fattack.stability_impact",
+          "distribution": "centered_triangular",
+          "samples": [
+            0.6076288366337509,
+            0.006954140390093663
+          ],
+          "sample": 0.3072914885119223,
+          "factor": 0.996145829770239,
+          "minimum": 0.99,
+          "maximum": 1.01,
+          "output": 27.892083233567
+        }
+      }
+    },
+    "multiAttack": {
+      "mode": "individual",
+      "quantity": 1,
+      "powerPerAttack": 101.033096516781,
+      "totalPower": 101.033096516781,
+      "costTotals": {
+        "energy": 10
+      },
+      "groups": [
+        {
+          "kind": "individual",
+          "startIndex": 0,
+          "count": 1,
+          "representedPower": 101.033096516781
+        }
+      ],
+      "representedCount": 1,
+      "representedPower": 101.033096516781
+    },
+    "geometry": {
+      "distance": 5,
+      "range": 19.919830471855,
+      "inRange": true,
+      "shape": "point",
+      "falloff": "none",
+      "falloffFactor": 1,
+      "overlapFraction": 1,
+      "areaFactor": 1,
+      "projectedArea": 0,
+      "areaAccuracyBonus": 0
+    },
+    "accuracy": {
+      "attackScore": 85.953936163959,
+      "targetScore": {
+        "baseValue": 53.4,
+        "target": "defense.avoidance",
+        "activeModifierIds": [
+          "world.visibility.avoidance"
+        ],
+        "rejected": [
+          {
+            "id": "character.guard.execution",
+            "reason": "target_mismatch"
+          },
+          {
+            "id": "action.aim.accuracy",
+            "reason": "target_mismatch"
+          }
+        ],
+        "steps": [
+          {
+            "id": "world.visibility.avoidance",
+            "layer": "WORLD",
+            "operation": "percentage",
+            "before": 53.4,
+            "after": 50.73
+          }
+        ],
+        "finalValue": 50.73
+      },
+      "targetNormalization": {
+        "enabled": true,
+        "numerator": 53.4,
+        "weightTotal": 1,
+        "normalizedTerm": 53.4
+      },
+      "margin": 35.223936163959,
+      "quality": "solid",
+      "exposureFactor": 1
+    },
+    "timing": {
+      "responseLatencyMs": 330,
+      "latencyTrace": {
+        "baseValue": 330,
+        "target": "defense.response_latency",
+        "activeModifierIds": [],
+        "rejected": [
+          {
+            "id": "world.visibility.avoidance",
+            "reason": "target_mismatch"
+          },
+          {
+            "id": "character.guard.execution",
+            "reason": "target_mismatch"
+          },
+          {
+            "id": "action.aim.accuracy",
+            "reason": "target_mismatch"
+          }
+        ],
+        "steps": [],
+        "finalValue": 330
+      },
+      "arrivalMs": 155.82150268747873,
+      "commitmentDelayMs": 0,
+      "marginMs": -174.17849731252127,
+      "factor": 0.151643005375
+    },
+    "defense": {
+      "attempted": true,
+      "feasible": true,
+      "hardChecks": {
+        "conscious": true,
+        "sourceAvailable": true,
+        "deliveryCompatible": true,
+        "reactionAvailable": true,
+        "resourceFeasible": true
+      },
+      "method": "block",
+      "how": "interpose a body part, shield, object, or barrier",
+      "sourceRef": "shield.basic",
+      "selectedStats": [
+        "reaction",
+        "coordination",
+        "resistance",
+        "physical_capability"
+      ],
+      "relevantStats": 56.75,
+      "baseCapacity": 55.212500000000006,
+      "hookTrace": {
+        "baseValue": 55.212500000000006,
+        "target": "defense.filter",
+        "activeModifierIds": [
+          "character.guard.execution"
+        ],
+        "rejected": [
+          {
+            "id": "world.visibility.avoidance",
+            "reason": "target_mismatch"
+          },
+          {
+            "id": "action.aim.accuracy",
+            "reason": "target_mismatch"
+          }
+        ],
+        "steps": [
+          {
+            "id": "character.guard.execution",
+            "layer": "CHARACTER",
+            "operation": "percentage",
+            "before": 55.212500000000006,
+            "after": 59.62950000000001
+          }
+        ],
+        "finalValue": 59.6295
+      },
+      "execution": 0.765,
+      "timing": 0.151643005375,
+      "compatibility": 0.8300000000000001,
+      "coverage": 0.63,
+      "stabilityFactor": 1,
+      "efficiency": 0.78,
+      "requiredCost": 6.41025641025641,
+      "paidFraction": 1,
+      "composition": {
+        "model": "weighted",
+        "capacity": 0.596295,
+        "weights": {
+          "execution": 0.3,
+          "timing": 0.25,
+          "compatibility": 0.25,
+          "coverage": 0.2
+        },
+        "contributions": {
+          "execution": 0.22949999999999998,
+          "timing": 0.03791075134375,
+          "compatibility": 0.20750000000000002,
+          "coverage": 0.126
+        },
+        "weightedPerformance": 0.6009107513437499,
+        "applicabilityGates": {
+          "feasibility": true,
+          "nonzeroCompatibility": true,
+          "nonzeroCoverage": true,
+          "paidCost": true
+        },
+        "gate": 1,
+        "rawStability": 1,
+        "boundedStability": 1,
+        "resultBeforePenetration": 0.35832007647252134
+      },
+      "prePenetrationFilter": 35.832007647252134,
+      "penetration": 0.349769959978,
+      "penetrationCompatibility": 0.81,
+      "variance": {
+        "input": 25.68031014387641,
+        "key": "reference-seed-v0.1\u001freference-encounter\u001f0\u001freference-strike-001\u001fdefender\u001fdefense.filter",
+        "distribution": "centered_triangular",
+        "samples": [
+          0.6337299375233271,
+          0.6126156458133435
+        ],
+        "sample": 0.6231727916683353,
+        "factor": 1.002463455833367,
+        "minimum": 0.99,
+        "maximum": 1.01,
+        "output": 25.743572453703
+      },
+      "filter": 0.25743572453703,
+      "filterPercent": 25.743572453703,
+      "effectivenessBand": "weak",
+      "costPaid": 6.41025641025641,
+      "absorbedPower": 26.009528404017196,
+      "stabilityLoss": 5.103334941406018,
+      "displacement": 0.24
+    },
+    "damage": {
+      "zoneId": "core",
+      "contactPower": 101.033096516781,
+      "channels": [
+        {
+          "channel": "electrical",
+          "share": 0.2,
+          "immunity": false,
+          "baseBodyFilter": 31,
+          "bodyPenetrationCompatibility": 0.45,
+          "bodyAfterPenetration": 26.1207090583069,
+          "activeAfterPenetration": 25.743572453703,
+          "combinedFilter": 0.451398778501637,
+          "residualPower": 11.085376032173613,
+          "conversion": 0.8,
+          "vulnerability": 1.25,
+          "harm": 11.085376032173613
+        },
+        {
+          "channel": "kinetic",
+          "share": 0.8,
+          "immunity": false,
+          "baseBodyFilter": 39,
+          "bodyPenetrationCompatibility": 0.9,
+          "bodyAfterPenetration": 26.7230744047722,
+          "activeAfterPenetration": 25.743572453703,
+          "combinedFilter": 0.4558717283722571,
+          "residualPower": 43.97997134789999,
+          "conversion": 1,
+          "vulnerability": 1,
+          "harm": 43.97997134789999
+        }
+      ],
+      "zoneHarm": 55.065347380073604,
+      "capacityScale": 1.1,
+      "harmCapacityMultiplier": {
+        "ratio": 1.1,
+        "multiplier": 1,
+        "lower": {
+          "ratio": 1,
+          "multiplier": 1,
+          "label": "normal"
+        },
+        "upper": {
+          "ratio": 1,
+          "multiplier": 1,
+          "label": "normal"
+        }
+      },
+      "healthDamage": 55.07,
+      "weightedCombinedFilter": 0.45497713839813314,
+      "stabilityDamage": 34.07
+    },
+    "statuses": [
+      {
+        "status_id": "disrupted",
+        "potency": 80,
+        "duration_turns": 3,
+        "stacking_rule": "refresh",
+        "definition": {
+          "channel": "electrical",
+          "merge_policy": "refresh",
+          "priority": 0,
+          "max_stacks": null,
+          "intensity_cap": null,
+          "duration_cap": null,
+          "batch_aggregation": "none",
+          "tags": [
+            "control_impairment"
+          ]
+        },
+        "immune": false,
+        "thresholdTrace": {
+          "baseValue": 50,
+          "target": "status.resistance.disrupted",
+          "activeModifierIds": [],
+          "rejected": [
+            {
+              "id": "world.visibility.avoidance",
+              "reason": "target_mismatch"
+            },
+            {
+              "id": "character.guard.execution",
+              "reason": "target_mismatch"
+            },
+            {
+              "id": "action.aim.accuracy",
+              "reason": "target_mismatch"
+            }
+          ],
+          "steps": [],
+          "finalValue": 50
+        },
+        "margin": 30,
+        "outcome": "full",
+        "durationTurns": 3,
+        "damageZone": "core"
+      }
+    ],
+    "outcome": "success",
+    "stateMutations": [
+      {
+        "type": "reserve",
+        "role": "actor",
+        "characterId": "attacker",
+        "resource": "energy",
+        "amount": 10,
+        "reason": "action:on_attempt"
+      },
+      {
+        "type": "reserve",
+        "role": "target",
+        "characterId": "defender",
+        "resource": "energy",
+        "amount": 6.41025641025641,
+        "reason": "defense"
+      },
+      {
+        "type": "resource",
+        "role": "target",
+        "characterId": "defender",
+        "resource": "energy",
+        "before": 80,
+        "after": 73.589743589744,
+        "delta": -6.41025641025641,
+        "reason": "defense"
+      },
+      {
+        "type": "action_economy",
+        "role": "target",
+        "characterId": "defender",
+        "field": "reactions_remaining",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "type": "action_economy",
+        "role": "target",
+        "characterId": "defender",
+        "field": "reaction_available",
+        "before": true,
+        "after": false
+      },
+      {
+        "type": "resource",
+        "role": "actor",
+        "characterId": "attacker",
+        "resource": "energy",
+        "before": 100,
+        "after": 90,
+        "delta": -10,
+        "reason": "action:on_attempt"
+      },
+      {
+        "type": "action_economy",
+        "role": "actor",
+        "characterId": "attacker",
+        "field": "actions_remaining",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "type": "action_economy",
+        "role": "actor",
+        "characterId": "attacker",
+        "field": "available",
+        "before": true,
+        "after": false
+      },
+      {
+        "type": "health",
+        "role": "target",
+        "characterId": "defender",
+        "before": 100,
+        "after": 44.93,
+        "delta": -55.07,
+        "reason": "resolved_damage"
+      },
+      {
+        "type": "stability",
+        "role": "target",
+        "characterId": "defender",
+        "before": 100,
+        "after": 65.93,
+        "delta": -34.06999999999999,
+        "reason": "resolved_stability"
+      },
+      {
+        "type": "status_add",
+        "role": "target",
+        "characterId": "defender",
+        "statusId": "disrupted",
+        "after": {
+          "id": "disrupted",
+          "source_ref": "reference-strike-001",
+          "intensity": 80,
+          "remaining_turns": 3,
+          "stacking_rule": "refresh",
+          "tags": [
+            "control_impairment"
+          ]
+        }
+      }
+    ],
+    "outputHashes": {
+      "world": "b4aae6b89c9205efb0435d56e77d1bdb77d467ea888895c1149a5ff1f4c0931a",
+      "actor": "85aea56c0e6989af1f37a48a7a3604fd2f50d6bc843d760e8b7476c52c8a79d0",
+      "target": "cb73655a548eb666d2fc0b4982cc8db2a2532f1c7147483d3a29d7cf32078329"
+    }
+  },
+  "world": {
+    "simulation_id": "reference-encounter",
+    "ruleset_version": "0.3",
+    "turn": 1,
+    "time": {
+      "elapsed_seconds": 1,
+      "turn_duration_seconds": 1
+    },
+    "environment": {
+      "gravity_g": 1,
+      "medium": "air",
+      "visibility": 0.9,
+      "temperature_c": 20,
+      "terrain_tags": [
+        "flat"
+      ],
+      "hazards": []
+    },
+    "spatial_bounds": {
+      "min": {
+        "x": -100,
+        "y": -100,
+        "z": -10
+      },
+      "max": {
+        "x": 100,
+        "y": 100,
+        "z": 100
+      }
+    },
+    "entity_refs": [
+      "attacker",
+      "defender"
+    ],
+    "geometry_refs": [],
+    "modifiers": [
+      {
+        "id": "world.visibility.avoidance",
+        "layer": "WORLD",
+        "target": "defense.avoidance",
+        "operation": "percentage",
+        "value": -5,
+        "priority": 0,
+        "source_ref": "world.environment.visibility"
+      }
+    ],
+    "previous_turn": {
+      "turn": 0,
+      "snapshot_hash": "ae8643c348d5f80360871ee7c562db2b0c54212211df21a523a42c191dad5efe",
+      "action_refs": [
+        "reference-strike-001"
+      ],
+      "events": [
+        {
+          "sequence": 0,
+          "type": "attack_resolved",
+          "actor_refs": [
+            "attacker"
+          ],
+          "target_refs": [
+            "defender"
+          ],
+          "action_ref": "reference-strike-001",
+          "payload": {
+            "outcome": "success",
+            "trace_hash": "af2a31b5e9ff0ef2dce2b5eb070de0cba4e8ccb427698f4281abb18de83b0a49"
+          }
+        }
+      ],
+      "resource_deltas": [
+        {
+          "character_id": "defender",
+          "resource": "energy",
+          "delta": -6.41025641025641
+        },
+        {
+          "character_id": "attacker",
+          "resource": "energy",
+          "delta": -10
+        },
+        {
+          "character_id": "defender",
+          "resource": "health",
+          "delta": -55.07
+        },
+        {
+          "character_id": "defender",
+          "resource": "stability",
+          "delta": -34.06999999999999
+        }
+      ],
+      "created_modifier_ids": [],
+      "expired_modifier_ids": [],
+      "summary_tags": [
+        "success"
+      ]
+    },
+    "extension_state": {}
+  },
+  "actor": {
+    "id": "attacker",
+    "name": "Reference Attacker",
+    "category_profile": {
+      "default_category": "elite",
+      "per_stat": {
+        "energy_efficiency": "trained"
+      }
+    },
+    "resolved_stats": {
+      "physical_capability": 72,
+      "movement": 68,
+      "reaction": 66,
+      "coordination": 74,
+      "resistance": 62,
+      "perception": 70,
+      "strategy": 65,
+      "energy_capacity": 55,
+      "energy_output": 58,
+      "energy_control": 60,
+      "energy_efficiency": 42
+    },
+    "resources": {
+      "health": {
+        "current": 100,
+        "maximum": 100
+      },
+      "stability": {
+        "current": 100,
+        "maximum": 100
+      },
+      "energy": {
+        "current": 90,
+        "maximum": 105
+      }
+    },
+    "harm_capacity": 112,
+    "transform": {
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "velocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "facing": {
+        "x": 1,
+        "y": 0,
+        "z": 0
+      },
+      "posture": "standing"
+    },
+    "body_zones": [
+      {
+        "id": "core",
+        "allocation_weight": 1,
+        "resistance": {
+          "kinetic": 12,
+          "electrical": 8
+        },
+        "vulnerability": {
+          "kinetic": 1,
+          "electrical": 1
+        },
+        "disabled": false,
+        "tags": []
+      }
+    ],
+    "statuses": [],
+    "modifiers": [
+      {
+        "id": "character.role.power",
+        "layer": "CHARACTER",
+        "target": "attack.power",
+        "operation": "multiplicative",
+        "value": 1.05,
+        "priority": 0,
+        "source_ref": "role:striker"
+      }
+    ],
+    "action_economy": {
+      "available": false,
+      "reaction_available": true,
+      "committed_until_turn": 0,
+      "action_capacity": 1,
+      "actions_remaining": 0,
+      "actions_reserved": 0,
+      "reaction_capacity": 1,
+      "reactions_remaining": 1,
+      "reactions_reserved": 0
+    },
+    "cooldowns": {},
+    "inventory_refs": [],
+    "tags": [
+      "role:striker"
+    ],
+    "extension_state": {}
+  },
+  "target": {
+    "id": "defender",
+    "name": "Reference Defender",
+    "category_profile": {
+      "default_category": "fighter",
+      "per_stat": {
+        "perception": "trained"
+      }
+    },
+    "resolved_stats": {
+      "physical_capability": 55,
+      "movement": 50,
+      "reaction": 54,
+      "coordination": 58,
+      "resistance": 60,
+      "perception": 45,
+      "strategy": 50,
+      "energy_capacity": 55,
+      "energy_output": 48,
+      "energy_control": 52,
+      "energy_efficiency": 56
+    },
+    "resources": {
+      "health": {
+        "current": 44.93,
+        "maximum": 100
+      },
+      "stability": {
+        "current": 65.93,
+        "maximum": 100
+      },
+      "energy": {
+        "current": 73.589743589744,
+        "maximum": 105
+      }
+    },
+    "harm_capacity": 110,
+    "transform": {
+      "position": {
+        "x": 5,
+        "y": 0,
+        "z": 0
+      },
+      "velocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "facing": {
+        "x": -1,
+        "y": 0,
+        "z": 0
+      },
+      "posture": "standing"
+    },
+    "body_zones": [
+      {
+        "id": "core",
+        "allocation_weight": 0.7,
+        "resistance": {
+          "kinetic": 18,
+          "electrical": 10
+        },
+        "vulnerability": {
+          "kinetic": 1,
+          "electrical": 1.25
+        },
+        "disabled": false,
+        "tags": [
+          "vital"
+        ]
+      },
+      {
+        "id": "arms",
+        "allocation_weight": 0.3,
+        "resistance": {
+          "kinetic": 12,
+          "electrical": 8
+        },
+        "vulnerability": {
+          "kinetic": 0.8,
+          "electrical": 1.1
+        },
+        "disabled": false,
+        "tags": []
+      }
+    ],
+    "statuses": [
+      {
+        "id": "disrupted",
+        "source_ref": "reference-strike-001",
+        "intensity": 80,
+        "remaining_turns": 3,
+        "stacking_rule": "refresh",
+        "tags": [
+          "control_impairment"
+        ]
+      }
+    ],
+    "modifiers": [
+      {
+        "id": "character.guard.execution",
+        "layer": "CHARACTER",
+        "target": "defense.filter",
+        "operation": "percentage",
+        "value": 8,
+        "priority": 0,
+        "source_ref": "stance:guarded"
+      }
+    ],
+    "action_economy": {
+      "available": true,
+      "reaction_available": false,
+      "committed_until_turn": 0,
+      "action_capacity": 1,
+      "actions_remaining": 1,
+      "actions_reserved": 0,
+      "reaction_capacity": 1,
+      "reactions_remaining": 0,
+      "reactions_reserved": 0
+    },
+    "cooldowns": {},
+    "inventory_refs": [
+      "shield.basic"
+    ],
+    "tags": [
+      "stance:guarded"
+    ],
+    "extension_state": {}
+  },
+  "mutations": [
+    {
+      "type": "reserve",
+      "role": "actor",
+      "characterId": "attacker",
+      "resource": "energy",
+      "amount": 10,
+      "reason": "action:on_attempt"
+    },
+    {
+      "type": "reserve",
+      "role": "target",
+      "characterId": "defender",
+      "resource": "energy",
+      "amount": 6.41025641025641,
+      "reason": "defense"
+    },
+    {
+      "type": "resource",
+      "role": "target",
+      "characterId": "defender",
+      "resource": "energy",
+      "before": 80,
+      "after": 73.589743589744,
+      "delta": -6.41025641025641,
+      "reason": "defense"
+    },
+    {
+      "type": "action_economy",
+      "role": "target",
+      "characterId": "defender",
+      "field": "reactions_remaining",
+      "before": 1,
+      "after": 0
+    },
+    {
+      "type": "action_economy",
+      "role": "target",
+      "characterId": "defender",
+      "field": "reaction_available",
+      "before": true,
+      "after": false
+    },
+    {
+      "type": "resource",
+      "role": "actor",
+      "characterId": "attacker",
+      "resource": "energy",
+      "before": 100,
+      "after": 90,
+      "delta": -10,
+      "reason": "action:on_attempt"
+    },
+    {
+      "type": "action_economy",
+      "role": "actor",
+      "characterId": "attacker",
+      "field": "actions_remaining",
+      "before": 1,
+      "after": 0
+    },
+    {
+      "type": "action_economy",
+      "role": "actor",
+      "characterId": "attacker",
+      "field": "available",
+      "before": true,
+      "after": false
+    },
+    {
+      "type": "health",
+      "role": "target",
+      "characterId": "defender",
+      "before": 100,
+      "after": 44.93,
+      "delta": -55.07,
+      "reason": "resolved_damage"
+    },
+    {
+      "type": "stability",
+      "role": "target",
+      "characterId": "defender",
+      "before": 100,
+      "after": 65.93,
+      "delta": -34.06999999999999,
+      "reason": "resolved_stability"
+    },
+    {
+      "type": "status_add",
+      "role": "target",
+      "characterId": "defender",
+      "statusId": "disrupted",
+      "after": {
+        "id": "disrupted",
+        "source_ref": "reference-strike-001",
+        "intensity": 80,
+        "remaining_turns": 3,
+        "stacking_rule": "refresh",
+        "tags": [
+          "control_impairment"
+        ]
+      }
+    }
+  ]
+}

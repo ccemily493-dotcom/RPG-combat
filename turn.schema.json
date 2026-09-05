@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.3/turn.schema.json",
+  "title": "Universal RPG Turn Input v0.3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["world", "characters", "actions", "reactions", "registries", "seed"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "world": { "$ref": "https://example.invalid/rpg/v0.3/world-state.schema.json" },
+    "characters": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "https://example.invalid/rpg/v0.3/character-state.schema.json" }
+    },
+    "actions": {
+      "type": "array",
+      "items": { "$ref": "https://example.invalid/rpg/v0.3/action.schema.json" }
+    },
+    "reactions": {
+      "type": "array",
+      "items": { "$ref": "https://example.invalid/rpg/v0.3/reaction.schema.json" }
+    },
+    "registries": { "$ref": "#/$defs/registries" },
+    "seed": { "type": ["string", "number", "integer"] },
+    "trace": { "type": "boolean", "default": true },
+    "force_individual": { "type": "boolean", "default": false }
+  },
+  "$defs": {
+    "registries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["defense_sources", "status_definitions"],
+      "properties": {
+        "defense_sources": { "$ref": "https://example.invalid/rpg/v0.3/defense-source-registry.schema.json" },
+        "status_definitions": { "$ref": "https://example.invalid/rpg/v0.3/status-definition-registry.schema.json" },
+        "body_penetration_compatibility": { "type": "object", "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 } },
+        "commitment_delays_ms": { "type": "object", "additionalProperties": { "type": "number", "minimum": 0 } }
+      }
+    }
+  }
+}

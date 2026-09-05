@@ -1,0 +1,47 @@
+spec_version: "0.3"
+document: balance_expectations
+status: provisional
+
+validation_class: balance_expectation
+violations_fail_build: false
+structured_warning_schema: [code, expectation, observed, severity, context]
+
+accuracy:
+  equal_tier_structural_drift:
+    maximum_balanced_margin_span: { value: 2.0, tunable: true }
+    warning_code: BALANCE_ACCURACY_EQUAL_TIER_DRIFT
+
+defense:
+  average_effectiveness:
+    expected_range: [0.15, 0.50]
+    warning_code: BALANCE_DEFENSE_DISTRIBUTION
+  specialist_tail:
+    p95_maximum: { value: 0.90, tunable: true }
+    warning_code: BALANCE_DEFENSE_SPECIALIST_TAIL
+
+damage_expectations:
+  equal_category:
+    average_range: [8, 20]
+  one_category_gap:
+    average_range: [20, 40]
+  two_category_gap:
+    average_range: [40, 70]
+  extreme_gap:
+    average_range: [80, 150]
+    decision: accepted_v0_3
+  warning_code_prefix: BALANCE_DAMAGE
+  specialized_profiles_may_exceed: true
+
+tails:
+  glass_cannon:
+    p95_multiplier_over_gap_average: { value: 1.75, tunable: true }
+    warning_code: BALANCE_GLASS_CANNON_TAIL
+  defense_specialist:
+    p05_multiplier_under_gap_average: { value: 0.40, tunable: true }
+    warning_code: BALANCE_DEFENSE_SPECIALIST_DAMAGE_TAIL
+
+accepted_observations:
+  fighter_vs_civilian:
+    observed_mean: { value: 50.45, tunable: true }
+    accepted_provisionally: true
+    focused_coefficient_study: false

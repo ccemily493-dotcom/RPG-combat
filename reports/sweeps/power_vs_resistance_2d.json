@@ -1,0 +1,359 @@
+{
+  "version": "0.3",
+  "sweep": "power_vs_resistance_2d",
+  "canonicalUnchanged": true,
+  "matchup": "fighter:balanced vs civilian:balanced",
+  "metric": "health_damage",
+  "seedPattern": "sweep:<combination>:<repeat>",
+  "dimensions": [
+    {
+      "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+      "values": [
+        0.75,
+        1,
+        1.25
+      ]
+    },
+    {
+      "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+      "values": [
+        0.2,
+        0.35,
+        0.5
+      ]
+    }
+  ],
+  "repeats": 64,
+  "combinationCount": 9,
+  "rows": [
+    {
+      "combinationIndex": 0,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 0.75
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.2
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 41.28,
+        "maximum": 42.06,
+        "mean": 41.689062500000006,
+        "median": 41.72,
+        "p05": 41.3945,
+        "p95": 41.997,
+        "standardDeviation": 0.18085490342744373
+      }
+    },
+    {
+      "combinationIndex": 1,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 0.75
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.35
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 39.89,
+        "maximum": 40.54,
+        "mean": 40.2025,
+        "median": 40.2,
+        "p05": 39.9815,
+        "p95": 40.5025,
+        "standardDeviation": 0.16135171210743313
+      }
+    },
+    {
+      "combinationIndex": 2,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 0.75
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.5
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 38.44,
+        "maximum": 39.04,
+        "mean": 38.75453124999999,
+        "median": 38.78,
+        "p05": 38.47,
+        "p95": 39,
+        "standardDeviation": 0.1649330326933857
+      }
+    },
+    {
+      "combinationIndex": 3,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 1
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.2
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 51.82,
+        "maximum": 52.69,
+        "mean": 52.311875,
+        "median": 52.305,
+        "p05": 51.9845,
+        "p95": 52.61,
+        "standardDeviation": 0.1827897955986603
+      }
+    },
+    {
+      "combinationIndex": 4,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 1
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.35
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 50.02,
+        "maximum": 50.97,
+        "mean": 50.454843749999995,
+        "median": 50.425,
+        "p05": 50.17,
+        "p95": 50.811,
+        "standardDeviation": 0.21693167262052238
+      }
+    },
+    {
+      "combinationIndex": 5,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 1
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.5
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 48.21,
+        "maximum": 49.09,
+        "mean": 48.63312500000001,
+        "median": 48.595,
+        "p05": 48.373,
+        "p95": 48.997,
+        "standardDeviation": 0.19077862661996467
+      }
+    },
+    {
+      "combinationIndex": 6,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 1.25
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.2
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 62.35,
+        "maximum": 63.48,
+        "mean": 62.895312499999996,
+        "median": 62.9,
+        "p05": 62.4475,
+        "p95": 63.25,
+        "standardDeviation": 0.24899779586122803
+      }
+    },
+    {
+      "combinationIndex": 7,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 1.25
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.35
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 60.05,
+        "maximum": 61.25,
+        "mean": 60.728281249999995,
+        "median": 60.74,
+        "p05": 60.3415,
+        "p95": 61.1185,
+        "standardDeviation": 0.26944708830944414
+      }
+    },
+    {
+      "combinationIndex": 8,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 1.25
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.5
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 58.13,
+        "maximum": 59.09,
+        "mean": 58.55031250000001,
+        "median": 58.54,
+        "p05": 58.16,
+        "p95": 58.9,
+        "standardDeviation": 0.2305358482834068
+      }
+    }
+  ],
+  "rankedSuspicious": [
+    {
+      "combinationIndex": 6,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 1.25
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.2
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 62.35,
+        "maximum": 63.48,
+        "mean": 62.895312499999996,
+        "median": 62.9,
+        "p05": 62.4475,
+        "p95": 63.25,
+        "standardDeviation": 0.24899779586122803
+      },
+      "suspicionScore": 12.895312499999996
+    },
+    {
+      "combinationIndex": 7,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 1.25
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.35
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 60.05,
+        "maximum": 61.25,
+        "mean": 60.728281249999995,
+        "median": 60.74,
+        "p05": 60.3415,
+        "p95": 61.1185,
+        "standardDeviation": 0.26944708830944414
+      },
+      "suspicionScore": 10.728281249999995
+    },
+    {
+      "combinationIndex": 8,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 1.25
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.5
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 58.13,
+        "maximum": 59.09,
+        "mean": 58.55031250000001,
+        "median": 58.54,
+        "p05": 58.16,
+        "p95": 58.9,
+        "standardDeviation": 0.2305358482834068
+      },
+      "suspicionScore": 8.550312500000011
+    },
+    {
+      "combinationIndex": 3,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 1
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.2
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 51.82,
+        "maximum": 52.69,
+        "mean": 52.311875,
+        "median": 52.305,
+        "p05": 51.9845,
+        "p95": 52.61,
+        "standardDeviation": 0.1827897955986603
+      },
+      "suspicionScore": 2.3118750000000006
+    },
+    {
+      "combinationIndex": 4,
+      "overrides": [
+        {
+          "pointer": "attack.yaml#/derived_offense/physical_power/physical_weight/value",
+          "value": 1
+        },
+        {
+          "pointer": "damage.yaml#/intrinsic_body_filter/resistance_weight/value",
+          "value": 0.35
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 50.02,
+        "maximum": 50.97,
+        "mean": 50.454843749999995,
+        "median": 50.425,
+        "p05": 50.17,
+        "p95": 50.811,
+        "standardDeviation": 0.21693167262052238
+      },
+      "suspicionScore": 0.4548437499999949
+    }
+  ]
+}

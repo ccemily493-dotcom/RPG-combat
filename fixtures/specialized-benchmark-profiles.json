@@ -1,0 +1,1644 @@
+{
+  "version": "0.3",
+  "generatedFrom": [
+    "categories.yaml",
+    "stats.yaml",
+    "fixtures/profile-templates.yaml"
+  ],
+  "categoryCount": 6,
+  "specializationsPerCategory": 8,
+  "profiles": [
+    {
+      "id": "civilian:balanced",
+      "category": "civilian",
+      "specialization": "balanced",
+      "description": "Neutral category control using the declared category default for every stat.",
+      "resolved_stats": {
+        "physical_capability": 25,
+        "movement": 25,
+        "reaction": 25,
+        "coordination": 25,
+        "resistance": 25,
+        "perception": 25,
+        "strategy": 25,
+        "energy_capacity": 25,
+        "energy_output": 25,
+        "energy_control": 25,
+        "energy_efficiency": 25
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": "category_default",
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": "category_default",
+          "resistance": "category_default",
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": "category_default",
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "civilian:power_specialist",
+      "category": "civilian",
+      "specialization": "power_specialist",
+      "description": "High physical and energy output with reduced reaction and coordination.",
+      "resolved_stats": {
+        "physical_capability": 32.8,
+        "movement": 25,
+        "reaction": 18.4,
+        "coordination": 18.4,
+        "resistance": 25,
+        "perception": 25,
+        "strategy": 25,
+        "energy_capacity": 26.8,
+        "energy_output": 31.6,
+        "energy_control": 25,
+        "energy_efficiency": 25
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.95,
+          "movement": "category_default",
+          "reaction": 0.35,
+          "coordination": 0.35,
+          "resistance": "category_default",
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": 0.7,
+          "energy_output": 0.9,
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "civilian:speed_specialist",
+      "category": "civilian",
+      "specialization": "speed_specialist",
+      "description": "High movement and reaction with reduced resistance and raw output.",
+      "resolved_stats": {
+        "physical_capability": 18.4,
+        "movement": 32.8,
+        "reaction": 31.6,
+        "coordination": 26.8,
+        "resistance": 16,
+        "perception": 25,
+        "strategy": 25,
+        "energy_capacity": 25,
+        "energy_output": 25,
+        "energy_control": 25,
+        "energy_efficiency": 25
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.35,
+          "movement": 0.95,
+          "reaction": 0.9,
+          "coordination": 0.7,
+          "resistance": 0.25,
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": "category_default",
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "civilian:accuracy_coordination_specialist",
+      "category": "civilian",
+      "specialization": "accuracy_coordination_specialist",
+      "description": "High coordination, perception, and energy control with reduced power.",
+      "resolved_stats": {
+        "physical_capability": 17.2,
+        "movement": 25,
+        "reaction": 25,
+        "coordination": 32.8,
+        "resistance": 25,
+        "perception": 30.4,
+        "strategy": 25,
+        "energy_capacity": 25,
+        "energy_output": 17.2,
+        "energy_control": 31.6,
+        "energy_efficiency": 25
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.3,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0.95,
+          "resistance": "category_default",
+          "perception": 0.85,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.3,
+          "energy_control": 0.9,
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "civilian:defense_resistance_specialist",
+      "category": "civilian",
+      "specialization": "defense_resistance_specialist",
+      "description": "High resistance and defensive execution stats with reduced offense.",
+      "resolved_stats": {
+        "physical_capability": 18.4,
+        "movement": 25,
+        "reaction": 26.8,
+        "coordination": 28,
+        "resistance": 32.8,
+        "perception": 25,
+        "strategy": 25,
+        "energy_capacity": 25,
+        "energy_output": 17.2,
+        "energy_control": 25,
+        "energy_efficiency": 29.2
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.35,
+          "movement": "category_default",
+          "reaction": 0.7,
+          "coordination": 0.75,
+          "resistance": 0.95,
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.3,
+          "energy_control": "category_default",
+          "energy_efficiency": 0.8
+        }
+      }
+    },
+    {
+      "id": "civilian:perception_reaction_specialist",
+      "category": "civilian",
+      "specialization": "perception_reaction_specialist",
+      "description": "High detection and response with reduced output and resistance.",
+      "resolved_stats": {
+        "physical_capability": 25,
+        "movement": 26.8,
+        "reaction": 32.8,
+        "coordination": 25,
+        "resistance": 17.2,
+        "perception": 32.8,
+        "strategy": 25,
+        "energy_capacity": 25,
+        "energy_output": 18.4,
+        "energy_control": 25,
+        "energy_efficiency": 25
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": "category_default",
+          "movement": 0.7,
+          "reaction": 0.95,
+          "coordination": "category_default",
+          "resistance": 0.3,
+          "perception": 0.95,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.35,
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "civilian:low_defense_glass_cannon",
+      "category": "civilian",
+      "specialization": "low_defense_glass_cannon",
+      "description": "High power and accuracy inputs with category-minimum resistance.",
+      "resolved_stats": {
+        "physical_capability": 34,
+        "movement": 25,
+        "reaction": 25,
+        "coordination": 30.4,
+        "resistance": 10,
+        "perception": 28,
+        "strategy": 25,
+        "energy_capacity": 25,
+        "energy_output": 32.8,
+        "energy_control": 25,
+        "energy_efficiency": 14.8
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 1,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0.85,
+          "resistance": 0,
+          "perception": 0.75,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.95,
+          "energy_control": "category_default",
+          "energy_efficiency": 0.2
+        }
+      }
+    },
+    {
+      "id": "civilian:low_accuracy_high_power_attacker",
+      "category": "civilian",
+      "specialization": "low_accuracy_high_power_attacker",
+      "description": "Maximum output with category-minimum coordination and low perception/control.",
+      "resolved_stats": {
+        "physical_capability": 34,
+        "movement": 25,
+        "reaction": 25,
+        "coordination": 10,
+        "resistance": 25,
+        "perception": 13.6,
+        "strategy": 25,
+        "energy_capacity": 25,
+        "energy_output": 34,
+        "energy_control": 13.6,
+        "energy_efficiency": 25
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 1,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0,
+          "resistance": "category_default",
+          "perception": 0.15,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 1,
+          "energy_control": 0.15,
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "trained:balanced",
+      "category": "trained",
+      "specialization": "balanced",
+      "description": "Neutral category control using the declared category default for every stat.",
+      "resolved_stats": {
+        "physical_capability": 38,
+        "movement": 38,
+        "reaction": 38,
+        "coordination": 38,
+        "resistance": 38,
+        "perception": 38,
+        "strategy": 38,
+        "energy_capacity": 38,
+        "energy_output": 38,
+        "energy_control": 38,
+        "energy_efficiency": 38
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": "category_default",
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": "category_default",
+          "resistance": "category_default",
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": "category_default",
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "trained:power_specialist",
+      "category": "trained",
+      "specialization": "power_specialist",
+      "description": "High physical and energy output with reduced reaction and coordination.",
+      "resolved_stats": {
+        "physical_capability": 47.8,
+        "movement": 38,
+        "reaction": 33.4,
+        "coordination": 33.4,
+        "resistance": 38,
+        "perception": 38,
+        "strategy": 38,
+        "energy_capacity": 41.8,
+        "energy_output": 46.6,
+        "energy_control": 38,
+        "energy_efficiency": 38
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.95,
+          "movement": "category_default",
+          "reaction": 0.35,
+          "coordination": 0.35,
+          "resistance": "category_default",
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": 0.7,
+          "energy_output": 0.9,
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "trained:speed_specialist",
+      "category": "trained",
+      "specialization": "speed_specialist",
+      "description": "High movement and reaction with reduced resistance and raw output.",
+      "resolved_stats": {
+        "physical_capability": 33.4,
+        "movement": 47.8,
+        "reaction": 46.6,
+        "coordination": 41.8,
+        "resistance": 31,
+        "perception": 38,
+        "strategy": 38,
+        "energy_capacity": 38,
+        "energy_output": 38,
+        "energy_control": 38,
+        "energy_efficiency": 38
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.35,
+          "movement": 0.95,
+          "reaction": 0.9,
+          "coordination": 0.7,
+          "resistance": 0.25,
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": "category_default",
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "trained:accuracy_coordination_specialist",
+      "category": "trained",
+      "specialization": "accuracy_coordination_specialist",
+      "description": "High coordination, perception, and energy control with reduced power.",
+      "resolved_stats": {
+        "physical_capability": 32.2,
+        "movement": 38,
+        "reaction": 38,
+        "coordination": 47.8,
+        "resistance": 38,
+        "perception": 45.4,
+        "strategy": 38,
+        "energy_capacity": 38,
+        "energy_output": 32.2,
+        "energy_control": 46.6,
+        "energy_efficiency": 38
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.3,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0.95,
+          "resistance": "category_default",
+          "perception": 0.85,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.3,
+          "energy_control": 0.9,
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "trained:defense_resistance_specialist",
+      "category": "trained",
+      "specialization": "defense_resistance_specialist",
+      "description": "High resistance and defensive execution stats with reduced offense.",
+      "resolved_stats": {
+        "physical_capability": 33.4,
+        "movement": 38,
+        "reaction": 41.8,
+        "coordination": 43,
+        "resistance": 47.8,
+        "perception": 38,
+        "strategy": 38,
+        "energy_capacity": 38,
+        "energy_output": 32.2,
+        "energy_control": 38,
+        "energy_efficiency": 44.2
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.35,
+          "movement": "category_default",
+          "reaction": 0.7,
+          "coordination": 0.75,
+          "resistance": 0.95,
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.3,
+          "energy_control": "category_default",
+          "energy_efficiency": 0.8
+        }
+      }
+    },
+    {
+      "id": "trained:perception_reaction_specialist",
+      "category": "trained",
+      "specialization": "perception_reaction_specialist",
+      "description": "High detection and response with reduced output and resistance.",
+      "resolved_stats": {
+        "physical_capability": 38,
+        "movement": 41.8,
+        "reaction": 47.8,
+        "coordination": 38,
+        "resistance": 32.2,
+        "perception": 47.8,
+        "strategy": 38,
+        "energy_capacity": 38,
+        "energy_output": 33.4,
+        "energy_control": 38,
+        "energy_efficiency": 38
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": "category_default",
+          "movement": 0.7,
+          "reaction": 0.95,
+          "coordination": "category_default",
+          "resistance": 0.3,
+          "perception": 0.95,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.35,
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "trained:low_defense_glass_cannon",
+      "category": "trained",
+      "specialization": "low_defense_glass_cannon",
+      "description": "High power and accuracy inputs with category-minimum resistance.",
+      "resolved_stats": {
+        "physical_capability": 49,
+        "movement": 38,
+        "reaction": 38,
+        "coordination": 45.4,
+        "resistance": 25,
+        "perception": 43,
+        "strategy": 38,
+        "energy_capacity": 38,
+        "energy_output": 47.8,
+        "energy_control": 38,
+        "energy_efficiency": 29.8
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 1,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0.85,
+          "resistance": 0,
+          "perception": 0.75,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.95,
+          "energy_control": "category_default",
+          "energy_efficiency": 0.2
+        }
+      }
+    },
+    {
+      "id": "trained:low_accuracy_high_power_attacker",
+      "category": "trained",
+      "specialization": "low_accuracy_high_power_attacker",
+      "description": "Maximum output with category-minimum coordination and low perception/control.",
+      "resolved_stats": {
+        "physical_capability": 49,
+        "movement": 38,
+        "reaction": 38,
+        "coordination": 25,
+        "resistance": 38,
+        "perception": 28.6,
+        "strategy": 38,
+        "energy_capacity": 38,
+        "energy_output": 49,
+        "energy_control": 28.6,
+        "energy_efficiency": 38
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 1,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0,
+          "resistance": "category_default",
+          "perception": 0.15,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 1,
+          "energy_control": 0.15,
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "fighter:balanced",
+      "category": "fighter",
+      "specialization": "balanced",
+      "description": "Neutral category control using the declared category default for every stat.",
+      "resolved_stats": {
+        "physical_capability": 52,
+        "movement": 52,
+        "reaction": 52,
+        "coordination": 52,
+        "resistance": 52,
+        "perception": 52,
+        "strategy": 52,
+        "energy_capacity": 52,
+        "energy_output": 52,
+        "energy_control": 52,
+        "energy_efficiency": 52
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": "category_default",
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": "category_default",
+          "resistance": "category_default",
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": "category_default",
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "fighter:power_specialist",
+      "category": "fighter",
+      "specialization": "power_specialist",
+      "description": "High physical and energy output with reduced reaction and coordination.",
+      "resolved_stats": {
+        "physical_capability": 62.8,
+        "movement": 52,
+        "reaction": 48.4,
+        "coordination": 48.4,
+        "resistance": 52,
+        "perception": 52,
+        "strategy": 52,
+        "energy_capacity": 56.8,
+        "energy_output": 61.6,
+        "energy_control": 52,
+        "energy_efficiency": 52
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.95,
+          "movement": "category_default",
+          "reaction": 0.35,
+          "coordination": 0.35,
+          "resistance": "category_default",
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": 0.7,
+          "energy_output": 0.9,
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "fighter:speed_specialist",
+      "category": "fighter",
+      "specialization": "speed_specialist",
+      "description": "High movement and reaction with reduced resistance and raw output.",
+      "resolved_stats": {
+        "physical_capability": 48.4,
+        "movement": 62.8,
+        "reaction": 61.6,
+        "coordination": 56.8,
+        "resistance": 46,
+        "perception": 52,
+        "strategy": 52,
+        "energy_capacity": 52,
+        "energy_output": 52,
+        "energy_control": 52,
+        "energy_efficiency": 52
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.35,
+          "movement": 0.95,
+          "reaction": 0.9,
+          "coordination": 0.7,
+          "resistance": 0.25,
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": "category_default",
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "fighter:accuracy_coordination_specialist",
+      "category": "fighter",
+      "specialization": "accuracy_coordination_specialist",
+      "description": "High coordination, perception, and energy control with reduced power.",
+      "resolved_stats": {
+        "physical_capability": 47.2,
+        "movement": 52,
+        "reaction": 52,
+        "coordination": 62.8,
+        "resistance": 52,
+        "perception": 60.4,
+        "strategy": 52,
+        "energy_capacity": 52,
+        "energy_output": 47.2,
+        "energy_control": 61.6,
+        "energy_efficiency": 52
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.3,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0.95,
+          "resistance": "category_default",
+          "perception": 0.85,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.3,
+          "energy_control": 0.9,
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "fighter:defense_resistance_specialist",
+      "category": "fighter",
+      "specialization": "defense_resistance_specialist",
+      "description": "High resistance and defensive execution stats with reduced offense.",
+      "resolved_stats": {
+        "physical_capability": 48.4,
+        "movement": 52,
+        "reaction": 56.8,
+        "coordination": 58,
+        "resistance": 62.8,
+        "perception": 52,
+        "strategy": 52,
+        "energy_capacity": 52,
+        "energy_output": 47.2,
+        "energy_control": 52,
+        "energy_efficiency": 59.2
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.35,
+          "movement": "category_default",
+          "reaction": 0.7,
+          "coordination": 0.75,
+          "resistance": 0.95,
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.3,
+          "energy_control": "category_default",
+          "energy_efficiency": 0.8
+        }
+      }
+    },
+    {
+      "id": "fighter:perception_reaction_specialist",
+      "category": "fighter",
+      "specialization": "perception_reaction_specialist",
+      "description": "High detection and response with reduced output and resistance.",
+      "resolved_stats": {
+        "physical_capability": 52,
+        "movement": 56.8,
+        "reaction": 62.8,
+        "coordination": 52,
+        "resistance": 47.2,
+        "perception": 62.8,
+        "strategy": 52,
+        "energy_capacity": 52,
+        "energy_output": 48.4,
+        "energy_control": 52,
+        "energy_efficiency": 52
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": "category_default",
+          "movement": 0.7,
+          "reaction": 0.95,
+          "coordination": "category_default",
+          "resistance": 0.3,
+          "perception": 0.95,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.35,
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "fighter:low_defense_glass_cannon",
+      "category": "fighter",
+      "specialization": "low_defense_glass_cannon",
+      "description": "High power and accuracy inputs with category-minimum resistance.",
+      "resolved_stats": {
+        "physical_capability": 64,
+        "movement": 52,
+        "reaction": 52,
+        "coordination": 60.4,
+        "resistance": 40,
+        "perception": 58,
+        "strategy": 52,
+        "energy_capacity": 52,
+        "energy_output": 62.8,
+        "energy_control": 52,
+        "energy_efficiency": 44.8
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 1,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0.85,
+          "resistance": 0,
+          "perception": 0.75,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.95,
+          "energy_control": "category_default",
+          "energy_efficiency": 0.2
+        }
+      }
+    },
+    {
+      "id": "fighter:low_accuracy_high_power_attacker",
+      "category": "fighter",
+      "specialization": "low_accuracy_high_power_attacker",
+      "description": "Maximum output with category-minimum coordination and low perception/control.",
+      "resolved_stats": {
+        "physical_capability": 64,
+        "movement": 52,
+        "reaction": 52,
+        "coordination": 40,
+        "resistance": 52,
+        "perception": 43.6,
+        "strategy": 52,
+        "energy_capacity": 52,
+        "energy_output": 64,
+        "energy_control": 43.6,
+        "energy_efficiency": 52
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 1,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0,
+          "resistance": "category_default",
+          "perception": 0.15,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 1,
+          "energy_control": 0.15,
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "elite:balanced",
+      "category": "elite",
+      "specialization": "balanced",
+      "description": "Neutral category control using the declared category default for every stat.",
+      "resolved_stats": {
+        "physical_capability": 68,
+        "movement": 68,
+        "reaction": 68,
+        "coordination": 68,
+        "resistance": 68,
+        "perception": 68,
+        "strategy": 68,
+        "energy_capacity": 68,
+        "energy_output": 68,
+        "energy_control": 68,
+        "energy_efficiency": 68
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": "category_default",
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": "category_default",
+          "resistance": "category_default",
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": "category_default",
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "elite:power_specialist",
+      "category": "elite",
+      "specialization": "power_specialist",
+      "description": "High physical and energy output with reduced reaction and coordination.",
+      "resolved_stats": {
+        "physical_capability": 77.8,
+        "movement": 68,
+        "reaction": 63.4,
+        "coordination": 63.4,
+        "resistance": 68,
+        "perception": 68,
+        "strategy": 68,
+        "energy_capacity": 71.8,
+        "energy_output": 76.6,
+        "energy_control": 68,
+        "energy_efficiency": 68
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.95,
+          "movement": "category_default",
+          "reaction": 0.35,
+          "coordination": 0.35,
+          "resistance": "category_default",
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": 0.7,
+          "energy_output": 0.9,
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "elite:speed_specialist",
+      "category": "elite",
+      "specialization": "speed_specialist",
+      "description": "High movement and reaction with reduced resistance and raw output.",
+      "resolved_stats": {
+        "physical_capability": 63.4,
+        "movement": 77.8,
+        "reaction": 76.6,
+        "coordination": 71.8,
+        "resistance": 61,
+        "perception": 68,
+        "strategy": 68,
+        "energy_capacity": 68,
+        "energy_output": 68,
+        "energy_control": 68,
+        "energy_efficiency": 68
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.35,
+          "movement": 0.95,
+          "reaction": 0.9,
+          "coordination": 0.7,
+          "resistance": 0.25,
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": "category_default",
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "elite:accuracy_coordination_specialist",
+      "category": "elite",
+      "specialization": "accuracy_coordination_specialist",
+      "description": "High coordination, perception, and energy control with reduced power.",
+      "resolved_stats": {
+        "physical_capability": 62.2,
+        "movement": 68,
+        "reaction": 68,
+        "coordination": 77.8,
+        "resistance": 68,
+        "perception": 75.4,
+        "strategy": 68,
+        "energy_capacity": 68,
+        "energy_output": 62.2,
+        "energy_control": 76.6,
+        "energy_efficiency": 68
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.3,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0.95,
+          "resistance": "category_default",
+          "perception": 0.85,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.3,
+          "energy_control": 0.9,
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "elite:defense_resistance_specialist",
+      "category": "elite",
+      "specialization": "defense_resistance_specialist",
+      "description": "High resistance and defensive execution stats with reduced offense.",
+      "resolved_stats": {
+        "physical_capability": 63.4,
+        "movement": 68,
+        "reaction": 71.8,
+        "coordination": 73,
+        "resistance": 77.8,
+        "perception": 68,
+        "strategy": 68,
+        "energy_capacity": 68,
+        "energy_output": 62.2,
+        "energy_control": 68,
+        "energy_efficiency": 74.2
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.35,
+          "movement": "category_default",
+          "reaction": 0.7,
+          "coordination": 0.75,
+          "resistance": 0.95,
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.3,
+          "energy_control": "category_default",
+          "energy_efficiency": 0.8
+        }
+      }
+    },
+    {
+      "id": "elite:perception_reaction_specialist",
+      "category": "elite",
+      "specialization": "perception_reaction_specialist",
+      "description": "High detection and response with reduced output and resistance.",
+      "resolved_stats": {
+        "physical_capability": 68,
+        "movement": 71.8,
+        "reaction": 77.8,
+        "coordination": 68,
+        "resistance": 62.2,
+        "perception": 77.8,
+        "strategy": 68,
+        "energy_capacity": 68,
+        "energy_output": 63.4,
+        "energy_control": 68,
+        "energy_efficiency": 68
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": "category_default",
+          "movement": 0.7,
+          "reaction": 0.95,
+          "coordination": "category_default",
+          "resistance": 0.3,
+          "perception": 0.95,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.35,
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "elite:low_defense_glass_cannon",
+      "category": "elite",
+      "specialization": "low_defense_glass_cannon",
+      "description": "High power and accuracy inputs with category-minimum resistance.",
+      "resolved_stats": {
+        "physical_capability": 79,
+        "movement": 68,
+        "reaction": 68,
+        "coordination": 75.4,
+        "resistance": 55,
+        "perception": 73,
+        "strategy": 68,
+        "energy_capacity": 68,
+        "energy_output": 77.8,
+        "energy_control": 68,
+        "energy_efficiency": 59.8
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 1,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0.85,
+          "resistance": 0,
+          "perception": 0.75,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.95,
+          "energy_control": "category_default",
+          "energy_efficiency": 0.2
+        }
+      }
+    },
+    {
+      "id": "elite:low_accuracy_high_power_attacker",
+      "category": "elite",
+      "specialization": "low_accuracy_high_power_attacker",
+      "description": "Maximum output with category-minimum coordination and low perception/control.",
+      "resolved_stats": {
+        "physical_capability": 79,
+        "movement": 68,
+        "reaction": 68,
+        "coordination": 55,
+        "resistance": 68,
+        "perception": 58.6,
+        "strategy": 68,
+        "energy_capacity": 68,
+        "energy_output": 79,
+        "energy_control": 58.6,
+        "energy_efficiency": 68
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 1,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0,
+          "resistance": "category_default",
+          "perception": 0.15,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 1,
+          "energy_control": 0.15,
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "superhuman:balanced",
+      "category": "superhuman",
+      "specialization": "balanced",
+      "description": "Neutral category control using the declared category default for every stat.",
+      "resolved_stats": {
+        "physical_capability": 83,
+        "movement": 83,
+        "reaction": 83,
+        "coordination": 83,
+        "resistance": 83,
+        "perception": 83,
+        "strategy": 83,
+        "energy_capacity": 83,
+        "energy_output": 83,
+        "energy_control": 83,
+        "energy_efficiency": 83
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": "category_default",
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": "category_default",
+          "resistance": "category_default",
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": "category_default",
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "superhuman:power_specialist",
+      "category": "superhuman",
+      "specialization": "power_specialist",
+      "description": "High physical and energy output with reduced reaction and coordination.",
+      "resolved_stats": {
+        "physical_capability": 92.8,
+        "movement": 83,
+        "reaction": 78.4,
+        "coordination": 78.4,
+        "resistance": 83,
+        "perception": 83,
+        "strategy": 83,
+        "energy_capacity": 86.8,
+        "energy_output": 91.6,
+        "energy_control": 83,
+        "energy_efficiency": 83
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.95,
+          "movement": "category_default",
+          "reaction": 0.35,
+          "coordination": 0.35,
+          "resistance": "category_default",
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": 0.7,
+          "energy_output": 0.9,
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "superhuman:speed_specialist",
+      "category": "superhuman",
+      "specialization": "speed_specialist",
+      "description": "High movement and reaction with reduced resistance and raw output.",
+      "resolved_stats": {
+        "physical_capability": 78.4,
+        "movement": 92.8,
+        "reaction": 91.6,
+        "coordination": 86.8,
+        "resistance": 76,
+        "perception": 83,
+        "strategy": 83,
+        "energy_capacity": 83,
+        "energy_output": 83,
+        "energy_control": 83,
+        "energy_efficiency": 83
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.35,
+          "movement": 0.95,
+          "reaction": 0.9,
+          "coordination": 0.7,
+          "resistance": 0.25,
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": "category_default",
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "superhuman:accuracy_coordination_specialist",
+      "category": "superhuman",
+      "specialization": "accuracy_coordination_specialist",
+      "description": "High coordination, perception, and energy control with reduced power.",
+      "resolved_stats": {
+        "physical_capability": 77.2,
+        "movement": 83,
+        "reaction": 83,
+        "coordination": 92.8,
+        "resistance": 83,
+        "perception": 90.4,
+        "strategy": 83,
+        "energy_capacity": 83,
+        "energy_output": 77.2,
+        "energy_control": 91.6,
+        "energy_efficiency": 83
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.3,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0.95,
+          "resistance": "category_default",
+          "perception": 0.85,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.3,
+          "energy_control": 0.9,
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "superhuman:defense_resistance_specialist",
+      "category": "superhuman",
+      "specialization": "defense_resistance_specialist",
+      "description": "High resistance and defensive execution stats with reduced offense.",
+      "resolved_stats": {
+        "physical_capability": 78.4,
+        "movement": 83,
+        "reaction": 86.8,
+        "coordination": 88,
+        "resistance": 92.8,
+        "perception": 83,
+        "strategy": 83,
+        "energy_capacity": 83,
+        "energy_output": 77.2,
+        "energy_control": 83,
+        "energy_efficiency": 89.2
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.35,
+          "movement": "category_default",
+          "reaction": 0.7,
+          "coordination": 0.75,
+          "resistance": 0.95,
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.3,
+          "energy_control": "category_default",
+          "energy_efficiency": 0.8
+        }
+      }
+    },
+    {
+      "id": "superhuman:perception_reaction_specialist",
+      "category": "superhuman",
+      "specialization": "perception_reaction_specialist",
+      "description": "High detection and response with reduced output and resistance.",
+      "resolved_stats": {
+        "physical_capability": 83,
+        "movement": 86.8,
+        "reaction": 92.8,
+        "coordination": 83,
+        "resistance": 77.2,
+        "perception": 92.8,
+        "strategy": 83,
+        "energy_capacity": 83,
+        "energy_output": 78.4,
+        "energy_control": 83,
+        "energy_efficiency": 83
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": "category_default",
+          "movement": 0.7,
+          "reaction": 0.95,
+          "coordination": "category_default",
+          "resistance": 0.3,
+          "perception": 0.95,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.35,
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "superhuman:low_defense_glass_cannon",
+      "category": "superhuman",
+      "specialization": "low_defense_glass_cannon",
+      "description": "High power and accuracy inputs with category-minimum resistance.",
+      "resolved_stats": {
+        "physical_capability": 94,
+        "movement": 83,
+        "reaction": 83,
+        "coordination": 90.4,
+        "resistance": 70,
+        "perception": 88,
+        "strategy": 83,
+        "energy_capacity": 83,
+        "energy_output": 92.8,
+        "energy_control": 83,
+        "energy_efficiency": 74.8
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 1,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0.85,
+          "resistance": 0,
+          "perception": 0.75,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.95,
+          "energy_control": "category_default",
+          "energy_efficiency": 0.2
+        }
+      }
+    },
+    {
+      "id": "superhuman:low_accuracy_high_power_attacker",
+      "category": "superhuman",
+      "specialization": "low_accuracy_high_power_attacker",
+      "description": "Maximum output with category-minimum coordination and low perception/control.",
+      "resolved_stats": {
+        "physical_capability": 94,
+        "movement": 83,
+        "reaction": 83,
+        "coordination": 70,
+        "resistance": 83,
+        "perception": 73.6,
+        "strategy": 83,
+        "energy_capacity": 83,
+        "energy_output": 94,
+        "energy_control": 73.6,
+        "energy_efficiency": 83
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 1,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0,
+          "resistance": "category_default",
+          "perception": 0.15,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 1,
+          "energy_control": 0.15,
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "legendary:balanced",
+      "category": "legendary",
+      "specialization": "balanced",
+      "description": "Neutral category control using the declared category default for every stat.",
+      "resolved_stats": {
+        "physical_capability": 95,
+        "movement": 95,
+        "reaction": 95,
+        "coordination": 95,
+        "resistance": 95,
+        "perception": 95,
+        "strategy": 95,
+        "energy_capacity": 95,
+        "energy_output": 95,
+        "energy_control": 95,
+        "energy_efficiency": 95
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": "category_default",
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": "category_default",
+          "resistance": "category_default",
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": "category_default",
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "legendary:power_specialist",
+      "category": "legendary",
+      "specialization": "power_specialist",
+      "description": "High physical and energy output with reduced reaction and coordination.",
+      "resolved_stats": {
+        "physical_capability": 99.25,
+        "movement": 95,
+        "reaction": 90.25,
+        "coordination": 90.25,
+        "resistance": 95,
+        "perception": 95,
+        "strategy": 95,
+        "energy_capacity": 95.5,
+        "energy_output": 98.5,
+        "energy_control": 95,
+        "energy_efficiency": 95
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.95,
+          "movement": "category_default",
+          "reaction": 0.35,
+          "coordination": 0.35,
+          "resistance": "category_default",
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": 0.7,
+          "energy_output": 0.9,
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "legendary:speed_specialist",
+      "category": "legendary",
+      "specialization": "speed_specialist",
+      "description": "High movement and reaction with reduced resistance and raw output.",
+      "resolved_stats": {
+        "physical_capability": 90.25,
+        "movement": 99.25,
+        "reaction": 98.5,
+        "coordination": 95.5,
+        "resistance": 88.75,
+        "perception": 95,
+        "strategy": 95,
+        "energy_capacity": 95,
+        "energy_output": 95,
+        "energy_control": 95,
+        "energy_efficiency": 95
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.35,
+          "movement": 0.95,
+          "reaction": 0.9,
+          "coordination": 0.7,
+          "resistance": 0.25,
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": "category_default",
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "legendary:accuracy_coordination_specialist",
+      "category": "legendary",
+      "specialization": "accuracy_coordination_specialist",
+      "description": "High coordination, perception, and energy control with reduced power.",
+      "resolved_stats": {
+        "physical_capability": 89.5,
+        "movement": 95,
+        "reaction": 95,
+        "coordination": 99.25,
+        "resistance": 95,
+        "perception": 97.75,
+        "strategy": 95,
+        "energy_capacity": 95,
+        "energy_output": 89.5,
+        "energy_control": 98.5,
+        "energy_efficiency": 95
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.3,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0.95,
+          "resistance": "category_default",
+          "perception": 0.85,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.3,
+          "energy_control": 0.9,
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "legendary:defense_resistance_specialist",
+      "category": "legendary",
+      "specialization": "defense_resistance_specialist",
+      "description": "High resistance and defensive execution stats with reduced offense.",
+      "resolved_stats": {
+        "physical_capability": 90.25,
+        "movement": 95,
+        "reaction": 95.5,
+        "coordination": 96.25,
+        "resistance": 99.25,
+        "perception": 95,
+        "strategy": 95,
+        "energy_capacity": 95,
+        "energy_output": 89.5,
+        "energy_control": 95,
+        "energy_efficiency": 97
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 0.35,
+          "movement": "category_default",
+          "reaction": 0.7,
+          "coordination": 0.75,
+          "resistance": 0.95,
+          "perception": "category_default",
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.3,
+          "energy_control": "category_default",
+          "energy_efficiency": 0.8
+        }
+      }
+    },
+    {
+      "id": "legendary:perception_reaction_specialist",
+      "category": "legendary",
+      "specialization": "perception_reaction_specialist",
+      "description": "High detection and response with reduced output and resistance.",
+      "resolved_stats": {
+        "physical_capability": 95,
+        "movement": 95.5,
+        "reaction": 99.25,
+        "coordination": 95,
+        "resistance": 89.5,
+        "perception": 99.25,
+        "strategy": 95,
+        "energy_capacity": 95,
+        "energy_output": 90.25,
+        "energy_control": 95,
+        "energy_efficiency": 95
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": "category_default",
+          "movement": 0.7,
+          "reaction": 0.95,
+          "coordination": "category_default",
+          "resistance": 0.3,
+          "perception": 0.95,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.35,
+          "energy_control": "category_default",
+          "energy_efficiency": "category_default"
+        }
+      }
+    },
+    {
+      "id": "legendary:low_defense_glass_cannon",
+      "category": "legendary",
+      "specialization": "low_defense_glass_cannon",
+      "description": "High power and accuracy inputs with category-minimum resistance.",
+      "resolved_stats": {
+        "physical_capability": 100,
+        "movement": 95,
+        "reaction": 95,
+        "coordination": 97.75,
+        "resistance": 85,
+        "perception": 96.25,
+        "strategy": 95,
+        "energy_capacity": 95,
+        "energy_output": 99.25,
+        "energy_control": 95,
+        "energy_efficiency": 88
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 1,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0.85,
+          "resistance": 0,
+          "perception": 0.75,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 0.95,
+          "energy_control": "category_default",
+          "energy_efficiency": 0.2
+        }
+      }
+    },
+    {
+      "id": "legendary:low_accuracy_high_power_attacker",
+      "category": "legendary",
+      "specialization": "low_accuracy_high_power_attacker",
+      "description": "Maximum output with category-minimum coordination and low perception/control.",
+      "resolved_stats": {
+        "physical_capability": 100,
+        "movement": 95,
+        "reaction": 95,
+        "coordination": 85,
+        "resistance": 95,
+        "perception": 87.25,
+        "strategy": 95,
+        "energy_capacity": 95,
+        "energy_output": 100,
+        "energy_control": 87.25,
+        "energy_efficiency": 95
+      },
+      "provenance": {
+        "placements": {
+          "physical_capability": 1,
+          "movement": "category_default",
+          "reaction": "category_default",
+          "coordination": 0,
+          "resistance": "category_default",
+          "perception": 0.15,
+          "strategy": "category_default",
+          "energy_capacity": "category_default",
+          "energy_output": 1,
+          "energy_control": 0.15,
+          "energy_efficiency": "category_default"
+        }
+      }
+    }
+  ]
+}

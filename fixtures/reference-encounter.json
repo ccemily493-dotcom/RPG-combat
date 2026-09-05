@@ -1,0 +1,332 @@
+{
+  "seed": "reference-seed-v0.1",
+  "world": {
+    "simulation_id": "reference-encounter",
+    "ruleset_version": "0.3",
+    "turn": 0,
+    "time": {
+      "elapsed_seconds": 0,
+      "turn_duration_seconds": 1
+    },
+    "environment": {
+      "gravity_g": 1,
+      "medium": "air",
+      "visibility": 0.9,
+      "temperature_c": 20,
+      "terrain_tags": ["flat"],
+      "hazards": []
+    },
+    "spatial_bounds": {
+      "min": { "x": -100, "y": -100, "z": -10 },
+      "max": { "x": 100, "y": 100, "z": 100 }
+    },
+    "entity_refs": ["attacker", "defender"],
+    "geometry_refs": [],
+    "modifiers": [
+      {
+        "id": "world.visibility.avoidance",
+        "layer": "WORLD",
+        "target": "defense.avoidance",
+        "operation": "percentage",
+        "value": -5,
+        "priority": 0,
+        "source_ref": "world.environment.visibility"
+      }
+    ],
+    "previous_turn": {
+      "turn": null,
+      "snapshot_hash": null,
+      "action_refs": [],
+      "events": [],
+      "resource_deltas": [],
+      "created_modifier_ids": [],
+      "expired_modifier_ids": [],
+      "summary_tags": []
+    },
+    "extension_state": {}
+  },
+  "actor": {
+    "id": "attacker",
+    "name": "Reference Attacker",
+    "category_profile": {
+      "default_category": "elite",
+      "per_stat": {
+        "energy_efficiency": "trained"
+      }
+    },
+    "resolved_stats": {
+      "physical_capability": 72,
+      "movement": 68,
+      "reaction": 66,
+      "coordination": 74,
+      "resistance": 62,
+      "perception": 70,
+      "strategy": 65,
+      "energy_capacity": 55,
+      "energy_output": 58,
+      "energy_control": 60,
+      "energy_efficiency": 42
+    },
+    "resources": {
+      "health": { "current": 100, "maximum": 100 },
+      "stability": { "current": 100, "maximum": 100 },
+      "energy": { "current": 100, "maximum": 105 }
+    },
+    "harm_capacity": 112,
+    "transform": {
+      "position": { "x": 0, "y": 0, "z": 0 },
+      "velocity": { "x": 0, "y": 0, "z": 0 },
+      "facing": { "x": 1, "y": 0, "z": 0 },
+      "posture": "standing"
+    },
+    "body_zones": [
+      {
+        "id": "core",
+        "allocation_weight": 1,
+        "resistance": { "kinetic": 12, "electrical": 8 },
+        "vulnerability": { "kinetic": 1, "electrical": 1 },
+        "disabled": false,
+        "tags": []
+      }
+    ],
+    "statuses": [],
+    "modifiers": [
+      {
+        "id": "character.role.power",
+        "layer": "CHARACTER",
+        "target": "attack.power",
+        "operation": "multiplicative",
+        "value": 1.05,
+        "priority": 0,
+        "source_ref": "role:striker"
+      }
+    ],
+    "action_economy": {
+      "available": true,
+      "reaction_available": true,
+      "committed_until_turn": 0,
+      "action_capacity": 1,
+      "actions_remaining": 1,
+      "actions_reserved": 0,
+      "reaction_capacity": 1,
+      "reactions_remaining": 1,
+      "reactions_reserved": 0
+    },
+    "cooldowns": {},
+    "inventory_refs": [],
+    "tags": ["role:striker"],
+    "extension_state": {}
+  },
+  "target": {
+    "id": "defender",
+    "name": "Reference Defender",
+    "category_profile": {
+      "default_category": "fighter",
+      "per_stat": {
+        "perception": "trained"
+      }
+    },
+    "resolved_stats": {
+      "physical_capability": 55,
+      "movement": 50,
+      "reaction": 54,
+      "coordination": 58,
+      "resistance": 60,
+      "perception": 45,
+      "strategy": 50,
+      "energy_capacity": 55,
+      "energy_output": 48,
+      "energy_control": 52,
+      "energy_efficiency": 56
+    },
+    "resources": {
+      "health": { "current": 100, "maximum": 100 },
+      "stability": { "current": 100, "maximum": 100 },
+      "energy": { "current": 80, "maximum": 105 }
+    },
+    "harm_capacity": 110,
+    "transform": {
+      "position": { "x": 5, "y": 0, "z": 0 },
+      "velocity": { "x": 0, "y": 0, "z": 0 },
+      "facing": { "x": -1, "y": 0, "z": 0 },
+      "posture": "standing"
+    },
+    "body_zones": [
+      {
+        "id": "core",
+        "allocation_weight": 0.7,
+        "resistance": { "kinetic": 18, "electrical": 10 },
+        "vulnerability": { "kinetic": 1, "electrical": 1.25 },
+        "disabled": false,
+        "tags": ["vital"]
+      },
+      {
+        "id": "arms",
+        "allocation_weight": 0.3,
+        "resistance": { "kinetic": 12, "electrical": 8 },
+        "vulnerability": { "kinetic": 0.8, "electrical": 1.1 },
+        "disabled": false,
+        "tags": []
+      }
+    ],
+    "statuses": [],
+    "modifiers": [
+      {
+        "id": "character.guard.execution",
+        "layer": "CHARACTER",
+        "target": "defense.filter",
+        "operation": "percentage",
+        "value": 8,
+        "priority": 0,
+        "source_ref": "stance:guarded"
+      }
+    ],
+    "action_economy": {
+      "available": true,
+      "reaction_available": true,
+      "committed_until_turn": 0,
+      "action_capacity": 1,
+      "actions_remaining": 1,
+      "actions_reserved": 0,
+      "reaction_capacity": 1,
+      "reactions_remaining": 1,
+      "reactions_reserved": 0
+    },
+    "cooldowns": {},
+    "inventory_refs": ["shield.basic"],
+    "tags": ["stance:guarded"],
+    "extension_state": {}
+  },
+  "action": {
+    "id": "reference-strike-001",
+    "turn": 0,
+    "actor_id": "attacker",
+    "kind": "attack",
+    "phase": "declared",
+    "intent_text": null,
+    "targets": [
+      {
+        "type": "character",
+        "ref": "defender",
+        "position": null,
+        "body_zone": "core"
+      }
+    ],
+    "timing": {
+      "declared_at": 0,
+      "duration_seconds": 1,
+      "priority": 0,
+      "interrupt_window_seconds": 0.15
+    },
+    "attack": {
+      "delivery": "projectile",
+      "channels": { "kinetic": 0.8, "electrical": 0.2 },
+      "power": 24,
+      "accuracy": 8,
+      "speed": 32,
+      "penetration": 0.35,
+      "range": 20,
+      "area": {
+        "shape": "point",
+        "dimensions": {},
+        "falloff": "none"
+      },
+      "stability_impact": 28,
+      "status_effects": [
+        {
+          "status_id": "disrupted",
+          "potency": 80,
+          "duration_turns": 3,
+          "stacking_rule": "refresh"
+        }
+      ],
+      "quantity": 1
+      ,"targeting": {
+        "mode": "SINGLE",
+        "allocations": []
+      },
+      "interrupt_resistance": 0,
+      "batch_safety": "AUTO"
+    },
+    "defense": {
+      "method": "block",
+      "source_ref": "shield.basic",
+      "declared_coverage": 0.9,
+      "cost": {
+        "resource": "energy",
+        "amount": 5,
+        "timing": "reserve",
+        "mode": "PER_ACTION"
+      },
+      "fallback_method": null
+    },
+    "movement": null,
+    "strategy": null,
+    "subactions": [],
+    "costs": [
+      {
+        "resource": "energy",
+        "amount": 10,
+        "timing": "on_attempt",
+        "mode": "PER_ACTION"
+      }
+    ],
+    "modifiers": [
+      {
+        "id": "action.aim.accuracy",
+        "layer": "ACTION",
+        "target": "attack.accuracy",
+        "operation": "additive",
+        "value": 5,
+        "priority": 0,
+        "source_ref": "declared:aim"
+      }
+    ],
+    "tags": ["aimed", "uses_shielded_target"],
+    "depends_on": [],
+    "effects": {
+      "displacements": [],
+      "status_removals": []
+    },
+    "parser_trace": null,
+    "resolution": null,
+    "extension_payload": {
+      "core:incoming_momentum": 40
+    }
+  },
+  "registries": {
+    "defense_sources": {
+      "shield.basic": {
+        "available": true,
+        "automatic": false,
+        "base_filter": 24,
+        "compatibility": { "kinetic": 0.9, "electrical": 0.55 },
+        "penetration_compatibility": { "kinetic": 0.85, "electrical": 0.65 },
+        "geometry_overlap": 1,
+        "method_skill_bonus": 0.08,
+        "commitment_penalty": 0,
+        "stability_capacity": 4,
+        "anchor_capacity": 28
+      }
+    },
+    "body_penetration_compatibility": {
+      "kinetic": 0.9,
+      "electrical": 0.45
+    },
+    "status_definitions": {
+      "disrupted": {
+        "channel": "electrical",
+        "merge_policy": "refresh",
+        "priority": 0,
+        "max_stacks": null,
+        "intensity_cap": null,
+        "duration_cap": null,
+        "batch_aggregation": "none",
+        "tags": ["control_impairment"]
+      }
+    },
+    "commitment_delays_ms": {
+      "defender": 0
+    }
+  }
+}

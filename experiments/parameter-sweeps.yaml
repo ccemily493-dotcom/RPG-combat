@@ -1,0 +1,19 @@
+version: "0.2"
+canonical_unchanged: true
+sweeps:
+  defense_stat_weight_1d:
+    metric: defense_filter
+    suspicious_when_below: { value: 0.05, tunable: true }
+    dimensions:
+      - pointer: "defense.yaml#/resolution/step_3_base_capacity/stat_to_filter/value"
+        values: [0.35, 0.45, 0.55, 0.65, 0.75]
+    repeats: { value: 64, tunable: true }
+  power_vs_resistance_2d:
+    metric: health_damage
+    suspicious_when_above: { value: 50, tunable: true }
+    dimensions:
+      - pointer: "attack.yaml#/derived_offense/physical_power/physical_weight/value"
+        values: [0.75, 1.00, 1.25]
+      - pointer: "damage.yaml#/intrinsic_body_filter/resistance_weight/value"
+        values: [0.20, 0.35, 0.50]
+    repeats: { value: 64, tunable: true }

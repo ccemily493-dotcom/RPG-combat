@@ -1,0 +1,120 @@
+{
+  "version": "0.3",
+  "sweep": "defense_stat_weight_1d",
+  "canonicalUnchanged": true,
+  "matchup": "fighter:balanced vs civilian:balanced",
+  "metric": "defense_filter",
+  "seedPattern": "sweep:<combination>:<repeat>",
+  "dimensions": [
+    {
+      "pointer": "defense.yaml#/resolution/step_3_base_capacity/stat_to_filter/value",
+      "values": [
+        0.35,
+        0.45,
+        0.55,
+        0.65,
+        0.75
+      ]
+    }
+  ],
+  "repeats": 64,
+  "combinationCount": 5,
+  "rows": [
+    {
+      "combinationIndex": 0,
+      "overrides": [
+        {
+          "pointer": "defense.yaml#/resolution/step_3_base_capacity/stat_to_filter/value",
+          "value": 0.35
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 0.11861600980746,
+        "maximum": 0.12033722259801999,
+        "mean": 0.1195278624605725,
+        "median": 0.119535980181735,
+        "p05": 0.118836480018449,
+        "p95": 0.120280839364397,
+        "standardDeviation": 0.0004728841569820206
+      }
+    },
+    {
+      "combinationIndex": 1,
+      "overrides": [
+        {
+          "pointer": "defense.yaml#/resolution/step_3_base_capacity/stat_to_filter/value",
+          "value": 0.45
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 0.12883847060658002,
+        "maximum": 0.13113742151959001,
+        "mean": 0.12981629631479255,
+        "median": 0.12977517419957,
+        "p05": 0.129058343515559,
+        "p95": 0.1306008740081575,
+        "standardDeviation": 0.0004788826982718151
+      }
+    },
+    {
+      "combinationIndex": 2,
+      "overrides": [
+        {
+          "pointer": "defense.yaml#/resolution/step_3_base_capacity/stat_to_filter/value",
+          "value": 0.55
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 0.13891058288997,
+        "maximum": 0.14113349550525,
+        "mean": 0.14016486509102455,
+        "median": 0.14012442314349,
+        "p05": 0.13937659182352552,
+        "p95": 0.1409901454358815,
+        "standardDeviation": 0.0005053575437712148
+      }
+    },
+    {
+      "combinationIndex": 3,
+      "overrides": [
+        {
+          "pointer": "defense.yaml#/resolution/step_3_base_capacity/stat_to_filter/value",
+          "value": 0.65
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 0.1492152564917,
+        "maximum": 0.15220174897203,
+        "mean": 0.15070320093954948,
+        "median": 0.15067310554238,
+        "p05": 0.149723416199663,
+        "p95": 0.1518486822962875,
+        "standardDeviation": 0.0006439731367478031
+      }
+    },
+    {
+      "combinationIndex": 4,
+      "overrides": [
+        {
+          "pointer": "defense.yaml#/resolution/step_3_base_capacity/stat_to_filter/value",
+          "value": 0.75
+        }
+      ],
+      "metric": {
+        "count": 64,
+        "minimum": 0.15971328164237,
+        "maximum": 0.16255495818696,
+        "mean": 0.16110610181717797,
+        "median": 0.161070268578405,
+        "p05": 0.1598777645021735,
+        "p95": 0.162393423559488,
+        "standardDeviation": 0.0006809498886782073
+      }
+    }
+  ],
+  "rankedSuspicious": []
+}

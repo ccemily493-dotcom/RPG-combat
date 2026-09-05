@@ -1,0 +1,99 @@
+{
+  "generatedAt": "2026-09-05T07:16:08.893Z",
+  "rulesetVersion": "0.2",
+  "seedScheme": "simulation:<iteration>",
+  "totalEncounters": 5000,
+  "iterationsPerMatchup": 1000,
+  "elapsedMs": 4044.6238000000003,
+  "encountersPerSecond": 1236.2089151529988,
+  "invariantViolations": 0,
+  "assumptions": [
+    "Benchmark characters intentionally use their category default for every stat as neutral baselines; this is not a character-generation rule.",
+    "Every target declares the same generic block defense and every attack is a normalized kinetic projectile.",
+    "Only micro-variance changes between iterations; no tactical AI or action-selection randomness is present."
+  ],
+  "results": [
+    {
+      "matchup": "civilian vs civilian",
+      "iterations": 1000,
+      "qualityDistribution": {
+        "miss": 0,
+        "graze": 0.489,
+        "partial": 0.511,
+        "solid": 0
+      },
+      "averageHealthDamage": 13.599950000000003,
+      "minimumHealthDamage": 12.66,
+      "maximumHealthDamage": 14.55,
+      "averageStabilityDamage": 10.082330000000008,
+      "averageDefenseFilter": 0.15798500577577154
+    },
+    {
+      "matchup": "fighter vs civilian",
+      "iterations": 1000,
+      "qualityDistribution": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 0,
+        "solid": 1
+      },
+      "averageHealthDamage": 50.482880000000044,
+      "minimumHealthDamage": 50,
+      "maximumHealthDamage": 50.99,
+      "averageStabilityDamage": 27.109179999999995,
+      "averageDefenseFilter": 0.14024535892786313
+    },
+    {
+      "matchup": "fighter vs fighter",
+      "iterations": 1000,
+      "qualityDistribution": {
+        "miss": 0,
+        "graze": 0.501,
+        "partial": 0.499,
+        "solid": 0
+      },
+      "averageHealthDamage": 17.59357000000002,
+      "minimumHealthDamage": 16.28,
+      "maximumHealthDamage": 19.01,
+      "averageStabilityDamage": 9.89680000000001,
+      "averageDefenseFilter": 0.2374424481800713
+    },
+    {
+      "matchup": "elite vs fighter",
+      "iterations": 1000,
+      "qualityDistribution": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 1,
+        "solid": 0
+      },
+      "averageHealthDamage": 38.39390000000007,
+      "minimumHealthDamage": 37.47,
+      "maximumHealthDamage": 39.28,
+      "averageStabilityDamage": 21.43784,
+      "averageDefenseFilter": 0.22820305928892484
+    },
+    {
+      "matchup": "legendary vs civilian",
+      "iterations": 1000,
+      "qualityDistribution": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 0,
+        "solid": 1
+      },
+      "averageHealthDamage": 84.39434000000014,
+      "minimumHealthDamage": 83.53,
+      "maximumHealthDamage": 85.24,
+      "averageStabilityDamage": 37.69124999999996,
+      "averageDefenseFilter": 0.1402610734500513
+    }
+  ],
+  "suspicious": [
+    "fighter vs civilian: all attacks occupy one accuracy band; expected with ±1% variance, but balance is threshold-sensitive.",
+    "fighter vs civilian: average active defense filters under the provisional 15% diagnostic floor; inspect the weighted components and gates.",
+    "elite vs fighter: all attacks occupy one accuracy band; expected with ±1% variance, but balance is threshold-sensitive.",
+    "legendary vs civilian: all attacks occupy one accuracy band; expected with ±1% variance, but balance is threshold-sensitive.",
+    "legendary vs civilian: average active defense filters under the provisional 15% diagnostic floor; inspect the weighted components and gates."
+  ]
+}

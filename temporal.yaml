@@ -1,0 +1,92 @@
+spec_version: "0.3"
+document: temporal_state_and_session_scheduler
+status: provisional
+
+session_contract:
+  single_turn_resolver: resolveTurn
+  session_orchestrator_may_duplicate_combat_resolution: false
+  statuses: [ACTIVE, PAUSED, COMPLETED]
+  failed_step_returns_unchanged_snapshot: true
+  historical_snapshots_are_immutable: true
+
+phases:
+  order: [TURN_START, PRE_ACTION, ACTION_RESOLUTION, POST_ACTION, TURN_END]
+  deterministic_item_order: [activation_turn, phase_order, priority_descending, stable_id_lexicographic]
+  TURN_START:
+    operations: [activate_scheduled_effects, progress_cooldowns, expire_satisfied_conditions, recover_capacities, run_recovery_hooks]
+  PRE_ACTION:
+    operations: [evaluate_strategy_eligibility, evaluate_opportunity_triggers, inject_normalized_state_modifiers]
+  ACTION_RESOLUTION:
+    operations: [delegate_to_resolveTurn]
+  POST_ACTION:
+    operations: [record_mechanical_events, update_strategy_nodes, install_cooldowns, apply_scheduled_and_strategic_consequences]
+  TURN_END:
+    operations: [progress_durations, expire_state, bound_history, evaluate_session_termination]
+
+durations:
+  types: [TURN, PHASE, ACTION, REACTION_WINDOW, UNTIL_TRIGGERED, UNTIL_CONDITION, PERMANENT]
+  turn_decrement_phase: TURN_END
+  newly_created_turn_duration_decrements_immediately: false
+  phase_duration_decrements_after_matching_phase: true
+  action_duration_decrements_after_action_event: true
+  reaction_window_duration_decrements_after_reaction_window: true
+  until_triggered_expires_only_on_declared_trigger: true
+  until_condition_uses_declarative_predicate: true
+  permanent_never_decrements: true
+  negative_remaining_forbidden: true
+
+cooldowns:
+  supported_units: [TURN]
+  supported_starts: [ON_USE]
+  progress_phase: TURN_START
+  unavailable_while_remaining_above: { value: 0, tunable: false, reason: "zero is the availability boundary" }
+  default_key: action_id
+
+recovery:
+  phase: TURN_START
+  action_capacity:
+    restore_to_capacity: true
+  reaction_capacity:
+    restore_to_capacity: true
+  resources:
+    default_amount: { value: 0, tunable: true }
+    clamp_to_resource_maximum: true
+  stability:
+    default_amount: { value: 0, tunable: true }
+  hooks_require_explicit_state: true
+
+scheduled_effects:
+  activation_types: [TURN, PHASE, ACTION, CONDITION]
+  stable_id_required: true
+  normalized_payload_only: true
+  trigger_before_declared_point_forbidden: true
+  simultaneous_effects_merge_by_existing_turn_rules: true
+
+relational_state:
+  valid_entity_references_required: true
+  stable_ids_required: true
+  immutable_between_commits: true
+  supported_kinds: [BLIND_SPOT, TRACKING, PREPARED_COUNTER, FLANKING, BAIT, ISOLATION, ESCAPE_WINDOW, CUSTOM_CORE]
+  action_modifier_injection_uses_existing_modifier_engine: true
+
+mechanical_history:
+  maximum_turns: { value: 5, tunable: true }
+  normalized_events_only: true
+  deterministic_order: [turn_ascending, event_sequence_ascending]
+  unlimited_history_forbidden: true
+
+strategy_scheduler:
+  newly_unlocked_nodes_execute_same_step: false
+  eligible_nodes_are_one_dependency_layer_per_step: true
+  stable_order: [strategy_id_lexicographic, node_id_lexicographic]
+
+termination:
+  default_status: ACTIVE
+  default_predicates: []
+  zero_health_means_death: false
+  configured_predicates_only: true
+
+trace:
+  optional_return: true
+  mechanics_independent_of_return: true
+  sections: [starting_snapshot_hash, temporal_start, strategy_eligibility, node_execution, combat_resolution, state_consequences, strategy_transitions, temporal_end, resulting_snapshot_hash]

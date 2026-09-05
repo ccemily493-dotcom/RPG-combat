@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.3/defense-source-registry.schema.json",
+  "title": "Universal RPG Defense Source Registry v0.3",
+  "type": "object",
+  "additionalProperties": { "$ref": "#/$defs/source" },
+  "$defs": {
+    "compatibilityMap": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["available", "automatic", "base_filter", "compatibility", "penetration_compatibility", "geometry_overlap", "method_skill_bonus", "commitment_penalty", "stability_capacity"],
+      "properties": {
+        "available": { "type": "boolean" },
+        "automatic": { "type": "boolean" },
+        "base_filter": { "type": "number", "minimum": 0, "maximum": 100 },
+        "compatibility": { "$ref": "#/$defs/compatibilityMap" },
+        "penetration_compatibility": {
+          "oneOf": [
+            { "type": "number", "minimum": 0, "maximum": 1 },
+            { "$ref": "#/$defs/compatibilityMap" }
+          ]
+        },
+        "geometry_overlap": { "type": "number", "minimum": 0, "maximum": 1 },
+        "method_skill_bonus": { "type": "number" },
+        "commitment_penalty": { "type": "number", "minimum": 0 },
+        "stability_capacity": { "type": "number", "minimum": 0 },
+        "anchor_capacity": { "type": "number", "minimum": 0 },
+        "prepared": { "type": "boolean", "default": false },
+        "supported_methods": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "maximum_hits": { "type": ["integer", "null"], "minimum": 1 },
+        "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true, "default": [] }
+      }
+    }
+  }
+}
+

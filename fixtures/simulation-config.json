@@ -1,0 +1,30 @@
+{
+  "iterations_per_matchup": { "value": 1000, "tunable": true },
+  "attack": {
+    "base_power": { "value": 12, "tunable": true },
+    "base_accuracy": { "value": 0, "tunable": true },
+    "speed_per_movement": { "value": 0.5, "tunable": true },
+    "penetration": { "value": 0.2, "tunable": true },
+    "range": { "value": 20, "tunable": true },
+    "distance": { "value": 5, "tunable": true },
+    "stability_impact": { "value": 20, "tunable": true },
+    "energy_cost": { "value": 5, "tunable": true }
+  },
+  "defense_source": {
+    "base_filter": { "value": 20, "tunable": true },
+    "kinetic_compatibility": { "value": 0.85, "tunable": true },
+    "penetration_compatibility": { "value": 0.8, "tunable": true },
+    "coverage": { "value": 0.9, "tunable": true },
+    "energy_cost": { "value": 4, "tunable": true },
+    "stability_capacity": { "value": 3, "tunable": true }
+  },
+  "body": {
+    "kinetic_resistance": { "value": 12, "tunable": true },
+    "kinetic_vulnerability": { "value": 1, "tunable": true }
+  },
+  "resources": {
+    "health": { "value": 100, "tunable": true },
+    "stability": { "value": 100, "tunable": true },
+    "energy": { "value": 100, "tunable": true }
+  }
+}

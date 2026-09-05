@@ -1,0 +1,2413 @@
+{
+  "outcome": "committed",
+  "world": {
+    "simulation_id": "combat:E",
+    "ruleset_version": "0.3",
+    "turn": 1,
+    "time": {
+      "elapsed_seconds": 1,
+      "turn_duration_seconds": 1
+    },
+    "environment": {
+      "gravity_g": 1,
+      "medium": "air",
+      "visibility": 0.9,
+      "temperature_c": 20,
+      "terrain_tags": [
+        "flat"
+      ],
+      "hazards": []
+    },
+    "spatial_bounds": {
+      "min": {
+        "x": -100,
+        "y": -100,
+        "z": -10
+      },
+      "max": {
+        "x": 100,
+        "y": 100,
+        "z": 100
+      }
+    },
+    "entity_refs": [
+      "a",
+      "b"
+    ],
+    "geometry_refs": [],
+    "modifiers": [],
+    "previous_turn": {
+      "turn": 0,
+      "snapshot_hash": "d29929030472d53943c1e0380127b29a2ba2a14c083b419032884657ca3964c4",
+      "action_refs": [
+        "E.a-attacks",
+        "E.b-attacks"
+      ],
+      "events": [
+        {
+          "sequence": 0,
+          "type": "action_resolved",
+          "actor_refs": [
+            "a"
+          ],
+          "target_refs": [
+            "b"
+          ],
+          "action_ref": "E.a-attacks",
+          "payload": {
+            "outcome": "resolved",
+            "mode": "individual",
+            "represented_hits": 1
+          }
+        },
+        {
+          "sequence": 1,
+          "type": "action_resolved",
+          "actor_refs": [
+            "b"
+          ],
+          "target_refs": [
+            "a"
+          ],
+          "action_ref": "E.b-attacks",
+          "payload": {
+            "outcome": "resolved",
+            "mode": "individual",
+            "represented_hits": 1
+          }
+        }
+      ],
+      "resource_deltas": [
+        {
+          "character_id": "a",
+          "resource": "energy",
+          "delta": -4
+        },
+        {
+          "character_id": "a",
+          "resource": "health",
+          "delta": -15.95
+        },
+        {
+          "character_id": "a",
+          "resource": "stability",
+          "delta": -11.45
+        },
+        {
+          "character_id": "b",
+          "resource": "energy",
+          "delta": -4
+        },
+        {
+          "character_id": "b",
+          "resource": "health",
+          "delta": -62.18
+        },
+        {
+          "character_id": "b",
+          "resource": "stability",
+          "delta": -36.09
+        }
+      ],
+      "created_modifier_ids": [],
+      "expired_modifier_ids": [],
+      "status_changes": [],
+      "action_economy_changes": [
+        {
+          "characterId": "a",
+          "kind": "action",
+          "before": 2,
+          "after": 1,
+          "consumed": 1
+        },
+        {
+          "characterId": "b",
+          "kind": "action",
+          "before": 2,
+          "after": 1,
+          "consumed": 1
+        }
+      ],
+      "displacement_changes": [],
+      "conflicts": [],
+      "resulting_snapshot_hash": "4aaae7da7a77b1a86e040a37ba2d0d19f25750cd51247f96f2e1a00cda4ca0d7",
+      "summary_tags": [
+        "combat_turn",
+        "resolved"
+      ]
+    },
+    "extension_state": {}
+  },
+  "characters": {
+    "a": {
+      "id": "a",
+      "name": "a",
+      "category_profile": {
+        "default_category": "elite",
+        "per_stat": {
+          "energy_efficiency": "trained"
+        }
+      },
+      "resolved_stats": {
+        "physical_capability": 72,
+        "movement": 68,
+        "reaction": 66,
+        "coordination": 74,
+        "resistance": 62,
+        "perception": 70,
+        "strategy": 65,
+        "energy_capacity": 55,
+        "energy_output": 58,
+        "energy_control": 60,
+        "energy_efficiency": 42
+      },
+      "resources": {
+        "health": {
+          "current": 984.05,
+          "maximum": 1000
+        },
+        "stability": {
+          "current": 988.55,
+          "maximum": 1000
+        },
+        "energy": {
+          "current": 996,
+          "maximum": 1000
+        }
+      },
+      "harm_capacity": 112,
+      "transform": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "facing": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "posture": "standing"
+      },
+      "body_zones": [
+        {
+          "id": "core",
+          "allocation_weight": 1,
+          "resistance": {
+            "kinetic": 12,
+            "electrical": 8
+          },
+          "vulnerability": {
+            "kinetic": 1,
+            "electrical": 1
+          },
+          "disabled": false,
+          "tags": []
+        }
+      ],
+      "statuses": [],
+      "modifiers": [
+        {
+          "id": "character.role.power",
+          "layer": "CHARACTER",
+          "target": "attack.power",
+          "operation": "multiplicative",
+          "value": 1.05,
+          "priority": 0,
+          "source_ref": "role:striker"
+        }
+      ],
+      "action_economy": {
+        "available": true,
+        "reaction_available": true,
+        "committed_until_turn": 0,
+        "action_capacity": 2,
+        "actions_remaining": 1,
+        "actions_reserved": 0,
+        "reaction_capacity": 2,
+        "reactions_remaining": 2,
+        "reactions_reserved": 0
+      },
+      "cooldowns": {},
+      "inventory_refs": [],
+      "tags": [
+        "role:striker"
+      ],
+      "extension_state": {}
+    },
+    "b": {
+      "id": "b",
+      "name": "b",
+      "category_profile": {
+        "default_category": "fighter",
+        "per_stat": {
+          "perception": "trained"
+        }
+      },
+      "resolved_stats": {
+        "physical_capability": 55,
+        "movement": 50,
+        "reaction": 54,
+        "coordination": 58,
+        "resistance": 60,
+        "perception": 45,
+        "strategy": 50,
+        "energy_capacity": 55,
+        "energy_output": 48,
+        "energy_control": 52,
+        "energy_efficiency": 56
+      },
+      "resources": {
+        "health": {
+          "current": 937.82,
+          "maximum": 1000
+        },
+        "stability": {
+          "current": 963.91,
+          "maximum": 1000
+        },
+        "energy": {
+          "current": 996,
+          "maximum": 1000
+        }
+      },
+      "harm_capacity": 110,
+      "transform": {
+        "position": {
+          "x": 5,
+          "y": 0,
+          "z": 0
+        },
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "facing": {
+          "x": -1,
+          "y": 0,
+          "z": 0
+        },
+        "posture": "standing"
+      },
+      "body_zones": [
+        {
+          "id": "core",
+          "allocation_weight": 0.7,
+          "resistance": {
+            "kinetic": 18,
+            "electrical": 10
+          },
+          "vulnerability": {
+            "kinetic": 1,
+            "electrical": 1.25
+          },
+          "disabled": false,
+          "tags": [
+            "vital"
+          ]
+        },
+        {
+          "id": "arms",
+          "allocation_weight": 0.3,
+          "resistance": {
+            "kinetic": 12,
+            "electrical": 8
+          },
+          "vulnerability": {
+            "kinetic": 0.8,
+            "electrical": 1.1
+          },
+          "disabled": false,
+          "tags": []
+        }
+      ],
+      "statuses": [],
+      "modifiers": [
+        {
+          "id": "character.guard.execution",
+          "layer": "CHARACTER",
+          "target": "defense.filter",
+          "operation": "percentage",
+          "value": 8,
+          "priority": 0,
+          "source_ref": "stance:guarded"
+        }
+      ],
+      "action_economy": {
+        "available": true,
+        "reaction_available": true,
+        "committed_until_turn": 0,
+        "action_capacity": 2,
+        "actions_remaining": 1,
+        "actions_reserved": 0,
+        "reaction_capacity": 2,
+        "reactions_remaining": 2,
+        "reactions_reserved": 0
+      },
+      "cooldowns": {},
+      "inventory_refs": [
+        "shield.basic"
+      ],
+      "tags": [
+        "stance:guarded"
+      ],
+      "extension_state": {}
+    }
+  },
+  "actionResults": [
+    {
+      "id": "E.a-attacks",
+      "actorId": "a",
+      "kind": "attack",
+      "outcome": "resolved",
+      "resolutionMode": "individual",
+      "batchSafe": false,
+      "batchSafetyReasons": [],
+      "declaredQuantity": 1,
+      "representedHitCount": 1,
+      "targetAllocation": [
+        {
+          "targetId": "b",
+          "count": 1
+        }
+      ],
+      "qualityCounts": {
+        "miss": 0,
+        "graze": 0,
+        "partial": 0,
+        "solid": 1
+      },
+      "contactCount": 1,
+      "healthDamage": 62.18,
+      "stabilityDamage": 36.09,
+      "hits": [
+        {
+          "kind": "individual",
+          "targetId": "b",
+          "startIndex": 0,
+          "count": 1,
+          "quality": "solid",
+          "contactCount": 1,
+          "healthDamage": 62.18,
+          "stabilityDamage": 36.09,
+          "defenseFilter": 0,
+          "statuses": [],
+          "trace": {
+            "specVersion": "0.3",
+            "seed": "seed:E:action:E.a-attacks:target:b:index:0",
+            "inputHashes": {
+              "world": "54597261fc9b7a191014b1c5dd0db8b9d9b62aa1766b0419446f7e42cbef451e",
+              "actor": "e4c60fa0ab02cee2eeca6762ad01f5574a6d14760641fbaa857fef66a0a353f6",
+              "target": "5349364ea7cc4822b2db312ff3d77112810ebe54ae72d9ca89c0cfb3887f2cae",
+              "action": "741c38aa6c2c49e92efd40d0710fbdaa52aa246980c6d4ef49c456c334c7374c",
+              "registries": "61441b5513a19b855fa545cf6bbb415263a05a9a1756f3cc294a620dd30cb471"
+            },
+            "pipeline": [
+              "validate_and_snapshot",
+              "reserve_costs",
+              "target_and_geometry",
+              "accuracy_filter",
+              "speed_timing_filter",
+              "defense_resolution",
+              "penetration_application",
+              "damage_and_secondary_effects",
+              "commit_costs_and_state",
+              "emit_audit_record"
+            ],
+            "offense": {
+              "physical": true,
+              "selectedStats": [
+                "physical_capability",
+                "coordination",
+                "perception"
+              ],
+              "accuracyNormalization": {
+                "enabled": true,
+                "numerator": 58.2,
+                "weightTotal": 0.8,
+                "normalizedTerm": 72.75
+              },
+              "resolved": {
+                "power": {
+                  "baseValue": 80,
+                  "target": "attack.power",
+                  "activeModifierIds": [
+                    "character.role.power"
+                  ],
+                  "rejected": [],
+                  "steps": [
+                    {
+                      "id": "character.role.power",
+                      "layer": "CHARACTER",
+                      "operation": "multiplicative",
+                      "before": 80,
+                      "after": 84
+                    }
+                  ],
+                  "finalValue": 84
+                },
+                "accuracy": {
+                  "baseValue": 80.75,
+                  "target": "attack.accuracy",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.role.power",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 80.75
+                },
+                "speed": {
+                  "baseValue": 32,
+                  "target": "attack.speed",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.role.power",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 32
+                },
+                "penetration": {
+                  "baseValue": 0.35,
+                  "target": "attack.penetration",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.role.power",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 0.35
+                },
+                "range": {
+                  "baseValue": 20,
+                  "target": "attack.range",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.role.power",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 20
+                },
+                "stabilityImpact": {
+                  "baseValue": 28,
+                  "target": "attack.stability_impact",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.role.power",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 28
+                }
+              },
+              "varied": {
+                "power": {
+                  "input": 84,
+                  "key": "seed:E:action:E.a-attacks:target:b:index:0\u001fcombat:E\u001f0\u001fE.a-attacks::probe:b:0\u001fb\u001fattack.power",
+                  "distribution": "centered_triangular",
+                  "samples": [
+                    0.9940997298415905,
+                    0.8846424484862458
+                  ],
+                  "sample": 0.9393710891639182,
+                  "factor": 1.008787421783279,
+                  "minimum": 0.99,
+                  "maximum": 1.01,
+                  "output": 84.738143429795
+                },
+                "accuracy": {
+                  "input": 80.75,
+                  "key": "seed:E:action:E.a-attacks:target:b:index:0\u001fcombat:E\u001f0\u001fE.a-attacks::probe:b:0\u001fb\u001fattack.accuracy",
+                  "distribution": "centered_triangular",
+                  "samples": [
+                    0.9398891036588034,
+                    0.035904490659449374
+                  ],
+                  "sample": 0.48789679715912637,
+                  "factor": 0.999757935943183,
+                  "minimum": 0.99,
+                  "maximum": 1.01,
+                  "output": 80.730453327412
+                },
+                "speed": {
+                  "input": 32,
+                  "key": "seed:E:action:E.a-attacks:target:b:index:0\u001fcombat:E\u001f0\u001fE.a-attacks::probe:b:0\u001fb\u001fattack.speed",
+                  "distribution": "centered_triangular",
+                  "samples": [
+                    0.8819101876621792,
+                    0.5638696004741275
+                  ],
+                  "sample": 0.7228898940681534,
+                  "factor": 1.004457797881363,
+                  "minimum": 0.99,
+                  "maximum": 1.01,
+                  "output": 32.142649532204
+                },
+                "penetration": {
+                  "input": 0.35,
+                  "key": "seed:E:action:E.a-attacks:target:b:index:0\u001fcombat:E\u001f0\u001fE.a-attacks::probe:b:0\u001fb\u001fattack.penetration",
+                  "distribution": "centered_triangular",
+                  "samples": [
+                    0.6401373287173324,
+                    0.17284481644826089
+                  ],
+                  "sample": 0.40649107258279665,
+                  "factor": 0.998129821451656,
+                  "minimum": 0.99,
+                  "maximum": 1.01,
+                  "output": 0.349345437508
+                },
+                "range": {
+                  "input": 20,
+                  "key": "seed:E:action:E.a-attacks:target:b:index:0\u001fcombat:E\u001f0\u001fE.a-attacks::probe:b:0\u001fb\u001fattack.range",
+                  "distribution": "centered_triangular",
+                  "samples": [
+                    0.607899875088817,
+                    0.5052325331340592
+                  ],
+                  "sample": 0.5565662041114381,
+                  "factor": 1.001131324082229,
+                  "minimum": 0.99,
+                  "maximum": 1.01,
+                  "output": 20.022626481645
+                },
+                "stabilityImpact": {
+                  "input": 28,
+                  "key": "seed:E:action:E.a-attacks:target:b:index:0\u001fcombat:E\u001f0\u001fE.a-attacks::probe:b:0\u001fb\u001fattack.stability_impact",
+                  "distribution": "centered_triangular",
+                  "samples": [
+                    0.19409039275091092,
+                    0.7788798457102831
+                  ],
+                  "sample": 0.486485119230597,
+                  "factor": 0.999729702384612,
+                  "minimum": 0.99,
+                  "maximum": 1.01,
+                  "output": 27.992431666769
+                }
+              }
+            },
+            "multiAttack": {
+              "mode": "individual",
+              "quantity": 1,
+              "powerPerAttack": 84.738143429795,
+              "totalPower": 84.738143429795,
+              "costTotals": {},
+              "groups": [
+                {
+                  "kind": "individual",
+                  "startIndex": 0,
+                  "count": 1,
+                  "representedPower": 84.738143429795
+                }
+              ],
+              "representedCount": 1,
+              "representedPower": 84.738143429795
+            },
+            "geometry": {
+              "distance": 5,
+              "range": 20.022626481645,
+              "inRange": true,
+              "shape": "point",
+              "falloff": "none",
+              "falloffFactor": 1,
+              "overlapFraction": 1,
+              "areaFactor": 1,
+              "projectedArea": 0,
+              "areaAccuracyBonus": 0
+            },
+            "accuracy": {
+              "attackScore": 80.730453327412,
+              "targetScore": {
+                "baseValue": 53.4,
+                "target": "defense.avoidance",
+                "activeModifierIds": [],
+                "rejected": [
+                  {
+                    "id": "character.guard.execution",
+                    "reason": "target_mismatch"
+                  }
+                ],
+                "steps": [],
+                "finalValue": 53.4
+              },
+              "targetNormalization": {
+                "enabled": true,
+                "numerator": 53.4,
+                "weightTotal": 1,
+                "normalizedTerm": 53.4
+              },
+              "margin": 27.330453327411995,
+              "quality": "solid",
+              "exposureFactor": 1
+            },
+            "timing": {
+              "responseLatencyMs": 330,
+              "latencyTrace": {
+                "baseValue": 330,
+                "target": "defense.response_latency",
+                "activeModifierIds": [],
+                "rejected": [
+                  {
+                    "id": "character.guard.execution",
+                    "reason": "target_mismatch"
+                  }
+                ],
+                "steps": [],
+                "finalValue": 330
+              },
+              "arrivalMs": 155.55656029508262,
+              "commitmentDelayMs": 0,
+              "marginMs": -174.44343970491738,
+              "factor": 0.15111312059
+            },
+            "defense": {
+              "attempted": false,
+              "feasible": false,
+              "reason": "not_declared",
+              "prePenetrationFilter": 0,
+              "filter": 0,
+              "filterPercent": 0,
+              "costPaid": 0,
+              "stabilityLoss": 0,
+              "displacement": 0
+            },
+            "damage": {
+              "zoneId": "core",
+              "contactPower": 84.738143429795,
+              "channels": [
+                {
+                  "channel": "electrical",
+                  "share": 0.2,
+                  "immunity": false,
+                  "baseBodyFilter": 31,
+                  "bodyPenetrationCompatibility": 0.45,
+                  "bodyAfterPenetration": 26.1266311467634,
+                  "activeAfterPenetration": 0,
+                  "combinedFilter": 0.261266311467634,
+                  "residualPower": 12.519784251055427,
+                  "conversion": 0.8,
+                  "vulnerability": 1.25,
+                  "harm": 12.519784251055428
+                },
+                {
+                  "channel": "kinetic",
+                  "share": 0.8,
+                  "immunity": false,
+                  "baseBodyFilter": 39,
+                  "bodyPenetrationCompatibility": 0.9,
+                  "bodyAfterPenetration": 26.7379751434692,
+                  "activeAfterPenetration": 0,
+                  "combinedFilter": 0.26737975143469206,
+                  "residualPower": 49.664703761999306,
+                  "conversion": 1,
+                  "vulnerability": 1,
+                  "harm": 49.664703761999306
+                }
+              ],
+              "zoneHarm": 62.18448801305473,
+              "capacityScale": 1.1,
+              "harmCapacityMultiplier": {
+                "ratio": 1.1,
+                "multiplier": 1,
+                "lower": {
+                  "ratio": 1,
+                  "multiplier": 1,
+                  "label": "normal"
+                },
+                "upper": {
+                  "ratio": 1,
+                  "multiplier": 1,
+                  "label": "normal"
+                }
+              },
+              "healthDamage": 62.18,
+              "weightedCombinedFilter": 0.26615706344128043,
+              "stabilityDamage": 36.09
+            },
+            "statuses": [],
+            "outcome": "success",
+            "stateMutations": [
+              {
+                "type": "action_economy",
+                "role": "actor",
+                "characterId": "a",
+                "field": "actions_remaining",
+                "before": 2,
+                "after": 1
+              },
+              {
+                "type": "action_economy",
+                "role": "actor",
+                "characterId": "a",
+                "field": "available",
+                "before": true,
+                "after": true
+              },
+              {
+                "type": "health",
+                "role": "target",
+                "characterId": "b",
+                "before": 1000,
+                "after": 937.82,
+                "delta": -62.17999999999995,
+                "reason": "resolved_damage"
+              },
+              {
+                "type": "stability",
+                "role": "target",
+                "characterId": "b",
+                "before": 1000,
+                "after": 963.91,
+                "delta": -36.09000000000003,
+                "reason": "resolved_stability"
+              }
+            ],
+            "outputHashes": {
+              "world": "6978259badb082786483add5e9e03ce97cd6fd2a2794a5ca09c639d5fcc28453",
+              "actor": "89629261a5cf2047c4d98521d3f4323856551d02f0a34deaf021a8856459f26e",
+              "target": "2776a0a64f2763beac62ebb65b2c0728d1382f460e097d25e8b42f6e75e103a5"
+            }
+          }
+        }
+      ],
+      "costs": [
+        {
+          "index": 0,
+          "resource": "energy",
+          "mode": "PER_ACTION",
+          "timing": "on_attempt",
+          "maximumAmount": 4,
+          "committedAmount": 4
+        }
+      ],
+      "interruption": null
+    },
+    {
+      "id": "E.b-attacks",
+      "actorId": "b",
+      "kind": "attack",
+      "outcome": "resolved",
+      "resolutionMode": "individual",
+      "batchSafe": false,
+      "batchSafetyReasons": [],
+      "declaredQuantity": 1,
+      "representedHitCount": 1,
+      "targetAllocation": [
+        {
+          "targetId": "a",
+          "count": 1
+        }
+      ],
+      "qualityCounts": {
+        "miss": 0,
+        "graze": 1,
+        "partial": 0,
+        "solid": 0
+      },
+      "contactCount": 1,
+      "healthDamage": 15.95,
+      "stabilityDamage": 11.45,
+      "hits": [
+        {
+          "kind": "individual",
+          "targetId": "a",
+          "startIndex": 0,
+          "count": 1,
+          "quality": "graze",
+          "contactCount": 1,
+          "healthDamage": 15.95,
+          "stabilityDamage": 11.45,
+          "defenseFilter": 0,
+          "statuses": [],
+          "trace": {
+            "specVersion": "0.3",
+            "seed": "seed:E:action:E.b-attacks:target:a:index:0",
+            "inputHashes": {
+              "world": "54597261fc9b7a191014b1c5dd0db8b9d9b62aa1766b0419446f7e42cbef451e",
+              "actor": "5349364ea7cc4822b2db312ff3d77112810ebe54ae72d9ca89c0cfb3887f2cae",
+              "target": "e4c60fa0ab02cee2eeca6762ad01f5574a6d14760641fbaa857fef66a0a353f6",
+              "action": "992ae8c96150706eed4e1f140421fa89f6920479a6b96276b5ad24ef5521fa39",
+              "registries": "61441b5513a19b855fa545cf6bbb415263a05a9a1756f3cc294a620dd30cb471"
+            },
+            "pipeline": [
+              "validate_and_snapshot",
+              "reserve_costs",
+              "target_and_geometry",
+              "accuracy_filter",
+              "speed_timing_filter",
+              "defense_resolution",
+              "penetration_application",
+              "damage_and_secondary_effects",
+              "commit_costs_and_state",
+              "emit_audit_record"
+            ],
+            "offense": {
+              "physical": true,
+              "selectedStats": [
+                "physical_capability",
+                "coordination",
+                "perception"
+              ],
+              "accuracyNormalization": {
+                "enabled": true,
+                "numerator": 43.150000000000006,
+                "weightTotal": 0.8,
+                "normalizedTerm": 53.93750000000001
+              },
+              "resolved": {
+                "power": {
+                  "baseValue": 63,
+                  "target": "attack.power",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.guard.execution",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 63
+                },
+                "accuracy": {
+                  "baseValue": 61.93750000000001,
+                  "target": "attack.accuracy",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.guard.execution",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 61.9375
+                },
+                "speed": {
+                  "baseValue": 32,
+                  "target": "attack.speed",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.guard.execution",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 32
+                },
+                "penetration": {
+                  "baseValue": 0.35,
+                  "target": "attack.penetration",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.guard.execution",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 0.35
+                },
+                "range": {
+                  "baseValue": 20,
+                  "target": "attack.range",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.guard.execution",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 20
+                },
+                "stabilityImpact": {
+                  "baseValue": 28,
+                  "target": "attack.stability_impact",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.guard.execution",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 28
+                }
+              },
+              "varied": {
+                "power": {
+                  "input": 63,
+                  "key": "seed:E:action:E.b-attacks:target:a:index:0\u001fcombat:E\u001f0\u001fE.b-attacks::probe:a:0\u001fa\u001fattack.power",
+                  "distribution": "centered_triangular",
+                  "samples": [
+                    0.2653886277477155,
+                    0.13333477120585
+                  ],
+                  "sample": 0.19936169947678273,
+                  "factor": 0.993987233989536,
+                  "minimum": 0.99,
+                  "maximum": 1.01,
+                  "output": 62.621195741341
+                },
+                "accuracy": {
+                  "input": 61.9375,
+                  "key": "seed:E:action:E.b-attacks:target:a:index:0\u001fcombat:E\u001f0\u001fE.b-attacks::probe:a:0\u001fa\u001fattack.accuracy",
+                  "distribution": "centered_triangular",
+                  "samples": [
+                    0.4458905409115324,
+                    0.45962110860480293
+                  ],
+                  "sample": 0.45275582475816767,
+                  "factor": 0.999055116495164,
+                  "minimum": 0.99,
+                  "maximum": 1.01,
+                  "output": 61.878976277919
+                },
+                "speed": {
+                  "input": 32,
+                  "key": "seed:E:action:E.b-attacks:target:a:index:0\u001fcombat:E\u001f0\u001fE.b-attacks::probe:a:0\u001fa\u001fattack.speed",
+                  "distribution": "centered_triangular",
+                  "samples": [
+                    0.9622148539582267,
+                    0.10661264356257376
+                  ],
+                  "sample": 0.5344137487604003,
+                  "factor": 1.000688274975208,
+                  "minimum": 0.99,
+                  "maximum": 1.01,
+                  "output": 32.022024799207
+                },
+                "penetration": {
+                  "input": 0.35,
+                  "key": "seed:E:action:E.b-attacks:target:a:index:0\u001fcombat:E\u001f0\u001fE.b-attacks::probe:a:0\u001fa\u001fattack.penetration",
+                  "distribution": "centered_triangular",
+                  "samples": [
+                    0.47762779380235165,
+                    0.8660567374938488
+                  ],
+                  "sample": 0.6718422656481002,
+                  "factor": 1.003436845312962,
+                  "minimum": 0.99,
+                  "maximum": 1.01,
+                  "output": 0.35120289586
+                },
+                "range": {
+                  "input": 20,
+                  "key": "seed:E:action:E.b-attacks:target:a:index:0\u001fcombat:E\u001f0\u001fE.b-attacks::probe:a:0\u001fa\u001fattack.range",
+                  "distribution": "centered_triangular",
+                  "samples": [
+                    0.7682463415908184,
+                    0.14661250652249735
+                  ],
+                  "sample": 0.4574294240566579,
+                  "factor": 0.999148588481133,
+                  "minimum": 0.99,
+                  "maximum": 1.01,
+                  "output": 19.982971769623
+                },
+                "stabilityImpact": {
+                  "input": 28,
+                  "key": "seed:E:action:E.b-attacks:target:a:index:0\u001fcombat:E\u001f0\u001fE.b-attacks::probe:a:0\u001fa\u001fattack.stability_impact",
+                  "distribution": "centered_triangular",
+                  "samples": [
+                    0.620874994796112,
+                    0.9736139223896905
+                  ],
+                  "sample": 0.7972444585929013,
+                  "factor": 1.005944889171858,
+                  "minimum": 0.99,
+                  "maximum": 1.01,
+                  "output": 28.166456896812
+                }
+              }
+            },
+            "multiAttack": {
+              "mode": "individual",
+              "quantity": 1,
+              "powerPerAttack": 62.621195741341,
+              "totalPower": 62.621195741341,
+              "costTotals": {},
+              "groups": [
+                {
+                  "kind": "individual",
+                  "startIndex": 0,
+                  "count": 1,
+                  "representedPower": 62.621195741341
+                }
+              ],
+              "representedCount": 1,
+              "representedPower": 62.621195741341
+            },
+            "geometry": {
+              "distance": 5,
+              "range": 19.982971769623,
+              "inRange": true,
+              "shape": "point",
+              "falloff": "none",
+              "falloffFactor": 1,
+              "overlapFraction": 1,
+              "areaFactor": 1,
+              "projectedArea": 0,
+              "areaAccuracyBonus": 0
+            },
+            "accuracy": {
+              "attackScore": 61.878976277919,
+              "targetScore": {
+                "baseValue": 68.8,
+                "target": "defense.avoidance",
+                "activeModifierIds": [],
+                "rejected": [
+                  {
+                    "id": "character.role.power",
+                    "reason": "target_mismatch"
+                  }
+                ],
+                "steps": [],
+                "finalValue": 68.8
+              },
+              "targetNormalization": {
+                "enabled": true,
+                "numerator": 68.8,
+                "weightTotal": 1,
+                "normalizedTerm": 68.8
+              },
+              "margin": -6.921023722080996,
+              "quality": "graze",
+              "exposureFactor": 0.346184644169
+            },
+            "timing": {
+              "responseLatencyMs": 270,
+              "latencyTrace": {
+                "baseValue": 270,
+                "target": "defense.response_latency",
+                "activeModifierIds": [],
+                "rejected": [
+                  {
+                    "id": "character.role.power",
+                    "reason": "target_mismatch"
+                  }
+                ],
+                "steps": [],
+                "finalValue": 270
+              },
+              "arrivalMs": 156.14253100334307,
+              "commitmentDelayMs": 0,
+              "marginMs": -113.85746899665693,
+              "factor": 0.272285062007
+            },
+            "defense": {
+              "attempted": false,
+              "feasible": false,
+              "reason": "not_declared",
+              "prePenetrationFilter": 0,
+              "filter": 0,
+              "filterPercent": 0,
+              "costPaid": 0,
+              "stabilityLoss": 0,
+              "displacement": 0
+            },
+            "damage": {
+              "zoneId": "core",
+              "contactPower": 21.678496365153432,
+              "channels": [
+                {
+                  "channel": "electrical",
+                  "share": 0.2,
+                  "immunity": false,
+                  "baseBodyFilter": 29.7,
+                  "bodyPenetrationCompatibility": 0.45,
+                  "bodyAfterPenetration": 25.006173296831097,
+                  "activeAfterPenetration": 0,
+                  "combinedFilter": 0.250061732968311,
+                  "residualPower": 3.251506799187187,
+                  "conversion": 0.8,
+                  "vulnerability": 1,
+                  "harm": 2.6012054393497497
+                },
+                {
+                  "channel": "kinetic",
+                  "share": 0.8,
+                  "immunity": false,
+                  "baseBodyFilter": 33.7,
+                  "bodyPenetrationCompatibility": 0.9,
+                  "bodyAfterPenetration": 23.048016168566203,
+                  "activeAfterPenetration": 0,
+                  "combinedFilter": 0.230480161685662,
+                  "residualPower": 13.345626414248668,
+                  "conversion": 1,
+                  "vulnerability": 1,
+                  "harm": 13.345626414248668
+                }
+              ],
+              "zoneHarm": 15.946831853598418,
+              "capacityScale": 1.12,
+              "harmCapacityMultiplier": {
+                "ratio": 1.12,
+                "multiplier": 1,
+                "lower": {
+                  "ratio": 1,
+                  "multiplier": 1,
+                  "label": "normal"
+                },
+                "upper": {
+                  "ratio": 1,
+                  "multiplier": 1,
+                  "label": "normal"
+                }
+              },
+              "healthDamage": 15.95,
+              "weightedCombinedFilter": 0.23439647594219182,
+              "stabilityDamage": 11.45
+            },
+            "statuses": [],
+            "outcome": "partial",
+            "stateMutations": [
+              {
+                "type": "action_economy",
+                "role": "actor",
+                "characterId": "b",
+                "field": "actions_remaining",
+                "before": 2,
+                "after": 1
+              },
+              {
+                "type": "action_economy",
+                "role": "actor",
+                "characterId": "b",
+                "field": "available",
+                "before": true,
+                "after": true
+              },
+              {
+                "type": "health",
+                "role": "target",
+                "characterId": "a",
+                "before": 1000,
+                "after": 984.05,
+                "delta": -15.950000000000045,
+                "reason": "resolved_damage"
+              },
+              {
+                "type": "stability",
+                "role": "target",
+                "characterId": "a",
+                "before": 1000,
+                "after": 988.55,
+                "delta": -11.450000000000045,
+                "reason": "resolved_stability"
+              }
+            ],
+            "outputHashes": {
+              "world": "d586755306c657ca3237c9d6154f9339e8025bd16c783a422ee5d11afba45017",
+              "actor": "35ec3c92e536ca0cbc430686d8361dffa22990a6b45bff51ac4c27b015f958b9",
+              "target": "c347975e21e794f18d937f3a726dc1b29551e14bfdc857b301b479e5231a4f83"
+            }
+          }
+        }
+      ],
+      "costs": [
+        {
+          "index": 0,
+          "resource": "energy",
+          "mode": "PER_ACTION",
+          "timing": "on_attempt",
+          "maximumAmount": 4,
+          "committedAmount": 4
+        }
+      ],
+      "interruption": null
+    }
+  ],
+  "reactionResults": [],
+  "events": [
+    {
+      "sequence": 0,
+      "type": "action_resolved",
+      "actor_refs": [
+        "a"
+      ],
+      "target_refs": [
+        "b"
+      ],
+      "action_ref": "E.a-attacks",
+      "payload": {
+        "outcome": "resolved",
+        "mode": "individual",
+        "represented_hits": 1
+      }
+    },
+    {
+      "sequence": 1,
+      "type": "action_resolved",
+      "actor_refs": [
+        "b"
+      ],
+      "target_refs": [
+        "a"
+      ],
+      "action_ref": "E.b-attacks",
+      "payload": {
+        "outcome": "resolved",
+        "mode": "individual",
+        "represented_hits": 1
+      }
+    }
+  ],
+  "conflicts": [],
+  "resultHash": "29de811a475b205f783eea11246cbec7cd1712ecf92992a52963545f59bf824e",
+  "replayInformation": {
+    "inputHash": "140eb1d4fe65879e17db96b392599e1d080edbad3792df6502653cf0a60b8434",
+    "configurationHash": "abbfd80526e85bd73c298d22bbf80f74c9b5fc43cd425645d61e4dfdb8fa46bf",
+    "traceHash": "a159783b2a44de11a3034b9e1375e330038a124ba53e266478539e9d9fe3b4ed",
+    "resultHash": "29de811a475b205f783eea11246cbec7cd1712ecf92992a52963545f59bf824e"
+  },
+  "trace": {
+    "specVersion": "0.3",
+    "seed": "seed:E",
+    "startingSnapshotHash": "d29929030472d53943c1e0380127b29a2ba2a14c083b419032884657ca3964c4",
+    "declarations": {
+      "actionHashes": {
+        "E.a-attacks": "43d1a7ab83295d5027ea5928ce573e238be7a2f977a3e2a84a3b5ea9089a3d4e",
+        "E.b-attacks": "b9210bc64df7fae886b97380fb6820e8cdf329b4d2a6b933a51a204ae78d72e6"
+      },
+      "reactionHashes": {}
+    },
+    "validation": {
+      "actionCount": 2,
+      "reactionCount": 0,
+      "characterCount": 2,
+      "actionIds": [
+        "E.a-attacks",
+        "E.b-attacks"
+      ],
+      "reactionIds": [],
+      "registryHashes": {
+        "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
+        "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
+      }
+    },
+    "reservations": [
+      {
+        "type": "action_economy",
+        "characterId": "a",
+        "amount": 1,
+        "totalReserved": 1,
+        "reason": "action:E.a-attacks"
+      },
+      {
+        "type": "resource",
+        "characterId": "a",
+        "resource": "energy",
+        "amount": 4,
+        "totalReserved": 4,
+        "reason": "action:E.a-attacks:cost:0"
+      },
+      {
+        "type": "action_economy",
+        "characterId": "b",
+        "amount": 1,
+        "totalReserved": 1,
+        "reason": "action:E.b-attacks"
+      },
+      {
+        "type": "resource",
+        "characterId": "b",
+        "resource": "energy",
+        "amount": 4,
+        "totalReserved": 4,
+        "reason": "action:E.b-attacks:cost:0"
+      }
+    ],
+    "ordering": {
+      "stages": [
+        "explicit_dependencies",
+        "timing.declared_at_ascending",
+        "timing.priority_descending",
+        "actor.resolved_stats.movement_descending",
+        "action.id_lexicographic"
+      ],
+      "actionIds": [
+        "E.a-attacks",
+        "E.b-attacks"
+      ],
+      "finalTieBreaker": "action.id"
+    },
+    "reactions": [],
+    "actionResolutions": [
+      {
+        "id": "E.a-attacks",
+        "actorId": "a",
+        "kind": "attack",
+        "outcome": "resolved",
+        "resolutionMode": "individual",
+        "batchSafe": false,
+        "batchSafetyReasons": [],
+        "declaredQuantity": 1,
+        "representedHitCount": 1,
+        "targetAllocation": [
+          {
+            "targetId": "b",
+            "count": 1
+          }
+        ],
+        "qualityCounts": {
+          "miss": 0,
+          "graze": 0,
+          "partial": 0,
+          "solid": 1
+        },
+        "contactCount": 1,
+        "healthDamage": 62.18,
+        "stabilityDamage": 36.09,
+        "hits": [
+          {
+            "kind": "individual",
+            "targetId": "b",
+            "startIndex": 0,
+            "count": 1,
+            "quality": "solid",
+            "contactCount": 1,
+            "healthDamage": 62.18,
+            "stabilityDamage": 36.09,
+            "defenseFilter": 0,
+            "statuses": [],
+            "trace": {
+              "specVersion": "0.3",
+              "seed": "seed:E:action:E.a-attacks:target:b:index:0",
+              "inputHashes": {
+                "world": "54597261fc9b7a191014b1c5dd0db8b9d9b62aa1766b0419446f7e42cbef451e",
+                "actor": "e4c60fa0ab02cee2eeca6762ad01f5574a6d14760641fbaa857fef66a0a353f6",
+                "target": "5349364ea7cc4822b2db312ff3d77112810ebe54ae72d9ca89c0cfb3887f2cae",
+                "action": "741c38aa6c2c49e92efd40d0710fbdaa52aa246980c6d4ef49c456c334c7374c",
+                "registries": "61441b5513a19b855fa545cf6bbb415263a05a9a1756f3cc294a620dd30cb471"
+              },
+              "pipeline": [
+                "validate_and_snapshot",
+                "reserve_costs",
+                "target_and_geometry",
+                "accuracy_filter",
+                "speed_timing_filter",
+                "defense_resolution",
+                "penetration_application",
+                "damage_and_secondary_effects",
+                "commit_costs_and_state",
+                "emit_audit_record"
+              ],
+              "offense": {
+                "physical": true,
+                "selectedStats": [
+                  "physical_capability",
+                  "coordination",
+                  "perception"
+                ],
+                "accuracyNormalization": {
+                  "enabled": true,
+                  "numerator": 58.2,
+                  "weightTotal": 0.8,
+                  "normalizedTerm": 72.75
+                },
+                "resolved": {
+                  "power": {
+                    "baseValue": 80,
+                    "target": "attack.power",
+                    "activeModifierIds": [
+                      "character.role.power"
+                    ],
+                    "rejected": [],
+                    "steps": [
+                      {
+                        "id": "character.role.power",
+                        "layer": "CHARACTER",
+                        "operation": "multiplicative",
+                        "before": 80,
+                        "after": 84
+                      }
+                    ],
+                    "finalValue": 84
+                  },
+                  "accuracy": {
+                    "baseValue": 80.75,
+                    "target": "attack.accuracy",
+                    "activeModifierIds": [],
+                    "rejected": [
+                      {
+                        "id": "character.role.power",
+                        "reason": "target_mismatch"
+                      }
+                    ],
+                    "steps": [],
+                    "finalValue": 80.75
+                  },
+                  "speed": {
+                    "baseValue": 32,
+                    "target": "attack.speed",
+                    "activeModifierIds": [],
+                    "rejected": [
+                      {
+                        "id": "character.role.power",
+                        "reason": "target_mismatch"
+                      }
+                    ],
+                    "steps": [],
+                    "finalValue": 32
+                  },
+                  "penetration": {
+                    "baseValue": 0.35,
+                    "target": "attack.penetration",
+                    "activeModifierIds": [],
+                    "rejected": [
+                      {
+                        "id": "character.role.power",
+                        "reason": "target_mismatch"
+                      }
+                    ],
+                    "steps": [],
+                    "finalValue": 0.35
+                  },
+                  "range": {
+                    "baseValue": 20,
+                    "target": "attack.range",
+                    "activeModifierIds": [],
+                    "rejected": [
+                      {
+                        "id": "character.role.power",
+                        "reason": "target_mismatch"
+                      }
+                    ],
+                    "steps": [],
+                    "finalValue": 20
+                  },
+                  "stabilityImpact": {
+                    "baseValue": 28,
+                    "target": "attack.stability_impact",
+                    "activeModifierIds": [],
+                    "rejected": [
+                      {
+                        "id": "character.role.power",
+                        "reason": "target_mismatch"
+                      }
+                    ],
+                    "steps": [],
+                    "finalValue": 28
+                  }
+                },
+                "varied": {
+                  "power": {
+                    "input": 84,
+                    "key": "seed:E:action:E.a-attacks:target:b:index:0\u001fcombat:E\u001f0\u001fE.a-attacks::probe:b:0\u001fb\u001fattack.power",
+                    "distribution": "centered_triangular",
+                    "samples": [
+                      0.9940997298415905,
+                      0.8846424484862458
+                    ],
+                    "sample": 0.9393710891639182,
+                    "factor": 1.008787421783279,
+                    "minimum": 0.99,
+                    "maximum": 1.01,
+                    "output": 84.738143429795
+                  },
+                  "accuracy": {
+                    "input": 80.75,
+                    "key": "seed:E:action:E.a-attacks:target:b:index:0\u001fcombat:E\u001f0\u001fE.a-attacks::probe:b:0\u001fb\u001fattack.accuracy",
+                    "distribution": "centered_triangular",
+                    "samples": [
+                      0.9398891036588034,
+                      0.035904490659449374
+                    ],
+                    "sample": 0.48789679715912637,
+                    "factor": 0.999757935943183,
+                    "minimum": 0.99,
+                    "maximum": 1.01,
+                    "output": 80.730453327412
+                  },
+                  "speed": {
+                    "input": 32,
+                    "key": "seed:E:action:E.a-attacks:target:b:index:0\u001fcombat:E\u001f0\u001fE.a-attacks::probe:b:0\u001fb\u001fattack.speed",
+                    "distribution": "centered_triangular",
+                    "samples": [
+                      0.8819101876621792,
+                      0.5638696004741275
+                    ],
+                    "sample": 0.7228898940681534,
+                    "factor": 1.004457797881363,
+                    "minimum": 0.99,
+                    "maximum": 1.01,
+                    "output": 32.142649532204
+                  },
+                  "penetration": {
+                    "input": 0.35,
+                    "key": "seed:E:action:E.a-attacks:target:b:index:0\u001fcombat:E\u001f0\u001fE.a-attacks::probe:b:0\u001fb\u001fattack.penetration",
+                    "distribution": "centered_triangular",
+                    "samples": [
+                      0.6401373287173324,
+                      0.17284481644826089
+                    ],
+                    "sample": 0.40649107258279665,
+                    "factor": 0.998129821451656,
+                    "minimum": 0.99,
+                    "maximum": 1.01,
+                    "output": 0.349345437508
+                  },
+                  "range": {
+                    "input": 20,
+                    "key": "seed:E:action:E.a-attacks:target:b:index:0\u001fcombat:E\u001f0\u001fE.a-attacks::probe:b:0\u001fb\u001fattack.range",
+                    "distribution": "centered_triangular",
+                    "samples": [
+                      0.607899875088817,
+                      0.5052325331340592
+                    ],
+                    "sample": 0.5565662041114381,
+                    "factor": 1.001131324082229,
+                    "minimum": 0.99,
+                    "maximum": 1.01,
+                    "output": 20.022626481645
+                  },
+                  "stabilityImpact": {
+                    "input": 28,
+                    "key": "seed:E:action:E.a-attacks:target:b:index:0\u001fcombat:E\u001f0\u001fE.a-attacks::probe:b:0\u001fb\u001fattack.stability_impact",
+                    "distribution": "centered_triangular",
+                    "samples": [
+                      0.19409039275091092,
+                      0.7788798457102831
+                    ],
+                    "sample": 0.486485119230597,
+                    "factor": 0.999729702384612,
+                    "minimum": 0.99,
+                    "maximum": 1.01,
+                    "output": 27.992431666769
+                  }
+                }
+              },
+              "multiAttack": {
+                "mode": "individual",
+                "quantity": 1,
+                "powerPerAttack": 84.738143429795,
+                "totalPower": 84.738143429795,
+                "costTotals": {},
+                "groups": [
+                  {
+                    "kind": "individual",
+                    "startIndex": 0,
+                    "count": 1,
+                    "representedPower": 84.738143429795
+                  }
+                ],
+                "representedCount": 1,
+                "representedPower": 84.738143429795
+              },
+              "geometry": {
+                "distance": 5,
+                "range": 20.022626481645,
+                "inRange": true,
+                "shape": "point",
+                "falloff": "none",
+                "falloffFactor": 1,
+                "overlapFraction": 1,
+                "areaFactor": 1,
+                "projectedArea": 0,
+                "areaAccuracyBonus": 0
+              },
+              "accuracy": {
+                "attackScore": 80.730453327412,
+                "targetScore": {
+                  "baseValue": 53.4,
+                  "target": "defense.avoidance",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.guard.execution",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 53.4
+                },
+                "targetNormalization": {
+                  "enabled": true,
+                  "numerator": 53.4,
+                  "weightTotal": 1,
+                  "normalizedTerm": 53.4
+                },
+                "margin": 27.330453327411995,
+                "quality": "solid",
+                "exposureFactor": 1
+              },
+              "timing": {
+                "responseLatencyMs": 330,
+                "latencyTrace": {
+                  "baseValue": 330,
+                  "target": "defense.response_latency",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.guard.execution",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 330
+                },
+                "arrivalMs": 155.55656029508262,
+                "commitmentDelayMs": 0,
+                "marginMs": -174.44343970491738,
+                "factor": 0.15111312059
+              },
+              "defense": {
+                "attempted": false,
+                "feasible": false,
+                "reason": "not_declared",
+                "prePenetrationFilter": 0,
+                "filter": 0,
+                "filterPercent": 0,
+                "costPaid": 0,
+                "stabilityLoss": 0,
+                "displacement": 0
+              },
+              "damage": {
+                "zoneId": "core",
+                "contactPower": 84.738143429795,
+                "channels": [
+                  {
+                    "channel": "electrical",
+                    "share": 0.2,
+                    "immunity": false,
+                    "baseBodyFilter": 31,
+                    "bodyPenetrationCompatibility": 0.45,
+                    "bodyAfterPenetration": 26.1266311467634,
+                    "activeAfterPenetration": 0,
+                    "combinedFilter": 0.261266311467634,
+                    "residualPower": 12.519784251055427,
+                    "conversion": 0.8,
+                    "vulnerability": 1.25,
+                    "harm": 12.519784251055428
+                  },
+                  {
+                    "channel": "kinetic",
+                    "share": 0.8,
+                    "immunity": false,
+                    "baseBodyFilter": 39,
+                    "bodyPenetrationCompatibility": 0.9,
+                    "bodyAfterPenetration": 26.7379751434692,
+                    "activeAfterPenetration": 0,
+                    "combinedFilter": 0.26737975143469206,
+                    "residualPower": 49.664703761999306,
+                    "conversion": 1,
+                    "vulnerability": 1,
+                    "harm": 49.664703761999306
+                  }
+                ],
+                "zoneHarm": 62.18448801305473,
+                "capacityScale": 1.1,
+                "harmCapacityMultiplier": {
+                  "ratio": 1.1,
+                  "multiplier": 1,
+                  "lower": {
+                    "ratio": 1,
+                    "multiplier": 1,
+                    "label": "normal"
+                  },
+                  "upper": {
+                    "ratio": 1,
+                    "multiplier": 1,
+                    "label": "normal"
+                  }
+                },
+                "healthDamage": 62.18,
+                "weightedCombinedFilter": 0.26615706344128043,
+                "stabilityDamage": 36.09
+              },
+              "statuses": [],
+              "outcome": "success",
+              "stateMutations": [
+                {
+                  "type": "action_economy",
+                  "role": "actor",
+                  "characterId": "a",
+                  "field": "actions_remaining",
+                  "before": 2,
+                  "after": 1
+                },
+                {
+                  "type": "action_economy",
+                  "role": "actor",
+                  "characterId": "a",
+                  "field": "available",
+                  "before": true,
+                  "after": true
+                },
+                {
+                  "type": "health",
+                  "role": "target",
+                  "characterId": "b",
+                  "before": 1000,
+                  "after": 937.82,
+                  "delta": -62.17999999999995,
+                  "reason": "resolved_damage"
+                },
+                {
+                  "type": "stability",
+                  "role": "target",
+                  "characterId": "b",
+                  "before": 1000,
+                  "after": 963.91,
+                  "delta": -36.09000000000003,
+                  "reason": "resolved_stability"
+                }
+              ],
+              "outputHashes": {
+                "world": "6978259badb082786483add5e9e03ce97cd6fd2a2794a5ca09c639d5fcc28453",
+                "actor": "89629261a5cf2047c4d98521d3f4323856551d02f0a34deaf021a8856459f26e",
+                "target": "2776a0a64f2763beac62ebb65b2c0728d1382f460e097d25e8b42f6e75e103a5"
+              }
+            }
+          }
+        ],
+        "costs": [
+          {
+            "index": 0,
+            "resource": "energy",
+            "mode": "PER_ACTION",
+            "timing": "on_attempt",
+            "maximumAmount": 4,
+            "committedAmount": 4
+          }
+        ],
+        "interruption": null
+      },
+      {
+        "id": "E.b-attacks",
+        "actorId": "b",
+        "kind": "attack",
+        "outcome": "resolved",
+        "resolutionMode": "individual",
+        "batchSafe": false,
+        "batchSafetyReasons": [],
+        "declaredQuantity": 1,
+        "representedHitCount": 1,
+        "targetAllocation": [
+          {
+            "targetId": "a",
+            "count": 1
+          }
+        ],
+        "qualityCounts": {
+          "miss": 0,
+          "graze": 1,
+          "partial": 0,
+          "solid": 0
+        },
+        "contactCount": 1,
+        "healthDamage": 15.95,
+        "stabilityDamage": 11.45,
+        "hits": [
+          {
+            "kind": "individual",
+            "targetId": "a",
+            "startIndex": 0,
+            "count": 1,
+            "quality": "graze",
+            "contactCount": 1,
+            "healthDamage": 15.95,
+            "stabilityDamage": 11.45,
+            "defenseFilter": 0,
+            "statuses": [],
+            "trace": {
+              "specVersion": "0.3",
+              "seed": "seed:E:action:E.b-attacks:target:a:index:0",
+              "inputHashes": {
+                "world": "54597261fc9b7a191014b1c5dd0db8b9d9b62aa1766b0419446f7e42cbef451e",
+                "actor": "5349364ea7cc4822b2db312ff3d77112810ebe54ae72d9ca89c0cfb3887f2cae",
+                "target": "e4c60fa0ab02cee2eeca6762ad01f5574a6d14760641fbaa857fef66a0a353f6",
+                "action": "992ae8c96150706eed4e1f140421fa89f6920479a6b96276b5ad24ef5521fa39",
+                "registries": "61441b5513a19b855fa545cf6bbb415263a05a9a1756f3cc294a620dd30cb471"
+              },
+              "pipeline": [
+                "validate_and_snapshot",
+                "reserve_costs",
+                "target_and_geometry",
+                "accuracy_filter",
+                "speed_timing_filter",
+                "defense_resolution",
+                "penetration_application",
+                "damage_and_secondary_effects",
+                "commit_costs_and_state",
+                "emit_audit_record"
+              ],
+              "offense": {
+                "physical": true,
+                "selectedStats": [
+                  "physical_capability",
+                  "coordination",
+                  "perception"
+                ],
+                "accuracyNormalization": {
+                  "enabled": true,
+                  "numerator": 43.150000000000006,
+                  "weightTotal": 0.8,
+                  "normalizedTerm": 53.93750000000001
+                },
+                "resolved": {
+                  "power": {
+                    "baseValue": 63,
+                    "target": "attack.power",
+                    "activeModifierIds": [],
+                    "rejected": [
+                      {
+                        "id": "character.guard.execution",
+                        "reason": "target_mismatch"
+                      }
+                    ],
+                    "steps": [],
+                    "finalValue": 63
+                  },
+                  "accuracy": {
+                    "baseValue": 61.93750000000001,
+                    "target": "attack.accuracy",
+                    "activeModifierIds": [],
+                    "rejected": [
+                      {
+                        "id": "character.guard.execution",
+                        "reason": "target_mismatch"
+                      }
+                    ],
+                    "steps": [],
+                    "finalValue": 61.9375
+                  },
+                  "speed": {
+                    "baseValue": 32,
+                    "target": "attack.speed",
+                    "activeModifierIds": [],
+                    "rejected": [
+                      {
+                        "id": "character.guard.execution",
+                        "reason": "target_mismatch"
+                      }
+                    ],
+                    "steps": [],
+                    "finalValue": 32
+                  },
+                  "penetration": {
+                    "baseValue": 0.35,
+                    "target": "attack.penetration",
+                    "activeModifierIds": [],
+                    "rejected": [
+                      {
+                        "id": "character.guard.execution",
+                        "reason": "target_mismatch"
+                      }
+                    ],
+                    "steps": [],
+                    "finalValue": 0.35
+                  },
+                  "range": {
+                    "baseValue": 20,
+                    "target": "attack.range",
+                    "activeModifierIds": [],
+                    "rejected": [
+                      {
+                        "id": "character.guard.execution",
+                        "reason": "target_mismatch"
+                      }
+                    ],
+                    "steps": [],
+                    "finalValue": 20
+                  },
+                  "stabilityImpact": {
+                    "baseValue": 28,
+                    "target": "attack.stability_impact",
+                    "activeModifierIds": [],
+                    "rejected": [
+                      {
+                        "id": "character.guard.execution",
+                        "reason": "target_mismatch"
+                      }
+                    ],
+                    "steps": [],
+                    "finalValue": 28
+                  }
+                },
+                "varied": {
+                  "power": {
+                    "input": 63,
+                    "key": "seed:E:action:E.b-attacks:target:a:index:0\u001fcombat:E\u001f0\u001fE.b-attacks::probe:a:0\u001fa\u001fattack.power",
+                    "distribution": "centered_triangular",
+                    "samples": [
+                      0.2653886277477155,
+                      0.13333477120585
+                    ],
+                    "sample": 0.19936169947678273,
+                    "factor": 0.993987233989536,
+                    "minimum": 0.99,
+                    "maximum": 1.01,
+                    "output": 62.621195741341
+                  },
+                  "accuracy": {
+                    "input": 61.9375,
+                    "key": "seed:E:action:E.b-attacks:target:a:index:0\u001fcombat:E\u001f0\u001fE.b-attacks::probe:a:0\u001fa\u001fattack.accuracy",
+                    "distribution": "centered_triangular",
+                    "samples": [
+                      0.4458905409115324,
+                      0.45962110860480293
+                    ],
+                    "sample": 0.45275582475816767,
+                    "factor": 0.999055116495164,
+                    "minimum": 0.99,
+                    "maximum": 1.01,
+                    "output": 61.878976277919
+                  },
+                  "speed": {
+                    "input": 32,
+                    "key": "seed:E:action:E.b-attacks:target:a:index:0\u001fcombat:E\u001f0\u001fE.b-attacks::probe:a:0\u001fa\u001fattack.speed",
+                    "distribution": "centered_triangular",
+                    "samples": [
+                      0.9622148539582267,
+                      0.10661264356257376
+                    ],
+                    "sample": 0.5344137487604003,
+                    "factor": 1.000688274975208,
+                    "minimum": 0.99,
+                    "maximum": 1.01,
+                    "output": 32.022024799207
+                  },
+                  "penetration": {
+                    "input": 0.35,
+                    "key": "seed:E:action:E.b-attacks:target:a:index:0\u001fcombat:E\u001f0\u001fE.b-attacks::probe:a:0\u001fa\u001fattack.penetration",
+                    "distribution": "centered_triangular",
+                    "samples": [
+                      0.47762779380235165,
+                      0.8660567374938488
+                    ],
+                    "sample": 0.6718422656481002,
+                    "factor": 1.003436845312962,
+                    "minimum": 0.99,
+                    "maximum": 1.01,
+                    "output": 0.35120289586
+                  },
+                  "range": {
+                    "input": 20,
+                    "key": "seed:E:action:E.b-attacks:target:a:index:0\u001fcombat:E\u001f0\u001fE.b-attacks::probe:a:0\u001fa\u001fattack.range",
+                    "distribution": "centered_triangular",
+                    "samples": [
+                      0.7682463415908184,
+                      0.14661250652249735
+                    ],
+                    "sample": 0.4574294240566579,
+                    "factor": 0.999148588481133,
+                    "minimum": 0.99,
+                    "maximum": 1.01,
+                    "output": 19.982971769623
+                  },
+                  "stabilityImpact": {
+                    "input": 28,
+                    "key": "seed:E:action:E.b-attacks:target:a:index:0\u001fcombat:E\u001f0\u001fE.b-attacks::probe:a:0\u001fa\u001fattack.stability_impact",
+                    "distribution": "centered_triangular",
+                    "samples": [
+                      0.620874994796112,
+                      0.9736139223896905
+                    ],
+                    "sample": 0.7972444585929013,
+                    "factor": 1.005944889171858,
+                    "minimum": 0.99,
+                    "maximum": 1.01,
+                    "output": 28.166456896812
+                  }
+                }
+              },
+              "multiAttack": {
+                "mode": "individual",
+                "quantity": 1,
+                "powerPerAttack": 62.621195741341,
+                "totalPower": 62.621195741341,
+                "costTotals": {},
+                "groups": [
+                  {
+                    "kind": "individual",
+                    "startIndex": 0,
+                    "count": 1,
+                    "representedPower": 62.621195741341
+                  }
+                ],
+                "representedCount": 1,
+                "representedPower": 62.621195741341
+              },
+              "geometry": {
+                "distance": 5,
+                "range": 19.982971769623,
+                "inRange": true,
+                "shape": "point",
+                "falloff": "none",
+                "falloffFactor": 1,
+                "overlapFraction": 1,
+                "areaFactor": 1,
+                "projectedArea": 0,
+                "areaAccuracyBonus": 0
+              },
+              "accuracy": {
+                "attackScore": 61.878976277919,
+                "targetScore": {
+                  "baseValue": 68.8,
+                  "target": "defense.avoidance",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.role.power",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 68.8
+                },
+                "targetNormalization": {
+                  "enabled": true,
+                  "numerator": 68.8,
+                  "weightTotal": 1,
+                  "normalizedTerm": 68.8
+                },
+                "margin": -6.921023722080996,
+                "quality": "graze",
+                "exposureFactor": 0.346184644169
+              },
+              "timing": {
+                "responseLatencyMs": 270,
+                "latencyTrace": {
+                  "baseValue": 270,
+                  "target": "defense.response_latency",
+                  "activeModifierIds": [],
+                  "rejected": [
+                    {
+                      "id": "character.role.power",
+                      "reason": "target_mismatch"
+                    }
+                  ],
+                  "steps": [],
+                  "finalValue": 270
+                },
+                "arrivalMs": 156.14253100334307,
+                "commitmentDelayMs": 0,
+                "marginMs": -113.85746899665693,
+                "factor": 0.272285062007
+              },
+              "defense": {
+                "attempted": false,
+                "feasible": false,
+                "reason": "not_declared",
+                "prePenetrationFilter": 0,
+                "filter": 0,
+                "filterPercent": 0,
+                "costPaid": 0,
+                "stabilityLoss": 0,
+                "displacement": 0
+              },
+              "damage": {
+                "zoneId": "core",
+                "contactPower": 21.678496365153432,
+                "channels": [
+                  {
+                    "channel": "electrical",
+                    "share": 0.2,
+                    "immunity": false,
+                    "baseBodyFilter": 29.7,
+                    "bodyPenetrationCompatibility": 0.45,
+                    "bodyAfterPenetration": 25.006173296831097,
+                    "activeAfterPenetration": 0,
+                    "combinedFilter": 0.250061732968311,
+                    "residualPower": 3.251506799187187,
+                    "conversion": 0.8,
+                    "vulnerability": 1,
+                    "harm": 2.6012054393497497
+                  },
+                  {
+                    "channel": "kinetic",
+                    "share": 0.8,
+                    "immunity": false,
+                    "baseBodyFilter": 33.7,
+                    "bodyPenetrationCompatibility": 0.9,
+                    "bodyAfterPenetration": 23.048016168566203,
+                    "activeAfterPenetration": 0,
+                    "combinedFilter": 0.230480161685662,
+                    "residualPower": 13.345626414248668,
+                    "conversion": 1,
+                    "vulnerability": 1,
+                    "harm": 13.345626414248668
+                  }
+                ],
+                "zoneHarm": 15.946831853598418,
+                "capacityScale": 1.12,
+                "harmCapacityMultiplier": {
+                  "ratio": 1.12,
+                  "multiplier": 1,
+                  "lower": {
+                    "ratio": 1,
+                    "multiplier": 1,
+                    "label": "normal"
+                  },
+                  "upper": {
+                    "ratio": 1,
+                    "multiplier": 1,
+                    "label": "normal"
+                  }
+                },
+                "healthDamage": 15.95,
+                "weightedCombinedFilter": 0.23439647594219182,
+                "stabilityDamage": 11.45
+              },
+              "statuses": [],
+              "outcome": "partial",
+              "stateMutations": [
+                {
+                  "type": "action_economy",
+                  "role": "actor",
+                  "characterId": "b",
+                  "field": "actions_remaining",
+                  "before": 2,
+                  "after": 1
+                },
+                {
+                  "type": "action_economy",
+                  "role": "actor",
+                  "characterId": "b",
+                  "field": "available",
+                  "before": true,
+                  "after": true
+                },
+                {
+                  "type": "health",
+                  "role": "target",
+                  "characterId": "a",
+                  "before": 1000,
+                  "after": 984.05,
+                  "delta": -15.950000000000045,
+                  "reason": "resolved_damage"
+                },
+                {
+                  "type": "stability",
+                  "role": "target",
+                  "characterId": "a",
+                  "before": 1000,
+                  "after": 988.55,
+                  "delta": -11.450000000000045,
+                  "reason": "resolved_stability"
+                }
+              ],
+              "outputHashes": {
+                "world": "d586755306c657ca3237c9d6154f9339e8025bd16c783a422ee5d11afba45017",
+                "actor": "35ec3c92e536ca0cbc430686d8361dffa22990a6b45bff51ac4c27b015f958b9",
+                "target": "c347975e21e794f18d937f3a726dc1b29551e14bfdc857b301b479e5231a4f83"
+              }
+            }
+          }
+        ],
+        "costs": [
+          {
+            "index": 0,
+            "resource": "energy",
+            "mode": "PER_ACTION",
+            "timing": "on_attempt",
+            "maximumAmount": 4,
+            "committedAmount": 4
+          }
+        ],
+        "interruption": null
+      }
+    ],
+    "merge": {
+      "stagedDeltas": [
+        {
+          "startingSnapshotHash": "d29929030472d53943c1e0380127b29a2ba2a14c083b419032884657ca3964c4",
+          "resourceDeltas": [
+            {
+              "characterId": "a",
+              "resource": "energy",
+              "delta": -4,
+              "sourceRef": "E.a-attacks"
+            },
+            {
+              "characterId": "b",
+              "resource": "health",
+              "delta": -62.18,
+              "sourceRef": "E.a-attacks"
+            },
+            {
+              "characterId": "b",
+              "resource": "stability",
+              "delta": -36.09,
+              "sourceRef": "E.a-attacks"
+            },
+            {
+              "characterId": "b",
+              "resource": "energy",
+              "delta": -4,
+              "sourceRef": "E.b-attacks"
+            },
+            {
+              "characterId": "a",
+              "resource": "health",
+              "delta": -15.95,
+              "sourceRef": "E.b-attacks"
+            },
+            {
+              "characterId": "a",
+              "resource": "stability",
+              "delta": -11.45,
+              "sourceRef": "E.b-attacks"
+            }
+          ],
+          "actionEconomyDeltas": [
+            [
+              "a",
+              1
+            ],
+            [
+              "b",
+              1
+            ]
+          ],
+          "reactionEconomyDeltas": [],
+          "statusAdditions": [],
+          "statusRemovals": [],
+          "displacements": [],
+          "preCommitConflicts": [],
+          "events": [
+            {
+              "type": "action_resolved",
+              "actor_refs": [
+                "a"
+              ],
+              "target_refs": [
+                "b"
+              ],
+              "action_ref": "E.a-attacks",
+              "payload": {
+                "outcome": "resolved",
+                "mode": "individual",
+                "represented_hits": 1
+              }
+            },
+            {
+              "type": "action_resolved",
+              "actor_refs": [
+                "b"
+              ],
+              "target_refs": [
+                "a"
+              ],
+              "action_ref": "E.b-attacks",
+              "payload": {
+                "outcome": "resolved",
+                "mode": "individual",
+                "represented_hits": 1
+              }
+            }
+          ],
+          "actionRefs": [
+            "E.a-attacks",
+            "E.b-attacks"
+          ],
+          "summaryTags": [
+            "resolved",
+            "resolved"
+          ]
+        }
+      ],
+      "resourceChanges": [
+        {
+          "characterId": "a",
+          "resource": "energy",
+          "before": 1000,
+          "after": 996,
+          "delta": -4
+        },
+        {
+          "characterId": "a",
+          "resource": "health",
+          "before": 1000,
+          "after": 984.05,
+          "delta": -15.95
+        },
+        {
+          "characterId": "a",
+          "resource": "stability",
+          "before": 1000,
+          "after": 988.55,
+          "delta": -11.45
+        },
+        {
+          "characterId": "b",
+          "resource": "energy",
+          "before": 1000,
+          "after": 996,
+          "delta": -4
+        },
+        {
+          "characterId": "b",
+          "resource": "health",
+          "before": 1000,
+          "after": 937.82,
+          "delta": -62.18
+        },
+        {
+          "characterId": "b",
+          "resource": "stability",
+          "before": 1000,
+          "after": 963.91,
+          "delta": -36.09
+        }
+      ],
+      "actionEconomyChanges": [
+        {
+          "characterId": "a",
+          "kind": "action",
+          "before": 2,
+          "after": 1,
+          "consumed": 1
+        },
+        {
+          "characterId": "b",
+          "kind": "action",
+          "before": 2,
+          "after": 1,
+          "consumed": 1
+        }
+      ],
+      "statusChanges": [],
+      "displacementChanges": []
+    },
+    "conflicts": [],
+    "commit": {
+      "atomic": true,
+      "turn": 1
+    },
+    "resultingSnapshotHash": "067abf762e922128fda7f840764a910db0a6e7c4f4385b723cde22122aed2678",
+    "pipeline": [
+      "snapshot",
+      "declaration_validation",
+      "resource_and_economy_reservation",
+      "target_and_geometry_resolution",
+      "reaction_opportunities",
+      "action_and_hit_resolution",
+      "secondary_consequences",
+      "simultaneous_merge",
+      "atomic_commit",
+      "replay_record"
+    ]
+  }
+}

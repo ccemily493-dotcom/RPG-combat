@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.3/world-state.schema.json",
+  "title": "Universal RPG World State v0.3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["simulation_id", "ruleset_version", "turn", "time", "environment", "entity_refs", "modifiers", "previous_turn"],
+  "properties": {
+    "simulation_id": { "type": "string", "minLength": 1 },
+    "ruleset_version": { "const": "0.3" },
+    "turn": { "type": "integer", "minimum": 0 },
+    "time": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["elapsed_seconds", "turn_duration_seconds"],
+      "properties": {
+        "elapsed_seconds": { "type": "number", "minimum": 0 },
+        "turn_duration_seconds": { "type": "number", "exclusiveMinimum": 0, "default": 1, "x-tunable": true }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gravity_g", "medium", "visibility", "temperature_c", "terrain_tags", "hazards"],
+      "properties": {
+        "gravity_g": { "type": "number", "minimum": 0, "default": 1, "x-tunable": true },
+        "medium": { "type": "string", "enum": ["vacuum", "air", "water", "solid", "mixed", "extension"] },
+        "visibility": { "type": "number", "minimum": 0, "maximum": 1, "default": 1, "x-tunable": true },
+        "temperature_c": { "type": "number", "default": 20, "x-tunable": true },
+        "terrain_tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "hazards": { "type": "array", "items": { "$ref": "#/$defs/hazard" } }
+      }
+    },
+    "spatial_bounds": {
+      "oneOf": [
+        { "$ref": "#/$defs/aabb" },
+        { "type": "null" }
+      ],
+      "default": null
+    },
+    "entity_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "geometry_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true,
+      "default": []
+    },
+    "modifiers": { "type": "array", "items": { "$ref": "#/$defs/modifier" } },
+    "previous_turn": { "$ref": "#/$defs/previousTurnState" },
+    "extension_state": {
+      "type": "object",
+      "description": "Namespaced universe-owned data opaque to the core.",
+      "propertyNames": { "pattern": "^[a-z][a-z0-9_-]*:" },
+      "additionalProperties": true,
+      "default": {}
+    }
+  },
+  "$defs": {
+    "vector3": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "z"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "z": { "type": "number" }
+      }
+    },
+    "aabb": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "max"],
+      "properties": {
+        "min": { "$ref": "#/$defs/vector3" },
+        "max": { "$ref": "#/$defs/vector3" }
+      }
+    },
+    "hazard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "tags", "geometry_ref", "intensity"],
+      "properties": {
+        "id": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "geometry_ref": { "type": ["string", "null"] },
+        "intensity": { "type": "number", "minimum": 0 },
+        "extension_payload": { "type": "object", "additionalProperties": true, "default": {} }
+      }
+    },
+    "modifier": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["id", "layer", "target", "operation"],
+      "properties": {
+        "id": { "type": "string" },
+        "layer": { "const": "WORLD" },
+        "target": { "type": "string" },
+        "operation": { "enum": ["additive", "percentage", "multiplicative", "bounded"] },
+        "value": { "type": "number" },
+        "lower": { "type": "number" },
+        "upper": { "type": "number" },
+        "priority": { "type": "integer", "default": 0, "x-tunable": true },
+        "when": { "type": "object" },
+        "source_ref": { "type": "string" }
+      }
+    },
+    "resourceDelta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["character_id", "resource", "delta"],
+      "properties": {
+        "character_id": { "type": "string" },
+        "resource": { "type": "string" },
+        "delta": { "type": "number" }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sequence", "type", "actor_refs", "target_refs", "action_ref", "payload"],
+      "properties": {
+        "sequence": { "type": "integer", "minimum": 0 },
+        "type": { "type": "string" },
+        "actor_refs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "target_refs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "action_ref": { "type": ["string", "null"] },
+        "payload": { "type": "object", "additionalProperties": true }
+      }
+    },
+    "previousTurnState": {
+      "title": "Previous Turn State",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["turn", "snapshot_hash", "action_refs", "events", "resource_deltas", "created_modifier_ids", "expired_modifier_ids"],
+      "properties": {
+        "turn": { "type": ["integer", "null"], "minimum": 0, "description": "Null only before the first turn." },
+        "snapshot_hash": { "type": ["string", "null"], "description": "Canonical hash of the state used to resolve that turn." },
+        "action_refs": { "type": "array", "items": { "type": "string" } },
+        "events": { "type": "array", "items": { "$ref": "#/$defs/event" } },
+        "resource_deltas": { "type": "array", "items": { "$ref": "#/$defs/resourceDelta" } },
+        "created_modifier_ids": { "type": "array", "items": { "type": "string" } },
+        "expired_modifier_ids": { "type": "array", "items": { "type": "string" } },
+        "status_changes": { "type": "array", "items": { "type": "object", "additionalProperties": true }, "default": [] },
+        "action_economy_changes": { "type": "array", "items": { "type": "object", "additionalProperties": true }, "default": [] },
+        "displacement_changes": { "type": "array", "items": { "type": "object", "additionalProperties": true }, "default": [] },
+        "conflicts": { "type": "array", "items": { "type": "object", "additionalProperties": true }, "default": [] },
+        "resulting_snapshot_hash": { "type": ["string", "null"], "default": null },
+        "summary_tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true, "default": [] }
+        ,"strategy_changes": { "type": "array", "items": { "type": "object", "additionalProperties": true }, "default": [] }
+        ,"temporal_events": { "type": "array", "items": { "type": "object", "additionalProperties": true }, "default": [] }
+      }
+    }
+  }
+}

@@ -14,10 +14,12 @@ for (const [key, file] of Object.entries(names)) {
     await writeFile(path, serialized, "utf8");
     console.log(`Ability golden ${key} updated: ${golden.hashes[key]}`);
   } else {
-    const expected = await readFile(path, "utf8");
-    if (expected !== serialized) {
+    const expected = JSON.parse(await readFile(path, "utf8"));
+    const expectedCanonical = stableStringify(expected);
+    const actualCanonical = stableStringify(golden[key]);
+    if (expectedCanonical !== actualCanonical) {
       console.error(`Ability golden ${key} mismatch: expected committed fixture, got ${golden.hashes[key]}`);
       process.exitCode = 1;
-    } else console.log(`Ability golden ${key} matched: ${golden.hashes[key]}; bytes=${serialized.length}`);
+    } else console.log(`Ability golden ${key} matched: ${golden.hashes[key]}; bytes=${Buffer.byteLength(actualCanonical)}`);
   }
 }

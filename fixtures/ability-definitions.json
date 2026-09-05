@@ -1,0 +1,1451 @@
+{
+  "version": "0.4.0",
+  "abilities": [
+    {
+      "ability_id": "core.example.heavy_strike",
+      "version": "1.0.0",
+      "namespace": "core",
+      "name": "Heavy Strike",
+      "tags": [
+        "example"
+      ],
+      "parameters": {},
+      "constants": {},
+      "requirements": [],
+      "resources": [
+        "energy"
+      ],
+      "limitations": [],
+      "variants": {},
+      "mechanics": {
+        "components": [
+          {
+            "id": "strike",
+            "template": "ATTACK",
+            "output": {
+              "action": {
+                "kind": "attack",
+                "timing": {
+                  "declared_at": 0,
+                  "duration_seconds": 1,
+                  "priority": 0,
+                  "interrupt_window_seconds": 0.25
+                },
+                "attack": {
+                  "delivery": "projectile",
+                  "channels": {
+                    "normal": 1
+                  },
+                  "power": {
+                    "op": "ADD",
+                    "args": [
+                      {
+                        "op": "MULTIPLY",
+                        "args": [
+                          {
+                            "ref": "actor.stats.physical_capability"
+                          },
+                          {
+                            "const": 1.1
+                          }
+                        ]
+                      },
+                      {
+                        "op": "MULTIPLY",
+                        "args": [
+                          {
+                            "ref": "actor.stats.energy_output"
+                          },
+                          {
+                            "const": 0.2
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "accuracy": {
+                    "const": 54
+                  },
+                  "speed": {
+                    "const": 48
+                  },
+                  "penetration": 0.2,
+                  "range": 50,
+                  "area": {
+                    "shape": "point",
+                    "dimensions": {},
+                    "falloff": "none"
+                  },
+                  "stability_impact": 10,
+                  "status_effects": [],
+                  "quantity": {
+                    "const": 1
+                  },
+                  "targeting": {
+                    "mode": "SINGLE",
+                    "allocations": []
+                  },
+                  "interrupt_resistance": 0,
+                  "batch_safety": "AUTO"
+                },
+                "costs": [
+                  {
+                    "resource": "energy",
+                    "amount": {
+                      "const": 20
+                    },
+                    "timing": "reserve",
+                    "mode": "PER_ACTION",
+                    "upfront_amount": 0,
+                    "per_hit_amount": 0
+                  }
+                ],
+                "modifiers": [],
+                "tags": [
+                  "ability"
+                ],
+                "depends_on": [],
+                "effects": {
+                  "displacements": [],
+                  "status_removals": []
+                },
+                "cooldown": null,
+                "extension_payload": {}
+              }
+            }
+          }
+        ],
+        "strategy_fragments": []
+      },
+      "metadata": {
+        "fixture": true
+      },
+      "cooldown": {
+        "key": "core.example.heavy_strike",
+        "duration": 1,
+        "unit": "TURN",
+        "starts": "ON_USE"
+      }
+    },
+    {
+      "ability_id": "core.example.rapid_barrage",
+      "version": "1.0.0",
+      "namespace": "core",
+      "name": "Rapid Barrage",
+      "tags": [
+        "example"
+      ],
+      "parameters": {},
+      "constants": {},
+      "requirements": [],
+      "resources": [
+        "energy"
+      ],
+      "limitations": [],
+      "variants": {},
+      "mechanics": {
+        "components": [
+          {
+            "id": "volley",
+            "template": "ATTACK",
+            "output": {
+              "action": {
+                "kind": "attack",
+                "timing": {
+                  "declared_at": 0,
+                  "duration_seconds": 1,
+                  "priority": 0,
+                  "interrupt_window_seconds": 0.25
+                },
+                "attack": {
+                  "delivery": "projectile",
+                  "channels": {
+                    "normal": 1
+                  },
+                  "power": {
+                    "op": "MULTIPLY",
+                    "args": [
+                      {
+                        "ref": "actor.stats.energy_output"
+                      },
+                      {
+                        "const": 0.45
+                      }
+                    ]
+                  },
+                  "accuracy": {
+                    "const": 68
+                  },
+                  "speed": {
+                    "const": 82
+                  },
+                  "penetration": 0.2,
+                  "range": 50,
+                  "area": {
+                    "shape": "point",
+                    "dimensions": {},
+                    "falloff": "none"
+                  },
+                  "stability_impact": 10,
+                  "status_effects": [],
+                  "quantity": {
+                    "const": 5
+                  },
+                  "targeting": {
+                    "mode": "SINGLE",
+                    "allocations": []
+                  },
+                  "interrupt_resistance": 0,
+                  "batch_safety": "AUTO"
+                },
+                "costs": [
+                  {
+                    "resource": "energy",
+                    "amount": 5,
+                    "timing": "reserve",
+                    "mode": "PER_HIT",
+                    "upfront_amount": 0,
+                    "per_hit_amount": 0
+                  }
+                ],
+                "modifiers": [],
+                "tags": [
+                  "ability"
+                ],
+                "depends_on": [],
+                "effects": {
+                  "displacements": [],
+                  "status_removals": []
+                },
+                "cooldown": null,
+                "extension_payload": {}
+              }
+            }
+          }
+        ],
+        "strategy_fragments": []
+      },
+      "metadata": {
+        "fixture": true
+      }
+    },
+    {
+      "ability_id": "core.example.guard_field",
+      "version": "1.0.0",
+      "namespace": "core",
+      "name": "Guard Field",
+      "tags": [
+        "example"
+      ],
+      "parameters": {},
+      "constants": {},
+      "requirements": [],
+      "resources": [
+        "energy"
+      ],
+      "limitations": [],
+      "variants": {},
+      "mechanics": {
+        "components": [
+          {
+            "id": "guard",
+            "template": "TEMPORAL_EFFECT",
+            "output": {
+              "defense_source": {
+                "id": "guard-field.dynamic",
+                "definition": {
+                  "available": true,
+                  "automatic": false,
+                  "base_filter": 35,
+                  "compatibility": {
+                    "normal": 0.8
+                  },
+                  "penetration_compatibility": 0.7,
+                  "geometry_overlap": 1,
+                  "method_skill_bonus": 5,
+                  "commitment_penalty": 0,
+                  "stability_capacity": 100,
+                  "anchor_capacity": 100,
+                  "prepared": true,
+                  "supported_methods": [
+                    "barrier"
+                  ],
+                  "maximum_hits": null,
+                  "tags": [
+                    "field"
+                  ]
+                }
+              },
+              "effects": [
+                {
+                  "type": "ADD_MODIFIER",
+                  "scope": "CHARACTER",
+                  "target_ref": "$actor",
+                  "modifier": {
+                    "id": "guard-field.modifier",
+                    "layer": "CHARACTER",
+                    "target": "defense.execution",
+                    "operation": "additive",
+                    "value": 12,
+                    "priority": 0,
+                    "source_ref": "core.example.guard_field"
+                  },
+                  "duration": {
+                    "type": "TURN",
+                    "remaining": 2
+                  }
+                }
+              ]
+            },
+            "execution_class": "ACTION"
+          },
+          {
+            "id": "block",
+            "template": "REACTION",
+            "output": {
+              "reaction": {
+                "id": "guard-field.block",
+                "reactor_id": "$actor",
+                "target_action_id": "$target_action",
+                "trigger": "ACTION_DECLARED",
+                "method": "barrier",
+                "timing": {
+                  "latency_seconds": 0.1,
+                  "priority": 0,
+                  "chain_depth": 0
+                },
+                "cost": {
+                  "resource": "energy",
+                  "amount": 6
+                },
+                "action_economy_cost": 1,
+                "coverage": {
+                  "scope": "ENTIRE_ACTION",
+                  "maximum_hits": null,
+                  "target_refs": [
+                    "$actor"
+                  ]
+                },
+                "defense": {
+                  "source_ref": "guard-field.dynamic",
+                  "declared_coverage": 1
+                },
+                "effect": {
+                  "kind": "DEFEND",
+                  "magnitude": 1
+                },
+                "tags": [
+                  "ability",
+                  "barrier"
+                ]
+              }
+            },
+            "execution_class": "REACTION"
+          }
+        ],
+        "strategy_fragments": []
+      },
+      "metadata": {
+        "fixture": true
+      }
+    },
+    {
+      "ability_id": "core.example.dash_strike",
+      "version": "1.0.0",
+      "namespace": "core",
+      "name": "Dash Strike",
+      "tags": [
+        "example"
+      ],
+      "parameters": {},
+      "constants": {},
+      "requirements": [],
+      "resources": [
+        "energy"
+      ],
+      "limitations": [],
+      "variants": {},
+      "mechanics": {
+        "components": [
+          {
+            "id": "dash",
+            "template": "MOVEMENT",
+            "output": {
+              "action": {
+                "kind": "movement",
+                "timing": {
+                  "declared_at": 0,
+                  "duration_seconds": 0.5,
+                  "priority": 0,
+                  "interrupt_window_seconds": 0.1
+                },
+                "movement": {
+                  "destination": {
+                    "x": 3,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "mode": "run",
+                  "maximum_distance": {
+                    "op": "ADD",
+                    "args": [
+                      {
+                        "ref": "actor.stats.movement"
+                      },
+                      {
+                        "const": 1
+                      }
+                    ]
+                  }
+                },
+                "costs": [
+                  {
+                    "resource": "energy",
+                    "amount": 4,
+                    "timing": "reserve",
+                    "mode": "PER_ACTION",
+                    "upfront_amount": 0,
+                    "per_hit_amount": 0
+                  }
+                ],
+                "modifiers": [],
+                "tags": [
+                  "ability",
+                  "movement"
+                ],
+                "depends_on": [],
+                "effects": {
+                  "displacements": [],
+                  "status_removals": []
+                },
+                "cooldown": null,
+                "extension_payload": {}
+              }
+            },
+            "execution_class": "MOVEMENT"
+          },
+          {
+            "id": "strike",
+            "template": "ATTACK",
+            "output": {
+              "action": {
+                "kind": "attack",
+                "timing": {
+                  "declared_at": 0,
+                  "duration_seconds": 1,
+                  "priority": 0,
+                  "interrupt_window_seconds": 0.25
+                },
+                "attack": {
+                  "delivery": "projectile",
+                  "channels": {
+                    "normal": 1
+                  },
+                  "power": {
+                    "const": 62
+                  },
+                  "accuracy": {
+                    "const": 72
+                  },
+                  "speed": {
+                    "const": 78
+                  },
+                  "penetration": 0.2,
+                  "range": 50,
+                  "area": {
+                    "shape": "point",
+                    "dimensions": {},
+                    "falloff": "none"
+                  },
+                  "stability_impact": 10,
+                  "status_effects": [],
+                  "quantity": {
+                    "const": 1
+                  },
+                  "targeting": {
+                    "mode": "SINGLE",
+                    "allocations": []
+                  },
+                  "interrupt_resistance": 0,
+                  "batch_safety": "AUTO"
+                },
+                "costs": [
+                  {
+                    "resource": "energy",
+                    "amount": {
+                      "const": 8
+                    },
+                    "timing": "reserve",
+                    "mode": "PER_ACTION",
+                    "upfront_amount": 0,
+                    "per_hit_amount": 0
+                  }
+                ],
+                "modifiers": [],
+                "tags": [
+                  "ability"
+                ],
+                "depends_on": [],
+                "effects": {
+                  "displacements": [],
+                  "status_removals": []
+                },
+                "cooldown": null,
+                "extension_payload": {}
+              }
+            },
+            "execution_class": "ACTION"
+          }
+        ],
+        "strategy_fragments": []
+      },
+      "metadata": {
+        "fixture": true
+      }
+    },
+    {
+      "ability_id": "core.example.disrupting_shot",
+      "version": "1.0.0",
+      "namespace": "core",
+      "name": "Disrupting Shot",
+      "tags": [
+        "example"
+      ],
+      "parameters": {},
+      "constants": {},
+      "requirements": [],
+      "resources": [
+        "energy"
+      ],
+      "limitations": [],
+      "variants": {},
+      "mechanics": {
+        "components": [
+          {
+            "id": "shot",
+            "template": "STATUS_ATTEMPT",
+            "output": {
+              "action": {
+                "kind": "attack",
+                "timing": {
+                  "declared_at": 0,
+                  "duration_seconds": 1,
+                  "priority": 0,
+                  "interrupt_window_seconds": 0.25
+                },
+                "attack": {
+                  "delivery": "projectile",
+                  "channels": {
+                    "normal": 1
+                  },
+                  "power": {
+                    "const": 70
+                  },
+                  "accuracy": {
+                    "const": 65
+                  },
+                  "speed": {
+                    "const": 60
+                  },
+                  "penetration": 0.2,
+                  "range": 50,
+                  "area": {
+                    "shape": "point",
+                    "dimensions": {},
+                    "falloff": "none"
+                  },
+                  "stability_impact": 10,
+                  "status_effects": [
+                    {
+                      "status_id": "disrupted",
+                      "potency": 45,
+                      "duration_turns": 2
+                    }
+                  ],
+                  "quantity": {
+                    "const": 1
+                  },
+                  "targeting": {
+                    "mode": "SINGLE",
+                    "allocations": []
+                  },
+                  "interrupt_resistance": 0,
+                  "batch_safety": "AUTO"
+                },
+                "costs": [
+                  {
+                    "resource": "energy",
+                    "amount": {
+                      "const": 10
+                    },
+                    "timing": "reserve",
+                    "mode": "PER_ACTION",
+                    "upfront_amount": 0,
+                    "per_hit_amount": 0
+                  }
+                ],
+                "modifiers": [],
+                "tags": [
+                  "ability"
+                ],
+                "depends_on": [],
+                "effects": {
+                  "displacements": [],
+                  "status_removals": []
+                },
+                "cooldown": null,
+                "extension_payload": {}
+              }
+            }
+          }
+        ],
+        "strategy_fragments": []
+      },
+      "metadata": {
+        "fixture": true
+      }
+    },
+    {
+      "ability_id": "core.example.delayed_burst",
+      "version": "1.0.0",
+      "namespace": "core",
+      "name": "Delayed Burst",
+      "tags": [
+        "example"
+      ],
+      "parameters": {},
+      "constants": {},
+      "requirements": [],
+      "resources": [
+        "energy"
+      ],
+      "limitations": [],
+      "variants": {},
+      "mechanics": {
+        "components": [
+          {
+            "id": "schedule",
+            "template": "TEMPORAL_EFFECT",
+            "output": {
+              "effects": [
+                {
+                  "type": "SCHEDULE_EFFECT",
+                  "scheduled_effect": {
+                    "id": "delayed-burst",
+                    "source_ref": "core.example.delayed_burst",
+                    "target_ref": "$target.0",
+                    "activation": {
+                      "type": "TURN",
+                      "turn": 1
+                    },
+                    "effects": [
+                      {
+                        "type": "RESOURCE_DELTA",
+                        "target_ref": "$target.0",
+                        "resource": "stability",
+                        "amount": -12
+                      }
+                    ],
+                    "priority": 0,
+                    "created_turn": 0,
+                    "activated": false
+                  }
+                }
+              ]
+            },
+            "execution_class": "ACTION"
+          }
+        ],
+        "strategy_fragments": []
+      },
+      "metadata": {
+        "fixture": true
+      }
+    },
+    {
+      "ability_id": "core.example.prepared_counter",
+      "version": "1.0.0",
+      "namespace": "core",
+      "name": "Prepared Counter",
+      "tags": [
+        "example"
+      ],
+      "parameters": {},
+      "constants": {},
+      "requirements": [],
+      "resources": [
+        "energy"
+      ],
+      "limitations": [],
+      "variants": {},
+      "mechanics": {
+        "components": [
+          {
+            "id": "prepare",
+            "template": "TEMPORAL_EFFECT",
+            "output": {
+              "effects": [
+                {
+                  "type": "CREATE_OPPORTUNITY",
+                  "opportunity": {
+                    "id": "prepared-counter",
+                    "kind": "COUNTER_SETUP",
+                    "source_ref": "core.example.prepared_counter",
+                    "owner_ref": "$actor",
+                    "target_ref": "$target.0",
+                    "trigger": {
+                      "event_occurred": {
+                        "type": "action_declared",
+                        "actor_ref": "$target.0"
+                      }
+                    },
+                    "effects": [],
+                    "reaction_template": null,
+                    "duration": {
+                      "type": "TURN",
+                      "remaining": 2
+                    },
+                    "consumption": "ON_TRIGGER",
+                    "created_turn": 0,
+                    "trigger_count": 0,
+                    "consumed": false,
+                    "tags": [
+                      "counter"
+                    ]
+                  }
+                }
+              ]
+            },
+            "execution_class": "ACTION"
+          }
+        ],
+        "strategy_fragments": []
+      },
+      "metadata": {
+        "fixture": true
+      }
+    },
+    {
+      "ability_id": "core.example.area_pulse",
+      "version": "1.0.0",
+      "namespace": "core",
+      "name": "Area Pulse",
+      "tags": [
+        "example"
+      ],
+      "parameters": {},
+      "constants": {},
+      "requirements": [],
+      "resources": [
+        "energy"
+      ],
+      "limitations": [],
+      "variants": {},
+      "mechanics": {
+        "components": [
+          {
+            "id": "pulse",
+            "template": "AREA_EFFECT",
+            "output": {
+              "action": {
+                "kind": "attack",
+                "timing": {
+                  "declared_at": 0,
+                  "duration_seconds": 1,
+                  "priority": 0,
+                  "interrupt_window_seconds": 0.25
+                },
+                "attack": {
+                  "delivery": "projectile",
+                  "channels": {
+                    "normal": 1
+                  },
+                  "power": {
+                    "const": 55
+                  },
+                  "accuracy": {
+                    "const": 64
+                  },
+                  "speed": {
+                    "const": 60
+                  },
+                  "penetration": 0.2,
+                  "range": 50,
+                  "area": {
+                    "shape": "sphere",
+                    "dimensions": {
+                      "radius": 5
+                    },
+                    "falloff": "linear"
+                  },
+                  "stability_impact": 10,
+                  "status_effects": [],
+                  "quantity": {
+                    "const": 1
+                  },
+                  "targeting": {
+                    "mode": "EACH_TARGET",
+                    "allocations": []
+                  },
+                  "interrupt_resistance": 0,
+                  "batch_safety": "AUTO"
+                },
+                "costs": [
+                  {
+                    "resource": "energy",
+                    "amount": {
+                      "const": 18
+                    },
+                    "timing": "reserve",
+                    "mode": "PER_ACTION",
+                    "upfront_amount": 0,
+                    "per_hit_amount": 0
+                  }
+                ],
+                "modifiers": [],
+                "tags": [
+                  "ability"
+                ],
+                "depends_on": [],
+                "effects": {
+                  "displacements": [],
+                  "status_removals": []
+                },
+                "cooldown": null,
+                "extension_payload": {}
+              }
+            }
+          }
+        ],
+        "strategy_fragments": []
+      },
+      "metadata": {
+        "fixture": true
+      }
+    },
+    {
+      "ability_id": "core.example.resource_suppression",
+      "version": "1.0.0",
+      "namespace": "core",
+      "name": "Resource Suppression",
+      "tags": [
+        "example"
+      ],
+      "parameters": {},
+      "constants": {},
+      "requirements": [],
+      "resources": [
+        "energy"
+      ],
+      "limitations": [],
+      "variants": {},
+      "mechanics": {
+        "components": [
+          {
+            "id": "suppress",
+            "template": "RESOURCE_DENIAL",
+            "output": {
+              "action": {
+                "kind": "interaction",
+                "timing": {
+                  "declared_at": 0,
+                  "duration_seconds": 1,
+                  "priority": 0,
+                  "interrupt_window_seconds": 0.25
+                },
+                "attack": null,
+                "costs": [
+                  {
+                    "resource": "energy",
+                    "amount": {
+                      "const": 12
+                    },
+                    "timing": "reserve",
+                    "mode": "PER_ACTION",
+                    "upfront_amount": 0,
+                    "per_hit_amount": 0
+                  }
+                ],
+                "modifiers": [],
+                "tags": [
+                  "ability"
+                ],
+                "depends_on": [],
+                "effects": {
+                  "displacements": [],
+                  "status_removals": []
+                },
+                "cooldown": null,
+                "extension_payload": {}
+              },
+              "effects": [
+                {
+                  "type": "RESOURCE_DELTA",
+                  "target_ref": "$target.0",
+                  "resource": "energy",
+                  "amount": -10
+                }
+              ]
+            }
+          }
+        ],
+        "strategy_fragments": []
+      },
+      "metadata": {
+        "fixture": true
+      }
+    },
+    {
+      "ability_id": "core.example.tactical_opening",
+      "version": "1.0.0",
+      "namespace": "core",
+      "name": "Tactical Opening",
+      "tags": [
+        "example"
+      ],
+      "parameters": {},
+      "constants": {},
+      "requirements": [],
+      "resources": [
+        "energy"
+      ],
+      "limitations": [],
+      "variants": {},
+      "mechanics": {
+        "components": [
+          {
+            "id": "plan",
+            "template": "STRATEGY_FRAGMENT",
+            "output": {
+              "strategy": {
+                "strategy_id": "core.example.tactical_opening:dag",
+                "owner": "$actor",
+                "state": "ACTIVE",
+                "completion_policy": "ALL_TERMINAL",
+                "goals": {
+                  "required": [
+                    "attack"
+                  ],
+                  "optional": []
+                },
+                "metadata": {
+                  "source": "ability"
+                },
+                "nodes": [
+                  {
+                    "id": "setup",
+                    "kind": "STATE_TRANSITION",
+                    "execution_class": "ZERO_TIME",
+                    "state": "PENDING",
+                    "dependency_mode": "ALL_OF",
+                    "dependencies": [],
+                    "conditions": [],
+                    "failure_policy": "CONTINUE",
+                    "fallback_node_ids": [],
+                    "completion_rule": "CONDITION_TRUE",
+                    "action": null,
+                    "primitive": null,
+                    "condition": null,
+                    "effects": {
+                      "on_success": [],
+                      "on_partial": [],
+                      "on_failure": [],
+                      "on_completion": []
+                    }
+                  },
+                  {
+                    "id": "branch",
+                    "kind": "CONDITION",
+                    "execution_class": "ZERO_TIME",
+                    "state": "PENDING",
+                    "dependency_mode": "ALL_OF",
+                    "dependencies": [
+                      {
+                        "node_id": "setup",
+                        "when": "ON_SUCCESS"
+                      }
+                    ],
+                    "conditions": [],
+                    "failure_policy": "CONTINUE",
+                    "fallback_node_ids": [],
+                    "completion_rule": "CONDITION_TRUE",
+                    "action": null,
+                    "primitive": null,
+                    "condition": {
+                      "compare": {
+                        "left": "world.turn",
+                        "operator": "gte",
+                        "right": 0
+                      }
+                    },
+                    "effects": {
+                      "on_success": [],
+                      "on_partial": [],
+                      "on_failure": [],
+                      "on_completion": []
+                    }
+                  },
+                  {
+                    "id": "attack",
+                    "kind": "ACTION",
+                    "execution_class": "ACTION",
+                    "state": "PENDING",
+                    "dependency_mode": "ALL_OF",
+                    "dependencies": [
+                      {
+                        "node_id": "branch",
+                        "when": "ON_SUCCESS"
+                      }
+                    ],
+                    "conditions": [],
+                    "failure_policy": "CONTINUE",
+                    "fallback_node_ids": [],
+                    "completion_rule": "RESOLVED",
+                    "action": {
+                      "kind": "attack",
+                      "timing": {
+                        "declared_at": 0,
+                        "duration_seconds": 1,
+                        "priority": 0,
+                        "interrupt_window_seconds": 0.25
+                      },
+                      "attack": {
+                        "delivery": "projectile",
+                        "channels": {
+                          "normal": 1
+                        },
+                        "power": {
+                          "op": "ADD",
+                          "args": [
+                            {
+                              "ref": "actor.stats.physical_capability"
+                            },
+                            {
+                              "const": 8
+                            }
+                          ]
+                        },
+                        "accuracy": {
+                          "const": 65
+                        },
+                        "speed": {
+                          "const": 60
+                        },
+                        "penetration": 0.2,
+                        "range": 50,
+                        "area": {
+                          "shape": "point",
+                          "dimensions": {},
+                          "falloff": "none"
+                        },
+                        "stability_impact": 10,
+                        "status_effects": [],
+                        "quantity": {
+                          "const": 1
+                        },
+                        "targeting": {
+                          "mode": "SINGLE",
+                          "allocations": []
+                        },
+                        "interrupt_resistance": 0,
+                        "batch_safety": "AUTO"
+                      },
+                      "costs": [
+                        {
+                          "resource": "energy",
+                          "amount": {
+                            "const": 6
+                          },
+                          "timing": "reserve",
+                          "mode": "PER_ACTION",
+                          "upfront_amount": 0,
+                          "per_hit_amount": 0
+                        }
+                      ],
+                      "modifiers": [],
+                      "tags": [
+                        "ability"
+                      ],
+                      "depends_on": [],
+                      "effects": {
+                        "displacements": [],
+                        "status_removals": []
+                      },
+                      "cooldown": null,
+                      "extension_payload": {},
+                      "id": "$action.attack",
+                      "turn": {
+                        "ref": "context.current_turn"
+                      },
+                      "actor_id": "$actor",
+                      "phase": "declared",
+                      "targets": [
+                        {
+                          "type": "character",
+                          "ref": "$target.0",
+                          "position": null,
+                          "body_zone": null
+                        }
+                      ],
+                      "parser_trace": null,
+                      "resolution": null
+                    },
+                    "primitive": null,
+                    "condition": null,
+                    "effects": {
+                      "on_success": [],
+                      "on_partial": [],
+                      "on_failure": [],
+                      "on_completion": []
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "strategy_fragments": []
+      },
+      "metadata": {
+        "fixture": true
+      }
+    },
+    {
+      "ability_id": "core.example.parameterized_blast",
+      "version": "1.0.0",
+      "namespace": "core",
+      "name": "Parameterized Blast",
+      "tags": [
+        "example"
+      ],
+      "parameters": {
+        "charge": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0
+        }
+      },
+      "constants": {},
+      "requirements": [],
+      "resources": [
+        "energy"
+      ],
+      "limitations": [],
+      "variants": {},
+      "mechanics": {
+        "components": [
+          {
+            "id": "blast",
+            "template": "ATTACK",
+            "output": {
+              "action": {
+                "kind": "attack",
+                "timing": {
+                  "declared_at": 0,
+                  "duration_seconds": 1,
+                  "priority": 0,
+                  "interrupt_window_seconds": 0.25
+                },
+                "attack": {
+                  "delivery": "projectile",
+                  "channels": {
+                    "normal": 1
+                  },
+                  "power": {
+                    "op": "ADD",
+                    "args": [
+                      {
+                        "const": 40
+                      },
+                      {
+                        "op": "MULTIPLY",
+                        "args": [
+                          {
+                            "ref": "parameters.charge"
+                          },
+                          {
+                            "const": 80
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "accuracy": {
+                    "const": 65
+                  },
+                  "speed": {
+                    "const": 60
+                  },
+                  "penetration": 0.2,
+                  "range": 50,
+                  "area": {
+                    "shape": "point",
+                    "dimensions": {},
+                    "falloff": "none"
+                  },
+                  "stability_impact": 10,
+                  "status_effects": [],
+                  "quantity": {
+                    "const": 1
+                  },
+                  "targeting": {
+                    "mode": "SINGLE",
+                    "allocations": []
+                  },
+                  "interrupt_resistance": 0,
+                  "batch_safety": "AUTO"
+                },
+                "costs": [
+                  {
+                    "resource": "energy",
+                    "amount": {
+                      "op": "ADD",
+                      "args": [
+                        {
+                          "const": 8
+                        },
+                        {
+                          "op": "MULTIPLY",
+                          "args": [
+                            {
+                              "ref": "parameters.charge"
+                            },
+                            {
+                              "const": 22
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "timing": "reserve",
+                    "mode": "PER_ACTION",
+                    "upfront_amount": 0,
+                    "per_hit_amount": 0
+                  }
+                ],
+                "modifiers": [],
+                "tags": [
+                  "ability"
+                ],
+                "depends_on": [],
+                "effects": {
+                  "displacements": [],
+                  "status_removals": []
+                },
+                "cooldown": null,
+                "extension_payload": {}
+              }
+            }
+          }
+        ],
+        "strategy_fragments": []
+      },
+      "metadata": {
+        "fixture": true
+      }
+    },
+    {
+      "ability_id": "core.example.conditional_follow_up",
+      "version": "1.0.0",
+      "namespace": "core",
+      "name": "Conditional Follow-up",
+      "tags": [
+        "example"
+      ],
+      "parameters": {
+        "mode": {
+          "type": "enum",
+          "values": [
+            "BASE",
+            "FOLLOW_UP"
+          ],
+          "default": "BASE"
+        }
+      },
+      "constants": {},
+      "requirements": [],
+      "resources": [
+        "energy"
+      ],
+      "limitations": [],
+      "variants": {
+        "POWERFUL": {
+          "constant_overrides": {},
+          "component_overrides": {
+            "base": {
+              "action": {
+                "attack": {
+                  "power": {
+                    "const": 70
+                  },
+                  "accuracy": {
+                    "const": 58
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "mechanics": {
+        "components": [
+          {
+            "id": "base",
+            "template": "ATTACK",
+            "output": {
+              "action": {
+                "kind": "attack",
+                "timing": {
+                  "declared_at": 0,
+                  "duration_seconds": 1,
+                  "priority": 0,
+                  "interrupt_window_seconds": 0.25
+                },
+                "attack": {
+                  "delivery": "projectile",
+                  "channels": {
+                    "normal": 1
+                  },
+                  "power": {
+                    "const": 45
+                  },
+                  "accuracy": {
+                    "const": 65
+                  },
+                  "speed": {
+                    "const": 60
+                  },
+                  "penetration": 0.2,
+                  "range": 50,
+                  "area": {
+                    "shape": "point",
+                    "dimensions": {},
+                    "falloff": "none"
+                  },
+                  "stability_impact": 10,
+                  "status_effects": [],
+                  "quantity": {
+                    "const": 1
+                  },
+                  "targeting": {
+                    "mode": "SINGLE",
+                    "allocations": []
+                  },
+                  "interrupt_resistance": 0,
+                  "batch_safety": "AUTO"
+                },
+                "costs": [
+                  {
+                    "resource": "energy",
+                    "amount": {
+                      "const": 5
+                    },
+                    "timing": "reserve",
+                    "mode": "PER_ACTION",
+                    "upfront_amount": 0,
+                    "per_hit_amount": 0
+                  }
+                ],
+                "modifiers": [],
+                "tags": [
+                  "ability"
+                ],
+                "depends_on": [],
+                "effects": {
+                  "displacements": [],
+                  "status_removals": []
+                },
+                "cooldown": null,
+                "extension_payload": {}
+              }
+            }
+          },
+          {
+            "id": "follow_up",
+            "template": "ATTACK",
+            "output": {
+              "action": {
+                "kind": "attack",
+                "timing": {
+                  "declared_at": 0,
+                  "duration_seconds": 1,
+                  "priority": 0,
+                  "interrupt_window_seconds": 0.25
+                },
+                "attack": {
+                  "delivery": "projectile",
+                  "channels": {
+                    "normal": 1
+                  },
+                  "power": {
+                    "const": 30
+                  },
+                  "accuracy": {
+                    "const": 65
+                  },
+                  "speed": {
+                    "const": 60
+                  },
+                  "penetration": 0.2,
+                  "range": 50,
+                  "area": {
+                    "shape": "point",
+                    "dimensions": {},
+                    "falloff": "none"
+                  },
+                  "stability_impact": 10,
+                  "status_effects": [],
+                  "quantity": {
+                    "const": 1
+                  },
+                  "targeting": {
+                    "mode": "SINGLE",
+                    "allocations": []
+                  },
+                  "interrupt_resistance": 0,
+                  "batch_safety": "AUTO"
+                },
+                "costs": [
+                  {
+                    "resource": "energy",
+                    "amount": {
+                      "const": 4
+                    },
+                    "timing": "reserve",
+                    "mode": "PER_ACTION",
+                    "upfront_amount": 0,
+                    "per_hit_amount": 0
+                  }
+                ],
+                "modifiers": [],
+                "tags": [
+                  "ability"
+                ],
+                "depends_on": [],
+                "effects": {
+                  "displacements": [],
+                  "status_removals": []
+                },
+                "cooldown": null,
+                "extension_payload": {}
+              }
+            },
+            "execution_class": "ACTION",
+            "when": {
+              "compare": {
+                "left": "parameters.mode",
+                "operator": "eq",
+                "right": "FOLLOW_UP"
+              }
+            }
+          }
+        ],
+        "strategy_fragments": []
+      },
+      "metadata": {
+        "fixture": true
+      }
+    }
+  ]
+}

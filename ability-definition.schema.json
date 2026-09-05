@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.4/ability-definition.schema.json",
+  "title": "Universal Ability Definition v0.4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ability_id", "version", "namespace", "name", "mechanics"],
+  "properties": {
+    "ability_id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*(\\.[a-z0-9_-]+)+$" },
+    "version": { "type": "string", "minLength": 1 },
+    "namespace": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "flavor": { "type": "string" },
+    "author_notes": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "parameters": { "type": "object", "propertyNames": { "pattern": "^[a-z][a-z0-9_]*$" }, "additionalProperties": { "$ref": "#/$defs/parameter" } },
+    "constants": { "type": "object", "propertyNames": { "pattern": "^[a-z][a-z0-9_]*$" }, "additionalProperties": { "type": "number" } },
+    "requirements": { "type": "array", "items": { "$ref": "#/$defs/requirement" } },
+    "limitations": { "type": "array", "items": { "$ref": "#/$defs/requirement" } },
+    "cooldown": { "type": ["object", "null"], "additionalProperties": true },
+    "resources": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "scaling": { "type": "object", "additionalProperties": true },
+    "variants": { "type": "object", "propertyNames": { "pattern": "^[A-Z][A-Z0-9_]*$" }, "additionalProperties": { "$ref": "#/$defs/variant" } },
+    "mechanics": {
+      "type": "object", "additionalProperties": false, "required": ["components"],
+      "properties": {
+        "components": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/component" } },
+        "strategy_fragments": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "metadata": { "type": "object", "additionalProperties": true }
+  },
+  "$defs": {
+    "parameter": {
+      "type": "object", "additionalProperties": false, "required": ["type"],
+      "properties": {
+        "type": { "enum": ["number", "integer", "boolean", "enum", "string"] },
+        "minimum": { "type": "number" }, "maximum": { "type": "number" }, "default": {},
+        "values": { "type": "array", "minItems": 1, "items": { "type": ["string", "number"] }, "uniqueItems": true }
+      }
+    },
+    "requirement": {
+      "type": "object", "additionalProperties": false, "required": ["type"],
+      "properties": {
+        "type": { "enum": ["MIN_STAT", "REQUIRED_RESOURCE", "REQUIRED_STATUS", "FORBIDDEN_STATUS", "EQUIPMENT_TAG", "DISTANCE", "TARGET_TYPE", "RELATION", "COOLDOWN_AVAILABLE", "WORLD_PREDICATE", "MAX_USES", "MUTUAL_EXCLUSION"] },
+        "ref": { "type": "string" }, "minimum": { "type": "number" }, "maximum": { "type": "number" }, "predicate": { "type": "object" }, "value": {}
+      }
+    },
+    "component": {
+      "type": "object", "additionalProperties": false, "required": ["id", "template", "output"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "template": { "enum": ["ATTACK", "DEFENSE", "MOVEMENT", "STATUS_ATTEMPT", "RESOURCE_TRANSFER", "RESOURCE_DENIAL", "MODIFIER_APPLICATION", "REACTION", "TEMPORAL_EFFECT", "RELATIONAL_EFFECT", "AREA_EFFECT", "STRATEGY_FRAGMENT"] },
+        "output": { "type": "object", "additionalProperties": true }, "when": { "type": "object" },
+        "execution_class": { "enum": ["ZERO_TIME", "ACTION", "REACTION", "MOVEMENT", "PASSIVE"] }
+      }
+    },
+    "variant": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "constant_overrides": { "type": "object", "additionalProperties": { "type": "number" } },
+        "component_overrides": { "type": "object", "additionalProperties": { "type": "object" } }
+      }
+    }
+  }
+}

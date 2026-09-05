@@ -232,10 +232,10 @@ invariants:
     rule: "ON_PARTIAL_OR_BETTER evaluates true for both partial and full success bands."
     enforcement: on_partial_or_better_test
   - id: INV-060
-    rule: "Strategy completion_policy is evaluated after all nodes are terminal."
+    rule: "Strategy completion_policy determines structural completion without inventing a universal strategy success value."
     enforcement: completion_policy_test
   - id: INV-061
-    rule: "REQUIRED_GOALS policy fails the strategy when any declared required goal node did not SUCCEED."
+    rule: "A strategy may complete structurally while a declared required goal retains its failed mechanical outcome."
     enforcement: required_goals_test
   - id: INV-062
     rule: "ACTIVATE_FALLBACK failure policy activates declared fallback nodes on primary failure."
@@ -264,6 +264,60 @@ invariants:
   - id: INV-070
     rule: "ZERO_TIME nodes that complete in one step correctly unlock newly eligible dependent nodes in the same step."
     enforcement: zero_time_chain_test
+  - id: INV-071
+    rule: "The RPG Engine imports zero Ability Parser modules."
+    enforcement: dependency_direction_test
+  - id: INV-072
+    rule: "The Ability Parser invokes no engine outcome resolver and executes no arbitrary code."
+    enforcement: parser_authority_test
+  - id: INV-073
+    rule: "Ability definitions pass formal schema validation before compilation."
+    enforcement: ability_definition_schema_test
+  - id: INV-074
+    rule: "Compiled abilities pass their formal schema before registration or use."
+    enforcement: compiled_ability_schema_test
+  - id: INV-075
+    rule: "Runtime ability parameters are declared, typed, and bounded before instantiation."
+    enforcement: ability_parameter_test
+  - id: INV-076
+    rule: "Unknown stat, resource, status, defense, and registry references fail compilation."
+    enforcement: ability_reference_test
+  - id: INV-077
+    rule: "Unsafe expression operations, division by zero, NaN, and Infinity cannot enter normalized mechanics."
+    enforcement: expression_safety_test
+  - id: INV-078
+    rule: "Expression depth and node-count limits are enforced."
+    enforcement: expression_complexity_test
+  - id: INV-079
+    rule: "Identical ability definitions and compatibility inputs compile byte-identically."
+    enforcement: compilation_determinism_test
+  - id: INV-080
+    rule: "Cached and uncached ability compilation produce canonical equivalent artifacts."
+    enforcement: compilation_cache_test
+  - id: INV-081
+    rule: "Identical compiled abilities and runtime bindings instantiate byte-identical normalized payloads."
+    enforcement: instantiation_determinism_test
+  - id: INV-082
+    rule: "Presentation-only metadata cannot alter an ability's mechanical hash."
+    enforcement: presentation_independence_test
+  - id: INV-083
+    rule: "Ability compilation and instantiation cannot mutate caller definitions, state, or registries."
+    enforcement: parser_immutability_test
+  - id: INV-084
+    rule: "Ability Parser output contains attempts and declarations, never final damage, hit, defense, or status outcomes."
+    enforcement: outcome_boundary_test
+  - id: INV-085
+    rule: "Ability-generated multi-hit actions obey ordinary quantity, batching, and resource-cost mechanics."
+    enforcement: generated_multihit_test
+  - id: INV-086
+    rule: "Ability-generated status attempts obey ordinary engine resistance and merge mechanics."
+    enforcement: generated_status_test
+  - id: INV-087
+    rule: "Ability-generated Strategy DAG fragments retain v0.3.1 execution-class and economy semantics."
+    enforcement: generated_strategy_test
+  - id: INV-088
+    rule: "Identical normalized actions resolve identically whether authored manually or instantiated by Ability Parser."
+    enforcement: mechanical_equivalence_test
 required_property_tests:
   stat_closure:
     samples:

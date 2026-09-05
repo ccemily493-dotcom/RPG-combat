@@ -20,6 +20,8 @@ export function normalizeStrategyDag(strategy, config) {
   if (!strategy.completion_policy) strategy.completion_policy = "ALL_TERMINAL";
   if (!strategy.goals) strategy.goals = { required: [], optional: [] };
   for (const node of strategy.nodes) {
+    node.effects ??= { on_success: [], on_partial: [], on_failure: [], on_completion: [] };
+    node.effects.on_partial ??= [];
     if (!node.execution_class) {
       if (node.kind === "CONDITION" || node.kind === "STATE_TRANSITION") {
         node.execution_class = "ZERO_TIME";
@@ -44,6 +46,9 @@ export function validateStrategyDag(strategy, characters, config) {
   const map = nodeMap(strategy);
   if (map.size !== strategy.nodes.length) throw new ValidationError(`Strategy ${strategy.strategy_id} has duplicate node ids.`);
   if (!characters[strategy.owner]) throw new ValidationError(`Strategy ${strategy.strategy_id} has unknown owner ${strategy.owner}.`);
+  for (const goalId of [...(strategy.goals?.required ?? []), ...(strategy.goals?.optional ?? [])]) {
+    if (!map.has(goalId)) throw new ValidationError(`Strategy ${strategy.strategy_id} references unknown goal ${goalId}.`);
+  }
   const allowed = new Set(Object.keys(config.specs["strategy.yaml"].primitive_resolution.opposed_contests)
     .concat(Object.keys(config.specs["strategy.yaml"].primitive_resolution.action_backed))
     .concat(Object.keys(config.specs["strategy.yaml"].primitive_resolution.condition_backed))
@@ -80,11 +85,21 @@ export function validateStrategyDag(strategy, characters, config) {
   return true;
 }
 
-function actionAvailability(action, context) {
-  if (!action) return { available: true, reason: "not_action_backed" };
-  const character = context.characters[action.actor_id];
+function actionAvailability(node, context) {
+  const actorId = node.action?.actor_id ?? node.primitive?.actor_ref;
+  const character = context.characters[actorId];
+  if (!character) return { available: false, reason: "actor_unavailable" };
   const economy = character.action_economy;
-  if ((economy.actions_remaining ?? (economy.available ? 1 : 0)) <= 0) return { available: false, reason: "action_capacity_unavailable" };
+  if (node.execution_class === "ACTION" && (economy.actions_remaining ?? (economy.available ? 1 : 0)) <= 0) return { available: false, reason: "action_capacity_unavailable" };
+  if (node.execution_class === "REACTION" && (economy.reactions_remaining ?? (economy.reaction_available ? 1 : 0)) <= 0) return { available: false, reason: "reaction_capacity_unavailable" };
+  if (node.execution_class === "MOVEMENT") {
+    const remaining = Number.isInteger(character.movement_economy)
+      ? character.movement_economy
+      : (economy.actions_remaining ?? (economy.available ? 1 : 0));
+    if (remaining <= 0) return { available: false, reason: "movement_capacity_unavailable" };
+  }
+  const action = node.action;
+  if (!action) return { available: true, reason: "available" };
   const cooldownKey = action.cooldown?.key ?? action.id;
   if (!cooldownAvailable(character, cooldownKey)) return { available: false, reason: "cooldown_unavailable" };
   const required = new Map();
@@ -95,22 +110,40 @@ function actionAvailability(action, context) {
   return { available: true, reason: "available" };
 }
 
-function reserveVirtualAction(action, characters) {
+function reserveVirtualAction(action, characters, executionClass = action.economy_class ?? "ACTION") {
   const character = characters[action.actor_id];
   if (!character) return;
-  character.action_economy.actions_remaining = (character.action_economy.actions_remaining ?? (character.action_economy.available ? 1 : 0)) - 1;
+  if (executionClass === "REACTION") {
+    character.action_economy.reactions_remaining = (character.action_economy.reactions_remaining ?? (character.action_economy.reaction_available ? 1 : 0)) - 1;
+  } else if (executionClass === "MOVEMENT" && Number.isInteger(character.movement_economy)) {
+    character.movement_economy -= 1;
+  } else if (executionClass !== "PASSIVE" && executionClass !== "ZERO_TIME") {
+    character.action_economy.actions_remaining = (character.action_economy.actions_remaining ?? (character.action_economy.available ? 1 : 0)) - 1;
+  }
   for (const cost of actionCostPlan(action)) {
     if (character.resources[cost.resource]) character.resources[cost.resource].current -= cost.maximumAmount;
   }
 }
 
+function reserveVirtualNode(node, characters) {
+  const actorId = node.action?.actor_id ?? node.primitive?.actor_ref;
+  const character = characters[actorId];
+  if (!character || node.execution_class === "ZERO_TIME" || node.execution_class === "PASSIVE") return;
+  if (node.action) {
+    reserveVirtualAction(node.action, characters, node.execution_class);
+    return;
+  }
+  if (node.execution_class === "REACTION") character.action_economy.reactions_remaining -= 1;
+  else if (node.execution_class === "MOVEMENT" && Number.isInteger(character.movement_economy)) character.movement_economy -= 1;
+  else character.action_economy.actions_remaining -= 1;
+}
+
 function dependencyMatches(dependency, predecessor) {
   if (dependency.when === "ON_SUCCESS") {
-    // Strict: SUCCEEDED and result_band is not "partial". For action nodes, result_band is undefined → passes.
-    return predecessor.state === "SUCCEEDED" && predecessor.result_band !== "partial";
+    return predecessor.state === "SUCCEEDED" && predecessor.result_band !== "PARTIAL";
   }
   if (dependency.when === "ON_PARTIAL") {
-    return predecessor.state === "SUCCEEDED" && predecessor.result_band === "partial";
+    return predecessor.state === "SUCCEEDED" && predecessor.result_band === "PARTIAL";
   }
   if (dependency.when === "ON_PARTIAL_OR_BETTER") {
     return predecessor.state === "SUCCEEDED";
@@ -177,13 +210,13 @@ export function scheduleStrategyNodes(strategies, context) {
       }
       // Economy check only for non-ZERO_TIME nodes
       if (node.execution_class !== "ZERO_TIME") {
-        const availability = actionAvailability(node.action, { ...context, characters: availabilityCharacters });
+        const availability = actionAvailability(node, { ...context, characters: availabilityCharacters });
         if (!availability.available) {
           node.state = "PENDING";
           records.push({ strategyId: strategy.strategy_id, nodeId: node.id, eligible: false, reason: availability.reason, state: node.state, dependencies: dependencies.evaluations, conditions });
           continue;
         }
-        if (node.action) reserveVirtualAction(node.action, availabilityCharacters);
+        reserveVirtualNode(node, availabilityCharacters);
       }
       node.state = "AVAILABLE";
       executable.push({ strategy, node });
@@ -221,7 +254,7 @@ function resolveOpposedPrimitive(config, snapshot, strategy, node, definition) {
   const oppositionTerm = roundTo(oppositionBase * oppositionVariance.factor);
   const margin = roundTo(actorTerm - oppositionTerm);
   const bands = config.specs["strategy.yaml"].primitive_resolution.outcome_bands;
-  const band = margin < coefficient(bands.failed_below) ? "failure" : margin < coefficient(bands.partial_below) ? "partial" : "success";
+  const band = margin < coefficient(bands.failed_below) ? "FAILURE" : margin < coefficient(bands.partial_below) ? "PARTIAL" : "SUCCESS";
   return {
     primitiveId: node.primitive.id,
     resolver: "OPPOSED_CONTEST",
@@ -235,7 +268,7 @@ function resolveOpposedPrimitive(config, snapshot, strategy, node, definition) {
     oppositionTerm,
     margin,
     band,
-    passed: band !== "failure"
+    passed: band !== "FAILURE"
   };
 }
 
@@ -243,17 +276,17 @@ function resolveImmediateNode(config, snapshot, strategy, node) {
   node.state = "RESOLVING";
   if (node.kind === "CONDITION") {
     const passed = evaluateTemporalPredicate(node.condition, snapshot);
-    return { strategyId: strategy.strategy_id, nodeId: node.id, kind: node.kind, resolver: "DECLARATIVE_CONDITION", passed, band: passed ? "success" : "failure" };
+    return { strategyId: strategy.strategy_id, nodeId: node.id, kind: node.kind, resolver: "DECLARATIVE_CONDITION", passed, band: passed ? "SUCCESS" : "FAILURE" };
   }
-  if (node.kind === "STATE_TRANSITION") return { strategyId: strategy.strategy_id, nodeId: node.id, kind: node.kind, resolver: "NORMALIZED_STATE_TRANSITION", passed: true, band: "success" };
+  if (node.kind === "STATE_TRANSITION") return { strategyId: strategy.strategy_id, nodeId: node.id, kind: node.kind, resolver: "NORMALIZED_STATE_TRANSITION", passed: true, band: "SUCCESS" };
   const primitives = config.specs["strategy.yaml"].primitive_resolution;
   const opposed = primitives.opposed_contests[node.primitive.id];
   if (opposed) return { strategyId: strategy.strategy_id, nodeId: node.id, kind: node.kind, ...resolveOpposedPrimitive(config, snapshot, strategy, node, opposed) };
   if (primitives.condition_backed[node.primitive.id]) {
     const passed = node.condition ? evaluateTemporalPredicate(node.condition, snapshot) : true;
-    return { strategyId: strategy.strategy_id, nodeId: node.id, kind: node.kind, primitiveId: node.primitive.id, resolver: "DECLARATIVE_CONDITION", passed, band: passed ? "success" : "failure" };
+    return { strategyId: strategy.strategy_id, nodeId: node.id, kind: node.kind, primitiveId: node.primitive.id, resolver: "DECLARATIVE_CONDITION", passed, band: passed ? "SUCCESS" : "FAILURE" };
   }
-  return { strategyId: strategy.strategy_id, nodeId: node.id, kind: node.kind, primitiveId: node.primitive.id, resolver: "NORMALIZED_STATE_SETUP", passed: true, band: "success" };
+  return { strategyId: strategy.strategy_id, nodeId: node.id, kind: node.kind, primitiveId: node.primitive.id, resolver: "NORMALIZED_STATE_SETUP", passed: true, band: "SUCCESS" };
 }
 
 export function beginStrategyStep(config, schedulerSnapshot, strategies) {
@@ -261,6 +294,7 @@ export function beginStrategyStep(config, schedulerSnapshot, strategies) {
   const context = { ...schedulerSnapshot, temporal_state: schedulerSnapshot.temporal_state };
   const allImmediateResults = [];
   const actionBindings = [];
+  const economyConsumptions = [];
   let zeroTimeCount = 0;
 
   // Iterative ZERO_TIME chain: resolve zero-time nodes until none are eligible, then schedule economy nodes.
@@ -278,7 +312,7 @@ export function beginStrategyStep(config, schedulerSnapshot, strategies) {
         if (actionBacked) {
           if (!node.action) throw new ValidationError(`Action-backed strategy node ${node.id} requires a normalized action.`);
           node.state = "RESERVED";
-          actionBindings.push({ strategyId: strategy.strategy_id, nodeId: node.id, action: deepClone(node.action) });
+          actionBindings.push({ strategyId: strategy.strategy_id, nodeId: node.id, executionClass: node.execution_class, action: deepClone(node.action) });
         } else {
           // Non-action-backed ACTION-class nodes (e.g. opposed-contest primitives like DISTRACTION):
           // they consume action economy but resolve immediately (not through resolveTurn)
@@ -286,12 +320,13 @@ export function beginStrategyStep(config, schedulerSnapshot, strategies) {
           node.state = result.passed ? "SUCCEEDED" : "FAILED";
           if (result.band !== undefined) node.result_band = result.band;
           allImmediateResults.push({ ...result, state: node.state });
+          economyConsumptions.push({ strategyId: strategy.strategy_id, nodeId: node.id, actorId: node.primitive.actor_ref, executionClass: node.execution_class, amount: 1 });
         }
       }
       // Return eligibility records from BEFORE economy-node resolution.
       // failure policies run in completeStrategyStep and will set CANCELLED on nodes
       // that scheduleStrategyNodes would otherwise mark BLOCKED.
-      return { eligibility: scheduled.records, immediateResults: allImmediateResults, actionBindings };
+      return { eligibility: scheduled.records, immediateResults: allImmediateResults, actionBindings, economyConsumptions };
     }
 
     // Resolve each eligible ZERO_TIME node in this pass
@@ -368,7 +403,25 @@ function applyFailurePolicy(strategy, failedNode, transitions) {
   }
 }
 
-export function completeStrategyStep(strategies, startResult, actionResults) {
+function goalOutcomes(strategy) {
+  const outcome = (id) => {
+    const node = strategy.nodes.find((candidate) => candidate.id === id);
+    return { node_id: id, state: node?.state ?? "INVALID", result_band: node?.result_band ?? null };
+  };
+  return {
+    required: (strategy.goals?.required ?? []).map(outcome),
+    optional: (strategy.goals?.optional ?? []).map(outcome)
+  };
+}
+
+function markRemainingSkipped(strategy, transitions, reason) {
+  for (const node of strategy.nodes.filter((candidate) => !TERMINAL.has(candidate.state))) {
+    node.state = "SKIPPED";
+    transitions.push({ strategyId: strategy.strategy_id, nodeId: node.id, to: "SKIPPED", reason });
+  }
+}
+
+export function completeStrategyStep(strategies, startResult, actionResults, context = null) {
   const results = [...startResult.immediateResults];
   const transitions = startResult.immediateResults.map((result) => ({ strategyId: result.strategyId, nodeId: result.nodeId, to: result.state, reason: `resolver:${result.resolver}` }));
   const actions = new Map(actionResults.map((result) => [result.id, result]));
@@ -379,40 +432,35 @@ export function completeStrategyStep(strategies, startResult, actionResults) {
     const passed = actionPassed(node.completion_rule, actionResult);
     node.state = passed ? "SUCCEEDED" : "FAILED";
     // Action-backed nodes carry no result_band (they are binary pass/fail via completion_rule)
-    results.push({ strategyId: strategy.strategy_id, nodeId: node.id, kind: node.kind, resolver: "resolveTurn", actionId: binding.action.id, actionOutcome: actionResult?.outcome ?? "missing", passed, band: passed ? "success" : "failure", state: node.state });
+    node.result_band = passed ? "SUCCESS" : "FAILURE";
+    results.push({ strategyId: strategy.strategy_id, nodeId: node.id, kind: node.kind, resolver: "resolveTurn", actionId: binding.action.id, actionOutcome: actionResult?.outcome ?? "missing", passed, band: node.result_band, state: node.state });
     transitions.push({ strategyId: strategy.strategy_id, nodeId: node.id, to: node.state, reason: `action_completion:${node.completion_rule}` });
   }
   for (const strategy of [...strategies].sort((a, b) => a.strategy_id.localeCompare(b.strategy_id))) {
     for (const node of [...strategy.nodes].filter((candidate) => candidate.state === "FAILED").sort((a, b) => a.id.localeCompare(b.id))) applyFailurePolicy(strategy, node, transitions);
-    if (strategy.state === "ACTIVE" && strategy.nodes.every((node) => TERMINAL.has(node.state))) {
-      // Evaluate completion_policy (default ALL_TERMINAL means all nodes terminal → COMPLETED)
+    if (strategy.state === "ACTIVE") {
       const policy = strategy.completion_policy ?? "ALL_TERMINAL";
-      let succeeded;
+      const allTerminal = strategy.nodes.every((node) => TERMINAL.has(node.state));
+      let complete = allTerminal;
       if (policy === "REQUIRED_GOALS") {
-        const required = (strategy.goals?.required ?? []);
-        succeeded = required.length === 0
-          ? strategy.nodes.some((node) => node.state === "SUCCEEDED")
-          : required.every((goalId) => {
-              const goalNode = strategy.nodes.find((node) => node.id === goalId);
-              return goalNode && goalNode.state === "SUCCEEDED";
-            });
+        const required = strategy.goals?.required ?? [];
+        complete = required.length > 0 && required.every((goalId) => TERMINAL.has(strategy.nodes.find((node) => node.id === goalId)?.state));
       } else if (policy === "ANY_GOAL") {
         const allGoals = [...(strategy.goals?.required ?? []), ...(strategy.goals?.optional ?? [])];
-        succeeded = allGoals.length === 0
-          ? strategy.nodes.some((node) => node.state === "SUCCEEDED")
-          : allGoals.some((goalId) => {
-              const goalNode = strategy.nodes.find((node) => node.id === goalId);
-              return goalNode && goalNode.state === "SUCCEEDED";
-            });
-      } else {
-        // ALL_TERMINAL (default) and EXPLICIT_PREDICATE (provisional: falls back to any-succeeded heuristic)
-        succeeded = strategy.nodes.some((node) => node.state === "SUCCEEDED");
+        complete = allGoals.some((goalId) => strategy.nodes.find((node) => node.id === goalId)?.state === "SUCCEEDED")
+          || (allGoals.length > 0 && allGoals.every((goalId) => TERMINAL.has(strategy.nodes.find((node) => node.id === goalId)?.state)));
+      } else if (policy === "EXPLICIT_PREDICATE") {
+        complete = Boolean(context && strategy.completion_predicate && evaluateTemporalPredicate(strategy.completion_predicate, context));
+        if (!complete && allTerminal) throw new ValidationError(`Strategy ${strategy.strategy_id} reached terminal nodes without satisfying its explicit completion predicate.`);
       }
-      strategy.state = succeeded ? "SUCCEEDED" : "FAILED";
+      if (complete) {
+        if (!allTerminal) markRemainingSkipped(strategy, transitions, `completion_policy:${policy}`);
+        strategy.state = "COMPLETED";
+      }
     }
   }
   transitions.sort((a, b) => a.strategyId.localeCompare(b.strategyId) || a.nodeId.localeCompare(b.nodeId) || a.reason.localeCompare(b.reason));
-  return { results, transitions };
+  return { results, transitions, strategies: strategies.map((strategy) => ({ strategyId: strategy.strategy_id, executionState: strategy.state, goals: goalOutcomes(strategy) })) };
 }
 
 export function strategyEffects(strategies, nodeResults) {
@@ -420,7 +468,7 @@ export function strategyEffects(strategies, nodeResults) {
   for (const result of [...nodeResults].sort((a, b) => a.strategyId.localeCompare(b.strategyId) || a.nodeId.localeCompare(b.nodeId))) {
     const strategy = strategies.find((candidate) => candidate.strategy_id === result.strategyId);
     const node = strategy.nodes.find((candidate) => candidate.id === result.nodeId);
-    const selected = result.passed ? node.effects.on_success : node.effects.on_failure;
+    const selected = result.band === "PARTIAL" ? (node.effects.on_partial ?? []) : result.passed ? node.effects.on_success : node.effects.on_failure;
     for (const effect of [...selected, ...node.effects.on_completion]) effects.push({ strategyId: strategy.strategy_id, nodeId: node.id, effect: deepClone(effect) });
   }
   return effects;

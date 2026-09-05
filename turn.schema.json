@@ -24,7 +24,8 @@
     "registries": { "$ref": "#/$defs/registries" },
     "seed": { "type": ["string", "number", "integer"] },
     "trace": { "type": "boolean", "default": true },
-    "force_individual": { "type": "boolean", "default": false }
+    "force_individual": { "type": "boolean", "default": false },
+    "advance_time": { "type": "boolean", "default": true }
   },
   "$defs": {
     "registries": {

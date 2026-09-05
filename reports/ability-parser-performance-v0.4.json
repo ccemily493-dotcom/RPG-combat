@@ -1,0 +1,96 @@
+{
+  "version": "0.4.0",
+  "generated_at": "2026-09-05T12:57:53.810Z",
+  "measurements": [
+    {
+      "name": "simple_compile",
+      "iterations": 100,
+      "median_ms": 0.2318000000000211,
+      "p95_ms": 0.4319000000000415,
+      "operations_per_second": 3607.5296358559635
+    },
+    {
+      "name": "composite_compile",
+      "iterations": 100,
+      "median_ms": 0.21069999999997435,
+      "p95_ms": 0.36220000000002983,
+      "operations_per_second": 4210.934111513956
+    },
+    {
+      "name": "parameterized_compile",
+      "iterations": 100,
+      "median_ms": 0.20450000000005275,
+      "p95_ms": 0.43859999999995125,
+      "operations_per_second": 4173.81432369604
+    },
+    {
+      "name": "strategy_compile",
+      "iterations": 100,
+      "median_ms": 0.2763999999999669,
+      "p95_ms": 0.497600000000034,
+      "operations_per_second": 3265.1675194196305
+    },
+    {
+      "name": "cached_compile",
+      "iterations": 1000,
+      "median_ms": 0.04470000000003438,
+      "p95_ms": 0.08389999999997144,
+      "operations_per_second": 18671.172642997495
+    },
+    {
+      "name": "registry_100",
+      "iterations": 3,
+      "median_ms": 24.86889999999994,
+      "p95_ms": 27.119599999999878,
+      "operations_per_second": 39.23009628373303
+    },
+    {
+      "name": "registry_1000",
+      "iterations": 1,
+      "median_ms": 264.1924999999999,
+      "p95_ms": 264.1924999999999,
+      "operations_per_second": 3.7851188054165066
+    },
+    {
+      "name": "simple_use",
+      "iterations": 1000,
+      "median_ms": 0.16950000000019827,
+      "p95_ms": 0.3108999999999469,
+      "operations_per_second": 5085.370659954074
+    },
+    {
+      "name": "multi_hit_use",
+      "iterations": 1000,
+      "median_ms": 0.1172999999998865,
+      "p95_ms": 0.3647000000000844,
+      "operations_per_second": 6050.397390100485
+    },
+    {
+      "name": "multi_target_use",
+      "iterations": 1000,
+      "median_ms": 0.10269999999991342,
+      "p95_ms": 0.1412000000000262,
+      "operations_per_second": 9101.433657829622
+    },
+    {
+      "name": "composite_use",
+      "iterations": 1000,
+      "median_ms": 0.17650000000003274,
+      "p95_ms": 0.2716000000000349,
+      "operations_per_second": 5192.264356870694
+    },
+    {
+      "name": "strategy_fragment_use",
+      "iterations": 1000,
+      "median_ms": 0.1871000000001004,
+      "p95_ms": 0.39509999999972933,
+      "operations_per_second": 4354.486558135498
+    }
+  ],
+  "cache": {
+    "size": 1,
+    "hits": 1000,
+    "misses": 1
+  },
+  "approximate_heap_delta_bytes_for_registry_benchmarks": 25793048
+}

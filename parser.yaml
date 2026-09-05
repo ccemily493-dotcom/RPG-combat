@@ -1,140 +1,47 @@
 spec_version: "0.3"
-document: ability_and_action_parser_contract
+document: universal_ability_parser_v0_4
 status: provisional
 
-component_boundary:
-  component: Ability Parser
-  separate_from_core_engine: true
-  dependency_direction:
-    - "Universe Extension -> Ability Parser"
-    - "Ability Parser -> RPG Engine"
-  core_engine_must_not_import: [ability_parser, universe_extensions, llm_clients, external_dictionaries]
-  parser_output: "validated, normalized Action State and registered extension references"
+authority:
+  direction:
+    - Universe_Extension_to_Ability_Parser
+    - Ability_Parser_to_Normalized_Engine_Contracts
+    - RPG_Engine_to_Mechanical_Result
+  parser_determines_outcomes: false
+  parser_mutates_canonical_state: false
+  engine_imports_ability_parser: false
+  semantic_guessing: false
 
 pipeline:
-  - stage: normalization
-    operations: [unicode_nfkc, case_fold_for_matching, normalize_whitespace, preserve_original_offsets, normalize_units, segment_clauses]
-    must_not: [discard_negation, replace_unknown_terms, infer_success]
-  - stage: vocabulary_and_synonyms
-    operations: [longest_match_first, resolve_aliases, attach_candidate_senses, retain_namespace]
-  - stage: patterns
-    operations: [apply_ordered_grammar_rules, identify_action_frames, bind_negation_and_conditionals, identify_coordination]
-  - stage: entity_extraction
-    operations: [actors, targets, body_zones, locations, resources, abilities, quantities, units, durations, conditions]
-  - stage: action_classification
-    operations: [assign_core_kind, assign_strategy_taxonomy_ids, build_subaction_dag, map_properties]
-  - stage: confidence
-    operations: [score_evidence, penalize_conflicts, identify_required_missing_fields]
-  - stage: optional_llm_fallback
-    operations: [classify_unknown_phrases, propose_known_taxonomy_mapping, propose_subaction_decomposition]
-  - stage: deterministic_validation
-    operations: [schema_validation, registry_validation, unit_conversion, dag_validation, authority_check]
+  definition_time: [schema_validation, reference_validation, expression_validation, template_compilation, strategy_fragment_validation, canonical_hashing]
+  use_time: [ability_lookup, parameter_validation, actor_target_binding, expression_evaluation, normalized_payload_validation]
 
-dictionary_schema:
-  required: [id, namespace, version, locale, entries]
-  fields:
-    id: string
-    namespace: string
-    version: string
-    locale: "BCP-47 tag"
-    priority: integer
-    entries:
-      type: array
-      item:
-        required: [surface, canonical, kind]
-        fields:
-          surface: string
-          canonical: string
-          kind: { enum: [action, strategy, entity_type, stat_alias, property, unit, status, tag] }
-          synonyms: "string[]"
-          inflections: "string[]"
-          contexts: "string[]"
-          exclusions: "string[]"
-          universe_ref: "optional namespaced registry id"
-  loading:
-    supports_large_external_dictionaries: true
-    required_features: [streaming_load, immutable_compiled_index, version_hash, lazy_locale_partition, deterministic_iteration]
-    precedence: [session_explicit, universe_extension, core]
-    equal_priority_tie_break: "namespace then dictionary id then canonical, lexicographically"
-    conflicting_canonical_mapping: "retain all senses and reduce confidence"
+expression_language:
+  operations: [ADD, SUBTRACT, MULTIPLY, DIVIDE, MIN, MAX, CLAMP, ABS]
+  max_depth: { value: 16, tunable: true }
+  max_nodes: { value: 128, tunable: true }
+  arbitrary_code_forbidden: true
+  non_finite_values_forbidden: true
+  division_by_zero: EXPRESSION_ERROR
+  reference_roots: [actor.stats, actor.resources, parameters, constants, context]
 
-initial_action_taxonomy:
-  core_kinds: [attack, defense, movement, interaction, strategy, wait]
-  attack_delivery: [melee, projectile, beam, wave, field, contact, environmental]
-  defense_methods: [evade, block, parry, barrier, absorb, deflect, counterguard, cover, endure]
-  strategy_ids: "strategy.yaml#/taxonomy keys"
-  relations: [from, toward, through, around, behind, before, after, while, until, if, unless, using, against]
-  quantifiers: [single, repeated, all, nearest, farthest, each, sequence, simultaneous]
+templates: [ATTACK, DEFENSE, MOVEMENT, STATUS_ATTEMPT, RESOURCE_TRANSFER, RESOURCE_DENIAL, MODIFIER_APPLICATION, REACTION, TEMPORAL_EFFECT, RELATIONAL_EFFECT, AREA_EFFECT, STRATEGY_FRAGMENT]
 
-pattern_schema:
-  required: [id, priority, match, emit]
-  fields:
-    id: string
-    priority: integer
-    match: "declarative token/lemma/entity pattern; no executable code"
-    guards: "predicate[] over parse context"
-    emit: "action-frame template"
-    confidence_delta:
-      type: number
-      range: [-1, 1]
-      tunable: true
-  tie_break: "priority descending, consumed token count descending, id lexicographically"
+cache:
+  identity: [definition_hash, parser_version, ruleset_version, registry_hashes]
+  hidden_mutable_state_is_mechanical_input: false
+  cached_and_uncached_outputs_must_match: true
 
-entity_schema:
-  required: [type, canonical, source_span, candidates]
-  fields:
-    type: { enum: [actor, target, body_zone, location, resource, ability, quantity, unit, duration, condition, unknown] }
-    canonical: "string or null"
-    source_span: { start: integer, end_exclusive: integer }
-    candidates: "array<{id, confidence, evidence}>"
-    resolved_ref: "string or null; must exist in supplied registry/snapshot"
+metadata:
+  parser_version: "0.4.0"
+  presentation_fields_excluded_from_mechanical_hash: [name, description, flavor, author_notes, metadata]
+  full_definition_hash_retained: true
+  semantic_provider_interface_only: true
+  semantic_provider_implementation: false
 
-confidence:
-  range: [0, 1]
-  formula: "clamp(0, 1, lexical*lexical_weight.value + pattern*pattern_weight.value + entity*entity_weight.value + completeness*completeness_weight.value - conflict_penalty - unknown_penalty)"
-  weights:
-    lexical_weight: { value: 0.20, tunable: true }
-    pattern_weight: { value: 0.30, tunable: true }
-    entity_weight: { value: 0.25, tunable: true }
-    completeness_weight: { value: 0.25, tunable: true }
-    must_sum_to: { value: 1.0, tunable: false, reason: "normalized confidence" }
-  penalties:
-    per_conflict: { value: 0.15, tunable: true }
-    per_unknown_required_term: { value: 0.20, tunable: true }
-  thresholds:
-    accept_rule_parse_at_or_above: { value: 0.85, tunable: true }
-    llm_fallback_below: { value: 0.65, tunable: true }
-    review_or_reject_below: { value: 0.40, tunable: true }
-  policy:
-    - "At >= accept threshold and with no required fields missing, accept rule parse."
-    - "Between fallback and accept, run deterministic ambiguity resolution; LLM may be used only if ambiguity remains."
-    - "Below fallback, LLM may propose a parse."
-    - "Below review threshold after fallback, reject or request a structured clarification from the calling application."
-
-llm_fallback:
-  enabled_by_default: true
-  enabled_by_default_tunable: true
-  receives: [original_text, normalized_tokens, candidate_entities, allowed_taxonomies, schemas, relevant_dictionary_slices]
-  does_not_receive: [mechanical_success_labels, hidden_random_seed]
-  output_schema:
-    taxonomy_ids: "registered string[]"
-    action_frames: "schema-conforming object[]"
-    subactions: "strategy subaction DAG"
-    unresolved_spans: "source spans[]"
-    rationale_codes: "enum identifiers, not free-form mechanics"
-  mandatory_postprocessing: [discard_unregistered_ids, schema_validate, recompute_confidence_without_self_reported_llm_confidence, enforce_authority_boundary]
-  forbidden_outputs: [success, failure, damage, defense_filter, random_result, state_delta]
-  caching_key: "parser_version + dictionary_hashes + normalized_text + allowed_registry_hash"
-
-parser_result_schema:
-  required: [parser_version, dictionary_hashes, normalized_actions, confidence, fallback_used, warnings, unresolved]
-  mechanical_authority: false
-  normalized_actions_must_validate_against: action.schema.json
-  stable_serialization: "UTF-8 canonical JSON with sorted object keys"
-
-failure_modes:
-  missing_required_entity: "return typed unresolved entry; do not invent an entity"
-  unknown_ability: "return namespaced unknown ability token; caller may load an extension"
-  contradictory_instructions: "return conflict spans and no executable action"
-  invalid_llm_output: "discard and return best rule-based parse plus warnings"
-  unavailable_llm: "continue with rule result; reject only if below configured confidence policy"
+diagnostics:
+  non_blocking: true
+  suspicious_thresholds:
+    power: { value: 300, tunable: true }
+    range: { value: 1000, tunable: true }
+    quantity: { value: 500, tunable: true }

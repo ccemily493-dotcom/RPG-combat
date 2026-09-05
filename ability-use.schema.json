@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.4/ability-use.schema.json",
+  "title": "Universal Ability Use v0.4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ability_id", "actor_id", "targets"],
+  "properties": {
+    "ability_id": { "type": "string", "minLength": 1 }, "actor_id": { "type": "string", "minLength": 1 },
+    "targets": { "type": "array", "items": { "$ref": "#/$defs/target" } },
+    "parameters": { "type": "object", "additionalProperties": true },
+    "declared_options": { "type": "object", "additionalProperties": false, "properties": { "variant": { "type": "string" }, "action_id_prefix": { "type": "string", "minLength": 1 }, "turn": { "type": "integer", "minimum": 0 }, "target_action_id": { "type": "string", "minLength": 1 } } }
+  },
+  "$defs": {
+    "vector3": { "type": "object", "additionalProperties": false, "required": ["x", "y", "z"], "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "z": { "type": "number" } } },
+    "target": { "type": "object", "additionalProperties": false, "required": ["type", "ref"], "properties": { "type": { "enum": ["character", "object", "position", "zone", "area", "self"] }, "ref": { "type": ["string", "null"] }, "position": { "oneOf": [{ "$ref": "#/$defs/vector3" }, { "type": "null" }] }, "body_zone": { "type": ["string", "null"] } } }
+  }
+}

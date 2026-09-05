@@ -45,15 +45,15 @@ test("Scenario C activates a delayed effect at its declared turn and not before"
   assert.ok(result.stepResults[1].turnResult.actionResults[0].hits[0].trace.offense.resolved.accuracy.activeModifierIds.includes("C.delayed-accuracy"));
 });
 
-test("Scenario D executes distraction, reposition, and ordinary attack payoff by dependency layer", () => {
+test("Scenario D executes distraction, reposition, and ordinary attack payoff in one turn when economy permits", () => {
   const result = engine.resolveSession(clone(scenarios.D));
   const states = Object.fromEntries(result.finalSnapshot.strategies[0].nodes.map((node) => [node.id, node.state]));
   assert.deepEqual(states, { "D.attack": "SUCCEEDED", "D.distraction": "SUCCEEDED", "D.reposition": "SUCCEEDED" });
   assert.deepEqual(result.finalSnapshot.characters.a.transform.position, { x: 2, y: 2, z: 0 });
-  const hit = result.stepResults[2].turnResult.actionResults[0].hits[0];
+  const hit = result.stepResults[0].turnResult.actionResults.find((action) => action.id === "D.payoff").hits[0];
   assert.ok(hit.trace.offense.resolved.accuracy.activeModifierIds.includes("D.blind-spot:accuracy"));
   assert.ok(hit.trace.accuracy.targetScore.activeModifierIds.includes("D.attention"));
-  assert.ok(result.stepResults[2].temporalEvents.some((event) => event.type === "relation_consumed"));
+  assert.ok(result.stepResults[0].temporalEvents.some((event) => event.type === "relation_consumed"));
 });
 
 test("Scenario E applies the declared failure policy without hidden payoff", () => {

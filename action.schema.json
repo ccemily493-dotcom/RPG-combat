@@ -10,6 +10,7 @@
     "turn": { "type": "integer", "minimum": 0 },
     "actor_id": { "type": "string", "minLength": 1 },
     "kind": { "enum": ["attack", "defense", "movement", "interaction", "strategy", "wait", "extension"] },
+    "economy_class": { "enum": ["ACTION", "REACTION", "MOVEMENT", "PASSIVE"], "default": "ACTION" },
     "phase": { "enum": ["declared", "validated", "cost_reserved", "resolving", "resolved", "committed", "failed", "cancelled"] },
     "intent_text": { "type": ["string", "null"], "default": null },
     "targets": { "type": "array", "items": { "$ref": "#/$defs/target" } },

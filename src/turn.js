@@ -537,7 +537,7 @@ function mergeDisplacements(characters, claims, spatialBounds) {
   return { conflicts, changes };
 }
 
-function applyTurnCommit(working, staged, config) {
+function applyTurnCommit(working, staged, config, advanceTime = true) {
   const payload = staged[0];
   const characters = working.characters;
   const resourceChanges = [];
@@ -581,6 +581,15 @@ function applyTurnCommit(working, staged, config) {
     economy.reaction_available = after > 0;
     economyChanges.push({ characterId, kind: "reaction", before, after, consumed: amount });
   }
+  for (const [characterId, amount] of [...payload.movementEconomyDeltas].sort(([a], [b]) => a.localeCompare(b))) {
+    const character = characters[characterId];
+    if (!Number.isInteger(character.movement_economy)) throw new ResolutionError(`Movement economy is not declared for ${characterId}.`);
+    const before = character.movement_economy;
+    const after = before - amount;
+    if (after < 0) throw new ResolutionError(`Movement capacity became negative for ${characterId}.`);
+    character.movement_economy = after;
+    economyChanges.push({ characterId, kind: "movement", before, after, consumed: amount });
+  }
   const statusCharacters = new Set([...payload.statusAdditions.map((item) => item.characterId), ...payload.statusRemovals.map((item) => item.characterId)]);
   for (const characterId of [...statusCharacters].sort()) {
     const additions = payload.statusAdditions.filter((item) => item.characterId === characterId);
@@ -596,11 +605,9 @@ function applyTurnCommit(working, staged, config) {
   for (const character of Object.values(characters)) {
     if (character.resources.health.current <= knockout) character.transform.posture = "incapacitated";
   }
-  working.world.turn += 1;
-  working.world.time.elapsed_seconds = roundTo(working.world.time.elapsed_seconds + working.world.time.turn_duration_seconds);
   const events = payload.events.map((event, sequence) => ({ sequence, ...event }));
   const previous = {
-    turn: working.world.turn - 1,
+    turn: working.world.turn,
     snapshot_hash: payload.startingSnapshotHash,
     action_refs: payload.actionRefs,
     events,
@@ -614,9 +621,13 @@ function applyTurnCommit(working, staged, config) {
     resulting_snapshot_hash: null,
     summary_tags: [...new Set(["combat_turn", ...payload.summaryTags])].sort()
   };
-  working.world.previous_turn = previous;
-  previous.resulting_snapshot_hash = canonicalHash({ world: working.world, characters });
-  return { world: working.world, characters, events, resourceChanges, economyChanges, statusChanges, displacementChanges: displacement.changes, conflicts };
+  if (advanceTime) {
+    working.world.turn += 1;
+    working.world.time.elapsed_seconds = roundTo(working.world.time.elapsed_seconds + working.world.time.turn_duration_seconds);
+    working.world.previous_turn = previous;
+    previous.resulting_snapshot_hash = canonicalHash({ world: working.world, characters });
+  }
+  return { world: working.world, characters, events, resourceChanges, economyChanges, statusChanges, displacementChanges: displacement.changes, conflicts, previousTurn: previous };
 }
 
 function validateCommitted(engine, result) {
@@ -645,7 +656,14 @@ export function resolveTurn(engine, input) {
   const reservations = new Map();
   try {
     for (const action of orderedActions) {
-      ledger.reserveAction(action.actor_id, 1, `action:${action.id}`);
+      const economyClass = action.economy_class ?? "ACTION";
+      if (economyClass === "REACTION") {
+        if (!ledger.reserveReaction(action.actor_id, 1, `action:${action.id}`)) throw new ResolutionError(`Character ${action.actor_id} lacks reaction capacity.`);
+      } else if (economyClass === "MOVEMENT" && Number.isInteger(snapshot.characters[action.actor_id].movement_economy)) {
+        ledger.reserveMovement(action.actor_id, 1, `action:${action.id}`);
+      } else if (economyClass !== "PASSIVE") {
+        ledger.reserveAction(action.actor_id, 1, `action:${action.id}`);
+      }
       const plan = actionCostPlan(action);
       for (const cost of plan) ledger.reserveResource(action.actor_id, cost.resource, cost.maximumAmount, `action:${action.id}:cost:${cost.index}`);
       reservations.set(action.id, plan);
@@ -665,6 +683,7 @@ export function resolveTurn(engine, input) {
   const resourceDeltas = [];
   const actionEconomyDeltas = new Map();
   const reactionEconomyDeltas = new Map();
+  const movementEconomyDeltas = new Map();
   const statusAdditions = [];
   const statusRemovals = [];
   const displacements = [];
@@ -689,7 +708,10 @@ export function resolveTurn(engine, input) {
       const payable = result.outcome === "cancelled" && cost.timing === "on_contact" ? 0 : cost.committedAmount;
       if (payable) resourceDeltas.push({ characterId: action.actor_id, resource: cost.resource, delta: -payable, sourceRef: action.id });
     }
-    actionEconomyDeltas.set(action.actor_id, (actionEconomyDeltas.get(action.actor_id) ?? 0) + 1);
+    const economyClass = action.economy_class ?? "ACTION";
+    if (economyClass === "REACTION") reactionEconomyDeltas.set(action.actor_id, (reactionEconomyDeltas.get(action.actor_id) ?? 0) + 1);
+    else if (economyClass === "MOVEMENT" && Number.isInteger(snapshot.characters[action.actor_id].movement_economy)) movementEconomyDeltas.set(action.actor_id, (movementEconomyDeltas.get(action.actor_id) ?? 0) + 1);
+    else if (economyClass !== "PASSIVE") actionEconomyDeltas.set(action.actor_id, (actionEconomyDeltas.get(action.actor_id) ?? 0) + 1);
     if (result.kind === "attack") {
       for (const hit of result.hits) {
         if (hit.healthDamage) resourceDeltas.push({ characterId: hit.targetId, resource: "health", delta: -hit.healthDamage, sourceRef: action.id });
@@ -720,6 +742,7 @@ export function resolveTurn(engine, input) {
     resourceDeltas,
     actionEconomyDeltas: [...actionEconomyDeltas],
     reactionEconomyDeltas: [...reactionEconomyDeltas],
+    movementEconomyDeltas: [...movementEconomyDeltas],
     statusAdditions,
     statusRemovals,
     displacements,
@@ -731,7 +754,7 @@ export function resolveTurn(engine, input) {
   let committed;
   try {
     committed = transaction.commit(
-      (working, staged) => applyTurnCommit(working, staged, engine.config),
+      (working, staged) => applyTurnCommit(working, staged, engine.config, input.advance_time !== false),
       (result) => validateCommitted(engine, result)
     );
   } catch (error) {
@@ -763,7 +786,7 @@ export function resolveTurn(engine, input) {
       displacementChanges: committed.displacementChanges
     },
     conflicts: committed.conflicts,
-    commit: { atomic: true, turn: committed.world.turn },
+    commit: { atomic: true, turn: committed.world.turn, advancedTime: input.advance_time !== false },
     resultingSnapshotHash: canonicalHash({ world: committed.world, characters: committed.characters }),
     pipeline: engine.config.specs["combat-loop.yaml"].turn_contract.phases
   };

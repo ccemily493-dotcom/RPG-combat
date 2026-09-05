@@ -199,6 +199,7 @@ export class TurnReservationLedger {
   #resources = new Map();
   #actions = new Map();
   #reactions = new Map();
+  #movements = new Map();
   #records = [];
 
   constructor(snapshot) {
@@ -242,6 +243,17 @@ export class TurnReservationLedger {
     return true;
   }
 
+  reserveMovement(characterId, amount, reason) {
+    const character = this.#snapshot.characters[characterId];
+    const available = character?.movement_economy;
+    if (!Number.isInteger(available)) return this.reserveAction(characterId, amount, reason);
+    const reserved = this.#movements.get(characterId) ?? 0;
+    if (reserved + amount > available) throw new ResolutionError(`Character ${characterId} lacks movement capacity: required ${reserved + amount}, available ${available}.`);
+    this.#movements.set(characterId, reserved + amount);
+    this.#records.push({ type: "movement_economy", characterId, amount, totalReserved: reserved + amount, reason });
+    return true;
+  }
+
   resourceTotal(characterId, resource) {
     return this.#resources.get(`${characterId}\u001f${resource}`) ?? 0;
   }
@@ -252,6 +264,10 @@ export class TurnReservationLedger {
 
   reactionTotal(characterId) {
     return this.#reactions.get(characterId) ?? 0;
+  }
+
+  movementTotal(characterId) {
+    return this.#movements.get(characterId) ?? 0;
   }
 
   records() {

@@ -116,11 +116,12 @@ export async function lintSpecifications(config) {
     if (!contract || contractFields.some((field) => !Object.hasOwn(contract, field))) issues.push(`strategy.yaml: ${primitiveId} lacks a complete primitive contract`);
   }
 
-  const confidenceWeights = parser.confidence.weights;
-  const confidenceTotal = ["lexical_weight", "pattern_weight", "entity_weight", "completeness_weight"]
-    .reduce((sum, id) => sum + confidenceWeights[id].value, 0);
-  if (!near(confidenceTotal, confidenceWeights.must_sum_to.value)) {
-    issues.push(`parser.yaml: confidence weights sum to ${confidenceTotal}`);
+  if (parser.authority.parser_determines_outcomes !== false || parser.authority.parser_mutates_canonical_state !== false) {
+    issues.push("parser.yaml: Ability Parser must not own outcomes or mutate canonical state");
+  }
+  if (parser.authority.engine_imports_ability_parser !== false) issues.push("parser.yaml: engine must not import Ability Parser modules");
+  if (!Array.isArray(parser.expression_language.operations) || parser.expression_language.arbitrary_code_forbidden !== true) {
+    issues.push("parser.yaml: constrained expression operations and arbitrary-code prohibition are required");
   }
 
   for (const file of SPEC_FILES) inspectNumbers(config.specs[file], [file], issues);

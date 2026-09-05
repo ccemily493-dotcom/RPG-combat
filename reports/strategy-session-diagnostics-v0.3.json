@@ -1,17 +1,17 @@
 {
   "version": "0.3",
-  "generatedAt": "2026-09-05T08:11:34.188Z",
+  "generatedAt": "2026-09-05T13:06:18.833Z",
   "scenarios": [
     {
       "id": "A",
       "outcome": "completed_steps",
       "turns": 3,
       "finalTurn": 3,
-      "resultHash": "d305c180e034f6fc2b4dff445dc5b1922bde3fb0a9a804797f95c9bae30831d9",
+      "resultHash": "8845931b1df52a0b5665ec7cb26092d389c97546d23bdf8ac048aa0858f0560b",
       "strategyStates": [
         {
           "strategyId": "A.persistence",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "A.opening",
@@ -27,7 +27,7 @@
       "outcome": "completed_steps",
       "turns": 3,
       "finalTurn": 3,
-      "resultHash": "bf617631e46448aed0cad873d2428ad6f96cb91c190f8e9185b18d64a140b1c4",
+      "resultHash": "690130b1dffc67f1650102809db8dd41377c40626d2e832ba48380eed4515925",
       "strategyStates": [],
       "temporalEventCount": 13
     },
@@ -36,11 +36,11 @@
       "outcome": "completed_steps",
       "turns": 2,
       "finalTurn": 2,
-      "resultHash": "7d70040b0b4c5cd88167ac4de3f893ba8ce91c1ffff5241eb016d58c4437419f",
+      "resultHash": "c7f3052338eda77a86fe2f7c53e5756e9cc14d3a6c6160941e370612a279c496",
       "strategyStates": [
         {
           "strategyId": "C.delayed",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "C.schedule",
@@ -56,11 +56,11 @@
       "outcome": "completed_steps",
       "turns": 3,
       "finalTurn": 3,
-      "resultHash": "8f03e9db6ccac2e09a824a9e5a389018993a54f94b26ecc1d79965eaa8d4e931",
+      "resultHash": "a340c4f23543f2cf2082cb40b9baaa14f187bf4581a9a6ab0e2b5e6c31c8b8d8",
       "strategyStates": [
         {
           "strategyId": "D.plan",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "D.attack",
@@ -84,11 +84,11 @@
       "outcome": "completed_steps",
       "turns": 2,
       "finalTurn": 2,
-      "resultHash": "4ee38c38a120b6f220d6fab1d738b71c98fe92bea2d503e3bc566ed81ccda5c2",
+      "resultHash": "de20b164a04ac7ad858e480603b5b204e696cc19e2d7ee76e9247eb6b54de285",
       "strategyStates": [
         {
           "strategyId": "E.failed-plan",
-          "state": "FAILED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "E.attack",
@@ -112,11 +112,11 @@
       "outcome": "completed_steps",
       "turns": 2,
       "finalTurn": 2,
-      "resultHash": "c728474fa452790e528ad2eb313e04486f744b3e36d7e66a2ac7d889f445c18c",
+      "resultHash": "2591d0bd5bafd550a8c347c50f6f7e23ac81f321d799666bd28d078a68afa12a",
       "strategyStates": [
         {
           "strategyId": "F.fail",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "F.fail.failure",
@@ -134,7 +134,7 @@
         },
         {
           "strategyId": "F.pass",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "F.pass.failure",
@@ -158,11 +158,11 @@
       "outcome": "completed_steps",
       "turns": 3,
       "finalTurn": 3,
-      "resultHash": "a05a2c2ff87c75cc7ee19f360f4f09c820efc1c114a07b154dcf249c13fe07c2",
+      "resultHash": "97391fd3225afdf0c4e323db5c2f8fdd015051fd23dcda316033ced96bd224de",
       "strategyStates": [
         {
           "strategyId": "G.bait",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "G.setup",
@@ -178,11 +178,11 @@
       "outcome": "completed_steps",
       "turns": 2,
       "finalTurn": 2,
-      "resultHash": "2b9c7ce771bcd1b4d4600b1a83b77964a2d917ec85d5392b94ceab1100f3e9b7",
+      "resultHash": "f16b09df395d490c6ef40bd50718003ebaea2b42b4eb561eb83cb0dbcf4f25b3",
       "strategyStates": [
         {
           "strategyId": "H.counter",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "H.setup",
@@ -198,11 +198,11 @@
       "outcome": "completed_steps",
       "turns": 3,
       "finalTurn": 3,
-      "resultHash": "d2dbcd32ee6aa0a8a215ea774be5c08edc41b36d70d5e55d32ae54117c7a1c27",
+      "resultHash": "9832aafb13e581d26ee43c8ba032923e269c2782fdac8f842fbaaaed130e8995",
       "strategyStates": [
         {
           "strategyId": "I.trap",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "I.setup",
@@ -218,11 +218,11 @@
       "outcome": "completed_steps",
       "turns": 2,
       "finalTurn": 2,
-      "resultHash": "bac74487f0db79b68ecea26b5c4bfd7fe3228c650af1fa14260260e05d4981b3",
+      "resultHash": "325551b3571dd87ca7fcdd840be8112ac8345ebe3ce39aea39e9a6c86ae5a0f5",
       "strategyStates": [
         {
           "strategyId": "J.denial",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "J.setup",
@@ -238,7 +238,7 @@
       "outcome": "completed_steps",
       "turns": 1,
       "finalTurn": 1,
-      "resultHash": "a7f3d2f147bab3c26ab8aed8d0f03a501fb141841ca7f7cdb45ac94fcca17ea9",
+      "resultHash": "2607e12e48e30d45e8c2859937b2cbb3f546d357d7c858e32fc59b68957f3702",
       "strategyStates": [],
       "temporalEventCount": 14
     },
@@ -247,11 +247,11 @@
       "outcome": "completed_steps",
       "turns": 1,
       "finalTurn": 1,
-      "resultHash": "1c50f0b46f8c4da8af4f1ebc60c2e6515320fd2da4ec2412e97cf4769a364596",
+      "resultHash": "b76793f6b5639422c4be8e3a67f490c80e07dc5896d3cfa1eb7608cc4298db0c",
       "strategyStates": [
         {
           "strategyId": "L.alpha",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "L.alpha.setup",
@@ -261,7 +261,7 @@
         },
         {
           "strategyId": "L.beta",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "L.beta.setup",
@@ -283,11 +283,11 @@
       "outcome": "completed_steps",
       "turns": 5,
       "finalTurn": 5,
-      "resultHash": "8fa8d9493e83179c49468335ed9baf401992ccaf94758d2d0363b4e535901d4d",
+      "resultHash": "c55382c4bdabc3662af1ff6913d88cff71907a45e9b9486051b3e784a1931923",
       "strategyStates": [
         {
           "strategyId": "N.chain",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "N.node-1",
@@ -337,13 +337,13 @@
       "frequencyPerExecutedNode": 0.09523809523809523
     },
     "setupDurationTurns": {
-      "mean": 0.7142857142857143,
+      "mean": 0,
       "median": 0,
-      "p95": 3
+      "p95": 0
     },
     "averageDeclaredPayoffModifier": 10.666666666666666,
     "reactionsConsumed": 2,
-    "resourceExpenditure": 16,
+    "resourceExpenditure": 0,
     "opportunities": {
       "created": 3,
       "triggered": 3,

@@ -7,28 +7,28 @@ All values below are non-blocking diagnostics. No universal strategy-quality sco
 - Nodes executed: 21
 - Node success rate (fixture mix only): 90.48%
 - Setup failure rate (fixture mix only): 9.52%
-- Mean setup duration: 0.714 turns
+- Mean setup duration: 0.000 turns
 - Mean declared payoff modifier magnitude: 10.667
 - Reactions consumed: 2
-- Non-health/stability resource expenditure: 16.000
+- Non-health/stability resource expenditure: 0.000
 - Opportunities created/triggered/unused-or-expired: 3/3/0
 
 ## Scenario results
 
 | Scenario | Outcome | Turns | Hash |
 |---|---:|---:|---|
-| A | completed_steps | 3 | d305c180e034f6fc2b4dff445dc5b1922bde3fb0a9a804797f95c9bae30831d9 |
-| B | completed_steps | 3 | bf617631e46448aed0cad873d2428ad6f96cb91c190f8e9185b18d64a140b1c4 |
-| C | completed_steps | 2 | 7d70040b0b4c5cd88167ac4de3f893ba8ce91c1ffff5241eb016d58c4437419f |
-| D | completed_steps | 3 | 8f03e9db6ccac2e09a824a9e5a389018993a54f94b26ecc1d79965eaa8d4e931 |
-| E | completed_steps | 2 | 4ee38c38a120b6f220d6fab1d738b71c98fe92bea2d503e3bc566ed81ccda5c2 |
-| F | completed_steps | 2 | c728474fa452790e528ad2eb313e04486f744b3e36d7e66a2ac7d889f445c18c |
-| G | completed_steps | 3 | a05a2c2ff87c75cc7ee19f360f4f09c820efc1c114a07b154dcf249c13fe07c2 |
-| H | completed_steps | 2 | 2b9c7ce771bcd1b4d4600b1a83b77964a2d917ec85d5392b94ceab1100f3e9b7 |
-| I | completed_steps | 3 | d2dbcd32ee6aa0a8a215ea774be5c08edc41b36d70d5e55d32ae54117c7a1c27 |
-| J | completed_steps | 2 | bac74487f0db79b68ecea26b5c4bfd7fe3228c650af1fa14260260e05d4981b3 |
-| K | completed_steps | 1 | a7f3d2f147bab3c26ab8aed8d0f03a501fb141841ca7f7cdb45ac94fcca17ea9 |
-| L | completed_steps | 1 | 1c50f0b46f8c4da8af4f1ebc60c2e6515320fd2da4ec2412e97cf4769a364596 |
+| A | completed_steps | 3 | 8845931b1df52a0b5665ec7cb26092d389c97546d23bdf8ac048aa0858f0560b |
+| B | completed_steps | 3 | 690130b1dffc67f1650102809db8dd41377c40626d2e832ba48380eed4515925 |
+| C | completed_steps | 2 | c7f3052338eda77a86fe2f7c53e5756e9cc14d3a6c6160941e370612a279c496 |
+| D | completed_steps | 3 | a340c4f23543f2cf2082cb40b9baaa14f187bf4581a9a6ab0e2b5e6c31c8b8d8 |
+| E | completed_steps | 2 | de20b164a04ac7ad858e480603b5b204e696cc19e2d7ee76e9247eb6b54de285 |
+| F | completed_steps | 2 | 2591d0bd5bafd550a8c347c50f6f7e23ac81f321d799666bd28d078a68afa12a |
+| G | completed_steps | 3 | 97391fd3225afdf0c4e323db5c2f8fdd015051fd23dcda316033ced96bd224de |
+| H | completed_steps | 2 | f16b09df395d490c6ef40bd50718003ebaea2b42b4eb561eb83cb0dbcf4f25b3 |
+| I | completed_steps | 3 | 9832aafb13e581d26ee43c8ba032923e269c2782fdac8f842fbaaaed130e8995 |
+| J | completed_steps | 2 | 325551b3571dd87ca7fcdd840be8112ac8345ebe3ce39aea39e9a6c86ae5a0f5 |
+| K | completed_steps | 1 | 2607e12e48e30d45e8c2859937b2cbb3f546d357d7c858e32fc59b68957f3702 |
+| L | completed_steps | 1 | b76793f6b5639422c4be8e3a67f490c80e07dc5896d3cfa1eb7608cc4298db0c |
 | M | rejected_before_commit | 0 | — |
-| N | completed_steps | 5 | 8fa8d9493e83179c49468335ed9baf401992ccaf94758d2d0363b4e535901d4d |
+| N | completed_steps | 5 | c55382c4bdabc3662af1ff6913d88cff71907a45e9b9486051b3e784a1931923 |
 

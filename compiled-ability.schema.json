@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/rpg/v0.4/compiled-ability.schema.json",
+  "title": "Compiled Universal Ability v0.4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ability_id", "ability_version", "namespace", "parser_version", "ruleset_version", "definition_hash", "mechanical_hash", "registry_hashes", "parameters", "constants", "requirements", "limitations", "variants", "components", "strategy_fragments", "diagnostics"],
+  "properties": {
+    "ability_id": { "type": "string" }, "ability_version": { "type": "string" }, "namespace": { "type": "string" },
+    "parser_version": { "const": "0.4.0" }, "ruleset_version": { "type": "string" },
+    "definition_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }, "mechanical_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "registry_hashes": { "type": "object", "additionalProperties": { "type": "string" } },
+    "parameters": { "type": "object", "additionalProperties": true }, "constants": { "type": "object", "additionalProperties": { "type": "number" } },
+    "requirements": { "type": "array", "items": { "type": "object" } }, "limitations": { "type": "array", "items": { "type": "object" } },
+    "cooldown": { "type": ["object", "null"] }, "variants": { "type": "object", "additionalProperties": true },
+    "components": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["id", "template", "output", "expression_metrics"], "additionalProperties": true } },
+    "strategy_fragments": { "type": "array", "items": { "type": "object" } }, "diagnostics": { "type": "array", "items": { "type": "object" } }
+  }
+}

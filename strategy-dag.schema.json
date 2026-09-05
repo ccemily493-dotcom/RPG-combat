@@ -59,7 +59,10 @@
       }
     },
     "completion_policy": {
-      "type": "string"
+      "enum": ["ALL_TERMINAL", "REQUIRED_GOALS", "ANY_GOAL", "EXPLICIT_PREDICATE"]
+    },
+    "completion_predicate": {
+      "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/predicate"
     }
   },
   "$defs": {
@@ -266,6 +269,12 @@
                 "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/effect"
               }
             },
+            "on_partial": {
+              "type": "array",
+              "items": {
+                "$ref": "https://example.invalid/rpg/v0.3/temporal-state.schema.json#/$defs/effect"
+              }
+            },
             "on_failure": {
               "type": "array",
               "items": {
@@ -294,7 +303,7 @@
           "type": "string"
         },
         "result_band": {
-          "type": "string"
+          "enum": ["SUCCESS", "PARTIAL", "FAILURE"]
         }
       },
       "allOf": [

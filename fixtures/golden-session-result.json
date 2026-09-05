@@ -39,7 +39,7 @@
       "modifiers": [],
       "previous_turn": {
         "turn": 4,
-        "snapshot_hash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
+        "snapshot_hash": "45e88ea2240e2873da7bf2fe659dad84ced2624cdb986f5a5fda96867273dcd7",
         "action_refs": [],
         "events": [],
         "resource_deltas": [],
@@ -49,7 +49,7 @@
         "action_economy_changes": [],
         "displacement_changes": [],
         "conflicts": [],
-        "resulting_snapshot_hash": "5de9a20bedd3d6ab9bb7f5929ca0a80b1bc20ba07889ca49682b7fad0398cfb0",
+        "resulting_snapshot_hash": "570515b30fa31e5020d59364abf20bb9f33c48394fab1b62de7129978555539a",
         "summary_tags": [
           "combat_turn"
         ],
@@ -328,7 +328,7 @@
               "sequence": 1
             }
           ],
-          "snapshot_hash": "bf990c7b360ce6da7baf58aad587f97833e2bac0dea854dc857dd763fea2ff54"
+          "snapshot_hash": "9092d76ee58db398aac595ef513dae3ac90e1796f63afc865bc46f1376244aad"
         },
         {
           "turn": 1,
@@ -352,7 +352,7 @@
               "sequence": 1
             }
           ],
-          "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
+          "snapshot_hash": "1cdb4f1262b03f66f3dd062ad560e425cee853225ceca62f0cf01ca03fa94ec0"
         },
         {
           "turn": 2,
@@ -376,7 +376,7 @@
               "sequence": 1
             }
           ],
-          "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
+          "snapshot_hash": "66114eae76f49c0e4cc8d177b0aa68996de45ec79a58760f351c65b03b3bab8c"
         },
         {
           "turn": 3,
@@ -400,7 +400,7 @@
               "sequence": 1
             }
           ],
-          "snapshot_hash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b"
+          "snapshot_hash": "e448673ded5af826dd439e880876ce43542cb60b395cf2b40a442dab70f68e4c"
         },
         {
           "turn": 4,
@@ -424,7 +424,7 @@
               "sequence": 1
             }
           ],
-          "snapshot_hash": "c139cd7b4f46bd40453283e5fec6616df58934fc592d48b9beb7822913e513ab"
+          "snapshot_hash": "95d3b43876fa53b3b17e3f924c8b57e5fdc4709f57e8060e034369bcb13e5249"
         }
       ],
       "session": {
@@ -437,7 +437,7 @@
       {
         "strategy_id": "N.chain",
         "owner": "a",
-        "state": "SUCCEEDED",
+        "state": "COMPLETED",
         "nodes": [
           {
             "id": "N.node-1",
@@ -452,10 +452,11 @@
             "effects": {
               "on_success": [],
               "on_failure": [],
-              "on_completion": []
+              "on_completion": [],
+              "on_partial": []
             },
             "execution_class": "ZERO_TIME",
-            "result_band": "success"
+            "result_band": "SUCCESS"
           },
           {
             "id": "N.node-2",
@@ -475,10 +476,11 @@
             "effects": {
               "on_success": [],
               "on_failure": [],
-              "on_completion": []
+              "on_completion": [],
+              "on_partial": []
             },
             "execution_class": "ZERO_TIME",
-            "result_band": "success"
+            "result_band": "SUCCESS"
           },
           {
             "id": "N.node-3",
@@ -498,10 +500,11 @@
             "effects": {
               "on_success": [],
               "on_failure": [],
-              "on_completion": []
+              "on_completion": [],
+              "on_partial": []
             },
             "execution_class": "ZERO_TIME",
-            "result_band": "success"
+            "result_band": "SUCCESS"
           },
           {
             "id": "N.node-4",
@@ -521,10 +524,11 @@
             "effects": {
               "on_success": [],
               "on_failure": [],
-              "on_completion": []
+              "on_completion": [],
+              "on_partial": []
             },
             "execution_class": "ZERO_TIME",
-            "result_band": "success"
+            "result_band": "SUCCESS"
           },
           {
             "id": "N.node-5",
@@ -544,10 +548,11 @@
             "effects": {
               "on_success": [],
               "on_failure": [],
-              "on_completion": []
+              "on_completion": [],
+              "on_partial": []
             },
             "execution_class": "ZERO_TIME",
-            "result_band": "success"
+            "result_band": "SUCCESS"
           }
         ],
         "metadata": {
@@ -562,11 +567,11 @@
     ]
   },
   "stepResultHashes": [
-    "f40f130f98857b39c9af1b6c91f66823dcde23e08c0fa45798ddd8198932dfab",
-    "2e85ced49249845dfd06d6072d9312f1845dda57f096e124765f800ac2d2725f",
-    "342c3be09b0fce47d58de4c392ce714e8ca74076a569d0514da96f073ccd5dc1",
-    "d462f60950f17f37cbdfa762c2ae8d233d76c1af6d1ef018e785b6c9173a5db5",
-    "011cb536ea800d4475f2db38ffbe30d51b60dc8169ee1ef1e98857e24b61c6be"
+    "b398bdb5560d7c3b82757be5bdbb8fcc07dabce7e1c6fb0054c4bce3c31bfdc6",
+    "5c4b68dc0c646d2cd1b78ab541146758921adf1f0f49b683d5e8be0ccb58b383",
+    "fa0088425a8e480003e4ea9b0ab8872c14822328094132b09b1c857d328a97ea",
+    "93cd746c8105617c8bcdaf20e0105cf730cf388785d888bb1b7d85a6f32a347b",
+    "5c13b534fe9159e52d1c6f47e8a8d3afc77056da708ea727d87d99342c120b0d"
   ],
   "snapshots": [
     {
@@ -1005,7 +1010,7 @@
         "modifiers": [],
         "previous_turn": {
           "turn": 0,
-          "snapshot_hash": "bae64d5e456b90fb044ed33fe358c2fe311794ff4c14621c124c69f31249a087",
+          "snapshot_hash": "95d2e85ded51081b3d990ca374d4a07eaac20753186d7d214f0640517cb81731",
           "action_refs": [],
           "events": [],
           "resource_deltas": [],
@@ -1015,7 +1020,7 @@
           "action_economy_changes": [],
           "displacement_changes": [],
           "conflicts": [],
-          "resulting_snapshot_hash": "50de5c2f312b1f9e6f9980f4520413e3a8c4a6f874f4e8acaf0e78aaf80741b1",
+          "resulting_snapshot_hash": "9b56ef9c9b5a7edc22cff8af96db6d4e4fdc79b234972784260cc85df277a60f",
           "summary_tags": [
             "combat_turn"
           ],
@@ -1325,7 +1330,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "bf990c7b360ce6da7baf58aad587f97833e2bac0dea854dc857dd763fea2ff54"
+            "snapshot_hash": "9092d76ee58db398aac595ef513dae3ac90e1796f63afc865bc46f1376244aad"
           }
         ],
         "session": {
@@ -1338,7 +1343,7 @@
         {
           "strategy_id": "N.chain",
           "owner": "a",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "N.node-1",
@@ -1353,10 +1358,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-2",
@@ -1376,10 +1382,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-3",
@@ -1399,10 +1406,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-4",
@@ -1422,10 +1430,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-5",
@@ -1445,10 +1454,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             }
           ],
           "metadata": {
@@ -1501,7 +1511,7 @@
         "modifiers": [],
         "previous_turn": {
           "turn": 1,
-          "snapshot_hash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
+          "snapshot_hash": "863174e2dd884166cabe19a6f34ebe8bf39cd4dd9de27b9ef31f7a4237345df5",
           "action_refs": [],
           "events": [],
           "resource_deltas": [],
@@ -1511,7 +1521,7 @@
           "action_economy_changes": [],
           "displacement_changes": [],
           "conflicts": [],
-          "resulting_snapshot_hash": "d56b104c4adf47ea19c8912cfc1e4c4e76376f57a137873334479339406efa32",
+          "resulting_snapshot_hash": "ee5cd3dabc44ae98b99fc0cba78a6e94a8fcfcdc138b319fad5566cb6f219b0e",
           "summary_tags": [
             "combat_turn"
           ],
@@ -1790,7 +1800,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "bf990c7b360ce6da7baf58aad587f97833e2bac0dea854dc857dd763fea2ff54"
+            "snapshot_hash": "9092d76ee58db398aac595ef513dae3ac90e1796f63afc865bc46f1376244aad"
           },
           {
             "turn": 1,
@@ -1814,7 +1824,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
+            "snapshot_hash": "1cdb4f1262b03f66f3dd062ad560e425cee853225ceca62f0cf01ca03fa94ec0"
           }
         ],
         "session": {
@@ -1827,7 +1837,7 @@
         {
           "strategy_id": "N.chain",
           "owner": "a",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "N.node-1",
@@ -1842,10 +1852,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-2",
@@ -1865,10 +1876,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-3",
@@ -1888,10 +1900,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-4",
@@ -1911,10 +1924,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-5",
@@ -1934,10 +1948,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             }
           ],
           "metadata": {
@@ -1990,7 +2005,7 @@
         "modifiers": [],
         "previous_turn": {
           "turn": 2,
-          "snapshot_hash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
+          "snapshot_hash": "2120c4b55a13d2defeea2aa7f26e467524b87efd2da64c036bc2f2af31e8bfea",
           "action_refs": [],
           "events": [],
           "resource_deltas": [],
@@ -2000,7 +2015,7 @@
           "action_economy_changes": [],
           "displacement_changes": [],
           "conflicts": [],
-          "resulting_snapshot_hash": "37bb6caef29c3e77da8dad35e890faabf65324295cf6d379acfaa7b52b4a9264",
+          "resulting_snapshot_hash": "4a6955d25f208e8eb1d74d4f4f32a2ec1b92d483e3dd3342cad7ac641c6e159f",
           "summary_tags": [
             "combat_turn"
           ],
@@ -2279,7 +2294,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "bf990c7b360ce6da7baf58aad587f97833e2bac0dea854dc857dd763fea2ff54"
+            "snapshot_hash": "9092d76ee58db398aac595ef513dae3ac90e1796f63afc865bc46f1376244aad"
           },
           {
             "turn": 1,
@@ -2303,7 +2318,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
+            "snapshot_hash": "1cdb4f1262b03f66f3dd062ad560e425cee853225ceca62f0cf01ca03fa94ec0"
           },
           {
             "turn": 2,
@@ -2327,7 +2342,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
+            "snapshot_hash": "66114eae76f49c0e4cc8d177b0aa68996de45ec79a58760f351c65b03b3bab8c"
           }
         ],
         "session": {
@@ -2340,7 +2355,7 @@
         {
           "strategy_id": "N.chain",
           "owner": "a",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "N.node-1",
@@ -2355,10 +2370,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-2",
@@ -2378,10 +2394,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-3",
@@ -2401,10 +2418,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-4",
@@ -2424,10 +2442,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-5",
@@ -2447,10 +2466,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             }
           ],
           "metadata": {
@@ -2503,7 +2523,7 @@
         "modifiers": [],
         "previous_turn": {
           "turn": 3,
-          "snapshot_hash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
+          "snapshot_hash": "4d86fddf581b67221c71644d8e04008eb5a01ba48890c74d9fc258f258190a1e",
           "action_refs": [],
           "events": [],
           "resource_deltas": [],
@@ -2513,7 +2533,7 @@
           "action_economy_changes": [],
           "displacement_changes": [],
           "conflicts": [],
-          "resulting_snapshot_hash": "4b187843871a66d51ef13925a9370fa36d9b902a50bb3322d6d65d05bb529974",
+          "resulting_snapshot_hash": "f5fff190617ebb8e65fbbf02a66be605e057cccbfee6b6a8bc1893ecaccd9e1d",
           "summary_tags": [
             "combat_turn"
           ],
@@ -2792,7 +2812,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "bf990c7b360ce6da7baf58aad587f97833e2bac0dea854dc857dd763fea2ff54"
+            "snapshot_hash": "9092d76ee58db398aac595ef513dae3ac90e1796f63afc865bc46f1376244aad"
           },
           {
             "turn": 1,
@@ -2816,7 +2836,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
+            "snapshot_hash": "1cdb4f1262b03f66f3dd062ad560e425cee853225ceca62f0cf01ca03fa94ec0"
           },
           {
             "turn": 2,
@@ -2840,7 +2860,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
+            "snapshot_hash": "66114eae76f49c0e4cc8d177b0aa68996de45ec79a58760f351c65b03b3bab8c"
           },
           {
             "turn": 3,
@@ -2864,7 +2884,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b"
+            "snapshot_hash": "e448673ded5af826dd439e880876ce43542cb60b395cf2b40a442dab70f68e4c"
           }
         ],
         "session": {
@@ -2877,7 +2897,7 @@
         {
           "strategy_id": "N.chain",
           "owner": "a",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "N.node-1",
@@ -2892,10 +2912,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-2",
@@ -2915,10 +2936,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-3",
@@ -2938,10 +2960,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-4",
@@ -2961,10 +2984,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-5",
@@ -2984,10 +3008,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             }
           ],
           "metadata": {
@@ -3040,7 +3065,7 @@
         "modifiers": [],
         "previous_turn": {
           "turn": 4,
-          "snapshot_hash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
+          "snapshot_hash": "45e88ea2240e2873da7bf2fe659dad84ced2624cdb986f5a5fda96867273dcd7",
           "action_refs": [],
           "events": [],
           "resource_deltas": [],
@@ -3050,7 +3075,7 @@
           "action_economy_changes": [],
           "displacement_changes": [],
           "conflicts": [],
-          "resulting_snapshot_hash": "5de9a20bedd3d6ab9bb7f5929ca0a80b1bc20ba07889ca49682b7fad0398cfb0",
+          "resulting_snapshot_hash": "570515b30fa31e5020d59364abf20bb9f33c48394fab1b62de7129978555539a",
           "summary_tags": [
             "combat_turn"
           ],
@@ -3329,7 +3354,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "bf990c7b360ce6da7baf58aad587f97833e2bac0dea854dc857dd763fea2ff54"
+            "snapshot_hash": "9092d76ee58db398aac595ef513dae3ac90e1796f63afc865bc46f1376244aad"
           },
           {
             "turn": 1,
@@ -3353,7 +3378,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
+            "snapshot_hash": "1cdb4f1262b03f66f3dd062ad560e425cee853225ceca62f0cf01ca03fa94ec0"
           },
           {
             "turn": 2,
@@ -3377,7 +3402,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
+            "snapshot_hash": "66114eae76f49c0e4cc8d177b0aa68996de45ec79a58760f351c65b03b3bab8c"
           },
           {
             "turn": 3,
@@ -3401,7 +3426,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b"
+            "snapshot_hash": "e448673ded5af826dd439e880876ce43542cb60b395cf2b40a442dab70f68e4c"
           },
           {
             "turn": 4,
@@ -3425,7 +3450,7 @@
                 "sequence": 1
               }
             ],
-            "snapshot_hash": "c139cd7b4f46bd40453283e5fec6616df58934fc592d48b9beb7822913e513ab"
+            "snapshot_hash": "95d3b43876fa53b3b17e3f924c8b57e5fdc4709f57e8060e034369bcb13e5249"
           }
         ],
         "session": {
@@ -3438,7 +3463,7 @@
         {
           "strategy_id": "N.chain",
           "owner": "a",
-          "state": "SUCCEEDED",
+          "state": "COMPLETED",
           "nodes": [
             {
               "id": "N.node-1",
@@ -3453,10 +3478,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-2",
@@ -3476,10 +3502,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-3",
@@ -3499,10 +3526,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-4",
@@ -3522,10 +3550,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             },
             {
               "id": "N.node-5",
@@ -3545,10 +3574,11 @@
               "effects": {
                 "on_success": [],
                 "on_failure": [],
-                "on_completion": []
+                "on_completion": [],
+                "on_partial": []
               },
               "execution_class": "ZERO_TIME",
-              "result_band": "success"
+              "result_band": "SUCCESS"
             }
           ],
           "metadata": {
@@ -3605,7 +3635,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 0,
-            "snapshot_hash": "bae64d5e456b90fb044ed33fe358c2fe311794ff4c14621c124c69f31249a087",
+            "snapshot_hash": "95d2e85ded51081b3d990ca374d4a07eaac20753186d7d214f0640517cb81731",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -3615,7 +3645,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "50de5c2f312b1f9e6f9980f4520413e3a8c4a6f874f4e8acaf0e78aaf80741b1",
+            "resulting_snapshot_hash": "9b56ef9c9b5a7edc22cff8af96db6d4e4fdc79b234972784260cc85df277a60f",
             "summary_tags": [
               "combat_turn"
             ],
@@ -3925,7 +3955,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "bf990c7b360ce6da7baf58aad587f97833e2bac0dea854dc857dd763fea2ff54"
+              "snapshot_hash": "9092d76ee58db398aac595ef513dae3ac90e1796f63afc865bc46f1376244aad"
             }
           ],
           "session": {
@@ -3938,7 +3968,7 @@
           {
             "strategy_id": "N.chain",
             "owner": "a",
-            "state": "SUCCEEDED",
+            "state": "COMPLETED",
             "nodes": [
               {
                 "id": "N.node-1",
@@ -3953,10 +3983,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-2",
@@ -3976,10 +4007,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-3",
@@ -3999,10 +4031,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-4",
@@ -4022,10 +4055,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-5",
@@ -4045,10 +4079,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               }
             ],
             "metadata": {
@@ -4102,7 +4137,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 0,
-            "snapshot_hash": "bae64d5e456b90fb044ed33fe358c2fe311794ff4c14621c124c69f31249a087",
+            "snapshot_hash": "95d2e85ded51081b3d990ca374d4a07eaac20753186d7d214f0640517cb81731",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -4112,7 +4147,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "feb59da77a53f520d49efb862d0c06bc43b7d7e1b126d39abc27dceee9f593a9",
+            "resulting_snapshot_hash": null,
             "summary_tags": [
               "combat_turn"
             ]
@@ -4345,85 +4380,11 @@
         "reactionResults": [],
         "events": [],
         "conflicts": [],
-        "resultHash": "111cc055b0a7c8fdbb43dede4d42bc91bbfc6e7307d3030e812d59dfaa17b48a",
-        "replayInformation": {
-          "inputHash": "dc7f8ee2cc273f51d0382f4f54b088a277b8d19e48d756fe0ba6104fb0abca4c",
-          "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
-          "traceHash": "701be5cd78a21c636e0a7af238a0b62aa710dad18c5e875fccdb77cefe77c6bd",
-          "resultHash": "111cc055b0a7c8fdbb43dede4d42bc91bbfc6e7307d3030e812d59dfaa17b48a"
-        },
+        "resultHash": "f692d8dab1090192ae19cdf8db79acf4333bcbfe4d0147f396daa3c8d6370b2c",
         "trace": {
-          "specVersion": "0.3",
-          "seed": "N:0:turn:0",
-          "startingSnapshotHash": "bae64d5e456b90fb044ed33fe358c2fe311794ff4c14621c124c69f31249a087",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "bae64d5e456b90fb044ed33fe358c2fe311794ff4c14621c124c69f31249a087",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 1
-          },
-          "resultingSnapshotHash": "809310bc76dad4c2fab9c53c35a6cb3f3fefa441e1b73501fcffb721c2ab4991",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "95d2e85ded51081b3d990ca374d4a07eaac20753186d7d214f0640517cb81731",
+          "resultingSnapshotHash": "b0b244c9ed2ee203f7089c9c8dc75b847b5ecd9828da081c613b7dad268c5243"
         }
       },
       "temporalEvents": [
@@ -4452,7 +4413,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           },
           {
@@ -4461,7 +4422,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           },
           {
@@ -4470,7 +4431,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           },
           {
@@ -4479,7 +4440,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           },
           {
@@ -4488,7 +4449,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           }
         ],
@@ -4522,6 +4483,16 @@
             "nodeId": "N.node-5",
             "to": "SUCCEEDED",
             "reason": "resolver:NORMALIZED_STATE_TRANSITION"
+          }
+        ],
+        "strategies": [
+          {
+            "strategyId": "N.chain",
+            "executionState": "COMPLETED",
+            "goals": {
+              "required": [],
+              "optional": []
+            }
           }
         ],
         "eligibility": [
@@ -4589,16 +4560,16 @@
       },
       "replayData": {
         "inputHash": "1dab981f5cadd48fd62c973e8d48cc9a92e6385cb988a34fdde970bbf7893ecb",
-        "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
-        "turnResultHash": "111cc055b0a7c8fdbb43dede4d42bc91bbfc6e7307d3030e812d59dfaa17b48a",
-        "traceHash": "09e2b99d336dc1e6221c6d57e9ecb13ad4bc4c21cf1e9cff45c9ad4695243646",
-        "resultHash": "f40f130f98857b39c9af1b6c91f66823dcde23e08c0fa45798ddd8198932dfab"
+        "configurationHash": "3b46b1d0a86a9650d4072d8597eaff70ffee24f4c1c38094d6b8e17c79a17b0c",
+        "turnResultHash": "f692d8dab1090192ae19cdf8db79acf4333bcbfe4d0147f396daa3c8d6370b2c",
+        "traceHash": "cf569684b6ffc3fd0b779be42fa8bcd3fa499c883cc6c1991eed53f867dd8c23",
+        "resultHash": "b398bdb5560d7c3b82757be5bdbb8fcc07dabce7e1c6fb0054c4bce3c31bfdc6"
       },
-      "resultHash": "f40f130f98857b39c9af1b6c91f66823dcde23e08c0fa45798ddd8198932dfab",
+      "resultHash": "b398bdb5560d7c3b82757be5bdbb8fcc07dabce7e1c6fb0054c4bce3c31bfdc6",
       "trace": {
         "specVersion": "0.3",
         "seed": "N:0",
-        "startingSnapshotHash": "83f6af332bcc2330e1be9f669283715a0e437f7ba2a5b523c9ce8456e2d189a2",
+        "startingSnapshotHash": "95d2e85ded51081b3d990ca374d4a07eaac20753186d7d214f0640517cb81731",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -4667,7 +4638,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           },
           {
@@ -4676,7 +4647,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           },
           {
@@ -4685,7 +4656,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           },
           {
@@ -4694,7 +4665,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           },
           {
@@ -4703,82 +4674,14 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           }
         ],
         "combatResolution": {
-          "specVersion": "0.3",
-          "seed": "N:0:turn:0",
-          "startingSnapshotHash": "bae64d5e456b90fb044ed33fe358c2fe311794ff4c14621c124c69f31249a087",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "bae64d5e456b90fb044ed33fe358c2fe311794ff4c14621c124c69f31249a087",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 1
-          },
-          "resultingSnapshotHash": "809310bc76dad4c2fab9c53c35a6cb3f3fefa441e1b73501fcffb721c2ab4991",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "95d2e85ded51081b3d990ca374d4a07eaac20753186d7d214f0640517cb81731",
+          "resultingSnapshotHash": "b0b244c9ed2ee203f7089c9c8dc75b847b5ecd9828da081c613b7dad268c5243"
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
@@ -4815,7 +4718,7 @@
           }
         ],
         "temporalEnd": [],
-        "resultingSnapshotHash": "daaaea5550d749fb5d3904c9c3ad786982efafa3b6fd76c9f4cbe25e71397b9b",
+        "resultingSnapshotHash": "863174e2dd884166cabe19a6f34ebe8bf39cd4dd9de27b9ef31f7a4237345df5",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -4866,7 +4769,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 1,
-            "snapshot_hash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
+            "snapshot_hash": "863174e2dd884166cabe19a6f34ebe8bf39cd4dd9de27b9ef31f7a4237345df5",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -4876,7 +4779,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "d56b104c4adf47ea19c8912cfc1e4c4e76376f57a137873334479339406efa32",
+            "resulting_snapshot_hash": "ee5cd3dabc44ae98b99fc0cba78a6e94a8fcfcdc138b319fad5566cb6f219b0e",
             "summary_tags": [
               "combat_turn"
             ],
@@ -5155,7 +5058,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "bf990c7b360ce6da7baf58aad587f97833e2bac0dea854dc857dd763fea2ff54"
+              "snapshot_hash": "9092d76ee58db398aac595ef513dae3ac90e1796f63afc865bc46f1376244aad"
             },
             {
               "turn": 1,
@@ -5179,7 +5082,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
+              "snapshot_hash": "1cdb4f1262b03f66f3dd062ad560e425cee853225ceca62f0cf01ca03fa94ec0"
             }
           ],
           "session": {
@@ -5192,7 +5095,7 @@
           {
             "strategy_id": "N.chain",
             "owner": "a",
-            "state": "SUCCEEDED",
+            "state": "COMPLETED",
             "nodes": [
               {
                 "id": "N.node-1",
@@ -5207,10 +5110,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-2",
@@ -5230,10 +5134,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-3",
@@ -5253,10 +5158,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-4",
@@ -5276,10 +5182,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-5",
@@ -5299,10 +5206,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               }
             ],
             "metadata": {
@@ -5356,7 +5264,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 1,
-            "snapshot_hash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
+            "snapshot_hash": "863174e2dd884166cabe19a6f34ebe8bf39cd4dd9de27b9ef31f7a4237345df5",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -5366,7 +5274,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "1723328353c2bf3b2b72971876189b505082869016561a9a0415655ca4945547",
+            "resulting_snapshot_hash": null,
             "summary_tags": [
               "combat_turn"
             ]
@@ -5601,85 +5509,11 @@
         "reactionResults": [],
         "events": [],
         "conflicts": [],
-        "resultHash": "878ffe71ba0afe8768b56ce439b36b629bdf1879a68e47f8d764fc8b65d2c440",
-        "replayInformation": {
-          "inputHash": "ff1079d8fe237c652689d9ec42f27a336e376487775a7c750361685f4bec5767",
-          "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
-          "traceHash": "4961126c5156df297ef2c6eb076e314446bdb350ce0fa448fc02806c49cf4ca3",
-          "resultHash": "878ffe71ba0afe8768b56ce439b36b629bdf1879a68e47f8d764fc8b65d2c440"
-        },
+        "resultHash": "7f21239a7bb523771e62e568b8af90dd6f61d91f45f1205060681ff2765b24c1",
         "trace": {
-          "specVersion": "0.3",
-          "seed": "N:1:turn:1",
-          "startingSnapshotHash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 2
-          },
-          "resultingSnapshotHash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "863174e2dd884166cabe19a6f34ebe8bf39cd4dd9de27b9ef31f7a4237345df5",
+          "resultingSnapshotHash": "1cdb4f1262b03f66f3dd062ad560e425cee853225ceca62f0cf01ca03fa94ec0"
         }
       },
       "temporalEvents": [
@@ -5703,6 +5537,16 @@
       "strategyProgress": {
         "results": [],
         "transitions": [],
+        "strategies": [
+          {
+            "strategyId": "N.chain",
+            "executionState": "COMPLETED",
+            "goals": {
+              "required": [],
+              "optional": []
+            }
+          }
+        ],
         "eligibility": [],
         "diagnostics": {
           "classification": "strategy_diagnostic",
@@ -5726,17 +5570,17 @@
         "delegatedResolver": "resolveTurn"
       },
       "replayData": {
-        "inputHash": "96cc11cca29dcfc19bbed42be611336c54a5cd02ca63b5ce2c506dd518ad5822",
-        "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
-        "turnResultHash": "878ffe71ba0afe8768b56ce439b36b629bdf1879a68e47f8d764fc8b65d2c440",
-        "traceHash": "62c733ef0666b61c379f0c2f371be182c5229d95d4e1a4f13996118df335f331",
-        "resultHash": "2e85ced49249845dfd06d6072d9312f1845dda57f096e124765f800ac2d2725f"
+        "inputHash": "7eb784cbe947159ce669b042b4620888303703a5e0fcd037d6fd1643bb36fd01",
+        "configurationHash": "3b46b1d0a86a9650d4072d8597eaff70ffee24f4c1c38094d6b8e17c79a17b0c",
+        "turnResultHash": "7f21239a7bb523771e62e568b8af90dd6f61d91f45f1205060681ff2765b24c1",
+        "traceHash": "2f9462cd82d71a6efe120f1eff53a29130dbfa1ac9fd1e08e308eca7399ce2f2",
+        "resultHash": "5c4b68dc0c646d2cd1b78ab541146758921adf1f0f49b683d5e8be0ccb58b383"
       },
-      "resultHash": "2e85ced49249845dfd06d6072d9312f1845dda57f096e124765f800ac2d2725f",
+      "resultHash": "5c4b68dc0c646d2cd1b78ab541146758921adf1f0f49b683d5e8be0ccb58b383",
       "trace": {
         "specVersion": "0.3",
         "seed": "N:1",
-        "startingSnapshotHash": "daaaea5550d749fb5d3904c9c3ad786982efafa3b6fd76c9f4cbe25e71397b9b",
+        "startingSnapshotHash": "863174e2dd884166cabe19a6f34ebe8bf39cd4dd9de27b9ef31f7a4237345df5",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -5759,83 +5603,15 @@
         "strategyEligibility": [],
         "nodeExecution": [],
         "combatResolution": {
-          "specVersion": "0.3",
-          "seed": "N:1:turn:1",
-          "startingSnapshotHash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 2
-          },
-          "resultingSnapshotHash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "863174e2dd884166cabe19a6f34ebe8bf39cd4dd9de27b9ef31f7a4237345df5",
+          "resultingSnapshotHash": "1cdb4f1262b03f66f3dd062ad560e425cee853225ceca62f0cf01ca03fa94ec0"
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
         "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "b285b4dbc1ff76288337b1c8fa8a0e9034d8058bf1b025618044600b9c613c5b",
+        "resultingSnapshotHash": "2120c4b55a13d2defeea2aa7f26e467524b87efd2da64c036bc2f2af31e8bfea",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -5886,7 +5662,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 2,
-            "snapshot_hash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
+            "snapshot_hash": "2120c4b55a13d2defeea2aa7f26e467524b87efd2da64c036bc2f2af31e8bfea",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -5896,7 +5672,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "37bb6caef29c3e77da8dad35e890faabf65324295cf6d379acfaa7b52b4a9264",
+            "resulting_snapshot_hash": "4a6955d25f208e8eb1d74d4f4f32a2ec1b92d483e3dd3342cad7ac641c6e159f",
             "summary_tags": [
               "combat_turn"
             ],
@@ -6175,7 +5951,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "bf990c7b360ce6da7baf58aad587f97833e2bac0dea854dc857dd763fea2ff54"
+              "snapshot_hash": "9092d76ee58db398aac595ef513dae3ac90e1796f63afc865bc46f1376244aad"
             },
             {
               "turn": 1,
@@ -6199,7 +5975,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
+              "snapshot_hash": "1cdb4f1262b03f66f3dd062ad560e425cee853225ceca62f0cf01ca03fa94ec0"
             },
             {
               "turn": 2,
@@ -6223,7 +5999,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
+              "snapshot_hash": "66114eae76f49c0e4cc8d177b0aa68996de45ec79a58760f351c65b03b3bab8c"
             }
           ],
           "session": {
@@ -6236,7 +6012,7 @@
           {
             "strategy_id": "N.chain",
             "owner": "a",
-            "state": "SUCCEEDED",
+            "state": "COMPLETED",
             "nodes": [
               {
                 "id": "N.node-1",
@@ -6251,10 +6027,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-2",
@@ -6274,10 +6051,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-3",
@@ -6297,10 +6075,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-4",
@@ -6320,10 +6099,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-5",
@@ -6343,10 +6123,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               }
             ],
             "metadata": {
@@ -6400,7 +6181,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 2,
-            "snapshot_hash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
+            "snapshot_hash": "2120c4b55a13d2defeea2aa7f26e467524b87efd2da64c036bc2f2af31e8bfea",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -6410,7 +6191,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "9c9c471f0610ec97bdda914d1181fd522ff5bb7d8077e0e5b73b373ce13cc0ab",
+            "resulting_snapshot_hash": null,
             "summary_tags": [
               "combat_turn"
             ]
@@ -6645,85 +6426,11 @@
         "reactionResults": [],
         "events": [],
         "conflicts": [],
-        "resultHash": "5c90dc02a9e1240396632d9705855563aa33be495a0a1b5680190a203f91a580",
-        "replayInformation": {
-          "inputHash": "2e8c78ddba72ea0ba8c55dafd5f5d27a689bf109f27f16905e5c75ed03263f47",
-          "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
-          "traceHash": "a0adc82f1eefca605d43e98e975b82fcae8e558bebc31fa8514d8cd807eabe1f",
-          "resultHash": "5c90dc02a9e1240396632d9705855563aa33be495a0a1b5680190a203f91a580"
-        },
+        "resultHash": "ac7534356c05aca062945e95690a80ede8394c68c8b508badd3b576e50c83725",
         "trace": {
-          "specVersion": "0.3",
-          "seed": "N:2:turn:2",
-          "startingSnapshotHash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 3
-          },
-          "resultingSnapshotHash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "2120c4b55a13d2defeea2aa7f26e467524b87efd2da64c036bc2f2af31e8bfea",
+          "resultingSnapshotHash": "66114eae76f49c0e4cc8d177b0aa68996de45ec79a58760f351c65b03b3bab8c"
         }
       },
       "temporalEvents": [
@@ -6747,6 +6454,16 @@
       "strategyProgress": {
         "results": [],
         "transitions": [],
+        "strategies": [
+          {
+            "strategyId": "N.chain",
+            "executionState": "COMPLETED",
+            "goals": {
+              "required": [],
+              "optional": []
+            }
+          }
+        ],
         "eligibility": [],
         "diagnostics": {
           "classification": "strategy_diagnostic",
@@ -6770,17 +6487,17 @@
         "delegatedResolver": "resolveTurn"
       },
       "replayData": {
-        "inputHash": "4a4e7e5a5e7081c2471697466709e7a6b9ea2b8a1c120a21a70114a156c69711",
-        "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
-        "turnResultHash": "5c90dc02a9e1240396632d9705855563aa33be495a0a1b5680190a203f91a580",
-        "traceHash": "1594b71f754db4f4af2681502a9dee67ad375fc324d8d02c3c159a5309203aa3",
-        "resultHash": "342c3be09b0fce47d58de4c392ce714e8ca74076a569d0514da96f073ccd5dc1"
+        "inputHash": "98b3f67af29127430097d95ca5475ec3b7f4a00585c2dd68c1740b8828dc0ef0",
+        "configurationHash": "3b46b1d0a86a9650d4072d8597eaff70ffee24f4c1c38094d6b8e17c79a17b0c",
+        "turnResultHash": "ac7534356c05aca062945e95690a80ede8394c68c8b508badd3b576e50c83725",
+        "traceHash": "b522619d78ec28afde4b6b06afbc563e09e1f5e46449343d40598be3fe0bb526",
+        "resultHash": "fa0088425a8e480003e4ea9b0ab8872c14822328094132b09b1c857d328a97ea"
       },
-      "resultHash": "342c3be09b0fce47d58de4c392ce714e8ca74076a569d0514da96f073ccd5dc1",
+      "resultHash": "fa0088425a8e480003e4ea9b0ab8872c14822328094132b09b1c857d328a97ea",
       "trace": {
         "specVersion": "0.3",
         "seed": "N:2",
-        "startingSnapshotHash": "b285b4dbc1ff76288337b1c8fa8a0e9034d8058bf1b025618044600b9c613c5b",
+        "startingSnapshotHash": "2120c4b55a13d2defeea2aa7f26e467524b87efd2da64c036bc2f2af31e8bfea",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -6803,83 +6520,15 @@
         "strategyEligibility": [],
         "nodeExecution": [],
         "combatResolution": {
-          "specVersion": "0.3",
-          "seed": "N:2:turn:2",
-          "startingSnapshotHash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 3
-          },
-          "resultingSnapshotHash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "2120c4b55a13d2defeea2aa7f26e467524b87efd2da64c036bc2f2af31e8bfea",
+          "resultingSnapshotHash": "66114eae76f49c0e4cc8d177b0aa68996de45ec79a58760f351c65b03b3bab8c"
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
         "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "d0fa9d514427d1cfc2b21cf9b41bc761dbbb6ae1bd1a6cf3ad536aae2f4b394b",
+        "resultingSnapshotHash": "4d86fddf581b67221c71644d8e04008eb5a01ba48890c74d9fc258f258190a1e",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -6930,7 +6579,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 3,
-            "snapshot_hash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
+            "snapshot_hash": "4d86fddf581b67221c71644d8e04008eb5a01ba48890c74d9fc258f258190a1e",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -6940,7 +6589,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "4b187843871a66d51ef13925a9370fa36d9b902a50bb3322d6d65d05bb529974",
+            "resulting_snapshot_hash": "f5fff190617ebb8e65fbbf02a66be605e057cccbfee6b6a8bc1893ecaccd9e1d",
             "summary_tags": [
               "combat_turn"
             ],
@@ -7219,7 +6868,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "bf990c7b360ce6da7baf58aad587f97833e2bac0dea854dc857dd763fea2ff54"
+              "snapshot_hash": "9092d76ee58db398aac595ef513dae3ac90e1796f63afc865bc46f1376244aad"
             },
             {
               "turn": 1,
@@ -7243,7 +6892,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
+              "snapshot_hash": "1cdb4f1262b03f66f3dd062ad560e425cee853225ceca62f0cf01ca03fa94ec0"
             },
             {
               "turn": 2,
@@ -7267,7 +6916,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
+              "snapshot_hash": "66114eae76f49c0e4cc8d177b0aa68996de45ec79a58760f351c65b03b3bab8c"
             },
             {
               "turn": 3,
@@ -7291,7 +6940,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b"
+              "snapshot_hash": "e448673ded5af826dd439e880876ce43542cb60b395cf2b40a442dab70f68e4c"
             }
           ],
           "session": {
@@ -7304,7 +6953,7 @@
           {
             "strategy_id": "N.chain",
             "owner": "a",
-            "state": "SUCCEEDED",
+            "state": "COMPLETED",
             "nodes": [
               {
                 "id": "N.node-1",
@@ -7319,10 +6968,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-2",
@@ -7342,10 +6992,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-3",
@@ -7365,10 +7016,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-4",
@@ -7388,10 +7040,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-5",
@@ -7411,10 +7064,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               }
             ],
             "metadata": {
@@ -7468,7 +7122,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 3,
-            "snapshot_hash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
+            "snapshot_hash": "4d86fddf581b67221c71644d8e04008eb5a01ba48890c74d9fc258f258190a1e",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -7478,7 +7132,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "c5c8aa950d24a8b09092f036b7f7d2bd1aff7a91b2a72d6770182dee38ec3f53",
+            "resulting_snapshot_hash": null,
             "summary_tags": [
               "combat_turn"
             ]
@@ -7713,85 +7367,11 @@
         "reactionResults": [],
         "events": [],
         "conflicts": [],
-        "resultHash": "a63dbaa9706b9a115107bbdffc2b1f90fc780a71bbdeee23b8d3ac169af9fa7e",
-        "replayInformation": {
-          "inputHash": "af0174a2dcafee6a0099c8ec0597643a1f46a14de670ac998678f5be5f4685ad",
-          "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
-          "traceHash": "4e24309476ffdfcdcff23d153f44d1e99465a0f11f52fa4e7344bf4dcf999310",
-          "resultHash": "a63dbaa9706b9a115107bbdffc2b1f90fc780a71bbdeee23b8d3ac169af9fa7e"
-        },
+        "resultHash": "ea14ed1d8d4cfa5c83a1ad9eb487c4209b6db26fad93f27a60fbc7e30e3aa619",
         "trace": {
-          "specVersion": "0.3",
-          "seed": "N:3:turn:3",
-          "startingSnapshotHash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 4
-          },
-          "resultingSnapshotHash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "4d86fddf581b67221c71644d8e04008eb5a01ba48890c74d9fc258f258190a1e",
+          "resultingSnapshotHash": "e448673ded5af826dd439e880876ce43542cb60b395cf2b40a442dab70f68e4c"
         }
       },
       "temporalEvents": [
@@ -7815,6 +7395,16 @@
       "strategyProgress": {
         "results": [],
         "transitions": [],
+        "strategies": [
+          {
+            "strategyId": "N.chain",
+            "executionState": "COMPLETED",
+            "goals": {
+              "required": [],
+              "optional": []
+            }
+          }
+        ],
         "eligibility": [],
         "diagnostics": {
           "classification": "strategy_diagnostic",
@@ -7838,17 +7428,17 @@
         "delegatedResolver": "resolveTurn"
       },
       "replayData": {
-        "inputHash": "0c2d6b336ed0691fce6d6a4a7603e461d1e4dd76b163fd710cf2b0b93a4d9c0b",
-        "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
-        "turnResultHash": "a63dbaa9706b9a115107bbdffc2b1f90fc780a71bbdeee23b8d3ac169af9fa7e",
-        "traceHash": "12b9f8ed38aecfad77d9d26881d48e393c7b3f1b9ca47b99769fc0b6dd3a4d58",
-        "resultHash": "d462f60950f17f37cbdfa762c2ae8d233d76c1af6d1ef018e785b6c9173a5db5"
+        "inputHash": "e5ca79d99d1a9af12034b47eefb623b081b0961f51d8569938fad472a30c8830",
+        "configurationHash": "3b46b1d0a86a9650d4072d8597eaff70ffee24f4c1c38094d6b8e17c79a17b0c",
+        "turnResultHash": "ea14ed1d8d4cfa5c83a1ad9eb487c4209b6db26fad93f27a60fbc7e30e3aa619",
+        "traceHash": "eaeadd6e9a970b474b2887368ad22e0b5b49998c033239c3325150f7d8cafedb",
+        "resultHash": "93cd746c8105617c8bcdaf20e0105cf730cf388785d888bb1b7d85a6f32a347b"
       },
-      "resultHash": "d462f60950f17f37cbdfa762c2ae8d233d76c1af6d1ef018e785b6c9173a5db5",
+      "resultHash": "93cd746c8105617c8bcdaf20e0105cf730cf388785d888bb1b7d85a6f32a347b",
       "trace": {
         "specVersion": "0.3",
         "seed": "N:3",
-        "startingSnapshotHash": "d0fa9d514427d1cfc2b21cf9b41bc761dbbb6ae1bd1a6cf3ad536aae2f4b394b",
+        "startingSnapshotHash": "4d86fddf581b67221c71644d8e04008eb5a01ba48890c74d9fc258f258190a1e",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -7871,83 +7461,15 @@
         "strategyEligibility": [],
         "nodeExecution": [],
         "combatResolution": {
-          "specVersion": "0.3",
-          "seed": "N:3:turn:3",
-          "startingSnapshotHash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 4
-          },
-          "resultingSnapshotHash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "4d86fddf581b67221c71644d8e04008eb5a01ba48890c74d9fc258f258190a1e",
+          "resultingSnapshotHash": "e448673ded5af826dd439e880876ce43542cb60b395cf2b40a442dab70f68e4c"
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
         "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "2889a370463d986d002e892930bf813c0b23f9e425533b45529062215693581b",
+        "resultingSnapshotHash": "45e88ea2240e2873da7bf2fe659dad84ced2624cdb986f5a5fda96867273dcd7",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -7998,7 +7520,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 4,
-            "snapshot_hash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
+            "snapshot_hash": "45e88ea2240e2873da7bf2fe659dad84ced2624cdb986f5a5fda96867273dcd7",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -8008,7 +7530,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "5de9a20bedd3d6ab9bb7f5929ca0a80b1bc20ba07889ca49682b7fad0398cfb0",
+            "resulting_snapshot_hash": "570515b30fa31e5020d59364abf20bb9f33c48394fab1b62de7129978555539a",
             "summary_tags": [
               "combat_turn"
             ],
@@ -8287,7 +7809,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "bf990c7b360ce6da7baf58aad587f97833e2bac0dea854dc857dd763fea2ff54"
+              "snapshot_hash": "9092d76ee58db398aac595ef513dae3ac90e1796f63afc865bc46f1376244aad"
             },
             {
               "turn": 1,
@@ -8311,7 +7833,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590"
+              "snapshot_hash": "1cdb4f1262b03f66f3dd062ad560e425cee853225ceca62f0cf01ca03fa94ec0"
             },
             {
               "turn": 2,
@@ -8335,7 +7857,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03"
+              "snapshot_hash": "66114eae76f49c0e4cc8d177b0aa68996de45ec79a58760f351c65b03b3bab8c"
             },
             {
               "turn": 3,
@@ -8359,7 +7881,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b"
+              "snapshot_hash": "e448673ded5af826dd439e880876ce43542cb60b395cf2b40a442dab70f68e4c"
             },
             {
               "turn": 4,
@@ -8383,7 +7905,7 @@
                   "sequence": 1
                 }
               ],
-              "snapshot_hash": "c139cd7b4f46bd40453283e5fec6616df58934fc592d48b9beb7822913e513ab"
+              "snapshot_hash": "95d3b43876fa53b3b17e3f924c8b57e5fdc4709f57e8060e034369bcb13e5249"
             }
           ],
           "session": {
@@ -8396,7 +7918,7 @@
           {
             "strategy_id": "N.chain",
             "owner": "a",
-            "state": "SUCCEEDED",
+            "state": "COMPLETED",
             "nodes": [
               {
                 "id": "N.node-1",
@@ -8411,10 +7933,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-2",
@@ -8434,10 +7957,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-3",
@@ -8457,10 +7981,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-4",
@@ -8480,10 +8005,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               },
               {
                 "id": "N.node-5",
@@ -8503,10 +8029,11 @@
                 "effects": {
                   "on_success": [],
                   "on_failure": [],
-                  "on_completion": []
+                  "on_completion": [],
+                  "on_partial": []
                 },
                 "execution_class": "ZERO_TIME",
-                "result_band": "success"
+                "result_band": "SUCCESS"
               }
             ],
             "metadata": {
@@ -8560,7 +8087,7 @@
           "modifiers": [],
           "previous_turn": {
             "turn": 4,
-            "snapshot_hash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
+            "snapshot_hash": "45e88ea2240e2873da7bf2fe659dad84ced2624cdb986f5a5fda96867273dcd7",
             "action_refs": [],
             "events": [],
             "resource_deltas": [],
@@ -8570,7 +8097,7 @@
             "action_economy_changes": [],
             "displacement_changes": [],
             "conflicts": [],
-            "resulting_snapshot_hash": "062bf4c60ed8eeddf0d9da4c1e46aadb65147d0d7f71c2db929cc71f1e3dec37",
+            "resulting_snapshot_hash": null,
             "summary_tags": [
               "combat_turn"
             ]
@@ -8805,85 +8332,11 @@
         "reactionResults": [],
         "events": [],
         "conflicts": [],
-        "resultHash": "d1682ec8c8c62f4d7d69b1b8e4b70d0758bb99e62cbc868e2ddad136447629d8",
-        "replayInformation": {
-          "inputHash": "00364900c1497ac3b0e10cb5810466e9a35d8f42f0427d481477dd40e9b5da62",
-          "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
-          "traceHash": "5c13655f3377d802582beec240fb26916935e4b2d6ccab5552320612fee99a30",
-          "resultHash": "d1682ec8c8c62f4d7d69b1b8e4b70d0758bb99e62cbc868e2ddad136447629d8"
-        },
+        "resultHash": "b6f727c0102328e428aff9530f834b9654c8ae172971f95bc2b07a329f6153a2",
         "trace": {
-          "specVersion": "0.3",
-          "seed": "N:4:turn:4",
-          "startingSnapshotHash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 5
-          },
-          "resultingSnapshotHash": "c139cd7b4f46bd40453283e5fec6616df58934fc592d48b9beb7822913e513ab",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "45e88ea2240e2873da7bf2fe659dad84ced2624cdb986f5a5fda96867273dcd7",
+          "resultingSnapshotHash": "95d3b43876fa53b3b17e3f924c8b57e5fdc4709f57e8060e034369bcb13e5249"
         }
       },
       "temporalEvents": [
@@ -8907,6 +8360,16 @@
       "strategyProgress": {
         "results": [],
         "transitions": [],
+        "strategies": [
+          {
+            "strategyId": "N.chain",
+            "executionState": "COMPLETED",
+            "goals": {
+              "required": [],
+              "optional": []
+            }
+          }
+        ],
         "eligibility": [],
         "diagnostics": {
           "classification": "strategy_diagnostic",
@@ -8930,17 +8393,17 @@
         "delegatedResolver": "resolveTurn"
       },
       "replayData": {
-        "inputHash": "e26b18017a00e2fd7ce920483e1b79579901f4af86a0f6be08e85105c1085674",
-        "configurationHash": "2668c82e94fc5508c538769a707d7d61e11fc3bd7eb89e8bd44c0a9148a81ad5",
-        "turnResultHash": "d1682ec8c8c62f4d7d69b1b8e4b70d0758bb99e62cbc868e2ddad136447629d8",
-        "traceHash": "2f684a9035361e7f5109d94cd3d7d5e6dd6818f7937568de20cdf80c088ebefe",
-        "resultHash": "011cb536ea800d4475f2db38ffbe30d51b60dc8169ee1ef1e98857e24b61c6be"
+        "inputHash": "7b5940b4f56e4efef18103530708f91bd71dcb1032e38d6906b809e6ffff8927",
+        "configurationHash": "3b46b1d0a86a9650d4072d8597eaff70ffee24f4c1c38094d6b8e17c79a17b0c",
+        "turnResultHash": "b6f727c0102328e428aff9530f834b9654c8ae172971f95bc2b07a329f6153a2",
+        "traceHash": "e4f1655ff8876976947a118a1833ad7baf75b2ae83b4f92ac9fea8ba42e419aa",
+        "resultHash": "5c13b534fe9159e52d1c6f47e8a8d3afc77056da708ea727d87d99342c120b0d"
       },
-      "resultHash": "011cb536ea800d4475f2db38ffbe30d51b60dc8169ee1ef1e98857e24b61c6be",
+      "resultHash": "5c13b534fe9159e52d1c6f47e8a8d3afc77056da708ea727d87d99342c120b0d",
       "trace": {
         "specVersion": "0.3",
         "seed": "N:4",
-        "startingSnapshotHash": "2889a370463d986d002e892930bf813c0b23f9e425533b45529062215693581b",
+        "startingSnapshotHash": "45e88ea2240e2873da7bf2fe659dad84ced2624cdb986f5a5fda96867273dcd7",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -8963,83 +8426,15 @@
         "strategyEligibility": [],
         "nodeExecution": [],
         "combatResolution": {
-          "specVersion": "0.3",
-          "seed": "N:4:turn:4",
-          "startingSnapshotHash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 5
-          },
-          "resultingSnapshotHash": "c139cd7b4f46bd40453283e5fec6616df58934fc592d48b9beb7822913e513ab",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "45e88ea2240e2873da7bf2fe659dad84ced2624cdb986f5a5fda96867273dcd7",
+          "resultingSnapshotHash": "95d3b43876fa53b3b17e3f924c8b57e5fdc4709f57e8060e034369bcb13e5249"
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
         "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "48cd3ce2e2f70706d8f98695de7e21f3c2118fe48310a571218bf0e358f18914",
+        "resultingSnapshotHash": "a78f8162b28c59539e040d9258d45d961084dd0fba79d7155ab8703b0aac4048",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -9052,16 +8447,16 @@
   ],
   "replayData": {
     "inputHash": "033d7b2889ff862b2355ada55635e045641a4b9e3e81631de8e765e77086e99f",
-    "resultHash": "f526772a76563002ade5a36fc246e771302c7de50018b19732eefd6dd2dc37f6"
+    "resultHash": "c55382c4bdabc3662af1ff6913d88cff71907a45e9b9486051b3e784a1931923"
   },
-  "resultHash": "f526772a76563002ade5a36fc246e771302c7de50018b19732eefd6dd2dc37f6",
+  "resultHash": "c55382c4bdabc3662af1ff6913d88cff71907a45e9b9486051b3e784a1931923",
   "trace": {
     "sessionId": "N-five-turn-replay",
     "steps": [
       {
         "specVersion": "0.3",
         "seed": "N:0",
-        "startingSnapshotHash": "83f6af332bcc2330e1be9f669283715a0e437f7ba2a5b523c9ce8456e2d189a2",
+        "startingSnapshotHash": "95d2e85ded51081b3d990ca374d4a07eaac20753186d7d214f0640517cb81731",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -9130,7 +8525,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           },
           {
@@ -9139,7 +8534,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           },
           {
@@ -9148,7 +8543,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           },
           {
@@ -9157,7 +8552,7 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           },
           {
@@ -9166,82 +8561,14 @@
             "kind": "STATE_TRANSITION",
             "resolver": "NORMALIZED_STATE_TRANSITION",
             "passed": true,
-            "band": "success",
+            "band": "SUCCESS",
             "state": "SUCCEEDED"
           }
         ],
         "combatResolution": {
-          "specVersion": "0.3",
-          "seed": "N:0:turn:0",
-          "startingSnapshotHash": "bae64d5e456b90fb044ed33fe358c2fe311794ff4c14621c124c69f31249a087",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "bae64d5e456b90fb044ed33fe358c2fe311794ff4c14621c124c69f31249a087",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 1
-          },
-          "resultingSnapshotHash": "809310bc76dad4c2fab9c53c35a6cb3f3fefa441e1b73501fcffb721c2ab4991",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "95d2e85ded51081b3d990ca374d4a07eaac20753186d7d214f0640517cb81731",
+          "resultingSnapshotHash": "b0b244c9ed2ee203f7089c9c8dc75b847b5ecd9828da081c613b7dad268c5243"
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
@@ -9278,7 +8605,7 @@
           }
         ],
         "temporalEnd": [],
-        "resultingSnapshotHash": "daaaea5550d749fb5d3904c9c3ad786982efafa3b6fd76c9f4cbe25e71397b9b",
+        "resultingSnapshotHash": "863174e2dd884166cabe19a6f34ebe8bf39cd4dd9de27b9ef31f7a4237345df5",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -9290,7 +8617,7 @@
       {
         "specVersion": "0.3",
         "seed": "N:1",
-        "startingSnapshotHash": "daaaea5550d749fb5d3904c9c3ad786982efafa3b6fd76c9f4cbe25e71397b9b",
+        "startingSnapshotHash": "863174e2dd884166cabe19a6f34ebe8bf39cd4dd9de27b9ef31f7a4237345df5",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -9313,83 +8640,15 @@
         "strategyEligibility": [],
         "nodeExecution": [],
         "combatResolution": {
-          "specVersion": "0.3",
-          "seed": "N:1:turn:1",
-          "startingSnapshotHash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "76a67a87938ca7c171159d7487464a8d0eaf53ed0dbaa4086ad2b89d191d014e",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 2
-          },
-          "resultingSnapshotHash": "55b7163bfa80209559f571a675ee47f8886728171370094156235790d462f590",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "863174e2dd884166cabe19a6f34ebe8bf39cd4dd9de27b9ef31f7a4237345df5",
+          "resultingSnapshotHash": "1cdb4f1262b03f66f3dd062ad560e425cee853225ceca62f0cf01ca03fa94ec0"
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
         "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "b285b4dbc1ff76288337b1c8fa8a0e9034d8058bf1b025618044600b9c613c5b",
+        "resultingSnapshotHash": "2120c4b55a13d2defeea2aa7f26e467524b87efd2da64c036bc2f2af31e8bfea",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -9401,7 +8660,7 @@
       {
         "specVersion": "0.3",
         "seed": "N:2",
-        "startingSnapshotHash": "b285b4dbc1ff76288337b1c8fa8a0e9034d8058bf1b025618044600b9c613c5b",
+        "startingSnapshotHash": "2120c4b55a13d2defeea2aa7f26e467524b87efd2da64c036bc2f2af31e8bfea",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -9424,83 +8683,15 @@
         "strategyEligibility": [],
         "nodeExecution": [],
         "combatResolution": {
-          "specVersion": "0.3",
-          "seed": "N:2:turn:2",
-          "startingSnapshotHash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "989cc5b089f1079cd80c2f550b5f79cd6ebfa9f8ac7dd714c735dae8de1fda2b",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 3
-          },
-          "resultingSnapshotHash": "8d0b2175414f1e7c6181187a14460d776280a8d8a3eb19e0464518a6eefead03",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "2120c4b55a13d2defeea2aa7f26e467524b87efd2da64c036bc2f2af31e8bfea",
+          "resultingSnapshotHash": "66114eae76f49c0e4cc8d177b0aa68996de45ec79a58760f351c65b03b3bab8c"
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
         "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "d0fa9d514427d1cfc2b21cf9b41bc761dbbb6ae1bd1a6cf3ad536aae2f4b394b",
+        "resultingSnapshotHash": "4d86fddf581b67221c71644d8e04008eb5a01ba48890c74d9fc258f258190a1e",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -9512,7 +8703,7 @@
       {
         "specVersion": "0.3",
         "seed": "N:3",
-        "startingSnapshotHash": "d0fa9d514427d1cfc2b21cf9b41bc761dbbb6ae1bd1a6cf3ad536aae2f4b394b",
+        "startingSnapshotHash": "4d86fddf581b67221c71644d8e04008eb5a01ba48890c74d9fc258f258190a1e",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -9535,83 +8726,15 @@
         "strategyEligibility": [],
         "nodeExecution": [],
         "combatResolution": {
-          "specVersion": "0.3",
-          "seed": "N:3:turn:3",
-          "startingSnapshotHash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "35b8fc9aa3811d8e740ac7de6d42e0b85436b156a8e5cc0c6290fd2368de882e",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 4
-          },
-          "resultingSnapshotHash": "e6116668289c95a7b8e2dd7c8747d8acb4305ed26ab6fa7dceafaca0a37d374b",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "4d86fddf581b67221c71644d8e04008eb5a01ba48890c74d9fc258f258190a1e",
+          "resultingSnapshotHash": "e448673ded5af826dd439e880876ce43542cb60b395cf2b40a442dab70f68e4c"
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
         "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "2889a370463d986d002e892930bf813c0b23f9e425533b45529062215693581b",
+        "resultingSnapshotHash": "45e88ea2240e2873da7bf2fe659dad84ced2624cdb986f5a5fda96867273dcd7",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -9623,7 +8746,7 @@
       {
         "specVersion": "0.3",
         "seed": "N:4",
-        "startingSnapshotHash": "2889a370463d986d002e892930bf813c0b23f9e425533b45529062215693581b",
+        "startingSnapshotHash": "45e88ea2240e2873da7bf2fe659dad84ced2624cdb986f5a5fda96867273dcd7",
         "temporalStart": [
           {
             "type": "capacity_recovered",
@@ -9646,83 +8769,15 @@
         "strategyEligibility": [],
         "nodeExecution": [],
         "combatResolution": {
-          "specVersion": "0.3",
-          "seed": "N:4:turn:4",
-          "startingSnapshotHash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
-          "declarations": {
-            "actionHashes": {},
-            "reactionHashes": {}
-          },
-          "validation": {
-            "actionCount": 0,
-            "reactionCount": 0,
-            "characterCount": 2,
-            "actionIds": [],
-            "reactionIds": [],
-            "registryHashes": {
-              "defenseSources": "f8b2650e30ebf34a2c753a1b7bf1c1148ddbc6112d1af6d325ccf8dca4006434",
-              "statusDefinitions": "d45e5b2b9b2165d5024877ede16b3ef64059bebc4f8d98e598012ea2f7f09983"
-            }
-          },
-          "reservations": [],
-          "ordering": {
-            "stages": [
-              "explicit_dependencies",
-              "timing.declared_at_ascending",
-              "timing.priority_descending",
-              "actor.resolved_stats.movement_descending",
-              "action.id_lexicographic"
-            ],
-            "actionIds": [],
-            "finalTieBreaker": "action.id"
-          },
-          "reactions": [],
-          "actionResolutions": [],
-          "merge": {
-            "stagedDeltas": [
-              {
-                "startingSnapshotHash": "4a6b4b68348662a94a85592ed3b91a5ad8a58f2af912d72b42bd2983a02af3c9",
-                "resourceDeltas": [],
-                "actionEconomyDeltas": [],
-                "reactionEconomyDeltas": [],
-                "statusAdditions": [],
-                "statusRemovals": [],
-                "displacements": [],
-                "preCommitConflicts": [],
-                "events": [],
-                "actionRefs": [],
-                "summaryTags": []
-              }
-            ],
-            "resourceChanges": [],
-            "actionEconomyChanges": [],
-            "statusChanges": [],
-            "displacementChanges": []
-          },
-          "conflicts": [],
-          "commit": {
-            "atomic": true,
-            "turn": 5
-          },
-          "resultingSnapshotHash": "c139cd7b4f46bd40453283e5fec6616df58934fc592d48b9beb7822913e513ab",
-          "pipeline": [
-            "snapshot",
-            "declaration_validation",
-            "resource_and_economy_reservation",
-            "target_and_geometry_resolution",
-            "reaction_opportunities",
-            "action_and_hit_resolution",
-            "secondary_consequences",
-            "simultaneous_merge",
-            "atomic_commit",
-            "replay_record"
-          ]
+          "waves": [],
+          "startingSnapshotHash": "45e88ea2240e2873da7bf2fe659dad84ced2624cdb986f5a5fda96867273dcd7",
+          "resultingSnapshotHash": "95d3b43876fa53b3b17e3f924c8b57e5fdc4709f57e8060e034369bcb13e5249"
         },
         "stateConsequences": [],
         "relationalModifierApplications": [],
         "strategyTransitions": [],
         "temporalEnd": [],
-        "resultingSnapshotHash": "48cd3ce2e2f70706d8f98695de7e21f3c2118fe48310a571218bf0e358f18914",
+        "resultingSnapshotHash": "a78f8162b28c59539e040d9258d45d961084dd0fba79d7155ab8703b0aac4048",
         "pipeline": [
           "TURN_START",
           "PRE_ACTION",
@@ -9732,6 +8787,6 @@
         ]
       }
     ],
-    "finalSnapshotHash": "48cd3ce2e2f70706d8f98695de7e21f3c2118fe48310a571218bf0e358f18914"
+    "finalSnapshotHash": "a78f8162b28c59539e040d9258d45d961084dd0fba79d7155ab8703b0aac4048"
   }
 }

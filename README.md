@@ -1,8 +1,8 @@
-# Universal RPG Engine v0.3
+# Universal RPG Engine v0.4
 
-This package resolves deterministic, universe-agnostic encounters, simultaneous turns, and multi-turn combat sessions from normalized structured data. v0.3 adds temporal phases, durations, cooldowns, delayed effects, bounded mechanical history, persistent modifiers, relational state, conditional opportunities, and acyclic Strategy DAG orchestration while preserving the v0.1 `resolveEncounter` and v0.2 `resolveTurn` APIs.
+This package resolves deterministic, universe-agnostic encounters, simultaneous turns, and multi-turn combat sessions from normalized structured data. v0.3.1 closes Strategy DAG temporal/economy semantics; v0.4 adds an independent rule-first Ability Parser that compiles structured definitions into the same normalized contracts used by ordinary engine callers.
 
-It contains no universe extension, Ability Parser, natural-language parser, strategy-language interpreter, universe dictionary, tactical AI, networking layer, or LLM dependency.
+It contains no universe extension, natural-language parser, semantic fallback implementation, universe dictionary, tactical AI, networking layer, or LLM dependency. The RPG Engine imports zero Ability Parser modules.
 
 ## Requirements and commands
 
@@ -13,9 +13,11 @@ npm install
 npm run check
 ```
 
-- `npm run validate` parses/lints 12 canonical YAML files, compiles 10 Draft 2020-12 JSON Schemas, and validates registries, profiles, 12 combat scenarios, and 14 temporal/strategy scenarios.
+- `npm run validate` parses/lints 12 canonical YAML files, compiles 10 engine and 3 Ability Parser Draft 2020-12 JSON Schemas, and validates registries, profiles, 12 combat scenarios, 14 temporal/strategy scenarios, and 12 generic abilities.
 - `npm test` runs all hard invariants plus unit, property, architecture, transaction, calibration, combat-loop, temporal, Strategy DAG, batching, and replay tests.
 - `npm run replay` verifies the encounter, multi-action turn, and five-turn Strategy DAG golden replays.
+- `npm run ability:replay` verifies compiled-ability, ability-use, combat, and multi-turn ability-session goldens.
+- `npm run ability:report` and `npm run ability:benchmark` produce non-blocking parser diagnostics and compilation/instantiation benchmarks.
 - `npm run scenarios` and `npm run session:scenarios` regenerate normalized v0.2 combat and v0.3 session fixtures.
 - `npm run combat:scenarios` and `npm run session:report` write machine-readable/Markdown scenario diagnostics.
 - `npm run combat:benchmark` and `npm run session:benchmark` benchmark turn and session resolution.
@@ -47,6 +49,27 @@ const step = engine.resolveSessionStep({
 
 Strategy nodes do not receive a plan score or hidden bonus. Action-backed nodes are passed to `resolveTurn`; opposed primitives use their own declared inputs; condition nodes use declarative predicates; state-setup nodes only emit normalized effects.
 
+Dependencies do not imply turn progression. `ZERO_TIME` nodes chain in the same step, while `ACTION`, `REACTION`, and `MOVEMENT` nodes proceed only when their matching economy permits. Strategy execution state (`COMPLETED`) remains separate from required/optional goal outcomes.
+
+## Ability Parser API
+
+```js
+import { compileAbilityRegistry, instantiateAbilityUse } from "./src/ability-parser/index.js";
+
+const registry = compileAbilityRegistry(abilityDefinitions, compatibilityContext);
+const normalized = instantiateAbilityUse(registry.get("core.example.heavy_strike"), {
+  ability_id: "core.example.heavy_strike",
+  actor_id: "a",
+  targets: [{ type: "character", ref: "b", position: null, body_zone: "core" }],
+  parameters: {},
+  declared_options: { turn: 4 }
+}, { characters, world });
+
+const result = engine.resolveTurn({ world, characters, actions: normalized.actions, reactions: normalized.reactions, registries, seed });
+```
+
+Compilation validates namespaced/versioned definitions, registry references, parameters, variants, cooldown/cost contracts, and a bounded declarative expression AST. Instantiation binds actors, targets, parameters, and context without resolving hit, defense, damage, status application, or final state. Static compiled artifacts are immutable and cacheable by definition/parser/ruleset/registry hashes.
+
 ## Turn and encounter compatibility
 
 ```js
@@ -75,4 +98,4 @@ Balance and strategy diagnostics remain non-blocking. They never assign a univer
 
 ## Architecture boundary
 
-`src/` imports only Node.js standard-library modules plus `yaml` and `ajv`. A future parser may emit validated actions and Strategy DAGs; the engine never calls into a parser, LLM, or universe extension.
+Core engine modules import only Node.js standard-library modules plus `yaml` and `ajv`. The independent `src/ability-parser/` layer imports shared contracts and utilities in the allowed direction; the engine never calls into it. A future semantic provider may only propose an untrusted Ability Definition that must pass schema validation and deterministic compilation.

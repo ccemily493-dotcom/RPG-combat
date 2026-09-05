@@ -1,0 +1,182 @@
+{
+  "version": "0.4.0",
+  "classification": "ability_diagnostic",
+  "non_blocking": true,
+  "ability_count": 12,
+  "templates": {
+    "AREA_EFFECT": 1,
+    "ATTACK": 6,
+    "MOVEMENT": 1,
+    "REACTION": 1,
+    "RESOURCE_DENIAL": 1,
+    "STATUS_ATTEMPT": 1,
+    "STRATEGY_FRAGMENT": 1,
+    "TEMPORAL_EFFECT": 3
+  },
+  "average_component_count": 1.25,
+  "average_parameter_count": 0.16666666666666666,
+  "expression_nodes": 67,
+  "strategy_fragment_count": 1,
+  "invalid_registry_references": 0,
+  "warnings": [],
+  "abilities": [
+    {
+      "ability_id": "core.example.area_pulse",
+      "mechanical_hash": "5661e42309178ef8a586a06830fb8f2d7f464948f51eda1d4b87bf6aaa7d4808",
+      "definition_hash": "ddafff1cb12fb0afd902db906cf63030b80c628d910f165466014c4c85dc3aec",
+      "component_count": 1,
+      "templates": {
+        "AREA_EFFECT": 1
+      },
+      "parameter_count": 0,
+      "expression_nodes": 5,
+      "strategy_fragment_count": 0,
+      "diagnostics": []
+    },
+    {
+      "ability_id": "core.example.conditional_follow_up",
+      "mechanical_hash": "df3fcc6094f92ca882dc23f7dcbbdf22c4b9e09e46c545aac03a4f881e7df146",
+      "definition_hash": "f56099207eef55018c7d84db32599a36895f662d43de4e1fff3c1bcc010bbe1b",
+      "component_count": 2,
+      "templates": {
+        "ATTACK": 2
+      },
+      "parameter_count": 1,
+      "expression_nodes": 10,
+      "strategy_fragment_count": 0,
+      "diagnostics": []
+    },
+    {
+      "ability_id": "core.example.dash_strike",
+      "mechanical_hash": "0c3aed0841aa2bb1cf58d93f1e1da2f47f2de031da471514df53eb1e5df69e8a",
+      "definition_hash": "7f2966358c5dd3d41cfbee958de48795308684dab119f7b5feb72777ebd0d858",
+      "component_count": 2,
+      "templates": {
+        "ATTACK": 1,
+        "MOVEMENT": 1
+      },
+      "parameter_count": 0,
+      "expression_nodes": 8,
+      "strategy_fragment_count": 0,
+      "diagnostics": []
+    },
+    {
+      "ability_id": "core.example.delayed_burst",
+      "mechanical_hash": "e32ed273a41603885f30d70e6c0f5ccfc6997af6309404d05250a08927c1cdc3",
+      "definition_hash": "2270f86c56a43171264b484a50a1ec9271fdffe12da78cd08aaf9ffa69bbc18c",
+      "component_count": 1,
+      "templates": {
+        "TEMPORAL_EFFECT": 1
+      },
+      "parameter_count": 0,
+      "expression_nodes": 0,
+      "strategy_fragment_count": 0,
+      "diagnostics": []
+    },
+    {
+      "ability_id": "core.example.disrupting_shot",
+      "mechanical_hash": "87a3d6cb4e664ac28fa8c318b27dd5485691e7e7e6544945f972cac517738148",
+      "definition_hash": "52d2b476d8a4cc7a564cd7d3063f4ca9af02d4380950fcd28d4ea68229cb8aec",
+      "component_count": 1,
+      "templates": {
+        "STATUS_ATTEMPT": 1
+      },
+      "parameter_count": 0,
+      "expression_nodes": 5,
+      "strategy_fragment_count": 0,
+      "diagnostics": []
+    },
+    {
+      "ability_id": "core.example.guard_field",
+      "mechanical_hash": "7c543e4faedb387ab966dbb625242a94a9bd42cd08a4f8046e925d2c6818479c",
+      "definition_hash": "e9ef579dbbf409433a93fb89131752de7e02091ff0b570c9d4c095d8d6bceb06",
+      "component_count": 2,
+      "templates": {
+        "REACTION": 1,
+        "TEMPORAL_EFFECT": 1
+      },
+      "parameter_count": 0,
+      "expression_nodes": 0,
+      "strategy_fragment_count": 0,
+      "diagnostics": []
+    },
+    {
+      "ability_id": "core.example.heavy_strike",
+      "mechanical_hash": "09f0cbf94216f317a2e9e72710eeb8164af5a05607acb4a2313a99b33be3e5bc",
+      "definition_hash": "7b41522a14c42c7fe430962f33bbac046d27486aaf1c593e10381b9658e79b7e",
+      "component_count": 1,
+      "templates": {
+        "ATTACK": 1
+      },
+      "parameter_count": 0,
+      "expression_nodes": 11,
+      "strategy_fragment_count": 0,
+      "diagnostics": []
+    },
+    {
+      "ability_id": "core.example.parameterized_blast",
+      "mechanical_hash": "dce1de8ee636a2c6c55f103fda533ef8f98154d49755cf93232dc1e59709b332",
+      "definition_hash": "4a878880a2ace947d667ae96f1caf9d2fc4b41f50d6da8631e1d0b4ca806152c",
+      "component_count": 1,
+      "templates": {
+        "ATTACK": 1
+      },
+      "parameter_count": 1,
+      "expression_nodes": 13,
+      "strategy_fragment_count": 0,
+      "diagnostics": []
+    },
+    {
+      "ability_id": "core.example.prepared_counter",
+      "mechanical_hash": "bc9935ff488b525ef330ccdcc939ee9b918fe3113f02612b3cbf02af41fe0f31",
+      "definition_hash": "967247af7b7214c0df230d0354a911b8b219e2e2cee46d529dfb2417056b1fe1",
+      "component_count": 1,
+      "templates": {
+        "TEMPORAL_EFFECT": 1
+      },
+      "parameter_count": 0,
+      "expression_nodes": 0,
+      "strategy_fragment_count": 0,
+      "diagnostics": []
+    },
+    {
+      "ability_id": "core.example.rapid_barrage",
+      "mechanical_hash": "c165fdd795ea6eafae0c0b01204bdb56b7157319c08f34dee50cda30bf804de6",
+      "definition_hash": "f2a7133484d81c270325b71f4e6b65840fed07c92df56bf4f1c8f67f4510ec77",
+      "component_count": 1,
+      "templates": {
+        "ATTACK": 1
+      },
+      "parameter_count": 0,
+      "expression_nodes": 6,
+      "strategy_fragment_count": 0,
+      "diagnostics": []
+    },
+    {
+      "ability_id": "core.example.resource_suppression",
+      "mechanical_hash": "14db11694c92a30991d8de49e1ab2c791b98a03fcce987ba184983693bc64b71",
+      "definition_hash": "0bcab056b49213fa1ad97f40e20e5e4edbb706fa462451a154aa30023fb7c582",
+      "component_count": 1,
+      "templates": {
+        "RESOURCE_DENIAL": 1
+      },
+      "parameter_count": 0,
+      "expression_nodes": 1,
+      "strategy_fragment_count": 0,
+      "diagnostics": []
+    },
+    {
+      "ability_id": "core.example.tactical_opening",
+      "mechanical_hash": "e32a0e1ef556592def2ee457d3d6967615d079f3ce023cc4975d945fc571a2e2",
+      "definition_hash": "4f1f5ba0c9e3d3bb1c9311f1c4f5998fc62380e3bee0e4e7681e1e8dc9c36c80",
+      "component_count": 1,
+      "templates": {
+        "STRATEGY_FRAGMENT": 1
+      },
+      "parameter_count": 0,
+      "expression_nodes": 8,
+      "strategy_fragment_count": 1,
+      "diagnostics": []
+    }
+  ]
+}

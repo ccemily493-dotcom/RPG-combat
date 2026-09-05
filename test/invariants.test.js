@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import {
   applyPenetrationToFilter,
@@ -23,6 +23,8 @@ import {
   validateTemporalReferences
 } from "../src/index.js";
 import { clone, loadFixture, loadScenarioFixture, loadSessionScenarioFixture } from "./helpers.js";
+import { AbilityCompilationCache, compileAbilityDefinition, compileAbilityRegistry, evaluateExpression, instantiateAbilityUse, validateAbilityDefinition, validateCompiledAbility, validateExpression } from "../src/ability-parser/index.js";
+import { buildGenericAbilityDefinitions } from "../src/ability-parser/fixtures.js";
 
 const { engine, fixture } = await loadFixture();
 const { scenarios } = await loadScenarioFixture();
@@ -30,6 +32,11 @@ const { scenarios: sessionScenarios } = await loadSessionScenarioFixture();
 const invariantSpec = engine.config.specs["invariants.yaml"].invariants;
 const sourceFiles = ["config.js", "schema.js", "lint.js", "immutable.js", "modifiers.js", "variance.js", "transaction.js", "multi.js", "combat.js", "turn.js", "status.js", "balance.js", "replay.js", "temporal.js", "strategy.js", "session.js", "index.js"];
 const source = (await Promise.all(sourceFiles.map((file) => readFile(join(engine.config.specDir, "src", file), "utf8")))).join("\n");
+const abilityDefinitions = buildGenericAbilityDefinitions();
+const abilityContext = { rulesetVersion: engine.config.version, stats: Object.keys(engine.config.specs["stats.yaml"].stats), resources: Object.keys(scenarios.A.characters.a.resources), registries: scenarios.A.registries };
+const abilityRegistry = compileAbilityRegistry(abilityDefinitions, abilityContext);
+const abilityUse = (id, parameters = {}) => ({ ability_id: id, actor_id: "a", targets: [{ type: "character", ref: "b", position: null, body_zone: "core" }], parameters, declared_options: { turn: 0 } });
+const instantiateAbility = (id, parameters = {}) => instantiateAbilityUse(abilityRegistry.get(id), abilityUse(id, parameters), { characters: scenarios.A.characters, world: scenarios.A.world });
 
 function resolve() {
   return engine.resolveEncounter(clone(fixture));
@@ -40,6 +47,96 @@ function sessionStepInput(scenario, snapshot, step, id = "invariant") {
 }
 
 const checks = {
+  "INV-071": async () => {
+    for (const file of sourceFiles) {
+      const value = await readFile(join(engine.config.specDir, "src", file), "utf8");
+      assert.doesNotMatch(value, /from\s+["'][^"']*ability-parser/i);
+    }
+  },
+  "INV-072": async () => {
+    const parserDir = join(engine.config.specDir, "src", "ability-parser");
+    for (const file of (await readdir(parserDir)).filter((name) => name.endsWith(".js"))) {
+      const value = await readFile(join(parserDir, file), "utf8");
+      assert.doesNotMatch(value, /resolve(?:Turn|Encounter|Session)\s*\(/, file);
+      assert.doesNotMatch(value, /eval\s*\(|new\s+Function/, file);
+    }
+  },
+  "INV-073": () => {
+    assert.equal(validateAbilityDefinition(abilityDefinitions[0]), true);
+    assert.throws(() => validateAbilityDefinition(null), (error) => error.code === "SCHEMA_ERROR");
+  },
+  "INV-074": () => {
+    assert.equal(validateCompiledAbility(abilityRegistry.get("core.example.heavy_strike")), true);
+    assert.throws(() => validateCompiledAbility({}), (error) => error.code === "SCHEMA_ERROR");
+  },
+  "INV-075": () => {
+    assert.throws(() => instantiateAbility("core.example.parameterized_blast", { charge: 2 }), (error) => error.code === "PARAMETER_ERROR");
+  },
+  "INV-076": () => {
+    const invalid = clone(abilityDefinitions[0]);
+    invalid.requirements = [{ type: "MIN_STAT", ref: "unknown" }];
+    assert.throws(() => compileAbilityDefinition(invalid, abilityContext), (error) => error.code === "REFERENCE_ERROR");
+  },
+  "INV-077": () => {
+    assert.throws(() => evaluateExpression({ op: "DIVIDE", args: [{ const: 1 }, { const: 0 }] }, {}), (error) => error.code === "EXPRESSION_ERROR");
+    assert.throws(() => validateExpression({ op: "EXECUTE", args: [{ const: 1 }] }), (error) => error.code === "EXPRESSION_ERROR");
+  },
+  "INV-078": () => {
+    let expression = { const: 1 };
+    for (let index = 0; index < 17; index += 1) expression = { op: "ABS", args: [expression] };
+    assert.throws(() => validateExpression(expression, { maxDepth: 16 }), /depth/i);
+  },
+  "INV-079": () => {
+    assert.equal(stableStringify(compileAbilityDefinition(abilityDefinitions[0], abilityContext)), stableStringify(compileAbilityDefinition(abilityDefinitions[0], abilityContext)));
+  },
+  "INV-080": () => {
+    const cache = new AbilityCompilationCache();
+    const cached = cache.compile(abilityDefinitions[0], abilityContext);
+    assert.equal(stableStringify(cached), stableStringify(compileAbilityDefinition(abilityDefinitions[0], abilityContext)));
+    assert.equal(cache.compile(abilityDefinitions[0], abilityContext), cached);
+  },
+  "INV-081": () => {
+    assert.equal(stableStringify(instantiateAbility("core.example.heavy_strike")), stableStringify(instantiateAbility("core.example.heavy_strike")));
+  },
+  "INV-082": () => {
+    const edited = clone(abilityDefinitions[0]);
+    edited.name = "Different presentation";
+    edited.flavor = "No mechanics";
+    assert.equal(compileAbilityDefinition(edited, abilityContext).mechanical_hash, abilityRegistry.get(edited.ability_id).mechanical_hash);
+  },
+  "INV-083": () => {
+    const definition = clone(abilityDefinitions[0]);
+    const before = stableStringify(definition);
+    compileAbilityDefinition(definition, abilityContext);
+    assert.equal(stableStringify(definition), before);
+  },
+  "INV-084": () => {
+    const payload = instantiateAbility("core.example.disrupting_shot");
+    assert.equal(Object.hasOwn(payload.actions[0], "final_damage"), false);
+    assert.equal(Object.hasOwn(payload.actions[0].attack.status_effects[0], "applied"), false);
+  },
+  "INV-085": () => {
+    const payload = instantiateAbility("core.example.rapid_barrage");
+    const result = engine.resolveTurn({ ...clone(scenarios.A), id: "inv085", actions: payload.actions, reactions: [], seed: "inv085" });
+    assert.equal(result.actionResults[0].representedHitCount, 5);
+    assert.equal(result.characters.a.resources.energy.current, scenarios.A.characters.a.resources.energy.current - 25);
+  },
+  "INV-086": () => {
+    const payload = instantiateAbility("core.example.disrupting_shot");
+    const result = engine.resolveTurn({ ...clone(scenarios.A), id: "inv086", actions: payload.actions, reactions: [], seed: "inv086" });
+    assert.ok(Array.isArray(result.actionResults[0].hits[0].statuses));
+  },
+  "INV-087": () => {
+    const payload = instantiateAbility("core.example.tactical_opening");
+    assert.deepEqual(payload.strategy_fragments[0].nodes.map((node) => node.execution_class), ["ZERO_TIME", "ZERO_TIME", "ACTION"]);
+    assert.equal(payload.strategy_fragments[0].nodes[2].action.actor_id, "a");
+  },
+  "INV-088": () => {
+    const generated = instantiateAbility("core.example.heavy_strike").actions[0];
+    const direct = engine.resolveTurn({ ...clone(scenarios.A), id: "inv088", actions: [clone(generated)], reactions: [], seed: "inv088" });
+    const produced = engine.resolveTurn({ ...clone(scenarios.A), id: "inv088", actions: [generated], reactions: [], seed: "inv088" });
+    assert.equal(direct.resultHash, produced.resultHash);
+  },
   "INV-054": () => {
     // Zero-time limit: exceed max_zero_time_transitions_per_step
     const config = engine.config;
@@ -81,12 +178,15 @@ const checks = {
     }
   },
   "INV-056": () => {
-    // Economy-consuming nodes wait when actions_remaining is 0
-    const result = engine.resolveSession(clone(sessionScenarios.D));
-    // Scenario D has 3 steps; D.attack fires in step 3 not step 1 (economy gates it)
+    // With one generic action per turn, the same DAG naturally spans turns.
+    const input = clone(sessionScenarios.D);
+    input.initial_snapshot.characters.a.action_economy.action_capacity = 1;
+    input.initial_snapshot.characters.a.action_economy.actions_remaining = 1;
+    const result = engine.resolveSession(input);
     const step1Nodes = Object.fromEntries(result.snapshots[1].strategies[0].nodes.map((node) => [node.id, node.state]));
     assert.notEqual(step1Nodes["D.attack"], "SUCCEEDED"); // attack waits
-    assert.notEqual(step1Nodes["D.distraction"], "PENDING"); // distraction fired
+    assert.equal(step1Nodes["D.distraction"], "SUCCEEDED");
+    assert.equal(step1Nodes["D.reposition"], "PENDING");
   },
   "INV-057": () => {
     // PASSIVE nodes are skipped by scheduler; scheduleStrategyNodes returns them as non-eligible
@@ -119,7 +219,7 @@ const checks = {
       nodes: [
         {
           id: "predecessor", kind: "CONDITION", execution_class: "ZERO_TIME", state: "SUCCEEDED",
-          result_band: "partial", // explicitly set partial band
+          result_band: "PARTIAL", // explicitly set partial band
           dependency_mode: "ALL_OF", dependencies: [], conditions: [],
           condition: { compare: { left: "world.turn", operator: "gte", right: 0 } },
           failure_policy: "CONTINUE", fallback_node_ids: [], completion_rule: "CONDITION_TRUE",
@@ -141,7 +241,7 @@ const checks = {
     const snapshot = clone(sessionScenarios.N.initial_snapshot);
     const result = scheduleStrategyNodes([strategy], { ...snapshot, declarations: { actions: [], reactions: [] }, seed: "inv058" });
     const depRecord = result.records.find((r) => r.nodeId === "on-success-dep");
-    // dependencies_pending because predecessor.result_band === "partial" → ON_SUCCESS not satisfied
+    // A PARTIAL predecessor is terminal but does not satisfy strict ON_SUCCESS.
     assert.equal(depRecord.eligible, false);
     assert.ok(["dependencies_pending", "dependency_branch_unavailable"].includes(depRecord.reason));
   },
@@ -153,7 +253,7 @@ const checks = {
       nodes: [
         {
           id: "predecessor", kind: "CONDITION", execution_class: "ZERO_TIME", state: "SUCCEEDED",
-          result_band: "partial",
+          result_band: "PARTIAL",
           dependency_mode: "ALL_OF", dependencies: [], conditions: [],
           condition: { compare: { left: "world.turn", operator: "gte", right: 0 } },
           failure_policy: "CONTINUE", fallback_node_ids: [], completion_rule: "CONDITION_TRUE",
@@ -183,10 +283,11 @@ const checks = {
     assert.ok(strategy.completion_policy === "ALL_TERMINAL" || !strategy.completion_policy);
     const result = engine.resolveSession(clone(sessionScenarios.D));
     const finalStrategy = result.finalSnapshot.strategies[0];
-    assert.ok(["SUCCEEDED", "FAILED"].includes(finalStrategy.state));
+    assert.equal(finalStrategy.state, "COMPLETED");
   },
   "INV-061": () => {
-    // REQUIRED_GOALS: if required goal FAILED, strategy FAILED
+    // REQUIRED_GOALS describes completion; a failed goal does not turn
+    // structural execution state into a universal strategy-success Boolean.
     const strategy = {
       strategy_id: "inv061", owner: "a", state: "ACTIVE",
       completion_policy: "REQUIRED_GOALS",
@@ -203,7 +304,8 @@ const checks = {
       metadata: {}
     };
     completeStrategyStep([strategy], { immediateResults: [], actionBindings: [] }, []);
-    assert.equal(strategy.state, "FAILED");
+    assert.equal(strategy.state, "COMPLETED");
+    assert.equal(strategy.nodes[0].state, "FAILED");
   },
   "INV-062": () => {
     // ACTIVATE_FALLBACK activates the declared fallback node
@@ -375,8 +477,9 @@ const checks = {
   "INV-017": () => assert.equal(stableStringify(resolve()), stableStringify(resolve())),
   "INV-018": () => {
     const parser = engine.config.specs["parser.yaml"];
-    assert.equal(parser.parser_result_schema.mechanical_authority, false);
-    assert.ok(parser.llm_fallback.forbidden_outputs.includes("damage"));
+    assert.equal(parser.authority.parser_determines_outcomes, false);
+    assert.equal(parser.authority.parser_mutates_canonical_state, false);
+    assert.equal(parser.metadata.semantic_provider_implementation, false);
   },
   "INV-019": () => {
     const imports = source.split(/\r?\n/).filter((line) => /^\s*import\s/.test(line)).join("\n").toLowerCase();
@@ -473,8 +576,11 @@ const checks = {
     const result = engine.resolveSession(clone(sessionScenarios.D));
     const first = Object.fromEntries(result.snapshots[1].strategies[0].nodes.map((node) => [node.id, node.state]));
     assert.equal(first["D.distraction"], "SUCCEEDED");
-    assert.equal(first["D.reposition"], "PENDING");
-    assert.equal(first["D.attack"], "PENDING");
+    assert.equal(first["D.reposition"], "SUCCEEDED");
+    assert.equal(first["D.attack"], "SUCCEEDED");
+    const completed = result.stepResults[0].strategyProgress.results.map((item) => item.nodeId);
+    assert.ok(completed.indexOf("D.distraction") < completed.indexOf("D.reposition"));
+    assert.ok(completed.indexOf("D.reposition") < completed.indexOf("D.attack"));
   },
   "INV-038": () => {
     const nodes = Object.fromEntries(engine.resolveSession(clone(sessionScenarios.E)).finalSnapshot.strategies[0].nodes.map((node) => [node.id, node.state]));

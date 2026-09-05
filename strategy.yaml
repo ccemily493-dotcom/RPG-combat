@@ -10,9 +10,12 @@ principles:
   ordinary_resolvers_remain_authoritative: true
 dag_execution:
   acyclic_only: true
-  eligible_layers_per_session_step:
-    value: 1
-    tunable: true
+  dependency_implies_turn_progression: false
+  continue_same_step_while_economy_permits: true
+  strategy_scheduler:
+    max_zero_time_transitions_per_step:
+      value: 64
+      tunable: true
   stable_order:
     - strategy_id_lexicographic
     - node_id_lexicographic
@@ -39,6 +42,8 @@ dag_execution:
     - ANY_OF
   dependency_conditions:
     - ON_SUCCESS
+    - ON_PARTIAL
+    - ON_PARTIAL_OR_BETTER
     - ON_FAILURE
     - ON_COMPLETION
   failure_policies:
@@ -52,8 +57,14 @@ dag_execution:
     - CONTACT
     - NO_CONTACT
     - CANCELLED
-  strategy_completion_rule: any_succeeded_after_all_nodes_terminal_unless_cancelled
-  partial_primitive_counts_as_dependency_success: true
+  completion_policies:
+    - ALL_TERMINAL
+    - REQUIRED_GOALS
+    - ANY_GOAL
+    - EXPLICIT_PREDICATE
+  default_completion_policy: ALL_TERMINAL
+  execution_state_is_not_goal_outcome: true
+  partial_primitive_counts_as_on_success: false
 primitive_resolution:
   outcome_bands:
     failed_below:

@@ -109,10 +109,10 @@ This file records choices that can be postponed without changing the architectur
 - Session phases are `TURN_START → PRE_ACTION → ACTION_RESOLUTION → POST_ACTION → TURN_END`. Scheduled activation, cooldown progression, capacity recovery, explicit recovery hooks, combat delegation, consequence application, duration progression, bounded history, and termination occur in the order declared by `temporal.yaml`.
 - Cooldowns begin on successful use, use `TURN` units in v0.3, progress at `TURN_START`, and are unavailable while remaining duration is above zero.
 - Newly created `TURN` duration state does not decrement during its creation turn. `PHASE` state progresses after its named phase; `ACTION` and `REACTION_WINDOW` state progresses by the number of normalized resolution events; conditional and triggered state expires only when its predicate/trigger is satisfied.
-- One newly eligible dependency layer executes per session step. Newly unlocked nodes wait for the next step. This is a tunable scheduler rule, not an assumption about narrative time.
+- Superseded by v0.3.1: dependencies do not advance time. ZERO_TIME transitions chain immediately and economy-consuming nodes continue in the same step only while the actor has the appropriate capacity.
 - Strategy nodes and simultaneous strategies are ordered by strategy ID then node ID for scheduling/audit. Those IDs are tie-breakers, never mechanical stats.
-- Primitive opposed contests use primitive-specific weighted terms. A negative margin fails, 0–10 is partial, and partial currently satisfies `ON_SUCCESS` dependencies. These are provisional rule coefficients, not a universal strategy score.
-- When all nodes are terminal and the strategy was not cancelled, the provisional overall state is `SUCCEEDED` if at least one node succeeded, otherwise `FAILED`. Branch mechanics and node outcomes remain fully visible.
+- Primitive opposed contests use primitive-specific weighted terms. A negative margin fails, 0–10 is `PARTIAL`, and `ON_SUCCESS` now accepts only `SUCCESS`; authors may explicitly use `ON_PARTIAL` or `ON_PARTIAL_OR_BETTER`.
+- Strategy execution now completes structurally as `COMPLETED`; goal/node outcomes remain separate and no universal plan-success Boolean is derived.
 - Action-backed strategy nodes call `resolveTurn` with unchanged normalized action inputs. Strategy orchestration adds no hidden bonus.
 - Action/reaction capacities restore to their declared capacity at `TURN_START`; resource and stability recovery are zero unless explicit bounded recovery hooks exist in state.
 - Mechanical history retains at most five turns by default, contains normalized events only, and uses canonical turn/event ordering.
@@ -122,11 +122,33 @@ This file records choices that can be postponed without changing the architectur
 
 1. **Primitive contest targets.** FEINT, DISTRACTION, and AMBUSH have distinct provisional stat weights and 0/10 margin bands. Playtest data is needed before changing weights or deciding whether partial outcomes should satisfy `ON_SUCCESS` dependencies.
 2. **Session phase granularity.** Five phases are sufficient for deterministic v0.3 scheduling. A continuous event clock or additional phases should be added only if normalized mechanics cannot be expressed with explicit timing/dependencies.
-3. **DAG layer cadence.** One dependency layer per session step is deliberately conservative. Future playtests must decide whether some zero-time state/condition nodes may unlock within the same step without introducing incidental ordering.
-4. **Overall strategy completion.** The provisional any-success-after-all-terminal rule supports fallback branches, but authored strategies may later need explicit success-node declarations or a formal completion predicate.
+3. **DAG economy defaults.** v0.3.1 closes layer cadence: dependency is not time. Dedicated movement economy remains optional and falls back to action economy for backward compatibility.
+4. **Strategy completion.** `ALL_TERMINAL` is the structural default; `REQUIRED_GOALS`, `ANY_GOAL`, and `EXPLICIT_PREDICATE` are available without producing a universal quality or success score.
 5. **Opportunity reservation timing.** Counter templates currently reserve their reaction/resource costs when triggered through `resolveTurn`, not when prepared. A future normalized reservation mode may be needed for mechanics that lock resources across turns.
 6. **Relational geometry richness.** BLIND_SPOT and FLANKING are validated relational conditions with ordinary modifier bindings; facing arcs, occupancy, pathfinding, and full line-of-effect simulation remain outside the core.
 7. **History depth.** Five turns is a provisional bounded default. Real strategy fixtures should determine whether mechanical predicates need a larger configured window.
 8. **Schema identifiers.** Schemas still use `example.invalid`; select stable project-owned URIs before publishing.
 9. **Durable replay storage.** Session hashes and golden replay data are canonical, but a durable event-log transport/storage format is not selected.
 10. **Next milestone.** Do not begin automatically. A sensible candidate is v0.3.1 hardening: model-based random DAG generation, authored-registry ergonomics, and longer stress replays—still without natural-language parsing, an Ability Parser, LLM dependencies, or universe extensions.
+
+## Conservative deterministic defaults introduced in v0.4
+
+- Ability expressions use only `ADD`, `SUBTRACT`, `MULTIPLY`, `DIVIDE`, `MIN`, `MAX`, `CLAMP`, and `ABS`; depth is limited to 16 and total nodes per component to 128.
+- Expression references are limited to declared parameters/constants, registered actor stats/resources, and the normalized `distance`, `target_count`, and `current_turn` context values.
+- Definition hashes retain presentation provenance; mechanical hashes intentionally exclude `name`, `description`, `flavor`, `author_notes`, and `metadata`.
+- Variant overrides may alter declared constants or declared component output only. Unknown override targets fail compilation.
+- Runtime target/action identifiers use explicit binding tokens inside compiled templates. They have no semantic meaning and do not inspect names or descriptions.
+- Ability requirements are compiled and emitted as normalized contracts. The parser does not convert unmet requirements into success/failure and never mutates current state.
+- Compilation caches are optional process-local accelerators. Cache identity includes definition, parser/ruleset versions, and registry hashes; cached output is not a hidden mechanical input.
+- The `SemanticAbilityProvider` is an unimplemented interface boundary. v0.4 makes no network calls and performs no natural-language interpretation.
+
+## Remaining decisions after v0.4
+
+1. **Stable schema URIs.** Ability and engine schemas still use `example.invalid`; publishing requires project-owned identifiers and a compatibility policy.
+2. **Authoring ergonomics.** v0.4 deliberately requires full normalized action/temporal/strategy templates. A later authoring layer may reduce repetition but must compile into these exact contracts.
+3. **Requirement execution adapter.** Compiled requirements are preserved and exposed, but a dedicated pre-declaration adapter for ability-use eligibility remains separate from parser compilation and outcome resolution.
+4. **Dynamic defense registry lifetime.** Defensive abilities can emit validated sources for the caller/session to install. Persistence, collision policy, and expiration must remain explicit in temporal state.
+5. **Expression context growth.** New reference roots should be added only when a normalized use case cannot be expressed with current actor/parameter/resource/context inputs.
+6. **Cache eviction.** v0.4 caches are caller-owned and unbounded by default. Long-running content tools may need a non-mechanical LRU policy.
+7. **Semantic provider.** No implementation is authorized. Any future candidate output remains untrusted until schema/reference/expression compilation succeeds.
+8. **Next milestone.** Do not begin automatically. A sensible candidate is v0.4.1 authoring hardening and randomized compiler fuzzing before any semantic or universe layer.

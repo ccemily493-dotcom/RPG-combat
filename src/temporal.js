@@ -166,6 +166,7 @@ function recoverCapacities(characters) {
     const beforeReactions = economy.reactions_remaining ?? (economy.reaction_available ? 1 : 0);
     economy.actions_remaining = economy.action_capacity ?? beforeActions;
     economy.reactions_remaining = economy.reaction_capacity ?? beforeReactions;
+    if (Number.isInteger(character.movement_capacity)) character.movement_economy = character.movement_capacity;
     economy.actions_reserved = 0;
     economy.reactions_reserved = 0;
     economy.available = economy.actions_remaining > 0;
@@ -232,7 +233,7 @@ function progressPhaseState(snapshot, phase, events) {
 
 export function applyTemporalEffect(snapshot, effect, context, sourceRef) {
   const events = [];
-  const currentTurn = snapshot.world.turn;
+  const currentTurn = context?.creation_turn ?? snapshot.world.turn;
   if (effect.type === "ADD_MODIFIER") {
     const modifier = { ...deepClone(effect.modifier), source_ref: effect.modifier.source_ref ?? sourceRef, duration: deepClone(effect.duration), created_turn: currentTurn };
     if (effect.scope === "WORLD") pushUnique(snapshot.world.modifiers, modifier, "world modifier");
